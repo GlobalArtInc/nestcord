@@ -1,0 +1,36 @@
+project: nestcord
+configVersion: 1
+---
+artifact: nestcord-docs-builder
+from: node:20
+git:
+- add: /docs
+  to: /home/app
+  stageDependencies:
+    setup:
+    - "*/**"
+    install:
+    - "package.json"
+    - "package-lock.json"
+ansible:
+  install:
+  - name: Setting up ssh
+    shell: "printf \"Host github.com\\n\\tStrictHostKeyChecking no\\n\\tUserKnownHostsFile=/dev/null\\n\" >> /etc/ssh/ssh_config \n"
+  - name: "Install PNPM"
+    shell: "npm install -g pnpm"
+  - name: "Install libs"
+    shell: |
+      cd /home/app && pnpm i
+  setup:
+  - name: "Compile"
+    shell: |
+      cd /home/app && npm run build
+---
+image: nestcord-docs
+from: nginx
+import:
+- artifact: nestcord-docs-builder
+  add: /home/app/build
+  to: /usr/share/nginx/html/
+  after: setup
+
