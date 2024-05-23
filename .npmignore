@@ -1,0 +1,18 @@
+.idea
+.vscode
+.github
+packages
+docs
+example
+.editorconfig
+.eslintrc
+.gitattributes
+tsconfig.json
+yarn.lock
+yarn-error.log
+pnpm-lock.yaml
+
+# Deploy
+werf.yaml
+.helm
+.gitlab-ci.yml
