@@ -20,7 +20,7 @@ export class PageBuilder {
   }
 
   public addEmbed(embed: PageOptions['embeds'][0]): this {
-    // this.embeds.push(embed);
+    this.embeds = [embed]
     return this;
   }
 
@@ -30,7 +30,7 @@ export class PageBuilder {
   }
 
   public addFile(file: PageOptions['files'][0]): this {
-    // this.files.push(file);
+    this.files = [file];
     return this;
   }
 
