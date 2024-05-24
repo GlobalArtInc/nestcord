@@ -1,4 +1,4 @@
-import { NestCordLocalizationModule } from './../../packages/localization/nestcord-localization.module';
+import { NestCordLocalizationModule } from '../../packages/localization/nestcord-localization.module';
 import { GatewayIntentBits, Partials } from 'discord.js';
 import { NestCordModule } from '../../packages/core';
 import { Module } from '@nestjs/common';
