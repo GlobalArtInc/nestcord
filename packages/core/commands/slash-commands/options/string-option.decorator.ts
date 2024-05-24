@@ -7,6 +7,6 @@ import { createOptionDecorator } from './option.util';
  * @returns The decorated method.
  */
 export const StringOption = createOptionDecorator<APIApplicationCommandStringOption>(
-	ApplicationCommandOptionType.String,
-	'getString'
+  ApplicationCommandOptionType.String,
+  'getString',
 );

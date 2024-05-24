@@ -10,12 +10,12 @@ import { SlashCommand } from './slash-command.decorator';
  * @see SlashCommandDiscovery
  */
 export const Subcommand = Reflector.createDecorator<
-	Omit<SlashCommandMeta, 'type' | 'options' | 'guilds' | 'defaultMemberPermissions'>,
-	SlashCommandDiscovery
+  Omit<SlashCommandMeta, 'type' | 'options' | 'guilds' | 'defaultMemberPermissions'>,
+  SlashCommandDiscovery
 >({
-	transform: options =>
-		new SlashCommandDiscovery({
-			type: ApplicationCommandOptionType.Subcommand,
-			...options
-		})
+  transform: (options) =>
+    new SlashCommandDiscovery({
+      type: ApplicationCommandOptionType.Subcommand,
+      ...options,
+    }),
 });

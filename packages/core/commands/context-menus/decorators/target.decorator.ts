@@ -5,14 +5,14 @@ import { NestCordExecutionContext } from '../../../context';
  * @deprecated Use `@TargetMessage`, `@TargetUser` or `@TargetMember` instead
  */
 export const Target = createParamDecorator((_, context) => {
-	const nestcordContext = NestCordExecutionContext.create(context);
-	const [interaction] = nestcordContext.getContext<'interactionCreate'>();
+  const nestcordContext = NestCordExecutionContext.create(context);
+  const [interaction] = nestcordContext.getContext<'interactionCreate'>();
 
-	if (!interaction.isContextMenuCommand()) return null;
+  if (!interaction.isContextMenuCommand()) return null;
 
-	return interaction.isMessageContextMenuCommand()
-		? interaction.options.getMessage('message')
-		: interaction.options.getUser('user');
+  return interaction.isMessageContextMenuCommand()
+    ? interaction.options.getMessage('message')
+    : interaction.options.getUser('user');
 });
 
 /**
@@ -30,12 +30,12 @@ export const Target = createParamDecorator((_, context) => {
  * ```
  */
 export const TargetMessage = createParamDecorator((_, context) => {
-	const nestcordContext = NestCordExecutionContext.create(context);
-	const [interaction] = nestcordContext.getContext<'interactionCreate'>();
+  const nestcordContext = NestCordExecutionContext.create(context);
+  const [interaction] = nestcordContext.getContext<'interactionCreate'>();
 
-	if (!interaction.isMessageContextMenuCommand()) return null;
+  if (!interaction.isMessageContextMenuCommand()) return null;
 
-	return interaction.targetMessage;
+  return interaction.targetMessage;
 });
 
 /**
@@ -53,12 +53,12 @@ export const TargetMessage = createParamDecorator((_, context) => {
  * ```
  */
 export const TargetUser = createParamDecorator((_, context) => {
-	const nestcordContext = NestCordExecutionContext.create(context);
-	const [interaction] = nestcordContext.getContext<'interactionCreate'>();
+  const nestcordContext = NestCordExecutionContext.create(context);
+  const [interaction] = nestcordContext.getContext<'interactionCreate'>();
 
-	if (!interaction.isUserContextMenuCommand()) return null;
+  if (!interaction.isUserContextMenuCommand()) return null;
 
-	return interaction.targetUser;
+  return interaction.targetUser;
 });
 
 /**
@@ -76,10 +76,10 @@ export const TargetUser = createParamDecorator((_, context) => {
  * ```
  */
 export const TargetMember = createParamDecorator((_, context) => {
-	const nestcordContext = NestCordExecutionContext.create(context);
-	const [interaction] = nestcordContext.getContext<'interactionCreate'>();
+  const nestcordContext = NestCordExecutionContext.create(context);
+  const [interaction] = nestcordContext.getContext<'interactionCreate'>();
 
-	if (!interaction.isUserContextMenuCommand()) return null;
+  if (!interaction.isUserContextMenuCommand()) return null;
 
-	return interaction.targetMember;
+  return interaction.targetMember;
 });

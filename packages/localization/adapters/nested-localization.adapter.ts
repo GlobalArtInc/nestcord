@@ -1,53 +1,45 @@
 import { BaseLocalizationAdapter } from './base-localization.adapter';
 
 interface TranslationData {
-	[key: string]: string | TranslationData;
+  [key: string]: string | TranslationData;
 }
 
 interface NestedLocalizationAdapterOptions {
-	fallbackLocale?: string;
-	locales?: Record<string, TranslationData>;
+  fallbackLocale?: string;
+  locales?: Record<string, TranslationData>;
 }
 
 export class NestedLocalizationAdapter extends BaseLocalizationAdapter<NestedLocalizationAdapterOptions> {
-	public getTranslation(
-		key: string,
-		locale: string,
-		placeholders?: Record<string, string>
-	): string {
-		const translations = this.getTranslations(locale);
-		const translation =
-			this.findTranslation(translations, key) || this.getFallbackTranslation(key);
+  public getTranslation(key: string, locale: string, placeholders?: Record<string, string>): string {
+    const translations = this.getTranslations(locale);
+    const translation = this.findTranslation(translations, key) || this.getFallbackTranslation(key);
 
-		return translation.replace(
-			/{{\s*([^}\s]+)\s*}}/g,
-			(_, placeholder) => placeholders?.[placeholder] || ''
-		);
-	}
+    return translation.replace(/{{\s*([^}\s]+)\s*}}/g, (_, placeholder) => placeholders?.[placeholder] || '');
+  }
 
-	private getTranslations(locale: string): TranslationData {
-		return this.options?.locales?.[locale] || {};
-	}
+  private getTranslations(locale: string): TranslationData {
+    return this.options?.locales?.[locale] || {};
+  }
 
-	private findTranslation(translations: TranslationData, key: string): string | undefined {
-		const keys = key.split('.');
-		let currentTranslation: string | TranslationData | undefined = translations;
+  private findTranslation(translations: TranslationData, key: string): string | undefined {
+    const keys = key.split('.');
+    let currentTranslation: string | TranslationData | undefined = translations;
 
-		for (const k of keys) {
-			if (!(typeof currentTranslation === 'object' && k in currentTranslation)) {
-				return undefined;
-			}
+    for (const k of keys) {
+      if (!(typeof currentTranslation === 'object' && k in currentTranslation)) {
+        return undefined;
+      }
 
-			currentTranslation = currentTranslation[k];
-		}
+      currentTranslation = currentTranslation[k];
+    }
 
-		return typeof currentTranslation === 'string' ? currentTranslation : undefined;
-	}
+    return typeof currentTranslation === 'string' ? currentTranslation : undefined;
+  }
 
-	private getFallbackTranslation(key: string): string {
-		const fallbackLocale = this.options?.fallbackLocale || 'en-US';
-		const translations = this.getTranslations(fallbackLocale);
+  private getFallbackTranslation(key: string): string {
+    const fallbackLocale = this.options?.fallbackLocale || 'en-US';
+    const translations = this.getTranslations(fallbackLocale);
 
-		return this.findTranslation(translations, key) || key;
-	}
+    return this.findTranslation(translations, key) || key;
+  }
 }

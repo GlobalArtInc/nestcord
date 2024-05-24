@@ -6,16 +6,14 @@ import { MessageComponent } from './message-component.decorator';
  * @param customId
  * @see SelectedStrings
  */
-export const StringSelect = (customId: string) =>
-	MessageComponent({ customId, type: ComponentType.StringSelect });
+export const StringSelect = (customId: string) => MessageComponent({ customId, type: ComponentType.StringSelect });
 
 /**
  * Select Menu for selecting channels
  * @param customId
  * @see SelectedChannels
  */
-export const ChannelSelect = (customId: string) =>
-	MessageComponent({ customId, type: ComponentType.ChannelSelect });
+export const ChannelSelect = (customId: string) => MessageComponent({ customId, type: ComponentType.ChannelSelect });
 
 /**
  * Select Menu for selecting users
@@ -23,8 +21,7 @@ export const ChannelSelect = (customId: string) =>
  * @see SelectedUsers
  * @see SelectedMembers
  */
-export const UserSelect = (customId: string) =>
-	MessageComponent({ customId, type: ComponentType.UserSelect });
+export const UserSelect = (customId: string) => MessageComponent({ customId, type: ComponentType.UserSelect });
 
 /**
  * Select Menu for selecting members
@@ -34,12 +31,11 @@ export const UserSelect = (customId: string) =>
  * @see SelectedRoles
  */
 export const MentionableSelect = (customId: string) =>
-	MessageComponent({ customId, type: ComponentType.MentionableSelect });
+  MessageComponent({ customId, type: ComponentType.MentionableSelect });
 
 /**
  * Select Menu for selecting roles
  * @param customId
  * @see SelectedRoles
  */
-export const RoleSelect = (customId: string) =>
-	MessageComponent({ customId, type: ComponentType.RoleSelect });
+export const RoleSelect = (customId: string) => MessageComponent({ customId, type: ComponentType.RoleSelect });

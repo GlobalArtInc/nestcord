@@ -6,9 +6,6 @@ import { Reflector } from '@nestjs/core';
  * @param options The message component options.
  * @returns The decorated method.
  */
-export const MessageComponent = Reflector.createDecorator<
-	MessageComponentMeta,
-	MessageComponentDiscovery
->({
-	transform: options => new MessageComponentDiscovery(options)
+export const MessageComponent = Reflector.createDecorator<MessageComponentMeta, MessageComponentDiscovery>({
+  transform: (options) => new MessageComponentDiscovery(options),
 });

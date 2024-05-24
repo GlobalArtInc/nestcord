@@ -7,31 +7,29 @@ import { SlashCommand, Subcommand } from './decorators';
 
 @Global()
 @Module({
-	providers: [SlashCommandsService],
-	exports: [SlashCommandsService]
+  providers: [SlashCommandsService],
+  exports: [SlashCommandsService],
 })
 export class SlashCommandsModule implements OnModuleInit, OnApplicationBootstrap {
-	public constructor(
-		private readonly client: Client,
-		private readonly explorerService: ExplorerService<SlashCommandDiscovery>,
-		private readonly slashCommandsService: SlashCommandsService
-	) {}
+  public constructor(
+    private readonly client: Client,
+    private readonly explorerService: ExplorerService<SlashCommandDiscovery>,
+    private readonly slashCommandsService: SlashCommandsService,
+  ) {}
 
-	public onModuleInit() {
-		this.explorerService
-			.explore(SlashCommand.KEY)
-			.forEach(command => this.slashCommandsService.add(command));
+  public onModuleInit() {
+    this.explorerService.explore(SlashCommand.KEY).forEach((command) => this.slashCommandsService.add(command));
 
-		return this.explorerService
-			.explore(Subcommand.KEY)
-			.forEach(subcommand => this.slashCommandsService.addSubCommand(subcommand));
-	}
+    return this.explorerService
+      .explore(Subcommand.KEY)
+      .forEach((subcommand) => this.slashCommandsService.addSubCommand(subcommand));
+  }
 
-	public onApplicationBootstrap() {
-		return this.client.on('interactionCreate', i => {
-			if (!i.isChatInputCommand() && !i.isAutocomplete()) return;
+  public onApplicationBootstrap() {
+    return this.client.on('interactionCreate', (i) => {
+      if (!i.isChatInputCommand() && !i.isAutocomplete()) return;
 
-			return this.slashCommandsService.get(i.commandName)?.execute(i);
-		});
-	}
+      return this.slashCommandsService.get(i.commandName)?.execute(i);
+    });
+  }
 }

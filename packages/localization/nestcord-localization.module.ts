@@ -6,10 +6,7 @@ import { LocalizationInterceptor } from './interceptors';
 
 @Global()
 @Module({
-	providers: [
-		NestCordLocalizationService,
-		{ provide: APP_INTERCEPTOR, useClass: LocalizationInterceptor }
-	],
-	exports: []
+  providers: [NestCordLocalizationService, { provide: APP_INTERCEPTOR, useClass: LocalizationInterceptor }],
+  exports: [],
 })
 export class NestCordLocalizationModule extends ConfigurableModuleClass {}

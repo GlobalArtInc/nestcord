@@ -7,29 +7,27 @@ import { ContextMenu } from './decorators';
 
 @Global()
 @Module({
-	providers: [ContextMenusService],
-	exports: [ContextMenusService]
+  providers: [ContextMenusService],
+  exports: [ContextMenusService],
 })
 export class ContextMenusModule implements OnModuleInit, OnApplicationBootstrap {
-	public constructor(
-		private readonly client: Client,
-		private readonly explorerService: ExplorerService<ContextMenuDiscovery>,
-		private readonly contextMenusService: ContextMenusService
-	) {}
+  public constructor(
+    private readonly client: Client,
+    private readonly explorerService: ExplorerService<ContextMenuDiscovery>,
+    private readonly contextMenusService: ContextMenusService,
+  ) {}
 
-	public onModuleInit() {
-		return this.explorerService
-			.explore(ContextMenu.KEY)
-			.forEach(contextMenu => this.contextMenusService.add(contextMenu));
-	}
+  public onModuleInit() {
+    return this.explorerService
+      .explore(ContextMenu.KEY)
+      .forEach((contextMenu) => this.contextMenusService.add(contextMenu));
+  }
 
-	public onApplicationBootstrap() {
-		return this.client.on('interactionCreate', interaction => {
-			if (!interaction.isContextMenuCommand()) return;
+  public onApplicationBootstrap() {
+    return this.client.on('interactionCreate', (interaction) => {
+      if (!interaction.isContextMenuCommand()) return;
 
-			return this.contextMenusService
-				.get(interaction.commandType, interaction.commandName)
-				?.execute(interaction);
-		});
-	}
+      return this.contextMenusService.get(interaction.commandType, interaction.commandName)?.execute(interaction);
+    });
+  }
 }

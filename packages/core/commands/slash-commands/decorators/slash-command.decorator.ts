@@ -11,12 +11,12 @@ import { Reflector } from '@nestjs/core';
  *
  */
 export const SlashCommand = Reflector.createDecorator<
-	Omit<SlashCommandMeta, 'type' | 'options'>,
-	SlashCommandDiscovery
+  Omit<SlashCommandMeta, 'type' | 'options'>,
+  SlashCommandDiscovery
 >({
-	transform: options =>
-		new SlashCommandDiscovery({
-			type: ApplicationCommandType.ChatInput,
-			...options
-		})
+  transform: (options) =>
+    new SlashCommandDiscovery({
+      type: ApplicationCommandType.ChatInput,
+      ...options,
+    }),
 });

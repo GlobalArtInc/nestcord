@@ -1,16 +1,16 @@
 import {
-	AutocompleteInteraction,
-	ButtonInteraction,
-	ChannelSelectMenuInteraction,
-	ChatInputCommandInteraction,
-	MentionableSelectMenuInteraction,
-	Message,
-	MessageContextMenuCommandInteraction,
-	ModalSubmitInteraction,
-	RoleSelectMenuInteraction,
-	StringSelectMenuInteraction,
-	UserContextMenuCommandInteraction,
-	UserSelectMenuInteraction
+  AutocompleteInteraction,
+  ButtonInteraction,
+  ChannelSelectMenuInteraction,
+  ChatInputCommandInteraction,
+  MentionableSelectMenuInteraction,
+  Message,
+  MessageContextMenuCommandInteraction,
+  ModalSubmitInteraction,
+  RoleSelectMenuInteraction,
+  StringSelectMenuInteraction,
+  UserContextMenuCommandInteraction,
+  UserSelectMenuInteraction,
 } from 'discord.js';
 import { NestCordEvents } from '../listeners';
 

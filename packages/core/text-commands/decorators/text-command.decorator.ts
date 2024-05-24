@@ -6,5 +6,5 @@ import { Reflector } from '@nestjs/core';
  * @param options The options for the text command.
  */
 export const TextCommand = Reflector.createDecorator<TextCommandMeta, TextCommandDiscovery>({
-	transform: (options: TextCommandMeta) => new TextCommandDiscovery(options)
+  transform: (options: TextCommandMeta) => new TextCommandDiscovery(options),
 });

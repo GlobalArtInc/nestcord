@@ -7,6 +7,6 @@ import { createOptionDecorator } from './option.util';
  * @returns The decorated method.
  */
 export const MemberOption = createOptionDecorator<APIApplicationCommandUserOption>(
-	ApplicationCommandOptionType.User,
-	'getMember'
+  ApplicationCommandOptionType.User,
+  'getMember',
 );

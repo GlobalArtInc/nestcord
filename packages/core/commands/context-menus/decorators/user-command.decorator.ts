@@ -19,4 +19,4 @@ import { ContextMenu } from './context-menu.decorator';
  * ```
  */
 export const UserCommand = (options: Omit<ContextMenuMeta, 'type'>) =>
-	ContextMenu({ type: ApplicationCommandType.User, ...options });
+  ContextMenu({ type: ApplicationCommandType.User, ...options });

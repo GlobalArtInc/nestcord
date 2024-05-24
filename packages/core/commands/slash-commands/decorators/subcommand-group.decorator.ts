@@ -12,14 +12,14 @@ import { Reflector } from '@nestjs/core';
  * @see SlashCommandDiscovery
  */
 export const SubcommandGroup = Reflector.createDecorator<
-	Omit<SlashCommandMeta, 'type' | 'options' | 'guilds' | 'defaultMemberPermissions'>,
-	SlashCommandDiscovery
+  Omit<SlashCommandMeta, 'type' | 'options' | 'guilds' | 'defaultMemberPermissions'>,
+  SlashCommandDiscovery
 >({
-	transform: options =>
-		new SlashCommandDiscovery({
-			type: ApplicationCommandOptionType.SubcommandGroup,
-			...options
-		})
+  transform: (options) =>
+    new SlashCommandDiscovery({
+      type: ApplicationCommandOptionType.SubcommandGroup,
+      ...options,
+    }),
 });
 
 /**
@@ -30,11 +30,11 @@ export const SubcommandGroup = Reflector.createDecorator<
  * @see SubcommandGroup
  */
 export const createCommandGroupDecorator = (rootOptions: Omit<SlashCommandMeta, 'type'>) => {
-	const rootCommand = SlashCommand(rootOptions);
+  const rootCommand = SlashCommand(rootOptions);
 
-	return (subOptions?: Omit<SlashCommandMeta, 'type'>): ClassDecorator => {
-		const subCommandGroup = subOptions ? SubcommandGroup(subOptions) : noop;
+  return (subOptions?: Omit<SlashCommandMeta, 'type'>): ClassDecorator => {
+    const subCommandGroup = subOptions ? SubcommandGroup(subOptions) : noop;
 
-		return applyDecorators(rootCommand, subCommandGroup);
-	};
+    return applyDecorators(rootCommand, subCommandGroup);
+  };
 };

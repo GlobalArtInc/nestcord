@@ -7,13 +7,13 @@ import { NestCordExecutionContext } from '../../context';
  * @returns The fields param decorator.
  */
 export const Fields = createParamDecorator((customId, context) => {
-	const nestcordContext = NestCordExecutionContext.create(context);
-	const [interaction] = nestcordContext.getContext<'interactionCreate'>();
-	const discovery = nestcordContext.getDiscovery();
+  const nestcordContext = NestCordExecutionContext.create(context);
+  const [interaction] = nestcordContext.getContext<'interactionCreate'>();
+  const discovery = nestcordContext.getDiscovery();
 
-	if (!interaction.isModalSubmit() || !discovery.isModal()) {
-		return null;
-	}
+  if (!interaction.isModalSubmit() || !discovery.isModal()) {
+    return null;
+  }
 
-	return customId ? interaction.fields.getTextInputValue(customId) : interaction.fields;
+  return customId ? interaction.fields.getTextInputValue(customId) : interaction.fields;
 });

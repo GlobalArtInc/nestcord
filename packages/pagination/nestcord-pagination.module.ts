@@ -5,7 +5,7 @@ import { ConfigurableModuleClass } from './nestcord-pagination.module-definition
 
 @Global()
 @Module({
-	providers: [NestCordPaginationService, NestCordPaginationController],
-	exports: [NestCordPaginationService]
+  providers: [NestCordPaginationService, NestCordPaginationController],
+  exports: [NestCordPaginationService],
 })
 export class NestCordPaginationModule extends ConfigurableModuleClass {}

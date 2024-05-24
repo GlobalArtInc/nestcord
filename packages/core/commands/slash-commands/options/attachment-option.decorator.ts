@@ -7,6 +7,6 @@ import { createOptionDecorator } from './option.util';
  * @returns The decorated method.
  */
 export const AttachmentOption = createOptionDecorator<APIApplicationCommandAttachmentOption>(
-	ApplicationCommandOptionType.Attachment,
-	'getAttachment'
+  ApplicationCommandOptionType.Attachment,
+  'getAttachment',
 );
