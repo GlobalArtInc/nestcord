@@ -110,7 +110,7 @@ const config = {
 				{
 					label: 'Examples',
 					position: 'left',
-					href: 'https://github.com/GlobalArtInc/nestcord/examples'
+					href: 'https://github.com/GlobalArtInc/nestcord/tree/master/examples'
 				},
 				{
 					label: 'Community',
