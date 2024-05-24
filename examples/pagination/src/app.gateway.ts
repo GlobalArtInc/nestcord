@@ -1,7 +1,5 @@
-import { LOCALIZATION_ADAPTER } from '../../../packages/localization/providers/localization-adapter.provider';
-import { Inject, Injectable, Logger, OnModuleInit } from "@nestjs/common";
+import { Injectable, Logger, OnModuleInit } from "@nestjs/common";
 import { Once, Context, ContextOf, SlashCommand, SlashCommandContext } from "../../../packages/core";
-import { CurrentTranslate, DefaultLocalizationAdapter, TranslationFn, localizationMapByKey } from '../../../packages/localization';
 import { NestCordPaginationService, PageBuilder } from '../../../packages';
 
 @Injectable()
@@ -10,8 +8,8 @@ export class AppGateway implements OnModuleInit {
 
   public constructor(private readonly paginationService: NestCordPaginationService) {}
 
-  public onModuleInit() {
-    return this.paginationService.register(builder =>
+  public onModuleInit(): void {
+    this.paginationService.register(builder =>
       builder
         .setCustomId('test')
         .setPages([

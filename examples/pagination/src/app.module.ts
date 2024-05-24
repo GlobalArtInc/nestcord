@@ -31,11 +31,7 @@ async function getLocales() {
       ],
       partials: [Partials.Message, Partials.Channel, Partials.Reaction],
     }),
-    NestCordPaginationModule.forRoot({
-      buttons: {},
-      allowSkip: true,
-      allowTraversal: true
-    }),
+    NestCordPaginationModule.forRoot(null),
   ],
   providers: [AppGateway],
 })
