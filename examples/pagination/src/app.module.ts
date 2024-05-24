@@ -1,9 +1,8 @@
 import { GatewayIntentBits, Partials } from 'discord.js';
-import { NestCordModule } from '../../packages/core';
+import { NestCordModule } from '../../../packages/core';
 import { Module } from '@nestjs/common';
 import { AppGateway } from './app.gateway';
-import { DefaultLocalizationAdapter, GuildResolver, NestCordLocalizationModule, UserResolver } from '../../packages';
-import { BotModule } from './bot/bot.module';
+import { DefaultLocalizationAdapter, GuildResolver, NestCordLocalizationModule, NestCordPaginationModule, UserResolver } from '../../../packages';
 
 async function getLocales() {
 	return {
@@ -32,20 +31,11 @@ async function getLocales() {
       ],
       partials: [Partials.Message, Partials.Channel, Partials.Reaction],
     }),
-    NestCordLocalizationModule.forRootAsync({
-      useFactory: async () => {
-        const locales = await getLocales();
-
-        return {
-          resolvers: [UserResolver],
-          adapter: new DefaultLocalizationAdapter({
-            fallbackLocale: 'en-US',
-            locales
-          })
-        };
-      }
+    NestCordPaginationModule.forRoot({
+      buttons: {},
+      allowSkip: true,
+      allowTraversal: true
     }),
-    BotModule,
   ],
   providers: [AppGateway],
 })
