@@ -13,16 +13,4 @@ export class AppGateway {
   onBotReady(@Context() [client]: ContextOf<'ready'>) {
     this.logger.log(`Bot logged in as ${client.user.username}`);
   }
-
-  @SlashCommand({
-    name: 'ping',
-    description: 'Ping command',
-    // nameLocalizations: localizationMapByKey('commands.ping.name'),
-    // descriptionLocalizations: localizationMapByKey('commands.ping.description'),
-  })
-  onPingCommand(@Context() [interaction]: SlashCommandContext, @CurrentTranslate() t: TranslationFn) {
-    this.logger.log(`Ping command called by ${interaction.user.username}`);
-    console.log(this.adapter)
-    return interaction.reply('pong!');
-  }
 }

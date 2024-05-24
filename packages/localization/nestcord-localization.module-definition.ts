@@ -19,13 +19,13 @@ export const { ConfigurableModuleClass, MODULE_OPTIONS_TOKEN } =
 					useFactory: (options: NestCordLocalizationOptions) => options.adapter,
 					inject: [MODULE_OPTIONS_TOKEN]
 				};
-				const resolversProviders = {
+				const resolversProviders: Provider = {
 					provide: LOCALIZATION_RESOLVERS,
 					useValue: Array.isArray(extras.resolvers)
 						? extras.resolvers
 						: [extras.resolvers]
 				};
-
+				
 				return {
 					...definition,
 					providers: [adapterProvider, ...definition.providers, resolversProviders],

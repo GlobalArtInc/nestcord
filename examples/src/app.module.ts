@@ -1,10 +1,22 @@
-import { NestCordLocalizationModule } from '../../packages/localization/nestcord-localization.module';
 import { GatewayIntentBits, Partials } from 'discord.js';
 import { NestCordModule } from '../../packages/core';
 import { Module } from '@nestjs/common';
 import { AppGateway } from './app.gateway';
-import { UserResolver } from '../../packages/localization/resolvers';
-import { DefaultLocalizationAdapter } from '../../packages/localization/adapters';
+import { DefaultLocalizationAdapter, GuildResolver, NestCordLocalizationModule, UserResolver } from '../../packages';
+import { BotModule } from './bot/bot.module';
+
+async function getLocales() {
+	return {
+		'en-US': {
+			'commands.ping.name': 'ping',
+			'commands.ping.description': 'Pong!'
+		},
+		ru: {
+			'commands.ping.name': 'пинг',
+			'commands.ping.description': 'Понг!'
+		}
+	};
+}
 
 @Module({
   imports: [
@@ -20,22 +32,20 @@ import { DefaultLocalizationAdapter } from '../../packages/localization/adapters
       ],
       partials: [Partials.Message, Partials.Channel, Partials.Reaction],
     }),
-    NestCordLocalizationModule.forRoot({
-      resolvers: UserResolver,
-      adapter: new DefaultLocalizationAdapter({
-        fallbackLocale: 'en-US',
-        locales: {
-          'en-US': {
-            'commands.ping.name': 'ping',
-            'commands.ping.description': 'Pong!'
-          },
-          'ru': {
-            'commands.ping.name': 'пинг',
-            'commands.ping.description': 'Понг!'
-          }
-        }
-      }),
-    })
+    NestCordLocalizationModule.forRootAsync({
+      useFactory: async () => {
+        const locales = await getLocales();
+
+        return {
+          resolvers: [UserResolver],
+          adapter: new DefaultLocalizationAdapter({
+            fallbackLocale: 'en-US',
+            locales
+          })
+        };
+      }
+    }),
+    BotModule,
   ],
   providers: [AppGateway],
 })
