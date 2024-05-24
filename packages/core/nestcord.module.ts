@@ -17,26 +17,23 @@ const Providers = Object.values(ProvidersMap);
 @Module({
   imports: [
     DiscoveryModule,
-		CommandsModule,
-		ListenersModule,
-		MessageComponentsModule,
-		ModalsModule,
-		TextCommandsModule
+    CommandsModule,
+    ListenersModule,
+    MessageComponentsModule,
+    ModalsModule,
+    TextCommandsModule,
   ],
-  providers: [
-    ExplorerService,
-    ...Providers,
-  ],
+  providers: [ExplorerService, ...Providers],
   exports: [
     CommandsModule,
-		ListenersModule,
-		MessageComponentsModule,
-		ModalsModule,
-		TextCommandsModule,
-		ExplorerService,
+    ListenersModule,
+    MessageComponentsModule,
+    ModalsModule,
+    TextCommandsModule,
+    ExplorerService,
     ...Providers,
-    NESTCORD_MODULE_OPTIONS
-  ]
+    NESTCORD_MODULE_OPTIONS,
+  ],
 })
 export class NestCordModule extends ConfigurableModuleClass implements OnApplicationBootstrap, OnApplicationShutdown {
   public constructor(

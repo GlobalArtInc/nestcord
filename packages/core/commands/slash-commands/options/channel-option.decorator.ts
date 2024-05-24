@@ -7,6 +7,6 @@ import { createOptionDecorator } from './option.util';
  * @returns The decorated method.
  */
 export const ChannelOption = createOptionDecorator<APIApplicationCommandChannelOption>(
-	ApplicationCommandOptionType.Channel,
-	'getChannel'
+  ApplicationCommandOptionType.Channel,
+  'getChannel',
 );

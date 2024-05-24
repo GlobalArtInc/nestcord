@@ -7,5 +7,5 @@ import { Reflector } from '@nestjs/core';
  * @returns The decorated method.
  */
 export const Listener = Reflector.createDecorator<ListenerMeta, ListenerDiscovery>({
-	transform: options => new ListenerDiscovery(options)
+  transform: (options) => new ListenerDiscovery(options),
 });

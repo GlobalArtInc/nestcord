@@ -7,6 +7,6 @@ import { createOptionDecorator } from './option.util';
  * @returns The decorated method.
  */
 export const NumberOption = createOptionDecorator<APIApplicationCommandNumberOption>(
-	ApplicationCommandOptionType.Number,
-	'getNumber'
+  ApplicationCommandOptionType.Number,
+  'getNumber',
 );

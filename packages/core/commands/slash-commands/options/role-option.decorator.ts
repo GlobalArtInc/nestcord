@@ -7,6 +7,6 @@ import { createOptionDecorator } from './option.util';
  * @returns The decorated method.
  */
 export const RoleOption = createOptionDecorator<APIApplicationCommandRoleOption>(
-	ApplicationCommandOptionType.Role,
-	'getRole'
+  ApplicationCommandOptionType.Role,
+  'getRole',
 );

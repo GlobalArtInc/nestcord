@@ -6,62 +6,62 @@ import { TextCommandDiscovery } from '../text-commands';
 import { ModalDiscovery } from '../modals';
 
 interface DiscoveredItem {
-	class: any;
-	handler?: (...args: any[]) => any;
+  class: any;
+  handler?: (...args: any[]) => any;
 }
 
 export abstract class NestCordBaseDiscovery<T = any> {
-	protected readonly reflector = new Reflector();
+  protected readonly reflector = new Reflector();
 
-	protected discovery: DiscoveredItem;
+  protected discovery: DiscoveredItem;
 
-	protected contextCallback: Function;
+  protected contextCallback: Function;
 
-	public constructor(protected readonly meta: T) {}
+  public constructor(protected readonly meta: T) {}
 
-	public getClass() {
-		return this.discovery?.class;
-	}
+  public getClass() {
+    return this.discovery?.class;
+  }
 
-	public getHandler() {
-		return this.discovery?.handler;
-	}
+  public getHandler() {
+    return this.discovery?.handler;
+  }
 
-	public setDiscoveryMeta(meta: DiscoveredItem) {
-		this.discovery ||= meta;
-	}
+  public setDiscoveryMeta(meta: DiscoveredItem) {
+    this.discovery ||= meta;
+  }
 
-	public setContextCallback(fn: Function) {
-		this.contextCallback ||= fn;
-	}
+  public setContextCallback(fn: Function) {
+    this.contextCallback ||= fn;
+  }
 
-	public execute(context: any = []) {
-		return this.contextCallback(context, this);
-	}
+  public execute(context: any = []) {
+    return this.contextCallback(context, this);
+  }
 
-	public isContextMenu(): this is ContextMenuDiscovery {
-		return false;
-	}
+  public isContextMenu(): this is ContextMenuDiscovery {
+    return false;
+  }
 
-	public isSlashCommand(): this is SlashCommandDiscovery {
-		return false;
-	}
+  public isSlashCommand(): this is SlashCommandDiscovery {
+    return false;
+  }
 
-	public isMessageComponent(): this is MessageComponentDiscovery {
-		return false;
-	}
+  public isMessageComponent(): this is MessageComponentDiscovery {
+    return false;
+  }
 
-	public isListener(): this is ListenerDiscovery {
-		return false;
-	}
+  public isListener(): this is ListenerDiscovery {
+    return false;
+  }
 
-	public isTextCommand(): this is TextCommandDiscovery {
-		return false;
-	}
+  public isTextCommand(): this is TextCommandDiscovery {
+    return false;
+  }
 
-	public isModal(): this is ModalDiscovery {
-		return false;
-	}
+  public isModal(): this is ModalDiscovery {
+    return false;
+  }
 
-	public abstract toJSON(): Record<string, any>;
+  public abstract toJSON(): Record<string, any>;
 }

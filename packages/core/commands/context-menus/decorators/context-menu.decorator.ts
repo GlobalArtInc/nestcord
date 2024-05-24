@@ -11,5 +11,5 @@ import { Reflector } from '@nestjs/core';
  * @see UserCommand
  */
 export const ContextMenu = Reflector.createDecorator<ContextMenuMeta, ContextMenuDiscovery>({
-	transform: options => new ContextMenuDiscovery(options)
+  transform: (options) => new ContextMenuDiscovery(options),
 });

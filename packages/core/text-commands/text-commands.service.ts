@@ -7,25 +7,25 @@ import { TextCommandDiscovery } from './text-command.discovery';
  */
 @Injectable()
 export class TextCommandsService {
-	private readonly logger = new Logger(TextCommandsService.name);
+  private readonly logger = new Logger(TextCommandsService.name);
 
-	public readonly cache = new Collection<string, TextCommandDiscovery>();
+  public readonly cache = new Collection<string, TextCommandDiscovery>();
 
-	public add(textCommand: TextCommandDiscovery) {
-		const name = textCommand.getName();
+  public add(textCommand: TextCommandDiscovery) {
+    const name = textCommand.getName();
 
-		if (this.cache.has(name)) {
-			this.logger.warn(`TextCommand : ${name} already exists`);
-		}
+    if (this.cache.has(name)) {
+      this.logger.warn(`TextCommand : ${name} already exists`);
+    }
 
-		this.cache.set(name, textCommand);
-	}
+    this.cache.set(name, textCommand);
+  }
 
-	public get(name: string) {
-		return this.cache.get(name);
-	}
+  public get(name: string) {
+    return this.cache.get(name);
+  }
 
-	public remove(name: string) {
-		this.cache.delete(name);
-	}
+  public remove(name: string) {
+    this.cache.delete(name);
+  }
 }

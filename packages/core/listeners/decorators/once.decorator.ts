@@ -6,5 +6,4 @@ import { NestCordEvents } from '../listener.interface';
  * @param event
  * @returns The decorated method.
  */
-export const Once = <K extends keyof E, E = NestCordEvents>(event: K) =>
-	Listener({ type: 'once', event });
+export const Once = <K extends keyof E, E = NestCordEvents>(event: K) => Listener({ type: 'once', event });

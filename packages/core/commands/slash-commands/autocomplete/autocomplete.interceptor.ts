@@ -10,15 +10,15 @@ import { AutocompleteInteraction } from 'discord.js';
  */
 @Injectable()
 export abstract class AutocompleteInterceptor implements NestInterceptor {
-	public abstract transformOptions(interaction: AutocompleteInteraction): void | Promise<void>;
+  public abstract transformOptions(interaction: AutocompleteInteraction): void | Promise<void>;
 
-	public async intercept(context: ExecutionContext, next: CallHandler): Promise<Observable<any>> {
-		const nestcordContext = NestCordExecutionContext.create(context);
-		const [interaction] = nestcordContext.getContext<AutocompleteContext>();
-		const discovery = nestcordContext.getDiscovery();
+  public async intercept(context: ExecutionContext, next: CallHandler): Promise<Observable<any>> {
+    const nestcordContext = NestCordExecutionContext.create(context);
+    const [interaction] = nestcordContext.getContext<AutocompleteContext>();
+    const discovery = nestcordContext.getDiscovery();
 
-		if (!interaction.isAutocomplete() || !discovery.isSlashCommand()) return next.handle();
+    if (!interaction.isAutocomplete() || !discovery.isSlashCommand()) return next.handle();
 
-		return of(this.transformOptions(interaction));
-	}
+    return of(this.transformOptions(interaction));
+  }
 }

@@ -7,6 +7,6 @@ import { createOptionDecorator } from './option.util';
  * @returns The decorated method.
  */
 export const IntegerOption = createOptionDecorator<APIApplicationCommandIntegerOption>(
-	ApplicationCommandOptionType.Integer,
-	'getInteger'
+  ApplicationCommandOptionType.Integer,
+  'getInteger',
 );

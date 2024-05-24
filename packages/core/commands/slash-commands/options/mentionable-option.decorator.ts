@@ -7,6 +7,6 @@ import { createOptionDecorator } from './option.util';
  * @returns The decorated method.
  */
 export const MentionableOption = createOptionDecorator<APIApplicationCommandMentionableOption>(
-	ApplicationCommandOptionType.Mentionable,
-	'getMentionable'
+  ApplicationCommandOptionType.Mentionable,
+  'getMentionable',
 );

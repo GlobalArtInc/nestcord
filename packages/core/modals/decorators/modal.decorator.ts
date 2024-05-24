@@ -6,5 +6,5 @@ import { Reflector } from '@nestjs/core';
  * @param customId The custom id of the modal.
  */
 export const Modal = Reflector.createDecorator<string, ModalDiscovery>({
-	transform: customId => new ModalDiscovery({ customId })
+  transform: (customId) => new ModalDiscovery({ customId }),
 });

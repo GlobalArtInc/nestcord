@@ -7,6 +7,6 @@ import { createOptionDecorator } from './option.util';
  * @returns The decorated method.
  */
 export const BooleanOption = createOptionDecorator<APIApplicationCommandBooleanOption>(
-	ApplicationCommandOptionType.Boolean,
-	'getBoolean'
+  ApplicationCommandOptionType.Boolean,
+  'getBoolean',
 );

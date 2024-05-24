@@ -13,5 +13,5 @@ export const CustomListener = DiscoveryService.createDecorator<keyof ClientEvent
  * @returns The decorated method.
  */
 export const CustomListenerHandler = Reflector.createDecorator({
-	transform: () => true
+  transform: () => true,
 });

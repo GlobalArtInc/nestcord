@@ -7,31 +7,31 @@ import { ModalDiscovery } from './modal.discovery';
  */
 @Injectable()
 export class ModalsService {
-	private readonly logger = new Logger(ModalsService.name);
+  private readonly logger = new Logger(ModalsService.name);
 
-	public readonly cache = new Collection<string, ModalDiscovery>();
+  public readonly cache = new Collection<string, ModalDiscovery>();
 
-	public add(modal: ModalDiscovery) {
-		const id = modal.getCustomId();
+  public add(modal: ModalDiscovery) {
+    const id = modal.getCustomId();
 
-		if (this.cache.has(id)) {
-			this.logger.warn(`Modal : ${id} already exists`);
-		}
+    if (this.cache.has(id)) {
+      this.logger.warn(`Modal : ${id} already exists`);
+    }
 
-		this.cache.set(id, modal);
-	}
+    this.cache.set(id, modal);
+  }
 
-	public get(customId: string) {
-		for (const modal of this.cache.values()) {
-			if (modal.matcher(customId)) {
-				return modal;
-			}
-		}
+  public get(customId: string) {
+    for (const modal of this.cache.values()) {
+      if (modal.matcher(customId)) {
+        return modal;
+      }
+    }
 
-		return null;
-	}
+    return null;
+  }
 
-	public remove(customId: string) {
-		this.cache.delete(customId);
-	}
+  public remove(customId: string) {
+    this.cache.delete(customId);
+  }
 }
