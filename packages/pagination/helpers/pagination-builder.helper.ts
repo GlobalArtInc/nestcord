@@ -92,7 +92,6 @@ export class PaginationBuilder {
       builder
         .setStyle(button.style)
         .setLabel(button.label)
-        .setCustomId(`nestcord-pagination/${this.customId}/${button.customId}/`);
 
       if (button.emoji) {
         builder.setEmoji(button.emoji);
@@ -100,6 +99,8 @@ export class PaginationBuilder {
 
       if (button.style === ButtonStyle.Link) {
         builder.setURL(button.link);
+      } else {
+        builder.setCustomId(`nestcord-pagination/${this.customId}/${button.customId}/`);
       }
 
       return builder;
