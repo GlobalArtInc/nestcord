@@ -119,7 +119,7 @@ const config = {
 				},
 
 				{
-					href: 'https://www.npmjs.com/package/@globalart/nestcordjs',
+					href: 'https://www.npmjs.com/package/@globalart/nestcord',
 					position: 'right',
 					className: 'header-npm-link',
 					'aria-label': 'NPM'
