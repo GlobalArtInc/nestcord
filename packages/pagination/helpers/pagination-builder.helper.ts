@@ -98,6 +98,10 @@ export class PaginationBuilder {
         builder.setEmoji(button.emoji);
       }
 
+      if (button.style === ButtonStyle.Link) {
+        builder.setURL(button.link);
+      }
+
       return builder;
     })
   }
