@@ -40,22 +40,19 @@ export class NestCordPaginationService {
     },
   };
 
-  private readonly logger = new Logger(NestCordPaginationService.name);
-
   private readonly cache = new Map<string, PaginationBuilder>();
 
   public constructor(
     @Inject(MODULE_OPTIONS_TOKEN)
     private readonly options: NestCordPaginationOptions,
   ) {
-    this.options = deepMerge(NestCordPaginationService.DEFAULT_OPTIONS, options || {});
+    this.options = options;
   }
 
   public register(factory: (builder: PaginationBuilder) => PaginationBuilder): PaginationBuilder {
     const builder = factory(new PaginationBuilder(this.options));
-
     this.cache.set(builder.customId, builder);
-
+  
     return builder;
   }
 

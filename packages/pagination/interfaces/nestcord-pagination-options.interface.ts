@@ -2,9 +2,12 @@ import { ButtonStyle } from 'discord.js';
 import { PaginationAction } from '../enums';
 
 export interface ButtonAppearance {
-  style: Exclude<ButtonStyle, ButtonStyle.Link>;
+  style: ButtonStyle;
   label: string;
-  emoji: string;
+  emoji?: string;
+  customId?: string;
+  disabled?: boolean;
+  link?: string;
 }
 
 export interface ModalAppearance {
