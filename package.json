@@ -22,6 +22,19 @@
 	},
 	"main": "./dist/index.js",
 	"types": "./dist/index.d.ts",
+	"keywords": [
+		"nest",
+		"nestjs",
+		"nestcord",
+		"nestjs-module",
+		"discord",
+		"discordjs",
+		"discord bot",
+		"discord bot api",
+		"bot",
+		"bot api",
+		"bot framework"
+	],
 	"license": "MIT",
 	"repository": {
 		"type": "git",
