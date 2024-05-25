@@ -1,10 +1,10 @@
 import { CallHandler, ExecutionContext, Inject, Injectable, NestInterceptor, OnModuleInit, Type } from '@nestjs/common';
 import { Observable } from 'rxjs';
-import { NestCordContextType, NestCordExecutionContext } from '../../core';
+import { Context, NestCordContextType, NestCordExecutionContext } from '../../core';
 import { LOCALIZATION_ADAPTER, LOCALIZATION_RESOLVERS } from '../providers';
 import { BaseLocalizationAdapter } from '../adapters';
 import { AsyncLocalStorage } from 'node:async_hooks';
-import { LocaleResolver, TranslationFn } from '../interfaces';
+import { CommandContext, LocaleResolver, TranslationFn } from '../interfaces';
 import { ModuleRef } from '@nestjs/core';
 
 @Injectable()
@@ -34,8 +34,8 @@ export class LocalizationInterceptor implements NestInterceptor, OnModuleInit {
 
     const nestcordContext = NestCordExecutionContext.create(context);
     const discovery = nestcordContext.getDiscovery();
-
-    if (!discovery.isSlashCommand() && !discovery.isContextMenu()) {
+    
+    if (!discovery.isSlashCommand() && !discovery.isContextMenu() && !discovery.isMessageComponent()) {
       return next.handle();
     }
 
