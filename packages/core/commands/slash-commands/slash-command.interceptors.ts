@@ -1,19 +1,18 @@
-import { CallHandler, ExecutionContext, Injectable, NestInterceptor } from '@nestjs/common';
+import { Injectable, NestInterceptor, ExecutionContext, CallHandler } from '@nestjs/common';
 import { Observable, of } from 'rxjs';
-import { AutocompleteContext, NestCordExecutionContext, SlashCommandContext } from '../../context';
-import { AutocompleteInteraction } from 'discord.js';
+import { NestCordExecutionContext, SlashCommandContext } from '../../context';
 
-/**
- * The defercommand interceptor.
- */
 @Injectable()
-export abstract class DeferCommandInterceptor implements NestInterceptor {
+export class DeferCommandInterceptor implements NestInterceptor {
   public async intercept(context: ExecutionContext, next: CallHandler): Promise<Observable<any>> {
     const nestcordContext = NestCordExecutionContext.create(context);
     const [interaction] = nestcordContext.getContext<SlashCommandContext>();
     const discovery = nestcordContext.getDiscovery();
-    if (!discovery.isSlashCommand()) return next.handle();
-    
-    return of(interaction.deferReply());
+    if (!discovery.isSlashCommand()) {
+      return next.handle();
+    }
+
+    await interaction.deferReply();
+    return next.handle();
   }
 }
