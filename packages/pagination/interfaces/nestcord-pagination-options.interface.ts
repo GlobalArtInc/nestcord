@@ -8,6 +8,7 @@ export interface ButtonAppearance {
   customId?: string;
   disabled?: boolean;
   link?: string;
+  options?: string;
 }
 
 export interface ModalAppearance {
