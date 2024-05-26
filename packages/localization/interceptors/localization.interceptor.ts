@@ -1,21 +1,20 @@
 import { CallHandler, ExecutionContext, Inject, Injectable, NestInterceptor, OnModuleInit, Type } from '@nestjs/common';
 import { Observable } from 'rxjs';
-import { Context, NestCordContextType, NestCordExecutionContext } from '../../core';
+import { tap } from 'rxjs/operators';
+import { NestCordContextType, NestCordExecutionContext } from '../../core';
 import { LOCALIZATION_ADAPTER, LOCALIZATION_RESOLVERS } from '../providers';
 import { BaseLocalizationAdapter } from '../adapters';
-import { AsyncLocalStorage } from 'node:async_hooks';
-import { CommandContext, LocaleResolver, TranslationFn } from '../interfaces';
+import { LocaleResolver, TranslationFn } from '../interfaces';
 import { ModuleRef } from '@nestjs/core';
 
 @Injectable()
 export class LocalizationInterceptor implements NestInterceptor, OnModuleInit {
-  private static readonly LOCALIZATION_CONTEXT = new AsyncLocalStorage<TranslationFn>();
+  private cachedResolvers: LocaleResolver[];
+  private static currentTranslationFn: TranslationFn = null;
 
   public static getCurrentTranslationFn(): TranslationFn {
-    return LocalizationInterceptor.LOCALIZATION_CONTEXT.getStore();
+    return LocalizationInterceptor.currentTranslationFn;
   }
-
-  private cachedResolvers: LocaleResolver[];
 
   public constructor(
     @Inject(LOCALIZATION_ADAPTER)
@@ -34,14 +33,23 @@ export class LocalizationInterceptor implements NestInterceptor, OnModuleInit {
 
     const nestcordContext = NestCordExecutionContext.create(context);
     const discovery = nestcordContext.getDiscovery();
-    
+
     if (!discovery.isSlashCommand() && !discovery.isContextMenu() && !discovery.isMessageComponent()) {
       return next.handle();
     }
 
     const locale = await this.getLocale(nestcordContext);
+    const translationFn = this.getTranslationFn(locale);
+    
+    LocalizationInterceptor.currentTranslationFn = translationFn;
 
-    return LocalizationInterceptor.LOCALIZATION_CONTEXT.run(this.getTranslationFn(locale), next.handle);
+    return next.handle().pipe(
+      tap({
+        finalize: () => {
+          LocalizationInterceptor.currentTranslationFn = null;
+        }
+      })
+    );
   }
 
   private async getLocale(ctx: ExecutionContext): Promise<string> {
