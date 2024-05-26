@@ -4,7 +4,6 @@
 const lightCodeTheme = require('prism-react-renderer/themes/github');
 const darkCodeTheme = require('prism-react-renderer/themes/oceanicNext');
 
-/** @type {import("@docusaurus/types").Config} */
 const config = {
 	title: 'NestCord',
 	tagline: 'A module for creating Discord bots using NestJS, based on Discord.js',
