@@ -8,11 +8,17 @@ async function getLocales() {
 	return {
 		'en-US': {
 			'commands.ping.name': 'ping',
-			'commands.ping.description': 'Pong!'
+			'commands.ping.description': 'Pong!',
+      'commands.options.name': 'options',
+      'commands.options.desc': 'Options desc',
+      'commands.options.first.name': 'First'
 		},
 		ru: {
 			'commands.ping.name': 'пинг',
-			'commands.ping.description': 'Понг!'
+			'commands.ping.description': 'Понг!',
+      'commands.options.name': 'options',
+      'commands.options.desc': 'Options desc',
+      'commands.options.first.name': 'First'
 		}
 	};
 }
@@ -20,6 +26,7 @@ async function getLocales() {
 @Module({
   imports: [
     NestCordModule.forRoot({
+      // skipRegistration: true,
       token: process.env.DISCORD_TOKEN,
       intents: [
         GatewayIntentBits.Guilds,
@@ -36,7 +43,7 @@ async function getLocales() {
         const locales = await getLocales();
 
         return {
-          resolvers: [UserResolver],
+          resolvers: [UserResolver, GuildResolver],
           adapter: new DefaultLocalizationAdapter({
             fallbackLocale: 'en-US',
             locales
