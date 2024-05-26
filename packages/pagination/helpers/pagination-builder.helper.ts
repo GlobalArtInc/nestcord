@@ -100,7 +100,7 @@ export class PaginationBuilder {
       if (button.style === ButtonStyle.Link) {
         builder.setURL(button.link);
       } else {
-        builder.setCustomId(`nestcord-pagination/${this.customId}/${button.customId}/`);
+        builder.setCustomId(`nestcord-pagination/${this.customId}/${button.customId}/${button.options || ''}`);
       }
 
       return builder;
