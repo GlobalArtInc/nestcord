@@ -19,7 +19,9 @@ export class NestCordStatReporterService implements OnModuleInit {
 
   onModuleInit() {
     this.client.on('ready', () => {
-      this.setupCronJobs();
+      if (!this.options.development) {
+        this.setupCronJobs();
+      }
     });
   }
 
@@ -33,9 +35,6 @@ export class NestCordStatReporterService implements OnModuleInit {
   }
 
   private async reportStats(service: ServiceOption) {
-    if(this.options.development) {
-      return;
-    }
     await this.client.application.fetch();
     const serverCount = this.client.guilds.cache.size;
     const shardCount = this.client.shard?.count || 1;
