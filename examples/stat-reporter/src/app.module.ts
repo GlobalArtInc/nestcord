@@ -24,7 +24,7 @@ import { CronExpression } from '@nestjs/schedule';
         {
           name: 'top.gg',
           url: 'https://top.gg/bots/:bot_id/stats',
-          bodyData: { server_count: '{{serverCount}}', shards: '{{shardCount}}' },
+          bodyData: { server_count: '{{serverCount}}', shard_count: '{{shardCount}}' },
           headerData: {
             Authorization: process.env.TOP_GG_TOKEN,
           },
