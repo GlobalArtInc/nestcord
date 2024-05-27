@@ -20,7 +20,7 @@ export class PageBuilder {
   }
 
   public addEmbed(embed: PageOptions['embeds'][0]): this {
-    this.embeds = [embed]
+    this.embeds = [embed];
     return this;
   }
 

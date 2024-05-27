@@ -1,4 +1,4 @@
-import { StringOption, localizationMapByKey } from "../../../packages";
+import { StringOption, localizationMapByKey } from '../../../packages';
 
 export class AppDtos {
   @StringOption({
@@ -7,7 +7,9 @@ export class AppDtos {
     required: true,
     name_localizations: localizationMapByKey('commands.options.name'),
     description_localizations: localizationMapByKey('commands.options.desc'),
-    choices: [{ name: 'first', name_localizations: localizationMapByKey('commands.options.first.name'), value: 'first' }]
+    choices: [
+      { name: 'first', name_localizations: localizationMapByKey('commands.options.first.name'), value: 'first' },
+    ],
   })
   mission: string;
 }

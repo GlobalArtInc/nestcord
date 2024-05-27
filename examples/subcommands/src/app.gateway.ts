@@ -1,6 +1,13 @@
 import { LOCALIZATION_ADAPTER } from '../../../packages/localization/providers/localization-adapter.provider';
-import { Inject, Injectable, Logger } from "@nestjs/common";
-import { Once, Context, ContextOf, SlashCommandContext, createCommandGroupDecorator, Subcommand } from "../../../packages/core";
+import { Inject, Injectable, Logger } from '@nestjs/common';
+import {
+  Once,
+  Context,
+  ContextOf,
+  SlashCommandContext,
+  createCommandGroupDecorator,
+  Subcommand,
+} from '../../../packages/core';
 import { CurrentTranslate, TranslationFn } from '../../../packages/localization';
 
 export const PingCommandDecorator = createCommandGroupDecorator({
@@ -27,4 +34,4 @@ export class AppGateway {
       components: [],
     });
   }
-} 
+}

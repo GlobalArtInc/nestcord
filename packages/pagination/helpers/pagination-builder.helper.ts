@@ -1,4 +1,10 @@
-import { ActionRowBuilder, BaseInteraction, BaseMessageOptions as PageOptions, ButtonBuilder, ButtonStyle } from 'discord.js';
+import {
+  ActionRowBuilder,
+  BaseInteraction,
+  BaseMessageOptions as PageOptions,
+  ButtonBuilder,
+  ButtonStyle,
+} from 'discord.js';
 import { PageBuilder } from './page-builder.helper';
 import { ButtonAppearance, NestCordPaginationOptions } from '../interfaces';
 import { PaginationAction } from '../enums';
@@ -27,7 +33,7 @@ export class PaginationBuilder {
     this._maxPages = value;
   }
 
-   /**
+  /**
    *  Developer-defined identifier for the button;
    */
   setCustomId(value: string) {
@@ -70,13 +76,13 @@ export class PaginationBuilder {
     assert(!!this.pagesFactory || this.pages.length >= 1, 'Pages factory must be set if no pages are provided');
     assert(this.maxPages !== null, 'Max pages must be set if no pages are provided');
     assert(this.maxPages >= page, `Page ${page} is out of range (max: ${this.maxPages})`);
-    
+
     const pageBuilder = this.pages[page - 1] || (await this.pagesFactory(page, this.maxPages));
     const pageOptions = pageBuilder.build();
     const row = Object.values(this.buttons).map((buttons) => {
       const component = this.createButtons(buttons);
       return new ActionRowBuilder<ButtonBuilder>().addComponents(component);
-    })
+    });
 
     return {
       ...pageOptions,
@@ -84,14 +90,11 @@ export class PaginationBuilder {
     };
   }
 
-
   private createButtons(buttons: ButtonAppearance[]) {
     return Object.entries(buttons).map(([_, button]) => {
       const builder = new ButtonBuilder();
 
-      builder
-        .setStyle(button.style)
-        .setLabel(button.label)
+      builder.setStyle(button.style).setLabel(button.label);
 
       if (button.emoji) {
         builder.setEmoji(button.emoji);
@@ -104,7 +107,6 @@ export class PaginationBuilder {
       }
 
       return builder;
-    })
+    });
   }
-
 }

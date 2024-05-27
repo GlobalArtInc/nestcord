@@ -1,7 +1,14 @@
 import { LOCALIZATION_ADAPTER } from '../../../packages/localization/providers/localization-adapter.provider';
-import { Inject, Injectable, Logger } from "@nestjs/common";
-import { Once, Context, ContextOf, SlashCommand, SlashCommandContext } from "../../../packages/core";
-import { CurrentTranslate, DefaultLocalizationAdapter, TranslationFn, localizationMapByKey } from '../../../packages/localization';
+import { Inject, Injectable, Logger } from '@nestjs/common';
+import {
+  Once,
+  Context,
+  ContextOf,
+  SlashCommand,
+  SlashCommandContext,
+  TextCommand,
+  TextCommandContext,
+} from '../../../packages';
 
 @Injectable()
 export class AppGateway {
@@ -16,10 +23,18 @@ export class AppGateway {
     name: 'ping',
     description: 'Ping command',
   })
-  onPingCommand(@Context() [interaction]: SlashCommandContext, @CurrentTranslate() t: TranslationFn) {
+  onPingCommand(@Context() [interaction]: SlashCommandContext) {
     this.logger.log(`Ping command called by ${interaction.user.username}`);
     return interaction.reply({
       content: 'Pong!',
     });
+  }
+
+  @TextCommand({
+    name: 'ping',
+    description: 'Ping command!',
+  })
+  public onPing(@Context() [message]: TextCommandContext) {
+    return message.reply('pong!');
   }
 }

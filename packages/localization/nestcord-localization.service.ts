@@ -42,10 +42,10 @@ export class NestCordLocalizationService implements OnModuleInit {
           optionMetadata.name_localizations = this.getLocalizationMap(optionMetadata.name_localizations);
           optionMetadata.description_localizations = this.getLocalizationMap(optionMetadata.description_localizations);
           if (optionMetadata.choices) {
-            optionMetadata.choices = optionMetadata.choices.map((choice) => {
-              choice.name_localizations = this.getLocalizationMap(choice.name_localizations);
-              return choice;
-            });
+            optionMetadata.choices = optionMetadata.choices.map((choice) => ({
+              ...choice,
+              name_localizations: this.getLocalizationMap(choice.name_localizations),
+            }));
           }
         }
       }
