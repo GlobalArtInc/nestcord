@@ -22,7 +22,7 @@ const config = {
 				debug: process.env.NODE_ENV !== 'production',
 				docs: {
 					sidebarPath: require.resolve('./sidebars.js'),
-					editUrl: 'https://github.com/GlobalArtInc/nestcord/docs/tree/master',
+					editUrl: 'https://github.com/GlobalArtInc/nestcord/tree/master/docs',
 					path: 'content',
 					routeBasePath: '/',
 					showLastUpdateAuthor: true,
