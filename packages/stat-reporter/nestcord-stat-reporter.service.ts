@@ -33,6 +33,9 @@ export class NestCordStatReporterService implements OnModuleInit {
   }
 
   private async reportStats(service: ServiceOption) {
+    if(this.options.development) {
+      return;
+    }
     await this.client.application.fetch();
     const serverCount = this.client.guilds.cache.size;
     const shardCount = this.client.shard?.count || 1;
@@ -57,15 +60,13 @@ export class NestCordStatReporterService implements OnModuleInit {
   }
 
   private replacePlaceholders(obj: unknown, replacements: unknown) {
-    if (typeof obj === 'string') {
-      return obj.replace(/{{(.*?)}}/g, (_, key) => replacements[key] || `{{${key}}}`);
+    if (typeof obj === 'string' && isNaN(Number(obj))) {
+      let replaced = obj.replace(/{{(.*?)}}/g, (match, key) => replacements.hasOwnProperty(key) ? replacements[key] : match);
+      return !isNaN(Number(replaced)) ? Number(replaced) : replaced;
     }
     if (typeof obj === 'object' && obj !== null) {
-      for (const key in obj) {
-        obj[key] = this.replacePlaceholders(obj[key], replacements);
-      }
+      for (const key in obj) obj[key] = this.replacePlaceholders(obj[key], replacements);
     }
-
     return obj;
   }
 }
