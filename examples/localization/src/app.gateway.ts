@@ -1,7 +1,7 @@
-import { LOCALIZATION_ADAPTER } from '../../../packages/localization/providers/localization-adapter.provider';
-import { Inject, Injectable, Logger } from "@nestjs/common";
-import { Once, Context, ContextOf, SlashCommand, SlashCommandContext, Options } from "../../../packages/core";
-import { CurrentTranslate, DefaultLocalizationAdapter, TranslationFn, localizationMapByKey } from '../../../packages/localization';
+import { LOCALIZATION_ADAPTER } from '../../../packages';
+import { Inject, Injectable, Logger } from '@nestjs/common';
+import { Once, Context, ContextOf, SlashCommand, SlashCommandContext, Options } from '../../../packages';
+import { CurrentTranslate, DefaultLocalizationAdapter, TranslationFn } from '../../../packages';
 import { AppDtos } from './app.dtos';
 
 @Injectable()
@@ -13,7 +13,7 @@ export class AppGateway {
   @Once('ready')
   onBotReady(@Context() [client]: ContextOf<'ready'>) {
     this.logger.log(`Bot logged in as ${client.user.username}`);
-    this
+    this;
   }
 
   @SlashCommand({
@@ -22,7 +22,7 @@ export class AppGateway {
   })
   onPingCommand(@Context() [interaction]: SlashCommandContext, @CurrentTranslate() t: TranslationFn) {
     this.logger.log(`Ping command called by ${interaction.user.username}`);
-    
+
     return interaction.reply({
       content: t('commands.ping.description'),
     });
@@ -32,9 +32,13 @@ export class AppGateway {
     name: 'options',
     description: 'Options command',
   })
-  onOptions(@Context() [interaction]: SlashCommandContext, @Options() {}: AppDtos, @CurrentTranslate() t: TranslationFn) {
+  onOptions(
+    @Context() [interaction]: SlashCommandContext,
+    @Options() {}: AppDtos,
+    @CurrentTranslate() t: TranslationFn,
+  ) {
     this.logger.log(`Options command called by ${interaction.user.username}`);
-    
+
     return interaction.reply({
       content: t('commands.ping.description'),
     });

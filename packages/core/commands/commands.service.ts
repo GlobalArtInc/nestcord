@@ -40,6 +40,7 @@ export class CommandsService {
 
     if (commands.length === 0) {
       this.logger.log(`Skipping ${guildId ? `guild ${guildId}` : 'global'} as it has no commands.`);
+
       return;
     }
 

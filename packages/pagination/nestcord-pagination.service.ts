@@ -52,7 +52,7 @@ export class NestCordPaginationService {
   public register(factory: (builder: PaginationBuilder) => PaginationBuilder): PaginationBuilder {
     const builder = factory(new PaginationBuilder(this.options));
     this.cache.set(builder.customId, builder);
-  
+
     return builder;
   }
 

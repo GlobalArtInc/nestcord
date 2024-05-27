@@ -1,7 +1,17 @@
-import { Injectable, Logger, OnModuleInit, Param, UseInterceptors } from "@nestjs/common";
-import { Once, Context, ContextOf, SlashCommand, SlashCommandContext, On, Button, ComponentParam, ButtonContext } from "../../../packages/core";
+import { Injectable, Logger, OnModuleInit, Param, UseInterceptors } from '@nestjs/common';
+import {
+  Once,
+  Context,
+  ContextOf,
+  SlashCommand,
+  SlashCommandContext,
+  On,
+  Button,
+  ComponentParam,
+  ButtonContext,
+} from '../../../packages/core';
 import { ButtonAppearance, NestCordPaginationService, PageBuilder } from '../../../packages';
-import { ButtonStyle } from "discord.js";
+import { ButtonStyle } from 'discord.js';
 
 enum PageEnum {
   TEXT1 = 1,
@@ -16,12 +26,8 @@ export class AppGateway implements OnModuleInit {
 
   public constructor(private readonly paginationService: NestCordPaginationService) {}
 
-
   public onModuleInit(): void {
-    this.paginationService.register(builder =>
-      builder
-        .setCustomId('help')
-    );
+    this.paginationService.register((builder) => builder.setCustomId('help'));
   }
 
   @Once('ready')
@@ -36,10 +42,9 @@ export class AppGateway implements OnModuleInit {
   async onPingCommand(@Context() [interaction]: SlashCommandContext) {
     this.logger.log(`Ping command called by ${interaction.user.username}`);
     const pagination = this.paginationService.get('help');
-    pagination.setButtons(this.setButtons())
-    .setPages(this.setPages())
+    pagination.setButtons(this.setButtons()).setPages(this.setPages());
     const page = await pagination.build();
-    
+
     return interaction.reply(page);
   }
 
@@ -49,14 +54,14 @@ export class AppGateway implements OnModuleInit {
     pagination.setButtons(this.setButtons());
     pagination.setPages(this.setPages());
     const pageIndex = PageEnum[pageName.toUpperCase()];
-    const page = await pagination.build(pageIndex); 
+    const page = await pagination.build(pageIndex);
 
     await interaction.update(page);
   }
 
   /**
    * Here you can pass interaction parameters and translate the pages or execute any logic
-   * @returns 
+   * @returns
    */
   private setPages() {
     return [
@@ -64,11 +69,11 @@ export class AppGateway implements OnModuleInit {
       new PageBuilder().setContent('Page 2'),
       new PageBuilder().setContent('Page 3'),
     ];
-  } 
+  }
 
   /**
    * Here you can pass interaction parameters and translate the buttons
-   * @returns 
+   * @returns
    */
   private setButtons(): ButtonAppearance[][] {
     return [
@@ -76,8 +81,7 @@ export class AppGateway implements OnModuleInit {
         { label: 'Text 1', style: ButtonStyle.Primary, customId: 'text1' },
         { label: 'Text 2', style: ButtonStyle.Primary, customId: 'text2' },
         { label: 'Text 3', style: ButtonStyle.Primary, customId: 'text3' },
-      ]
+      ],
     ];
   }
-  
 }

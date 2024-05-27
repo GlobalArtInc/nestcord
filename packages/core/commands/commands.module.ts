@@ -14,7 +14,7 @@ import { CommandDiscovery } from './command.discovery';
   exports: [ContextMenusModule, SlashCommandsModule, CommandsService],
 })
 export class CommandsModule implements OnModuleInit, OnApplicationBootstrap {
-  public constructor(
+  constructor(
     private readonly client: Client,
     @Inject(NESTCORD_MODULE_OPTIONS)
     private readonly options: NestCordModuleOptions,
@@ -23,32 +23,30 @@ export class CommandsModule implements OnModuleInit, OnApplicationBootstrap {
     private readonly slashCommandsService: SlashCommandsService,
   ) {}
 
-  public onModuleInit() {
+  onModuleInit() {
     if (this.options.skipRegistration) {
       return;
     }
 
-    return this.client.once('ready', async () => {
+    this.client.once('ready', async () => {
       if (this.client.application.partial) {
         await this.client.application.fetch();
       }
-
-      return this.commandsService.registerAllCommands();
+      await this.commandsService.registerAllCommands();
     });
   }
 
-  public onApplicationBootstrap() {
+  onApplicationBootstrap() {
     const commands: CommandDiscovery[] = [
       ...this.contextMenusService.cache.values(),
       ...this.slashCommandsService.cache.values(),
     ];
 
-    for (const command of commands) {
-      if (Array.isArray(this.options.development)) {
-        command.setGuilds(this.options.development);
-      } else {
-        command.setGuilds(command.getGuilds() || [undefined]);
-      }
-    }
+    commands.forEach((command) => {
+      const guilds = Array.isArray(this.options.development)
+        ? this.options.development
+        : command.getGuilds() || [undefined];
+      command.setGuilds(guilds);
+    });
   }
 }

@@ -13,7 +13,7 @@ export abstract class CommandDiscovery<T extends BaseCommandMeta = BaseCommandMe
   /**
    * Returns the command name.
    */
-  public getName() {
+  public getName(): string {
     return this.meta.name;
   }
 
@@ -21,21 +21,22 @@ export abstract class CommandDiscovery<T extends BaseCommandMeta = BaseCommandMe
    * Sets the command guilds for register.
    * @param guilds
    */
-  public setGuilds(guilds: Snowflake[]) {
+  public setGuilds(guilds: Snowflake[]): void {
     this.meta.guilds = guilds;
   }
 
   /**
    * Checks if the command has a guild.
+   * @param guild
    */
-  public hasGuild(guild: Snowflake) {
-    return this.meta.guilds?.includes(guild);
+  public hasGuild(guild: Snowflake): boolean {
+    return this.meta.guilds?.includes(guild) ?? false;
   }
 
   /**
    * Returns the guilds.
    */
-  public getGuilds(): Snowflake[] {
+  public getGuilds(): Snowflake[] | undefined {
     return this.meta.guilds;
   }
 }

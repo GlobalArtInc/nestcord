@@ -7,10 +7,11 @@ interface DefaultLocalizationAdapterOptions {
 
 export class DefaultLocalizationAdapter extends BaseLocalizationAdapter<DefaultLocalizationAdapterOptions> {
   public getTranslation(key: string, locale: string, placeholders?: Record<string, string>): string {
-    const translations = this.getTranslations(locale);
-    const translation = translations[key] || this.getFallbackTranslation(key);
+    const translation = this.getTranslations(locale)[key] || this.getFallbackTranslation(key);
 
-    return translation.replace(/{{\s*([^}\s]+)\s*}}/g, (_, placeholder) => placeholders[placeholder]);
+    return placeholders
+      ? translation.replace(/{{\s*([^}\s]+)\s*}}/g, (_, placeholder) => placeholders[placeholder] || '')
+      : translation;
   }
 
   private getTranslations(locale: string): Record<string, string> {
@@ -19,8 +20,7 @@ export class DefaultLocalizationAdapter extends BaseLocalizationAdapter<DefaultL
 
   private getFallbackTranslation(key: string): string {
     const fallbackLocale = this.options?.fallbackLocale || 'en-US';
-    const translations = this.getTranslations(fallbackLocale);
 
-    return translations[key] || key;
+    return this.getTranslations(fallbackLocale)[key] || key;
   }
 }

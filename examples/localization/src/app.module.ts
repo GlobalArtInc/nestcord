@@ -5,22 +5,22 @@ import { AppGateway } from './app.gateway';
 import { DefaultLocalizationAdapter, GuildResolver, NestCordLocalizationModule, UserResolver } from '../../../packages';
 
 async function getLocales() {
-	return {
-		'en-US': {
-			'commands.ping.name': 'ping',
-			'commands.ping.description': 'Pong!',
+  return {
+    'en-US': {
+      'commands.ping.name': 'ping',
+      'commands.ping.description': 'Pong!',
       'commands.options.name': 'options',
       'commands.options.desc': 'Options desc',
-      'commands.options.first.name': 'First'
-		},
-		ru: {
-			'commands.ping.name': 'пинг',
-			'commands.ping.description': 'Понг!',
+      'commands.options.first.name': 'First',
+    },
+    ru: {
+      'commands.ping.name': 'пинг',
+      'commands.ping.description': 'Понг!',
       'commands.options.name': 'options',
       'commands.options.desc': 'Options desc',
-      'commands.options.first.name': 'First'
-		}
-	};
+      'commands.options.first.name': 'First',
+    },
+  };
 }
 
 @Module({
@@ -46,10 +46,10 @@ async function getLocales() {
           resolvers: [UserResolver, GuildResolver],
           adapter: new DefaultLocalizationAdapter({
             fallbackLocale: 'en-US',
-            locales
-          })
+            locales,
+          }),
         };
-      }
+      },
     }),
   ],
   providers: [AppGateway],
