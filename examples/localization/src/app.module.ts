@@ -1,5 +1,5 @@
 import { GatewayIntentBits, Partials } from 'discord.js';
-import { NestCordModule } from '../../../packages/core';
+import { NestCordModule } from '../../../packages';
 import { Module } from '@nestjs/common';
 import { AppGateway } from './app.gateway';
 import { DefaultLocalizationAdapter, GuildResolver, NestCordLocalizationModule, UserResolver } from '../../../packages';

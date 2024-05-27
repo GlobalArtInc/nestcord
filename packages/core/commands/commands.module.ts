@@ -23,7 +23,7 @@ export class CommandsModule implements OnModuleInit, OnApplicationBootstrap {
     private readonly slashCommandsService: SlashCommandsService,
   ) {}
 
-  onModuleInit() {
+  async onModuleInit() {
     if (this.options.skipRegistration) {
       return;
     }
@@ -37,10 +37,10 @@ export class CommandsModule implements OnModuleInit, OnApplicationBootstrap {
   }
 
   onApplicationBootstrap() {
-    const commands: CommandDiscovery[] = [
+    const commands = [
       ...this.contextMenusService.cache.values(),
       ...this.slashCommandsService.cache.values(),
-    ];
+    ] as CommandDiscovery[];
 
     commands.forEach((command) => {
       const guilds = Array.isArray(this.options.development)
