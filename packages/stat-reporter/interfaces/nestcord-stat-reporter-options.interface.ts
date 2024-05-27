@@ -37,12 +37,6 @@ export interface ServiceOption {
    * @returns CronExpression
    */
   schedule?: CronExpression;
-
-  /**
-   * Show log
-   * @returns boolean
-   */
-  log?: boolean;
 }
 
 export interface NestCordStatReporterOptions {
@@ -51,4 +45,10 @@ export interface NestCordStatReporterOptions {
    * If true skip all jobs
    */
   development?: boolean;
+
+  /**
+   * Show log
+   * @returns boolean
+   */
+  log?: boolean;
 }

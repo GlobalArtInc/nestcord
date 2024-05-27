@@ -23,14 +23,15 @@ import { CronExpression } from '@nestjs/schedule';
       services: [
         {
           name: 'top.gg',
-          url: 'https://top.gg/bots/:bot_id/stats',
+          url: 'https://top.gg/api/bots/:bot_id/stats',
           bodyData: { server_count: '{{serverCount}}', shard_count: '{{shardCount}}' },
           headerData: {
-            Authorization: process.env.TOP_GG_TOKEN,
+            Authorization: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjgwMDM1NDc1NzI5NzQzODc1MCIsImJvdCI6dHJ1ZSwiaWF0IjoxNjQzMDkwMjA1fQ.3UJhEbm-OWfM3R95OLNEYXNdBDVj-MSBrGwzTXCzNRc',
           },
-          schedule: CronExpression.EVERY_10_SECONDS,
+          schedule: CronExpression.EVERY_MINUTE,
         },
       ],
+      log: true,
     }),
   ],
   providers: [AppGateway],
