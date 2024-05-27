@@ -25,7 +25,10 @@ import { CronExpression } from '@nestjs/schedule';
           name: 'top.gg',
           url: 'https://top.gg/bots/:bot_id/stats',
           bodyData: { server_count: '{{serverCount}}', shards: '{{shardCount}}' },
-          schedule: CronExpression.EVERY_5_MINUTES,
+          headerData: {
+            Authorization: process.env.TOP_GG_TOKEN,
+          },
+          schedule: CronExpression.EVERY_10_SECONDS,
         },
       ],
     }),

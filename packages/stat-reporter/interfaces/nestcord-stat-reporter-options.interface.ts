@@ -1,5 +1,5 @@
 import { CronExpression } from '@nestjs/schedule';
-import { Method } from 'axios';
+import { AxiosHeaders, Method, RawAxiosRequestHeaders } from 'axios';
 
 export interface ServiceOption {
   /**
@@ -25,6 +25,12 @@ export interface ServiceOption {
    *  @returns Record<string, unknown>
    */
   bodyData: Record<string, unknown>;
+
+  /**
+   *  Stat service header data
+   *  @returns Record<string, unknown>
+   */
+  headerData?: RawAxiosRequestHeaders;
 
   /**
    * Crontab expression

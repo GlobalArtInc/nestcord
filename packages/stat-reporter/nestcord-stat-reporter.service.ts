@@ -37,12 +37,14 @@ export class NestCordStatReporterService implements OnModuleInit {
     const serverCount = this.client.guilds.cache.size;
     const shardCount = this.client.shard?.count || 1;
     const bodyData = this.replacePlaceholders(service.bodyData, { serverCount, shardCount });
-
+    const headerData = service.headerData || {};
+    
     this.httpService
       .request({
         method: service.method || 'POST',
         url: service.url,
         data: bodyData,
+        headers: headerData,
       })
       .subscribe({
         next: () => {
@@ -56,7 +58,7 @@ export class NestCordStatReporterService implements OnModuleInit {
 
   private replacePlaceholders(obj: unknown, replacements: unknown) {
     if (typeof obj === 'string') {
-      return obj.replace(/{{(.*?)}}/g, (_, key) => replacements[key]);
+      return obj.replace(/{{(.*?)}}/g, (_, key) => replacements[key] || `{{${key}}}`);
     }
     if (typeof obj === 'object' && obj !== null) {
       for (const key in obj) {
