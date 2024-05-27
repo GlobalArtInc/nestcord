@@ -45,6 +45,10 @@
 		"url": "https://github.com/GlobalartInc/nestcord"
 	},
 	"dependencies": {
+		"@nestjs/axios": "^3.0.2",
+		"@nestjs/schedule": "^4.0.2",
+		"axios": "^1.7.2",
+		"cron": "^3.1.7",
 		"deepmerge": "^4.3.1",
 		"path-to-regexp": "^6.2.2"
 	},
