@@ -47,4 +47,8 @@ export interface ServiceOption {
 
 export interface NestCordStatReporterOptions {
   services: ServiceOption[];
+  /**
+   * If true skip all jobs
+   */
+  development?: boolean;
 }
