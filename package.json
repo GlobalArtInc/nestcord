@@ -1,7 +1,7 @@
 {
 	"name": "@globalart/nestcord",
 	"description": "A module for creating Discord bots using NestJS, based on Discord.js",
-	"version": "1.3.3",
+	"version": "1.3.4",
 	"private": false,
 	"scripts": {
 		"build": "rimraf dist && tsc -p tsconfig.build.json",
