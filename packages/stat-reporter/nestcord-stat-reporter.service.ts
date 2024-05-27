@@ -40,7 +40,7 @@ export class NestCordStatReporterService implements OnModuleInit {
     const shardCount = this.client.shard?.count || 1;
     const bodyData = this.replacePlaceholders(service.bodyData, { serverCount, shardCount });
     const headerData = service.headerData || {};
-    
+
     this.httpService
       .request({
         method: service.method || 'POST',
@@ -50,7 +50,9 @@ export class NestCordStatReporterService implements OnModuleInit {
       })
       .subscribe({
         next: () => {
-          this.logger.log(`Reporting stats for ${service.name}, servers: ${serverCount}, shards: ${shardCount}`);
+          if (this.options.log || this.options.log === undefined) {
+            this.logger.log(`Reporting stats for ${service.name}, servers: ${serverCount}, shards: ${shardCount}`);
+          }
         },
         error: (err) => {
           this.logger.error(`Error reporting stats for ${service.name}`, err);
@@ -60,7 +62,9 @@ export class NestCordStatReporterService implements OnModuleInit {
 
   private replacePlaceholders(obj: unknown, replacements: unknown) {
     if (typeof obj === 'string' && isNaN(Number(obj))) {
-      let replaced = obj.replace(/{{(.*?)}}/g, (match, key) => replacements.hasOwnProperty(key) ? replacements[key] : match);
+      let replaced = obj.replace(/{{(.*?)}}/g, (match, key) =>
+        replacements.hasOwnProperty(key) ? replacements[key] : match,
+      );
       return !isNaN(Number(replaced)) ? Number(replaced) : replaced;
     }
     if (typeof obj === 'object' && obj !== null) {
