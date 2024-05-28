@@ -18,14 +18,19 @@ export class NestCordStatReporterService implements OnModuleInit {
   ) {}
 
   onModuleInit() {
-    this.client.on('ready', () => {
-      const isFirstShard = (this.client.shard && this.client.shard.ids?.[0] === 0) || !this.client.shard;
-      const isProduction = !this.options.development;
-
-      if (isFirstShard && isProduction) {
+    this.client.once('ready', () => {
+      if (this.isFirstShard() && this.isProduction()) {
         this.setupCronJobs();
       }
     });
+  }
+
+  private isFirstShard(): boolean {
+    return (this.client.shard?.ids?.[0] === 0) || !this.client.shard;
+  }
+
+  private isProduction(): boolean {
+    return !this.options.development;
   }
 
   private setupCronJobs() {
@@ -38,18 +43,9 @@ export class NestCordStatReporterService implements OnModuleInit {
   }
 
   private async reportStats(service: ServiceOption) {
-    await this.client.application.fetch();
-    let serverCount: number;
+    await this.client.application?.fetch();
+    const serverCount = await this.calculateServerCount();
     const shardCount = this.client.shard?.count || 1;
-    if (this.client.shard) {
-      const totalServersOnAllShards = (await this.client.shard.fetchClientValues('guilds.cache.size')) as number[];
-      serverCount =
-        totalServersOnAllShards.reduce((acc, guildCount) => acc + guildCount, 0) ||
-        this.client.application.approximateGuildCount;
-    } else {
-      serverCount = this.client.guilds.cache.size;
-    }
-
     const bodyData = this.replacePlaceholders(service.bodyData, { serverCount, shardCount });
     const headerData = service.headerData || {};
 
@@ -61,26 +57,33 @@ export class NestCordStatReporterService implements OnModuleInit {
         headers: headerData,
       })
       .subscribe({
-        next: () => {
-          if (this.options.log || this.options.log === undefined) {
-            this.logger.log(`Reporting stats for ${service.name}, servers: ${serverCount}, shards: ${shardCount}`);
-          }
-        },
-        error: (err) => {
-          this.logger.error(`Error reporting stats for ${service.name}`, err);
-        },
+        next: () => this.logStats(service.name, serverCount, shardCount),
+        error: (err) => this.logger.error(`Error reporting stats for ${service.name}`, err),
       });
   }
 
-  private replacePlaceholders(obj: unknown, replacements: unknown) {
-    if (typeof obj === 'string' && isNaN(Number(obj))) {
-      let replaced = obj.replace(/{{(.*?)}}/g, (match, key) =>
-        replacements.hasOwnProperty(key) ? replacements[key] : match,
-      );
-      return !isNaN(Number(replaced)) ? Number(replaced) : replaced;
+  private async calculateServerCount(): Promise<number> {
+    if (this.client.shard) {
+      const shardGuildSizes = await this.client.shard.fetchClientValues('guilds.cache.size') as number[];
+      return shardGuildSizes.reduce((acc, size) => acc + size, 0) || this.client.application?.approximateGuildCount || 0;
     }
-    if (typeof obj === 'object' && obj !== null) {
-      for (const key in obj) obj[key] = this.replacePlaceholders(obj[key], replacements);
+    return this.client.guilds.cache.size;
+  }
+
+  private logStats(serviceName: string, serverCount: number, shardCount: number) {
+    if (this.options.log ?? true) {
+      this.logger.log(`Reporting stats for ${serviceName}, servers: ${serverCount}, shards: ${shardCount}`);
+    }
+  }
+
+  private replacePlaceholders(obj: any, replacements: { [key: string]: any }): any {
+    if (typeof obj === 'string') {
+      return obj.replace(/{{(.*?)}}/g, (_, key) => replacements[key] ?? _);
+    }
+    if (obj && typeof obj === 'object') {
+      Object.entries(obj).forEach(([key, value]) => {
+        obj[key] = this.replacePlaceholders(value, replacements);
+      });
     }
     return obj;
   }
