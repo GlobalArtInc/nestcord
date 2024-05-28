@@ -11,12 +11,6 @@ manageable way. When dealing with substantial volumes of data, such as search re
 once can overwhelm users and lead to a poor user experience. Pagination allows you to divide the information into smaller, organized chunks,
 enhancing user engagement and ease of navigation. This module allows you to create a pagination with a few lines of code.
 
-## Installation
-
-```bash npm2yarn
-$ npm i @globalart/nestcord discord.js
-```
-
 ## Usage
 
 Once the installation process is complete, we can import the `NestCordPaginationModule` with your `NestCordModule` into the root `AppModule`:

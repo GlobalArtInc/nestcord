@@ -6,15 +6,9 @@ title: Localization
 sidebar_position: 2
 ---
 
-`@globalart/nestcord` is a lightweight localization module for [NestCord](https://nestcord.globalart.dev/). It allows you to easily localize your bot's
+Is a lightweight localization module for [NestCord](https://nestcord.globalart.dev/). It allows you to easily localize your bot's
 commands and messages. The module provides a simple API for managing locales and translations, as well as a powerful localization adapter
 system.
-
-## Installation
-
-```bash npm2yarn
-npm i @globalart/nestcord discord.js
-```
 
 ## Usage
 

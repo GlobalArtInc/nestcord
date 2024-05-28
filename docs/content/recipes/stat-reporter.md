@@ -6,13 +6,7 @@ title: Stat Reporter
 sidebar_position: 2
 ---
 
-    `@globalart/nestcord` is a lightweight stat-reporter module for [NestCord](https://nestcord.globalart.dev/). This module sends data from your bot to different monitoring bots services.
-
-## Installation
-
-```bash npm2yarn
-npm i @globalart/nestcord discord.js
-```
+Is a lightweight stat reporter module for NestCord. This module sends data from your bot to different monitoring bot services.
 
 ## Usage
 
