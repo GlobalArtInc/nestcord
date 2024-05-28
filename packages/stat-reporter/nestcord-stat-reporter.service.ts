@@ -19,7 +19,7 @@ export class NestCordStatReporterService implements OnModuleInit {
 
   onModuleInit() {
     this.client.on('ready', () => {
-      const isFirstShard = this.client.shard?.ids?.[0] === 0;
+      const isFirstShard = this.client.shard && this.client.shard.ids?.[0] === 0;
       const isProduction = !this.options.development;
       
       if (isFirstShard && isProduction) {
