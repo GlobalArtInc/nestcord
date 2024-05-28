@@ -45,5 +45,5 @@ $ pnpm add @globalart/nestcord discord.js
 The repository contains packages
 * [NestCord/core](https://nestcord.globalart.dev) - common modules
 * [NestCord/localization](https://nestcord.globalart.dev/recipes/localization) - localization of the bot
-* [NestCord/paginations](https://nestcord.globalart.dev/recipes/pagination) - pagination module
+* [NestCord/pagination](https://nestcord.globalart.dev/recipes/pagination) - pagination module
 * [NestCord/stat-reporter](https://nestcord.globalart.dev/recipes/stat-reporter) - report bot stats to the bot monitoring services.
