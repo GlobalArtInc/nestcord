@@ -19,7 +19,10 @@ export class NestCordStatReporterService implements OnModuleInit {
 
   onModuleInit() {
     this.client.on('ready', () => {
-      if (!this.options.development) {
+      const isFirstShard = this.client.shard?.ids?.[0] === 0;
+      const isProduction = !this.options.development;
+      
+      if (isFirstShard && isProduction) {
         this.setupCronJobs();
       }
     });
@@ -38,7 +41,6 @@ export class NestCordStatReporterService implements OnModuleInit {
     await this.client.application.fetch();
     let serverCount: number;
     const shardCount = this.client.shard?.count;
-
     if (this.client.shard) {
       const totalServersOnAllShards = await this.client.shard.fetchClientValues('guilds.cache.size') as number[]
       serverCount = totalServersOnAllShards.reduce((acc, guildCount) => acc + guildCount, 0) || this.client.application.approximateGuildCount;
