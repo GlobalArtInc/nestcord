@@ -40,7 +40,7 @@ export class NestCordStatReporterService implements OnModuleInit {
   private async reportStats(service: ServiceOption) {
     await this.client.application.fetch();
     let serverCount: number;
-    const shardCount = this.client.shard?.count;
+    const shardCount = this.client.shard?.count || 1;
     if (this.client.shard) {
       const totalServersOnAllShards = (await this.client.shard.fetchClientValues('guilds.cache.size')) as number[];
       serverCount =
