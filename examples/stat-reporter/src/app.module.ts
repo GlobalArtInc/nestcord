@@ -11,13 +11,13 @@ import { CronExpression } from '@nestjs/schedule';
       token: process.env.DISCORD_TOKEN,
       intents: [
         GatewayIntentBits.Guilds,
-        GatewayIntentBits.DirectMessages,
         GatewayIntentBits.GuildMessages,
-        GatewayIntentBits.GuildMembers,
-        GatewayIntentBits.MessageContent,
-        GatewayIntentBits.GuildVoiceStates,
+        GatewayIntentBits.GuildMessageReactions,
+        GatewayIntentBits.DirectMessages,
+        GatewayIntentBits.DirectMessageReactions,
       ],
       partials: [Partials.Message, Partials.Channel, Partials.Reaction],
+      skipRegistration: true,
     }),
     NestCordStatReporterModule.forRoot({
       services: [
