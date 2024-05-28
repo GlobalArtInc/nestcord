@@ -28,7 +28,7 @@ import { CronExpression } from '@nestjs/schedule';
           headerData: {
             Authorization: process.env.TOP_GG_TOKEN,
           },
-          schedule: CronExpression.EVERY_MINUTE,
+          schedule: CronExpression.EVERY_30_SECONDS,
         },
       ],
       log: true,
