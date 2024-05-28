@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       NAMESPACE: globalart-prod
-      HARBOR_PROJECT: gitlab-prod
+      HARBOR_PROJECT: github
       HARBOR_USERNAME: ${{ secrets.HARBOR_USERNAME }}
       HARBOR_PASSWORD: ${{ secrets.HARBOR_PASSWORD }}
       HARBOR_HOST: ${{ secrets.HARBOR_HOST }}
