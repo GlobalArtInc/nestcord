@@ -33,13 +33,23 @@ data:
                                           '"http_user_agent": "$http_user_agent"}';
       server {
         listen 80;
-        charset utf-8;
-        root /usr/share/nginx/html;
-        index index.html;
-        access_log /dev/stdout combined_plus;
+
         location / {
-          try_files $uri $uri/ /index.html;
+          root /usr/share/nginx/html;
+          #index index.html;
+          try_files $uri /index.html;
+          gzip_static on;
         }
+
+        error_page   500 502 503 504  /50x.html;
+        gzip on;
+        gzip_http_version 1.1;
+        gzip_disable      "msie6";
+        gzip_min_length   1100;
+        gzip_vary         on;
+        gzip_proxied      expired no-cache no-store private auth;
+        gzip_types        text/plain text/css application/json application/javascript application/x-javascript text/xml application/xml application/xml+rss text/javascript;
+        gzip_comp_level   9;
       }
     }
 ---
