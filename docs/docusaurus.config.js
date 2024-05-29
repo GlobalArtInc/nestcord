@@ -47,8 +47,8 @@ const config = {
 	/** @type {import("@docusaurus/preset-classic").ThemeConfig} */
 	{
 		algolia: {
-			appId: 'GDR17FGCRP',
-			apiKey: '3b1db7ae29e71749b3e08e228a429418',
+			appId: 'N5JRHSHB9C',
+			apiKey: '6597eb15c31c17ecd0d7eba39b7a3848',
 			indexName: 'nestcord',
 			contextualSearch: true,
 			schedule: 'every 1 day at 3:00 pm'
