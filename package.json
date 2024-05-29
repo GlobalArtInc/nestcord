@@ -9,7 +9,7 @@
 		"publish:npm": "release-it",
 		"prepublish:dev": "npm run build",
 		"publish:dev": "npm publish --access public --tag dev",
-		"prepare": "husky install .github/husky",
+		"prepare": "husky ./.github/husky",
 		"format": "prettier --write \"packages/**/*.ts\"",
 		"lint": "eslint --ignore-path .gitignore packages/**/*.ts"
 	},
