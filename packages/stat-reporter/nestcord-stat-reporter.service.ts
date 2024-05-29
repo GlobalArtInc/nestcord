@@ -78,7 +78,9 @@ export class NestCordStatReporterService implements OnModuleInit {
 
   private replacePlaceholders(obj: any, replacements: { [key: string]: any }): any {
     if (typeof obj === 'string') {
-      return obj.replace(/{{(.*?)}}/g, (_, key) => replacements[key] ?? _);
+      const val = obj.replace(/{{(.*?)}}/g, (_, key) => replacements[key] ?? _);
+      
+      return !isNaN(parseFloat(val)) ? Number(val) : val;      
     }
     if (obj && typeof obj === 'object') {
       Object.entries(obj).forEach(([key, value]) => {
