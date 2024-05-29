@@ -27,7 +27,7 @@ import { NestCordStatReporterModule, StatCronExpression } from '../../../package
           headerData: {
             Authorization: process.env.TOP_GG_TOKEN,
           },
-          schedule: StatCronExpression.EVERY_MINUTE,
+          schedule: '*/5 * * * * *',
         },
       ],
       log: true,
