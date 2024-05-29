@@ -1,5 +1,5 @@
-import { CronExpression } from '@nestjs/schedule';
-import { AxiosHeaders, Method, RawAxiosRequestHeaders } from 'axios';
+import { Method, RawAxiosRequestHeaders } from 'axios';
+import { StatCronExpression } from '../enums';
 
 export interface ServiceOption {
   /**
@@ -34,9 +34,10 @@ export interface ServiceOption {
 
   /**
    * Crontab expression
-   * @returns CronExpression
+   * @returns StatCronExpression
+   * @returns string
    */
-  schedule?: CronExpression;
+  schedule?: StatCronExpression | string;
 }
 
 export interface NestCordStatReporterOptions {
