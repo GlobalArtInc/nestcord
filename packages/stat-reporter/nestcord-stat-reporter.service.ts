@@ -1,5 +1,5 @@
 import { Inject, Injectable, Logger, OnModuleInit } from '@nestjs/common';
-import { Client } from 'discord.js';
+import { Client, ShardClientUtil } from 'discord.js';
 import { MODULE_OPTIONS_TOKEN } from './nestcord-stat-reporter.module-definition';
 import { NestCordStatReporterOptions, ServiceOption } from './interfaces';
 import { SchedulerRegistry } from '@nestjs/schedule';
@@ -12,6 +12,7 @@ export class NestCordStatReporterService implements OnModuleInit {
 
   constructor(
     private readonly client: Client,
+    private readonly shard: ShardClientUtil,
     @Inject(MODULE_OPTIONS_TOKEN) private readonly options: NestCordStatReporterOptions,
     private readonly schedulerRegistry: SchedulerRegistry,
     private readonly httpService: HttpService,
@@ -26,7 +27,7 @@ export class NestCordStatReporterService implements OnModuleInit {
   }
 
   private isFirstShard(): boolean {
-    return (this.client.shard?.ids?.[0] === 0) || !this.client.shard;
+    return (this.shard?.ids?.[0] === 0) || !this.shard;
   }
 
   private isProduction(): boolean {
@@ -45,7 +46,7 @@ export class NestCordStatReporterService implements OnModuleInit {
   private async reportStats(service: ServiceOption) {
     await this.client.application?.fetch();
     const serverCount = await this.calculateServerCount();
-    const shardCount = this.client.shard?.count || 1;
+    const shardCount = this.shard?.count || 1;
     const bodyData = this.replacePlaceholders(service.bodyData, { serverCount, shardCount });
     const headerData = service.headerData || {};
 
@@ -63,8 +64,8 @@ export class NestCordStatReporterService implements OnModuleInit {
   }
 
   private async calculateServerCount(): Promise<number> {
-    if (this.client.shard) {
-      const shardGuildSizes = await this.client.shard.fetchClientValues('guilds.cache.size') as number[];
+    if (this.shard) {
+      const shardGuildSizes = await this.shard.fetchClientValues('guilds.cache.size') as number[];
       return shardGuildSizes.reduce((acc, size) => acc + size, 0) || this.client.application?.approximateGuildCount || 0;
     }
     return this.client.guilds.cache.size;
