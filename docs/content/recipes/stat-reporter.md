@@ -11,7 +11,6 @@ Is a lightweight stat reporter module for NestCord. This module sends data from 
 ## Usage
 
 Once the installation process is complete, we can import the `NestCordStatReporterModule` with your `NestCordModule` into the root `AppModule`:
-
 ```typescript
 import { Module } from '@nestjs/common';
 import { AppService } from './app.service';
@@ -54,5 +53,6 @@ import { NestCordModule,
 export class AppModule {
 }
 ```
+In `services`, all the services on which the bot is monitored should be listed, and the request body should be passed. `{{serverCount}}` and `{{shardCount}}` will be automatically replaced.
 
 Congratulations! You have successfully register cronjob with NestCord!
