@@ -2,8 +2,7 @@ import { GatewayIntentBits, Partials } from 'discord.js';
 import { NestCordModule } from '../../../packages/core';
 import { Module } from '@nestjs/common';
 import { AppGateway } from './app.gateway';
-import { NestCordStatReporterModule } from '../../../packages/stat-reporter';
-import { CronExpression } from '@nestjs/schedule';
+import { NestCordStatReporterModule, StatCronExpression } from '../../../packages';
 
 @Module({
   imports: [
@@ -28,7 +27,7 @@ import { CronExpression } from '@nestjs/schedule';
           headerData: {
             Authorization: process.env.TOP_GG_TOKEN,
           },
-          schedule: CronExpression.EVERY_30_SECONDS,
+          schedule: StatCronExpression.EVERY_MINUTE,
         },
       ],
       log: true,

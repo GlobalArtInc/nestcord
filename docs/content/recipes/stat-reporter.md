@@ -13,11 +13,15 @@ Is a lightweight stat reporter module for NestCord. This module sends data from 
 Once the installation process is complete, we can import the `NestCordStatReporterModule` with your `NestCordModule` into the root `AppModule`:
 
 ```typescript
-import { NestCordModule, NestCordStatReporterModule } from '@globalart/nestcord';
 import { Module } from '@nestjs/common';
-import { NestCordLocalizationModule, DefaultLocalizationAdapter, UserResolver } from '@globalart/nestcord';
-import { CronExpression } from '@nestjs/schedule';
 import { AppService } from './app.service';
+import { NestCordModule, 
+         NestCordStatReporterModule, 
+         StatCronExpression, 
+         NestCordLocalizationModule, 
+         DefaultLocalizationAdapter, 
+         UserResolver 
+} from '@globalart/nestcord';
 
 @Module({
     imports: [
@@ -40,7 +44,7 @@ import { AppService } from './app.service';
             url: 'https://top.gg/bots/:bot_id/stats',
             bodyData: { server_count: '{{serverCount}}', shard_count: '{{shardCount}}' },
             headerData: { Authorization: process.env.TOP_GG_TOKEN },
-            schedule: CronExpression.EVERY_5_MINUTES,
+            schedule: StatCronExpression.EVERY_5_MINUTES // or you can use crontab expression like */1 * * * * ,
           },
         ],
       }),
