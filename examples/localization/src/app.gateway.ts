@@ -24,7 +24,7 @@ export class AppGateway {
     this.logger.log(`Ping command called by ${interaction.user.username}`);
 
     return interaction.reply({
-      content: t('commands.ping.description'),
+      content: t('commands.ping.description', { placeholder: 'replacedPlaceholder' }),
     });
   }
 

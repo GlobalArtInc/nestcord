@@ -5,6 +5,7 @@ import { NestCordStatReporterOptions, ServiceOption } from './interfaces';
 import { SchedulerRegistry } from '@nestjs/schedule';
 import { CronJob } from 'cron';
 import { HttpService } from '@nestjs/axios';
+import { replacePlaceholdersInObject } from '@globalart/text-utils';
 
 @Injectable()
 export class NestCordStatReporterService implements OnModuleInit {
@@ -27,7 +28,7 @@ export class NestCordStatReporterService implements OnModuleInit {
   }
 
   private isFirstShard(): boolean {
-    return (this.shard?.ids?.[0] === 0) || !this.shard;
+    return this.shard?.ids?.[0] === 0 || !this.shard;
   }
 
   private isProduction(): boolean {
@@ -47,7 +48,7 @@ export class NestCordStatReporterService implements OnModuleInit {
     await this.client.application?.fetch();
     const serverCount = await this.calculateServerCount();
     const shardCount = this.shard?.count || 1;
-    const bodyData = this.replacePlaceholders(service.bodyData, { serverCount, shardCount });
+    const bodyData = replacePlaceholdersInObject(service.bodyData, { serverCount, shardCount });
     const headerData = service.headerData || {};
 
     this.httpService
@@ -65,8 +66,10 @@ export class NestCordStatReporterService implements OnModuleInit {
 
   private async calculateServerCount(): Promise<number> {
     if (this.shard) {
-      const shardGuildSizes = await this.shard.fetchClientValues('guilds.cache.size') as number[];
-      return shardGuildSizes.reduce((acc, size) => acc + size, 0) || this.client.application?.approximateGuildCount || 0;
+      const shardGuildSizes = (await this.shard.fetchClientValues('guilds.cache.size')) as number[];
+      return (
+        shardGuildSizes.reduce((acc, size) => acc + size, 0) || this.client.application?.approximateGuildCount || 0
+      );
     }
     return this.client.guilds.cache.size;
   }
@@ -75,19 +78,5 @@ export class NestCordStatReporterService implements OnModuleInit {
     if (this.options.log ?? true) {
       this.logger.log(`Reporting stats for ${serviceName}, servers: ${serverCount}, shards: ${shardCount}`);
     }
-  }
-
-  private replacePlaceholders(obj: any, replacements: { [key: string]: any }): any {
-    if (typeof obj === 'string') {
-      const val = obj.replace(/{{(.*?)}}/g, (_, key) => replacements[key] ?? _);
-      
-      return !isNaN(parseFloat(val)) ? Number(val) : val;      
-    }
-    if (obj && typeof obj === 'object') {
-      Object.entries(obj).forEach(([key, value]) => {
-        obj[key] = this.replacePlaceholders(value, replacements);
-      });
-    }
-    return obj;
   }
 }
