@@ -2,7 +2,7 @@ project: nestcord
 configVersion: 1
 ---
 artifact: nestcord-docs-builder
-from: node:20
+from: node:18
 git:
 - add: /docs
   to: /home/app
@@ -14,8 +14,6 @@ git:
     - "pnpm-lock.yaml"
 ansible:
   install:
-  - name: Setting up ssh
-    shell: "printf \"Host github.com\\n\\tStrictHostKeyChecking no\\n\\tUserKnownHostsFile=/dev/null\\n\" >> /etc/ssh/ssh_config \n"
   - name: "Install PNPM"
     shell: "npm install -g pnpm"
   - name: "Install libs"
@@ -24,7 +22,7 @@ ansible:
   setup:
   - name: "Compile"
     shell: |
-      cd /home/app && npm run build
+      cd /home/app && pnpm build
 ---
 image: nestcord-docs
 from: nginx
