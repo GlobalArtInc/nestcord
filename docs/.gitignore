@@ -45,7 +45,7 @@ lerna-debug.log*
 .env.production.local
 
 # Lockfile for other package managers
-pnpm-lock.yaml
+yarn.locl
 
 # Docker .env file
 .env

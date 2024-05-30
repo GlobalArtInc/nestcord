@@ -36,8 +36,8 @@ data:
 
         location / {
           root /usr/share/nginx/html;
-          #index index.html;
-          try_files $uri /index.html;
+          index index.html;
+          try_files  $uri $uri/ /index.html;
           gzip_static on;
         }
 

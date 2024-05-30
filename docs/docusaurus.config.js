@@ -1,9 +1,3 @@
-// @ts-check
-// Note: type annotations allow type checking and IDEs autocompletion
-
-const lightCodeTheme = require('prism-react-renderer/themes/github');
-const darkCodeTheme = require('prism-react-renderer/themes/oceanicNext');
-
 const config = {
 	title: 'NestCord',
 	tagline: 'A module for creating Discord bots using NestJS, based on Discord.js',
@@ -25,8 +19,8 @@ const config = {
 					editUrl: 'https://github.com/GlobalArtInc/nestcord/tree/master/docs',
 					path: 'content',
 					routeBasePath: '/',
-					showLastUpdateAuthor: true,
-					showLastUpdateTime: true,
+					showLastUpdateAuthor: false,
+					showLastUpdateTime: false,
 					remarkPlugins: [[require('@docusaurus/remark-plugin-npm2yarn'), { sync: true }]]
 				},
 				blog: false,
@@ -139,10 +133,6 @@ const config = {
 		footer: {
 			copyright: `Copyright © 2003 - ${new Date().getFullYear()} • Built by <a target="_blank" href="https://globalart.dev">GlobalArt Inc</a>`
 		},
-		prism: {
-			theme: lightCodeTheme,
-			darkTheme: darkCodeTheme
-		}
 	},
 	plugins: [
 		'docusaurus-plugin-sass',
