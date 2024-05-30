@@ -1,3 +1,4 @@
+import { replacePlaceholdersInString } from '@globalart/text-utils';
 import { BaseLocalizationAdapter } from './base-localization.adapter';
 
 interface DefaultLocalizationAdapterOptions {
@@ -9,9 +10,7 @@ export class DefaultLocalizationAdapter extends BaseLocalizationAdapter<DefaultL
   public getTranslation(key: string, locale: string, placeholders?: Record<string, string>): string {
     const translation = this.getTranslations(locale)[key] || this.getFallbackTranslation(key);
 
-    return placeholders
-      ? translation.replace(/{{\s*([^}\s]+)\s*}}/g, (_, placeholder) => placeholders[placeholder] || '')
-      : translation;
+    return placeholders ? replacePlaceholdersInString(translation, placeholders) : translation;
   }
 
   private getTranslations(locale: string): Record<string, string> {

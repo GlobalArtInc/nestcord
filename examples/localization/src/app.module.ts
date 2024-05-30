@@ -8,14 +8,14 @@ async function getLocales() {
   return {
     'en-US': {
       'commands.ping.name': 'ping',
-      'commands.ping.description': 'Pong!',
+      'commands.ping.description': 'Pong!\nPlaceholder: **{{placeholder}}**',
       'commands.options.name': 'options',
       'commands.options.desc': 'Options desc',
       'commands.options.first.name': 'First',
     },
     ru: {
       'commands.ping.name': 'пинг',
-      'commands.ping.description': 'Понг!',
+      'commands.ping.description': 'Понг!\nPlaceholder: **{{placeholder}}**',
       'commands.options.name': 'options',
       'commands.options.desc': 'Options desc',
       'commands.options.first.name': 'First',

@@ -1,3 +1,4 @@
+import { replacePlaceholdersInString } from '@globalart/text-utils';
 import { BaseLocalizationAdapter } from './base-localization.adapter';
 
 interface TranslationData {
@@ -14,7 +15,7 @@ export class NestedLocalizationAdapter extends BaseLocalizationAdapter<NestedLoc
     const translations = this.getTranslations(locale);
     const translation = this.findTranslation(translations, key) || this.getFallbackTranslation(key);
 
-    return translation.replace(/{{\s*([^}\s]+)\s*}}/g, (_, placeholder) => placeholders?.[placeholder] || '');
+    return replacePlaceholdersInString(translation, placeholders);
   }
 
   private getTranslations(locale: string): TranslationData {
