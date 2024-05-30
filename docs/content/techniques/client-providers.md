@@ -9,7 +9,7 @@ sidebar_position: 4
 NestCord have snippets to access the client and its properties in your application.
 You can inject managers and utils of discord.js client using constructor.
 
-```typescript title="app.service.ts"
+```typescript title="src/app.service.ts"
 import { Injectable } from '@nestjs/common';
 import { Client, ChannelManager, GuildManager, UserManager, ShardClientUtil, ClientVoiceManager, WebSocketManager, REST } from 'discord.js';
 

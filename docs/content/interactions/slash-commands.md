@@ -25,7 +25,7 @@ global commands when they're ready for public use.
 
 Create `app.commands.ts` file and add method with `SlashCommand` decorator.
 
-```typescript title="app.commands.ts"
+```typescript title="src/app.commands.ts"
 import { Injectable } from '@nestjs/common';
 import { Context, SlashCommand, SlashCommandContext } from '@globalart/nestcord';
 
@@ -45,7 +45,7 @@ export class AppCommands {
 
 If you want to have guild specific commands, use the `guilds` property on the `SlashCommand` decorator
 
-```typescript title="app.commands.ts"
+```typescript title="src/app.commands.ts"
 import { Injectable } from '@nestjs/common';
 import { Context, SlashCommand, SlashCommandContext } from '@globalart/nestcord';
 

@@ -10,7 +10,7 @@ With modals you can create pop-up forms that allow users to provide you with for
 
 <img src="/img/content/modal.png" alt="Modal" width="500" />
 
-```typescript title="app.modals.ts"
+```typescript title="src/app.modals.ts"
 import { Injectable } from '@nestjs/common';
 import { Context, Modal, ModalContext } from '@globalart/nestcord';
 
@@ -46,7 +46,7 @@ new ModalBuilder()
 ```
 
 To receive a Dynamic modal
-```typescript title="app.modals.ts"
+```typescript title="src/app.modals.ts"
 import { Injectable } from '@nestjs/common';
 import { Context, Modal, ModalContext,ModalParam } from '@globalart/nestcord';
 

@@ -39,7 +39,7 @@ Not sure what modules are? Catch up by reading about them in [NestJS](https://do
 
 :::
 
-```typescript title="discord.module.ts"
+```typescript title="src/discord.module.ts"
 import { Module } from '@nestjs/common';
 import { AppService } from './app.service';
 import { IntentsBitField } from 'discord.js';
@@ -95,7 +95,7 @@ Slash commands allow you to create commands with precise arguments and choices, 
 
 To create a command with NestCord, you can use the `SlashCommand` decorator.
 
-```typescript title="app.service.ts"
+```typescript title="src/app.service.ts"
 import { Injectable } from '@nestjs/common';
 import { Context, SlashCommand, SlashCommandContext } from '@globalart/nestcord';
 

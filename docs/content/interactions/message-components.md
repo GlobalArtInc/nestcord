@@ -16,7 +16,7 @@ There are several different types of components; this documentation will outline
 
 <img src="/img/content/button.png" alt="Buttons" width="500" />
 
-```typescript title="app.components.ts"
+```typescript title="src/app.components.ts"
 import { Injectable } from '@nestjs/common';
 import { Context, Button, ButtonContext } from '@globalart/nestcord';
 

@@ -10,7 +10,7 @@ Interceptor added `interaction.deferReply()` to the beiginning of the code
 
 ## Usage
 
-```typescript
+```typescript title="src/app.service.ts"
 import {
   Context,
   SlashCommand,
