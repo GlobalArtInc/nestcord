@@ -1,4 +1,0 @@
-#!/bin/sh
-. "$(dirname "$0")/_/husky.sh"
-
-npx commitlint --config .commitlintrc.json --edit $HUSKY_GIT_PARAMS
