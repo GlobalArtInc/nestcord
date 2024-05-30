@@ -8,6 +8,7 @@ const config = {
 	favicon: 'img/favicon.ico',
 	organizationName: 'GlobalArtInc', // Usually your GitHub org/user name.
 	projectName: 'nestcord', // Usually your repo name.
+	trailingSlash: false,
 	presets: [
 		[
 			'classic',
@@ -47,6 +48,7 @@ const config = {
 			contextualSearch: true,
 			schedule: 'every 1 day at 3:00 pm'
 		},
+		cname: 'nestcord.globalart.dev',
 		announcementBar: {
 			content:
 				'⭐️ If you like NestCord, give it a star on <a target="_blank" rel="noopener noreferrer" href="https://github.com/GlobalArtInc/nestcord">GitHub</a>! ⭐️'
