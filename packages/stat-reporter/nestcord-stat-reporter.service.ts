@@ -6,6 +6,7 @@ import { SchedulerRegistry } from '@nestjs/schedule';
 import { CronJob } from 'cron';
 import { HttpService } from '@nestjs/axios';
 import { replacePlaceholdersInObject } from '@globalart/text-utils';
+import { catchError, lastValueFrom, tap } from 'rxjs';
 
 @Injectable()
 export class NestCordStatReporterService implements OnModuleInit {
@@ -45,23 +46,29 @@ export class NestCordStatReporterService implements OnModuleInit {
   }
 
   private async reportStats(service: ServiceOption) {
-    await this.client.application?.fetch();
-    const serverCount = await this.calculateServerCount();
-    const shardCount = this.shard?.count || 1;
-    const bodyData = replacePlaceholdersInObject(service.bodyData, { serverCount, shardCount });
-    const headerData = service.headerData || {};
+    try {
+      const [_, serverCount, shardCount] = await Promise.all([
+        this.client.application.fetch(),
+        this.calculateServerCount(),
+        Promise.resolve(this.shard?.count || 1),
+      ]);
 
-    this.httpService
-      .request({
-        method: service.method || 'POST',
-        url: service.url,
-        data: bodyData,
-        headers: headerData,
-      })
-      .subscribe({
-        next: () => this.logStats(service.name, serverCount, shardCount),
-        error: (err) => this.logger.error(`Error reporting stats for ${service.name}`, err),
-      });
+      const bodyData = replacePlaceholdersInObject(service.bodyData, { serverCount, shardCount });
+      const headerData = service.headerData || {};
+
+      await lastValueFrom(
+        this.httpService.request({
+          method: service.method || 'POST',
+          url: service.url,
+          data: bodyData,
+          headers: headerData,
+        }),
+      );
+
+      this.logStats(service.name, serverCount, shardCount);
+    } catch (err) {
+      this.logErrors(service.name, err);
+    }
   }
 
   private async calculateServerCount(): Promise<number> {
@@ -77,6 +84,12 @@ export class NestCordStatReporterService implements OnModuleInit {
   private logStats(serviceName: string, serverCount: number, shardCount: number) {
     if (this.options.log ?? true) {
       this.logger.log(`Reporting stats for ${serviceName}, servers: ${serverCount}, shards: ${shardCount}`);
+    }
+  }
+
+  private logErrors(serviceName, error: Error) {
+    if (this.options.log ?? true) {
+      this.logger.error(`Error reporting stats for ${serviceName}`, error);
     }
   }
 }
