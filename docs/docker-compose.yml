@@ -1,0 +1,12 @@
+version: "2"
+
+services:
+    docs:
+        build: .
+        env_file: .env
+        command: docker:start
+        tty: true
+        volumes:
+            - ./:/opt/app
+        ports:
+            - "$EXPOSED_DOCUSAURUS_PORT:3000"
