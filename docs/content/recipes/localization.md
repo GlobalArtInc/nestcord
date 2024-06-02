@@ -150,7 +150,7 @@ export class GuildResolver implements LocaleResolver {
 
 We can inject the `LOCALIZATION_ADAPTER` into our service and use it to localize our commands and messages:
 
-```typescript
+```typescript title="src/app.gateway.ts"
 import { Injectable, Inject, OnModuleInit } from '@nestjs/common';
 import { DefaultLocalizationAdapter, localizationMapByKey, LOCALIZATION_ADAPTER } from '@globalart/nestcord';
 import { Context, SlashCommand, SlashCommandContext } from '@globalart/nestcord';
@@ -173,6 +173,36 @@ export class AppService implements OnModuleInit {
         const message = this.localizationAdapter.getTranslation(
             'commands.ping.description',
             interaction.locale
+        );
+        return interaction.reply(message);
+    }
+}
+```
+
+Or you can use `translate` function from the localization adapter:
+
+```typescript title="src/app.gateway.ts"
+import { Injectable, Inject, OnModuleInit } from '@nestjs/common';
+import { DefaultLocalizationAdapter, localizationMapByKey, LOCALIZATION_ADAPTER } from '@globalart/nestcord';
+import { Context, SlashCommand, SlashCommandContext } from '@globalart/nestcord';
+
+@Injectable()
+export class AppService implements OnModuleInit {
+    public constructor(
+        @Inject(LOCALIZATION_ADAPTER)
+        private readonly localizationAdapter: DefaultLocalizationAdapter
+    ) {
+    }
+
+    @SlashCommand({
+        name: 'ping',
+        description: 'Pong!',
+        nameLocalizations: localizationMapByKey('commands.ping.name'),
+        descriptionLocalizations: localizationMapByKey('commands.ping.name')
+    })
+    public ping(@Context() [interaction]: SlashCommandContext) {
+        const message = this.localizationAdapter.translate(
+            'commands.ping.description',
         );
         return interaction.reply(message);
     }
