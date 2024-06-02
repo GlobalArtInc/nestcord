@@ -1,4 +1,4 @@
-import { replacePlaceholdersInString } from '@globalart/text-utils';
+import { replacePlaceholdersInObjectWithFlatten } from '@globalart/text-utils';
 import { BaseLocalizationAdapter } from './base-localization.adapter';
 import { LocalizationInterceptor } from '../interceptors';
 
@@ -16,7 +16,7 @@ export class NestedLocalizationAdapter extends BaseLocalizationAdapter<NestedLoc
     const translations = this.getTranslations(locale);
     const translation = this.findTranslation(translations, key) || this.getFallbackTranslation(key);
 
-    return replacePlaceholdersInString(translation, placeholders);
+    return replacePlaceholdersInObjectWithFlatten(translation, placeholders);
   }
 
   public translate(key: string, placeholders?: Record<string, string>): string {

@@ -1,4 +1,4 @@
-import { replacePlaceholdersInString } from '@globalart/text-utils';
+import { replacePlaceholdersInObjectWithFlatten } from '@globalart/text-utils';
 import { BaseLocalizationAdapter } from './base-localization.adapter';
 import { LocalizationInterceptor } from '../interceptors';
 
@@ -8,13 +8,13 @@ interface DefaultLocalizationAdapterOptions {
 }
 
 export class DefaultLocalizationAdapter extends BaseLocalizationAdapter<DefaultLocalizationAdapterOptions> {
-  public getTranslation(key: string, locale: string, placeholders?: Record<string, string>): string {
+  public getTranslation(key: string, locale: string, placeholders?: unknown): string {
     const translation = this.getTranslations(locale)[key] || this.getFallbackTranslation(key);
 
-    return placeholders ? replacePlaceholdersInString(translation, placeholders) : translation;
+    return placeholders ? replacePlaceholdersInObjectWithFlatten(translation, placeholders) : translation;
   }
 
-  public translate(key: string, placeholders?: Record<string, string>): string {
+  public translate(key: string, placeholders?: unknown): string {
     const currentTranslationFn = LocalizationInterceptor.getCurrentTranslationFn();
 
     return currentTranslationFn

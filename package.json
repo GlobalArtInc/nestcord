@@ -46,7 +46,7 @@
 		"url": "https://github.com/GlobalartInc/nestcord"
 	},
 	"dependencies": {
-		"@globalart/text-utils": "^1.0.1",
+		"@globalart/text-utils": "^1.0.2",
 		"@nestjs/axios": "^3.0.2",
 		"@nestjs/schedule": "^4.0.2",
 		"axios": "^1.7.2",
