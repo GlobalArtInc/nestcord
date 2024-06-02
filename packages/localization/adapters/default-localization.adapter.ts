@@ -1,5 +1,6 @@
 import { replacePlaceholdersInString } from '@globalart/text-utils';
 import { BaseLocalizationAdapter } from './base-localization.adapter';
+import { LocalizationInterceptor } from '../interceptors';
 
 interface DefaultLocalizationAdapterOptions {
   fallbackLocale?: string;
@@ -11,6 +12,14 @@ export class DefaultLocalizationAdapter extends BaseLocalizationAdapter<DefaultL
     const translation = this.getTranslations(locale)[key] || this.getFallbackTranslation(key);
 
     return placeholders ? replacePlaceholdersInString(translation, placeholders) : translation;
+  }
+
+  public translate(key: string, placeholders?: Record<string, string>): string {
+    const currentTranslationFn = LocalizationInterceptor.getCurrentTranslationFn();
+
+    return currentTranslationFn
+      ? currentTranslationFn(key, placeholders)
+      : this.getTranslation(key, this.options.fallbackLocale, placeholders);
   }
 
   private getTranslations(locale: string): Record<string, string> {
