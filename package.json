@@ -11,7 +11,8 @@
 		"publish:dev": "npm publish --access public --tag dev",
 		"prepare": "husky ./.github/husky",
 		"format": "prettier --write \"packages/**/*.ts\"",
-		"lint": "eslint --ignore-path .gitignore packages/**/*.ts"
+		"lint": "eslint --ignore-path .gitignore packages/**/*.ts",
+		"upgrade": "npx npm-check-updates -u"
 	},
 	"lint-staged": {
 		"*.ts": "npm run format"

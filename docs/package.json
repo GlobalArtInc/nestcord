@@ -4,7 +4,7 @@
 	"private": true,
 	"scripts": {
 		"docusaurus": "docusaurus",
-		"start": "docusaurus start",
+		"start": "docusaurus start --host 0.0.0.0",
 		"build": "docusaurus build",
 		"swizzle": "docusaurus swizzle",
 		"deploy": "docusaurus deploy",
@@ -15,25 +15,26 @@
 		"typecheck": "tsc",
 		"predocker:start": "yarn",
 		"docker:start": "yarn start --host 0.0.0.0",
-		"prettier:write": "prettier --write ./content"
+		"prettier:write": "prettier --write ./content",
+		"upgrade": "npx npm-check-updates -u"
 	},
 	"dependencies": {
-		"@docusaurus/core": "3.3.2",
-		"@docusaurus/plugin-pwa": "^3.3.2",
-		"@docusaurus/preset-classic": "3.3.2",
-		"@docusaurus/remark-plugin-npm2yarn": "3.3.2",
+		"@docusaurus/core": "3.4.0",
+		"@docusaurus/plugin-pwa": "^3.4.0",
+		"@docusaurus/preset-classic": "3.4.0",
+		"@docusaurus/remark-plugin-npm2yarn": "3.4.0",
 		"@mdx-js/react": "3.0.1",
 		"clsx": "2.1.1",
 		"docusaurus-plugin-sass": "0.2.5",
 		"prism-react-renderer": "2.3.1",
 		"react": "18.3.1",
 		"react-dom": "18.3.1",
-		"sass": "1.77.3"
+		"sass": "1.77.4"
 	},
 	"devDependencies": {
-		"@docusaurus/module-type-aliases": "3.3.2",
+		"@docusaurus/module-type-aliases": "3.4.0",
 		"@tsconfig/docusaurus": "2.0.3",
-		"prettier": "^3.2.5",
+		"prettier": "^3.3.0",
 		"typescript": "5.4.5"
 	},
 	"browserslist": {
