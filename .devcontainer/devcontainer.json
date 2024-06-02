@@ -17,7 +17,7 @@
 		3000
 	],
 
-	"postCreateCommand": "/workspaces/nestcord/.devcontainer/init.sh",
+	"postCreateCommand": "/workspaces/nestcord/.devcontainer/post-create.sh",
 	
 	"customizations": {
 		"vscode": {
