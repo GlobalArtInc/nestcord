@@ -4,8 +4,10 @@ import { NestCordBaseDiscovery } from '.';
 import { ParamData } from '@nestjs/common';
 
 export class NestCordParamsFactory implements ParamsFactory {
-  public exchangeKeyForValue(type: number, data: ParamData, args: [Array<any>, NestCordBaseDiscovery]): any {
-    if (!args) return null;
+  public exchangeKeyForValue(type: number, data: ParamData, args: [Array<unknown>, NestCordBaseDiscovery]) {
+    if (!args) {
+      return null;
+    }
 
     switch (type as NestCordParamType) {
       case NestCordParamType.CONTEXT:

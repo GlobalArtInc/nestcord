@@ -21,7 +21,7 @@ export class MessageComponentDiscovery extends NestCordBaseDiscovery<MessageComp
     return this.meta.customId;
   }
 
-  public execute(interaction: MessageComponentInteraction): any {
+  public execute(interaction: MessageComponentInteraction) {
     return super.execute([interaction]);
   }
 
@@ -29,7 +29,7 @@ export class MessageComponentDiscovery extends NestCordBaseDiscovery<MessageComp
     return true;
   }
 
-  public override toJSON(): Record<string, any> {
+  public override toJSON(): MessageComponentMeta {
     return this.meta;
   }
 }

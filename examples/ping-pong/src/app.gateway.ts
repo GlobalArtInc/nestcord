@@ -1,5 +1,4 @@
-import { LOCALIZATION_ADAPTER } from '../../../packages/localization/providers/localization-adapter.provider';
-import { Inject, Injectable, Logger, UseInterceptors } from '@nestjs/common';
+import { Injectable, Logger, UseInterceptors } from '@nestjs/common';
 import {
   Once,
   Context,
@@ -7,7 +6,10 @@ import {
   SlashCommand,
   SlashCommandContext,
   TextCommand,
-  TextCommandContext, Button, ButtonContext, DeferCommandInterceptor,
+  TextCommandContext,
+  Button,
+  ButtonContext,
+  DeferCommandInterceptor,
 } from '../../../packages';
 import { ActionRowBuilder, ButtonBuilder, ButtonStyle } from 'discord.js';
 

@@ -12,7 +12,7 @@ export function createOptionDecorator<T extends APIApplicationCommandOptionBase<
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore
   return (data: DistributiveOmit<T, 'type'>): PropertyDecorator => {
-    return (target: any, propertyKey: string | symbol) => {
+    return (target: string, propertyKey: string | symbol) => {
       let metadata: Record<string, OptionMeta> = Reflect.getOwnMetadata(OPTIONS_METADATA, target);
 
       if (!metadata) {

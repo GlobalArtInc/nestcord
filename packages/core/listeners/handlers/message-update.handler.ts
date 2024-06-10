@@ -14,7 +14,9 @@ export type CustomMessageUpdateEvents = {
 export class MessageUpdateHandler extends BaseHandler<CustomMessageUpdateEvents> {
   @CustomListenerHandler()
   public handleMessagePinned([oldMessage, newMessage]: ContextOf<'messageUpdate'>) {
-    if (oldMessage.partial || newMessage.partial) return;
+    if (oldMessage.partial || newMessage.partial) {
+      return;
+    }
 
     if (!oldMessage.pinned && newMessage.pinned) {
       this.emit('messagePinned', newMessage);
@@ -23,7 +25,9 @@ export class MessageUpdateHandler extends BaseHandler<CustomMessageUpdateEvents>
 
   @CustomListenerHandler()
   public handleMessageContentEdited([oldMessage, newMessage]: ContextOf<'messageUpdate'>) {
-    if (oldMessage.partial || newMessage.partial) return;
+    if (oldMessage.partial || newMessage.partial) {
+      return;
+    }
 
     if (oldMessage.content !== newMessage.content) {
       this.emit('messageContentEdited', newMessage, oldMessage.content, newMessage.content);
