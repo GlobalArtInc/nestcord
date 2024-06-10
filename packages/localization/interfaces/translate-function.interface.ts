@@ -1,1 +1,1 @@
-export type TranslationFn = (key: string, ...args: any[]) => string;
+export type TranslationFn = (key: string, ...args: unknown[]) => string;

@@ -111,7 +111,7 @@ interface CustomLocalizationOptions {
 }
 
 export class CustomLocalizationAdapter extends BaseLocalizationAdapter<CustomLocalizationOptions> {
-    public getTranslation(key: string, locale: string, ...args: any[]): string {
+    public getTranslation(key: string, locale: string, ...args: unknown[]): string {
         return `${key} by ${locale}`;
     }
 }

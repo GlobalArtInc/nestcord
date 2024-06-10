@@ -21,7 +21,9 @@ export type CustomGuildMemberUpdateEvents = {
 export class GuildMemberUpdateHandler extends BaseHandler<CustomGuildMemberUpdateEvents> {
   @CustomListenerHandler()
   public handleGuildMemberAvatar([oldMember, newMember]: ContextOf<'guildMemberUpdate'>) {
-    if (oldMember.partial) return;
+    if (oldMember.partial) {
+      return;
+    }
 
     if (!oldMember.avatar && newMember.avatar) {
       this.emit('guildMemberAvatarAdd', newMember, newMember.avatarURL());
@@ -38,7 +40,9 @@ export class GuildMemberUpdateHandler extends BaseHandler<CustomGuildMemberUpdat
 
   @CustomListenerHandler()
   public handleGuildMemberRoles([oldMember, newMember]: ContextOf<'guildMemberUpdate'>) {
-    if (oldMember.partial) return;
+    if (oldMember.partial) {
+      return;
+    }
 
     const addedRoles: Role[] = newMember.roles.cache.reduce(
       (acc, role) => (!oldMember.roles.cache.has(role.id) ? acc.push(role) && acc : acc),
@@ -61,7 +65,9 @@ export class GuildMemberUpdateHandler extends BaseHandler<CustomGuildMemberUpdat
 
   @CustomListenerHandler()
   public handleGuildMemberBoosting([oldMember, newMember]: ContextOf<'guildMemberUpdate'>) {
-    if (oldMember.partial) return;
+    if (oldMember.partial) {
+      return;
+    }
 
     if (!oldMember.premiumSince && newMember.premiumSince) {
       this.emit('guildMemberBoost', newMember);
@@ -74,7 +80,9 @@ export class GuildMemberUpdateHandler extends BaseHandler<CustomGuildMemberUpdat
 
   @CustomListenerHandler()
   public handleGuildMemberNicknameUpdate([oldMember, newMember]: ContextOf<'guildMemberUpdate'>) {
-    if (oldMember.partial) return;
+    if (oldMember.partial) {
+      return;
+    }
 
     if (oldMember.nickname !== newMember.nickname) {
       this.emit('guildMemberNicknameUpdate', newMember, oldMember.nickname, newMember.nickname);
@@ -83,7 +91,9 @@ export class GuildMemberUpdateHandler extends BaseHandler<CustomGuildMemberUpdat
 
   @CustomListenerHandler()
   public handleGuildMemberEntered([oldMember, newMember]: ContextOf<'guildMemberUpdate'>) {
-    if (oldMember.partial) return;
+    if (oldMember.partial) {
+      return;
+    }
 
     if (oldMember.pending !== newMember.pending) {
       this.emit('guildMemberEntered', newMember);

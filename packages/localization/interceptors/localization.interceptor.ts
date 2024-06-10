@@ -83,7 +83,7 @@ export class LocalizationInterceptor implements NestInterceptor, OnModuleInit {
   }
 
   private getTranslationFn(locale: string): TranslationFn {
-    return (key: string, ...args: any[]) => {
+    return (key: string, ...args: unknown[]) => {
       return this.localizationAdapter.getTranslation(key, locale, ...args);
     };
   }

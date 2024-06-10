@@ -6,6 +6,7 @@ import { ListenerDiscovery } from './listener.discovery';
 import { DiscoveryModule, DiscoveryService, MetadataScanner, Reflector } from '@nestjs/core';
 import * as CustomListeners from './handlers';
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const { BaseHandler, ...listeners } = CustomListeners;
 
 @Global()
@@ -28,7 +29,7 @@ export class ListenersModule implements OnModuleInit, OnApplicationBootstrap {
       .forEach((listener) => this.client[listener.getType()](listener.getEvent(), (...args) => listener.execute(args)));
   }
 
-  public onApplicationBootstrap(): any {
+  public onApplicationBootstrap() {
     const wrappers = this.discoveryService.getProviders({
       metadataKey: CustomListener.KEY,
     });

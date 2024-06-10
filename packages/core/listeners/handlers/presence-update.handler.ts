@@ -14,7 +14,9 @@ export type CustomPresenceUpdateEvents = {
 export class PresenceUpdateHandler extends BaseHandler<CustomPresenceUpdateEvents> {
   @CustomListenerHandler()
   public handlePresenceUpdate([oldPresence, newPresence]: ContextOf<'presenceUpdate'>) {
-    if (!oldPresence) return;
+    if (!oldPresence) {
+      return;
+    }
 
     if (oldPresence.status !== 'offline' && newPresence.status === 'offline') {
       this.emit('guildMemberOffline', newPresence.member, oldPresence.status);

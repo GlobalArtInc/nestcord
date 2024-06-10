@@ -21,7 +21,7 @@ export class ListenerDiscovery extends NestCordBaseDiscovery<ListenerMeta> {
     return true;
   }
 
-  public override toJSON(): Record<string, any> {
+  public override toJSON(): ListenerMeta {
     return this.meta;
   }
 }

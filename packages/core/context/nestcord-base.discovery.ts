@@ -7,14 +7,15 @@ import { ModalDiscovery } from '../modals';
 
 interface DiscoveredItem {
   class: any;
-  handler?: (...args: any[]) => any;
+  handler?: (...args: unknown[]) => void;
 }
 
-export abstract class NestCordBaseDiscovery<T = any> {
+export abstract class NestCordBaseDiscovery<T = unknown> {
   protected readonly reflector = new Reflector();
 
   protected discovery: DiscoveredItem;
 
+  // eslint-disable-next-line @typescript-eslint/ban-types
   protected contextCallback: Function;
 
   public constructor(protected readonly meta: T) {}
@@ -31,11 +32,12 @@ export abstract class NestCordBaseDiscovery<T = any> {
     this.discovery ||= meta;
   }
 
+  // eslint-disable-next-line @typescript-eslint/ban-types
   public setContextCallback(fn: Function) {
     this.contextCallback ||= fn;
   }
 
-  public execute(context: any = []) {
+  public execute(context: unknown = []) {
     return this.contextCallback(context, this);
   }
 
