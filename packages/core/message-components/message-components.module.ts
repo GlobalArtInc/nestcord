@@ -25,7 +25,9 @@ export class MessageComponentsModule implements OnModuleInit, OnApplicationBoots
 
   public onApplicationBootstrap() {
     return this.client.on('interactionCreate', (interaction) => {
-      if (!interaction.isMessageComponent()) return;
+      if (!interaction.isMessageComponent()) {
+        return;
+      }
 
       return this.messageComponentsService.get(interaction.componentType, interaction.customId)?.execute(interaction);
     });

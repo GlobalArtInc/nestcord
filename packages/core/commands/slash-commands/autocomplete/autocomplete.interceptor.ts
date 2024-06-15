@@ -17,7 +17,9 @@ export abstract class AutocompleteInterceptor implements NestInterceptor {
     const [interaction] = nestcordContext.getContext<AutocompleteContext>();
     const discovery = nestcordContext.getDiscovery();
 
-    if (!interaction.isAutocomplete() || !discovery.isSlashCommand()) return next.handle();
+    if (!interaction.isAutocomplete() || !discovery.isSlashCommand()) {
+      return next.handle();
+    }
 
     return of(this.transformOptions(interaction));
   }

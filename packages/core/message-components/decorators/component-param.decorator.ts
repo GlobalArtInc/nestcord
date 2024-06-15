@@ -11,11 +11,15 @@ export const ComponentParam = createParamDecorator((data, ctx: ExecutionContext)
   const [interaction] = nestcordContext.getContext<'interactionCreate'>();
   const discovery = nestcordContext.getDiscovery();
 
-  if (!discovery.isMessageComponent() || !interaction.isMessageComponent()) return null;
+  if (!discovery.isMessageComponent() || !interaction.isMessageComponent()) {
+    return null;
+  }
 
   const match = discovery.matcher([interaction.componentType, interaction.customId].join('_'));
 
-  if (!match) return null;
+  if (!match) {
+    return null;
+  }
 
   return data ? match.params[data] : match.params;
 });

@@ -11,7 +11,7 @@ export interface NestCordModuleOptions extends DiscordClientOptions {
   /**
    * If you are using TextCommand, you can specify the prefix here. It can be a string for a static prefix, or a function which returns a string based off the message being sent. If using a function, it can be asynchronous.
    */
-  prefix?: string | Function;
+  prefix?: string | ((...args: unknown[]) => string);
   /**
    * As discord caches application commands for up to an hour, it is recommended to specify a development guild when doing development.
    *

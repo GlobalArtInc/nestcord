@@ -6,7 +6,7 @@ import { SchedulerRegistry } from '@nestjs/schedule';
 import { CronJob } from 'cron';
 import { HttpService } from '@nestjs/axios';
 import { replacePlaceholdersInObject } from '@globalart/text-utils';
-import { catchError, lastValueFrom, tap } from 'rxjs';
+import { lastValueFrom } from 'rxjs';
 
 @Injectable()
 export class NestCordStatReporterService implements OnModuleInit {
@@ -47,8 +47,9 @@ export class NestCordStatReporterService implements OnModuleInit {
 
   private async reportStats(service: ServiceOption) {
     try {
-      const [_, serverCount, shardCount] = await Promise.all([
-        this.client.application.fetch(),
+      await this.client.application.fetch();
+
+      const [serverCount, shardCount] = await Promise.all([
         this.calculateServerCount(),
         Promise.resolve(this.shard?.count || 1),
       ]);
@@ -74,10 +75,12 @@ export class NestCordStatReporterService implements OnModuleInit {
   private async calculateServerCount(): Promise<number> {
     if (this.shard) {
       const shardGuildSizes = (await this.shard.fetchClientValues('guilds.cache.size')) as number[];
+
       return (
         shardGuildSizes.reduce((acc, size) => acc + size, 0) || this.client.application?.approximateGuildCount || 0
       );
     }
+
     return this.client.guilds.cache.size;
   }
 

@@ -1,10 +1,9 @@
-import { Inject, Injectable, Logger } from '@nestjs/common';
+import { Inject, Injectable } from '@nestjs/common';
 import { PaginationBuilder } from './helpers';
 import { NestCordPaginationOptions } from './interfaces';
 import { MODULE_OPTIONS_TOKEN } from './nestcord-pagination.module-definition';
 import { PaginationAction } from './enums';
 import { ButtonStyle } from 'discord.js';
-import * as deepMerge from 'deepmerge';
 
 @Injectable()
 export class NestCordPaginationService {

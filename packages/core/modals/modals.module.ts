@@ -23,7 +23,9 @@ export class ModalsModule implements OnModuleInit, OnApplicationBootstrap {
 
   public onApplicationBootstrap() {
     return this.client.on('interactionCreate', (interaction) => {
-      if (!interaction.isModalSubmit()) return;
+      if (!interaction.isModalSubmit()) {
+        return;
+      }
 
       return this.modalsService.get(interaction.customId)?.execute(interaction);
     });

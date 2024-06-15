@@ -43,7 +43,9 @@ export class ExplorerService<T extends NestCordBaseDiscovery> extends Reflector 
 
     return this.metadataScanner.getAllMethodNames(prototype).map((methodName) => {
       const item = this.get<T>(metadataKey, instance[methodName]);
-      if (!item) return;
+      if (!item) {
+        return;
+      }
 
       item.setDiscoveryMeta({ class: instance.constructor, handler: instance[methodName] });
       item.setContextCallback(this.createContextCallback(instance, prototype, methodName));

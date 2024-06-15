@@ -13,10 +13,13 @@ export const Options = createParamDecorator(
     const [interaction] = nestcordContext.getContext<SlashCommandContext>();
     const discovery = nestcordContext.getDiscovery();
 
-    if (!discovery.isSlashCommand()) return null;
+    if (!discovery.isSlashCommand()) {
+      return null;
+    }
 
     return Object.entries(discovery.getRawOptions()).reduce((acc, [parameter, option]) => {
       acc[parameter] = interaction.options[option.resolver].call(interaction.options, option.name, !!option.required);
+
       return acc;
     }, {});
   },

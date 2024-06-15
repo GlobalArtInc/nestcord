@@ -10,7 +10,9 @@ export const Arguments = createParamDecorator((_, context: ExecutionContext) => 
   const [message] = nestcordContext.getContext<TextCommandContext>();
   const discovery = nestcordContext.getDiscovery();
 
-  if (!discovery.isTextCommand()) return null;
+  if (!discovery.isTextCommand()) {
+    return null;
+  }
 
   return message.content.split(/ +/g).slice(1);
 });

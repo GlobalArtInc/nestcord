@@ -48,7 +48,7 @@ export class NestCordModule extends ConfigurableModuleClass implements OnApplica
     return this.client.login(this.options.token);
   }
 
-  public onApplicationShutdown(signal?: string) {
+  public onApplicationShutdown() {
     return this.client.destroy();
   }
 }

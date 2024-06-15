@@ -25,7 +25,9 @@ export class ContextMenusModule implements OnModuleInit, OnApplicationBootstrap 
 
   public onApplicationBootstrap() {
     return this.client.on('interactionCreate', (interaction) => {
-      if (!interaction.isContextMenuCommand()) return;
+      if (!interaction.isContextMenuCommand()) {
+        return;
+      }
 
       return this.contextMenusService.get(interaction.commandType, interaction.commandName)?.execute(interaction);
     });

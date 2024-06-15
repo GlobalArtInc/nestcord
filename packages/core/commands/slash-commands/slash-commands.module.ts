@@ -27,7 +27,9 @@ export class SlashCommandsModule implements OnModuleInit, OnApplicationBootstrap
 
   public onApplicationBootstrap() {
     return this.client.on('interactionCreate', (i) => {
-      if (!i.isChatInputCommand() && !i.isAutocomplete()) return;
+      if (!i.isChatInputCommand() && !i.isAutocomplete()) {
+        return;
+      }
 
       return this.slashCommandsService.get(i.commandName)?.execute(i);
     });

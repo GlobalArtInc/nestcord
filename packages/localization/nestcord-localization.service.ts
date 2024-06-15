@@ -30,6 +30,7 @@ export class NestCordLocalizationService implements OnModuleInit {
     });
 
     for (const command of commands) {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const commandMetadata: Record<string, any> = command['meta'];
       commandMetadata.nameLocalizations = this.getLocalizationMap(commandMetadata.nameLocalizations);
       commandMetadata.descriptionLocalizations = this.getLocalizationMap(commandMetadata.descriptionLocalizations);
@@ -38,6 +39,7 @@ export class NestCordLocalizationService implements OnModuleInit {
         const rawOptions = command.getRawOptions();
 
         for (const key in rawOptions) {
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
           const optionMetadata: Record<string, any> = rawOptions[key];
           optionMetadata.name_localizations = this.getLocalizationMap(optionMetadata.name_localizations);
           optionMetadata.description_localizations = this.getLocalizationMap(optionMetadata.description_localizations);
@@ -53,10 +55,13 @@ export class NestCordLocalizationService implements OnModuleInit {
   }
 
   private getLocalizationMap(map: LocalizationMap): LocalizationMap {
-    if (!map) return;
+    if (!map) {
+      return;
+    }
 
     return Object.entries(map).reduce((acc, [locale, value]) => {
       acc[locale] = this.localizationAdapter.getTranslation(value, locale);
+
       return acc;
     }, {});
   }
