@@ -8,7 +8,6 @@ export class NestCordParamsFactory implements ParamsFactory {
     if (!args) {
       return null;
     }
-
     switch (type as NestCordParamType) {
       case NestCordParamType.CONTEXT:
         return args[0];

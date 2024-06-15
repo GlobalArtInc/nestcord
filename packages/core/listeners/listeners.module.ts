@@ -24,9 +24,20 @@ export class ListenersModule implements OnModuleInit, OnApplicationBootstrap {
   ) {}
 
   public onModuleInit() {
-    return this.explorerService
-      .explore(Listener.KEY)
-      .forEach((listener) => this.client[listener.getType()](listener.getEvent(), (...args) => listener.execute(args)));
+    const explorer = this.explorerService.explore(Listener.KEY);
+
+    explorer.forEach((listener) => {
+      const eventType = listener.getType();
+      const event = listener.getEvent();
+
+      if (Array.isArray(event)) {
+        event.forEach((e) => {
+          this.client[eventType](e, (...args) => listener.execute(args));
+        });
+      } else {
+        this.client[eventType](event, (...args) => listener.execute(args));
+      }
+    });
   }
 
   public onApplicationBootstrap() {

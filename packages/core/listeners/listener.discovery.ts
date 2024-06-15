@@ -2,7 +2,7 @@ import { NestCordBaseDiscovery } from '../context';
 
 export interface ListenerMeta {
   type: 'once' | 'on';
-  event: string | symbol | number;
+  event: string | string[];
 }
 
 /**
@@ -14,7 +14,7 @@ export class ListenerDiscovery extends NestCordBaseDiscovery<ListenerMeta> {
   }
 
   public getEvent() {
-    return this.meta.event.toString();
+    return Array.isArray(this.meta.event) ? this.meta.event : this.meta.event.toString();
   }
 
   public isListener(): this is ListenerDiscovery {
