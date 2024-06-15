@@ -14,7 +14,7 @@ export class ListenerDiscovery extends NestCordBaseDiscovery<ListenerMeta> {
   }
 
   public getEvent() {
-    return Array.isArray(this.meta.event) ? this.meta.event : this.meta.event.toString();
+    return this.meta.event.toString();
   }
 
   public isListener(): this is ListenerDiscovery {
