@@ -1,5 +1,5 @@
 import { CommandContext, LocaleResolver } from '../interfaces';
-import { ExecutionContext, Inject, Injectable } from '@nestjs/common';
+import { ExecutionContext, Injectable } from '@nestjs/common';
 import { NestCordExecutionContext } from '../../core';
 
 @Injectable()

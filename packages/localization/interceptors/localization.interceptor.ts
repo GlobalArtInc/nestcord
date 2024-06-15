@@ -36,7 +36,13 @@ export class LocalizationInterceptor implements NestInterceptor, OnModuleInit {
     const nestcordContext = NestCordExecutionContext.create(context);
     const discovery = nestcordContext.getDiscovery();
 
-    if (!discovery.isSlashCommand() && !discovery.isContextMenu() && !discovery.isMessageComponent()) {
+    const isNotSpecialCase =
+      !discovery.isSlashCommand() &&
+      !discovery.isContextMenu() &&
+      !discovery.isListener() &&
+      !discovery.isMessageComponent();
+
+    if (isNotSpecialCase) {
       return next.handle();
     }
 
