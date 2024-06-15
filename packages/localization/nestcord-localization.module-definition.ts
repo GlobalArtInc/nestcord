@@ -21,7 +21,12 @@ export const { ConfigurableModuleClass, MODULE_OPTIONS_TOKEN } =
         };
         const resolversProviders: Provider = {
           provide: LOCALIZATION_RESOLVERS,
-          useValue: Array.isArray(extras.resolvers) ? extras.resolvers : [extras.resolvers],
+          useFactory: (options: NestCordLocalizationOptions) => {
+            const resolvers = options?.resolvers || extras.resolvers;
+
+            return Array.isArray(resolvers) ? resolvers : [resolvers];
+          },
+          inject: [MODULE_OPTIONS_TOKEN],
         };
 
         return {

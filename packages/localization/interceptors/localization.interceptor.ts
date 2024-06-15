@@ -29,7 +29,9 @@ export class LocalizationInterceptor implements NestInterceptor, OnModuleInit {
   }
 
   public async intercept(context: ExecutionContext, next: CallHandler<any>): Promise<Observable<any>> {
-    if (context.getType<NestCordContextType>() !== 'nestcord') return next.handle();
+    if (context.getType<NestCordContextType>() !== 'nestcord') {
+      return next.handle();
+    }
 
     const nestcordContext = NestCordExecutionContext.create(context);
     const discovery = nestcordContext.getDiscovery();
