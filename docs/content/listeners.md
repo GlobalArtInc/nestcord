@@ -35,6 +35,31 @@ export class AppService {
 }
 ```
 
+Also you can use array in events
+
+```typescript title"src/app.service.ts"
+import {Injectable, Logger} from '@nestjs/common';
+import { On, Context, ListenerDiscovery, ContextOf} from '@globalart/nestcord';
+
+@Injectable()
+export class AppService {
+    private readonly logger = new Logger(AppService.name);
+
+    @On(['voiceChannelJoin', 'voiceChannelLeave'])
+    onVoiceChannelEvents(@Discovery() discovery: ListenerDiscovery) {
+      const event = discovery.getEvent();
+      switch (event) {
+        case 'voiceChannelJoin':
+          this.logger.log('voiceChannelJoin emit');
+          break;
+        case 'voiceChannelLeave':
+          this.logger.log('voiceChannelLeave emit');
+          break;
+      }
+    }
+}
+```
+
 :::caution Warning
 
 If you use global filters, guards or interceptors, they will be triggered once per event!  
