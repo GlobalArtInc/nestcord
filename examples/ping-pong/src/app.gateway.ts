@@ -10,6 +10,7 @@ import {
   Button,
   ButtonContext,
   DeferCommandInterceptor,
+  On,
 } from '../../../packages';
 import { ActionRowBuilder, ButtonBuilder, ButtonStyle } from 'discord.js';
 
@@ -18,8 +19,13 @@ export class AppGateway {
   private readonly logger = new Logger(AppGateway.name);
 
   @Once('ready')
+  onBotReadys(@Context() [client]: ContextOf<'ready'>) {
+    this.logger.debug(`Logged as from string`);
+  }
+
+  @Once(['ready', 'voiceChannelJoin'])
   onBotReady(@Context() [client]: ContextOf<'ready'>) {
-    this.logger.log(`Bot logged in as ${client.user.username}`);
+    this.logger.debug(`Logged as from array`);
   }
 
   @UseInterceptors(DeferCommandInterceptor)
