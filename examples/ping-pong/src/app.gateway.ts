@@ -1,8 +1,6 @@
 import { Injectable, Logger, UseInterceptors } from '@nestjs/common';
 import {
-  Once,
   Context,
-  ContextOf,
   SlashCommand,
   SlashCommandContext,
   TextCommand,
@@ -10,6 +8,9 @@ import {
   Button,
   ButtonContext,
   DeferCommandInterceptor,
+  Discovery,
+  ListenerDiscovery,
+  On,
 } from '../../../packages';
 import { ActionRowBuilder, ButtonBuilder, ButtonStyle } from 'discord.js';
 
@@ -17,9 +18,20 @@ import { ActionRowBuilder, ButtonBuilder, ButtonStyle } from 'discord.js';
 export class AppGateway {
   private readonly logger = new Logger(AppGateway.name);
 
-  @Once('ready')
-  onBotReady(@Context() [client]: ContextOf<'ready'>) {
-    this.logger.log(`Bot logged in as ${client.user.username}`);
+  @On(['ready', 'voiceChannelJoin', 'voiceChannelLeave'])
+  onVoiceChannelEvents(@Discovery() discovery: ListenerDiscovery) {
+    const event = discovery.getEvent();
+    console.log(event);
+    switch (event) {
+      case 'voiceChannelJoin':
+        this.logger.debug('voiceChannelJoin emit');
+        break;
+      case 'voiceChannelLeave':
+        this.logger.debug('voiceChannelLeave emit');
+        break;
+      case 'ready':
+        this.logger.debug('ready emit');
+    }
   }
 
   @UseInterceptors(DeferCommandInterceptor)
