@@ -24,8 +24,8 @@ dependencies:
     specifier: ^4.3.1
     version: 4.3.1
   path-to-regexp:
-    specifier: ^6.2.2
-    version: 6.2.2
+    specifier: ^7.0.0
+    version: 7.0.0
 
 devDependencies:
   '@commitlint/cli':
@@ -4124,8 +4124,9 @@ packages:
   /path-to-regexp@3.2.0:
     resolution: {integrity: sha512-jczvQbCUS7XmS7o+y1aEO9OBVFeZBQ1MDSEqmO7xSoPgOPoowY/SxLpZ6Vh97/8qHZOteiCKb7gkG9gA2ZUxJA==}
 
-  /path-to-regexp@6.2.2:
-    resolution: {integrity: sha512-GQX3SSMokngb36+whdpRXE+3f9V8UzyAorlYvOGx87ufGHehNTn5lCxrKtLyZ4Yl/wEKnNnr98ZzOwwDZV5ogw==}
+  /path-to-regexp@7.0.0:
+    resolution: {integrity: sha512-58Y94bQqF3zBIASFNiufRPH1NfgZth1qwZ35radL87sg8pgbVqr6uikAhqZtFD+w65MGH6SWnY/ly3GbrM4fbg==}
+    engines: {node: '>=16'}
     dev: false
 
   /path-type@4.0.0:
