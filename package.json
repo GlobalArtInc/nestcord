@@ -52,7 +52,7 @@
 		"axios": "^1.7.2",
 		"cron": "^3.1.7",
 		"deepmerge": "^4.3.1",
-		"path-to-regexp": "^6.2.2"
+		"path-to-regexp": "^7.0.0"
 	},
 	"devDependencies": {
 		"@commitlint/cli": "19.3.0",
