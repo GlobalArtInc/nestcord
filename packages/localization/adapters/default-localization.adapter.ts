@@ -22,6 +22,10 @@ export class DefaultLocalizationAdapter extends BaseLocalizationAdapter<DefaultL
       : this.getTranslation(key, this.options.fallbackLocale, placeholders);
   }
 
+  public updateLocales(locales: Record<string, Record<string, string>>) {
+    this.options.locales = locales;
+  }
+
   private getTranslations(locale: string): Record<string, string> {
     return this.options?.locales?.[locale] || {};
   }
