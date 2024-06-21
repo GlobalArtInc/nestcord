@@ -291,9 +291,10 @@ export class AppService {
     description: 'Update translations',
   })
   updateTranslations(@Context() [interaction]: SlashCommandContext) {
-    // Get translations logic
+    // Get data from API
+
     this.nestCordLocalizationService.updateLocales({
-      // or you can put it from API
+      // static translates for test or you can put it from API
       'en-US': {
         'commands.ping.description': 'My new translation',
       },
