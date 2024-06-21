@@ -13,6 +13,15 @@ export class NestCordLocalizationService implements OnModuleInit {
   ) {}
 
   public onModuleInit() {
+    this.updateCommandsLocalization();
+  }
+
+  async updateLocales(locales: any) {
+    this.localizationAdapter.updateLocales(locales);
+    this.updateCommandsLocalization();
+  }
+
+  private updateCommandsLocalization() {
     const commands = this.commandsService.getCommands().flatMap((command) => {
       if (command.isContextMenu()) {
         return command;
@@ -30,7 +39,6 @@ export class NestCordLocalizationService implements OnModuleInit {
     });
 
     for (const command of commands) {
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const commandMetadata: Record<string, any> = command['meta'];
       commandMetadata.nameLocalizations = this.getLocalizationMap(commandMetadata.nameLocalizations);
       commandMetadata.descriptionLocalizations = this.getLocalizationMap(commandMetadata.descriptionLocalizations);
@@ -39,7 +47,6 @@ export class NestCordLocalizationService implements OnModuleInit {
         const rawOptions = command.getRawOptions();
 
         for (const key in rawOptions) {
-          // eslint-disable-next-line @typescript-eslint/no-explicit-any
           const optionMetadata: Record<string, any> = rawOptions[key];
           optionMetadata.name_localizations = this.getLocalizationMap(optionMetadata.name_localizations);
           optionMetadata.description_localizations = this.getLocalizationMap(optionMetadata.description_localizations);
