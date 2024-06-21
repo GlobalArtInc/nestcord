@@ -269,4 +269,39 @@ properties
 })
 ```
 
+## Update localization without restarting the app
+If you get translations from the external API, for example, crowdin, weblate, or another translation services.
+You can update it just call the `localizationService`
+
+```typescript
+import {
+  Context,
+  NestCordLocalizationService,
+  SlashCommand,
+  SlashCommandContext,
+} from '@globalart/nestcord';
+
+export class AppService {
+  constructor(
+    private readonly nestCordLocalizationService: NestCordLocalizationService,
+  ) {}
+
+  @SlashCommand({
+    name: 'update_translations',
+    description: 'Update translations',
+  })
+  updateTranslations(@Context() [interaction]: SlashCommandContext) {
+    // Get translations logic
+    this.nestCordLocalizationService.updateLocales({
+      // or you can put it from API
+      'en-US': {
+        'commands.ping.description': 'My new translation',
+      },
+    });
+
+    return interaction.reply({ content: "Updated successful" });
+  }
+}
+```
+
 Congratulations! You have successfully created your first localized command with NestCord!
