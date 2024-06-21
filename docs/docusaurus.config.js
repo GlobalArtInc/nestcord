@@ -109,7 +109,7 @@ const config = {
 				{
 					label: 'Community',
 					position: 'left',
-					href: 'https://discord.com/invite/BBFhU8g'
+					href: 'https://discord.com/invite/4Tc9hssSAv'
 				},
 
 				{
