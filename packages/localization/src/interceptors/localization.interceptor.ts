@@ -1,7 +1,7 @@
 import { CallHandler, ExecutionContext, Inject, Injectable, NestInterceptor, OnModuleInit, Type } from '@nestjs/common';
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
-import { NestCordContextType, NestCordExecutionContext } from '../../core';
+import { NestCordContextType, NestCordExecutionContext } from '../../../core';
 import { LOCALIZATION_ADAPTER, LOCALIZATION_RESOLVERS } from '../providers';
 import { BaseLocalizationAdapter } from '../adapters';
 import { LocaleResolver, TranslationFn } from '../interfaces';

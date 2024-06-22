@@ -1,5 +1,5 @@
 import { Inject, Injectable, OnModuleInit } from '@nestjs/common';
-import { CommandDiscovery, CommandsService } from '../core';
+import { CommandDiscovery, CommandsService } from '../../core';
 import { LocalizationMap } from 'discord-api-types/v10';
 import { LOCALIZATION_ADAPTER } from './providers';
 import { DefaultLocalizationAdapter } from './adapters';
