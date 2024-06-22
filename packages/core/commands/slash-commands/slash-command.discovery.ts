@@ -18,6 +18,7 @@ export interface SlashCommandMeta extends ChatInputApplicationCommandData {
     | ApplicationCommandType.ChatInput
     | ApplicationCommandOptionType.SubcommandGroup
     | ApplicationCommandOptionType.Subcommand;
+  category?: string;
   guilds?: Snowflake[];
 }
 

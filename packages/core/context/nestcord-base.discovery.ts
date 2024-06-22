@@ -18,7 +18,7 @@ export abstract class NestCordBaseDiscovery<T = unknown> {
   // eslint-disable-next-line @typescript-eslint/ban-types
   protected contextCallback: Function;
 
-  public constructor(protected readonly meta: T) {}
+  public constructor(public readonly meta: T) {}
 
   public getClass() {
     return this.discovery?.class;

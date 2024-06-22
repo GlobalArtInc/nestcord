@@ -72,6 +72,17 @@ export class CommandsService {
     return collection;
   }
 
+  public getCommandsByCategoryMap(): Map<string, CommandDiscovery[]> {
+    return this.getCommands().reduce(
+      (map, command) =>
+        map.set(
+          command.meta.category || 'no_group',
+          (map.get(command.meta.category || 'no_group') || []).concat(command),
+        ),
+      new Map(),
+    );
+  }
+
   public getCommandByName(name: string): CommandDiscovery {
     return this.getCommands().find((command) => command.getName() === name);
   }
