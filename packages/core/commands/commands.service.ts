@@ -73,14 +73,21 @@ export class CommandsService {
   }
 
   public getCommandsByCategoryMap(): Map<string, CommandDiscovery[]> {
-    return this.getCommands().reduce(
-      (map, command) =>
-        map.set(
-          command.meta.category || 'no_group',
-          (map.get(command.meta.category || 'no_group') || []).concat(command),
-        ),
-      new Map(),
-    );
+    return this.getCommands().reduce((map, command) => {
+      const category = command.meta.category || 'no_group';
+      if (!map.has(category)) {
+        map.set(category, []);
+      }
+      map.get(category)!.push(command);
+      return map;
+    }, new Map<string, CommandDiscovery[]>());
+  }
+
+  public getCommandsMap(): Map<string, CommandDiscovery> {
+    return this.getCommands().reduce((map, command) => {
+      map.set(command.getName(), command);
+      return map;
+    }, new Map<string, CommandDiscovery>());
   }
 
   public getCommandByName(name: string): CommandDiscovery {
