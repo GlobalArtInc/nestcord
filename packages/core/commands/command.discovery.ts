@@ -3,6 +3,7 @@ import { NestCordBaseDiscovery } from '../context';
 
 export interface BaseCommandMeta extends BaseApplicationCommandData {
   guilds?: Snowflake[];
+  category?: string;
 }
 
 /**
