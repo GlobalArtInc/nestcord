@@ -7,6 +7,7 @@ import {
   GuildResolver,
   NestCordLocalizationModule,
   NestCordPaginationModule,
+  PaginatorTypeEnum,
   UserResolver,
 } from '../../../packages';
 
