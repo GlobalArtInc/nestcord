@@ -24,15 +24,17 @@ export class CommandsModule implements OnModuleInit, OnApplicationBootstrap {
   ) {}
 
   async onModuleInit() {
-    if (this.options.skipRegistration) {
-      return;
-    }
-
     this.client.once('ready', async () => {
+      await this.client.application.commands.fetch();
+      this.commandsService.getAllCommandsAndSetAdditionalMeta();
+      if (this.options.skipRegistration) {
+        return;
+      }
       if (this.client.application.partial) {
         await this.client.application.fetch();
       }
       await this.commandsService.registerAllCommands();
+      this.commandsService.getAllCommandsAndSetAdditionalMeta();
     });
   }
 

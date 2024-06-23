@@ -23,6 +23,10 @@ export class SlashCommandsService {
     this.cache.set(command.getName(), command);
   }
 
+  public update(command: SlashCommandDiscovery): void {
+    this.cache.set(command.getName(), command);
+  }
+
   public get(commandName: string): SlashCommandDiscovery {
     return this.cache.get(commandName);
   }

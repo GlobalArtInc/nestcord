@@ -20,6 +20,7 @@ export interface SlashCommandMeta extends ChatInputApplicationCommandData {
     | ApplicationCommandOptionType.Subcommand;
   category?: string;
   guilds?: Snowflake[];
+  discordResponse?: any;
 }
 
 export interface OptionMeta extends APIApplicationCommandOptionBase<any> {
@@ -93,7 +94,7 @@ export class SlashCommandDiscovery extends CommandDiscovery<SlashCommandMeta> {
    * @param interaction
    * @param depth
    */
-  public execute(interaction: ChatInputCommandInteraction | AutocompleteInteraction, depth = 1): any {
+  public execute(interaction: ChatInputCommandInteraction | AutocompleteInteraction, depth = 1) {
     if (this.subcommands.size >= 1) {
       const commandName =
         depth === 2

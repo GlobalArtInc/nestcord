@@ -1,9 +1,10 @@
-import { BaseApplicationCommandData, Snowflake } from 'discord.js';
+import { ApplicationCommand, BaseApplicationCommandData, Snowflake } from 'discord.js';
 import { NestCordBaseDiscovery } from '../context';
 
 export interface BaseCommandMeta extends BaseApplicationCommandData {
   guilds?: Snowflake[];
   category?: string;
+  discordResponse?: ApplicationCommand;
 }
 
 /**
@@ -11,6 +12,20 @@ export interface BaseCommandMeta extends BaseApplicationCommandData {
  * @abstract
  */
 export abstract class CommandDiscovery<T extends BaseCommandMeta = BaseCommandMeta> extends NestCordBaseDiscovery<T> {
+  /**
+   * Return the command ID
+   */
+  public getId() {
+    return this.meta.discordResponse?.id;
+  }
+
+  /**
+   * Return the discord response of command
+   */
+  public getDiscordResponse() {
+    return this.meta.discordResponse;
+  }
+
   /**
    * Returns the command name.
    */

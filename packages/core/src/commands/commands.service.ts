@@ -2,7 +2,7 @@ import { Injectable, Logger } from '@nestjs/common';
 import { Client, Collection } from 'discord.js';
 import { CommandDiscovery } from './command.discovery';
 import { ContextMenusService } from './context-menus';
-import { SlashCommandsService } from './slash-commands';
+import { SlashCommandDiscovery, SlashCommandsService } from './slash-commands';
 
 /**
  * Represents a service that manages commands.
@@ -108,5 +108,21 @@ export class CommandsService {
 
   public getGuildCommandByName(guildId: string, name: string): CommandDiscovery {
     return this.getGuildCommands(guildId).find((command) => command.getName() === name);
+  }
+
+  public getAllCommandsAndSetAdditionalMeta() {
+    const commands = this.getCommandsMap();
+    const commandsCache = this.client.application.commands.cache;
+    const matchingCommands = Array.from(commandsCache.values()).filter((command) => commands.has(command.name));
+    for (const command of matchingCommands) {
+      const commandByName = commands.get(command.name) as unknown as SlashCommandDiscovery;
+      if (commandByName.meta) {
+        commandByName.meta.discordResponse = command;
+      } else {
+        // @ts-ignore
+        commandByName.meta = { discordResponse: command };
+      }
+      this.slashCommandsService.update(commandByName);
+    }
   }
 }
