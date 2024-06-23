@@ -1,24 +1,15 @@
-import {
-  ActionRowBuilder,
-  BaseInteraction,
-  BaseMessageOptions as PageOptions,
-  ButtonBuilder,
-  ButtonStyle,
-} from 'discord.js';
-import { PageBuilder } from './page-builder.helper';
-import { ButtonAppearance, NestCordPaginationOptions } from '../interfaces';
-import { PaginationAction } from '../enums';
+import { ActionRowBuilder, BaseMessageOptions as PageOptions, ButtonBuilder, ButtonStyle } from 'discord.js';
+import { ButtonAppearance } from '../interfaces';
+import { BasePaginationBuilder } from './base-pagination.builder';
+import { PageBuilder } from './page.builder';
 import assert = require('assert');
 
 type PagesFactory = (page: number, maxPages: number) => Promise<PageBuilder>;
-type PagesFilter = (interaction: BaseInteraction) => Promise<boolean>;
 
-export class PaginationBuilder {
-  public customId: string;
-  public customOptions: string[];
+export class ButtonsPaginationBuilder extends BasePaginationBuilder {
   public buttons: ButtonAppearance[][];
-  private _maxPages: number;
   private pages: PageBuilder[] = [];
+  private _maxPages: number;
   private pagesFactory: PagesFactory;
 
   public get maxPages(): number {
@@ -33,44 +24,31 @@ export class PaginationBuilder {
     this._maxPages = value;
   }
 
-  /**
-   *  Developer-defined identifier for the button;
-   */
-  setCustomId(value: string) {
-    this.customId = value;
-    return this;
-  }
-
-  public setMaxPages(maxPages: number): this {
-    this.maxPages = maxPages;
-    return this;
-  }
-
   public setPages(pages: PageBuilder[]): this {
     this.pages = pages;
+
+    return this;
+  }
+
+  setButtons(buttons: ButtonAppearance[][]): this {
+    this.buttons = buttons;
+
     return this;
   }
 
   public setPagesFactory(factory: PagesFactory): this {
     this.pagesFactory = factory;
+
     return this;
   }
 
-  /**
-   * Set buttons for the navigation
-   */
-  setButtons(buttons: ButtonAppearance[][]) {
-    this.buttons = buttons;
+  public setMaxPages(maxPages: number): this {
+    this.maxPages = maxPages;
+
     return this;
   }
 
-  private readonly options: NestCordPaginationOptions;
-
-  public constructor(options: NestCordPaginationOptions) {
-    this.options = options;
-  }
-
-  public async build(page = 1): Promise<PageOptions> {
+  async build(page = 1): Promise<PageOptions> {
     page = Math.max(1, Math.min(page, this.maxPages)) || 1;
     assert(!!this.customId, 'Custom id must be set');
     assert(!!this.pagesFactory || this.pages.length >= 1, 'Pages factory must be set if no pages are provided');

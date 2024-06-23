@@ -1,62 +1,42 @@
 import { Inject, Injectable } from '@nestjs/common';
-import { PaginationBuilder } from './helpers';
 import { NestCordPaginationOptions } from './interfaces';
 import { MODULE_OPTIONS_TOKEN } from './nestcord-pagination.module-definition';
-import { PaginationAction } from './enums';
-import { ButtonStyle } from 'discord.js';
+import { PaginatorTypeEnum } from './enums';
+import { ButtonsPaginationBuilder } from './builders/buttons-padgination.builder';
+import { SelectMenuPaginationBuilder } from './builders/select-menu-pagination.builder';
+import { PaginationBuilder } from './types/paginator-builder.type';
 
 @Injectable()
 export class NestCordPaginationService {
-  private static readonly DEFAULT_OPTIONS: NestCordPaginationOptions = {
-    allowTraversal: false,
-    allowSkip: false,
-    buttons: {
-      [PaginationAction.First]: {
-        label: 'First',
-        emoji: '⏮️',
-        style: ButtonStyle.Primary,
-      },
-      [PaginationAction.Back]: {
-        label: 'Previous',
-        emoji: '⏪',
-        style: ButtonStyle.Primary,
-      },
-      [PaginationAction.Next]: {
-        label: 'Next',
-        emoji: '⏩',
-        style: ButtonStyle.Primary,
-      },
-      [PaginationAction.Last]: {
-        label: 'Last',
-        emoji: '⏭️',
-        style: ButtonStyle.Primary,
-      },
-      [PaginationAction.Traverse]: {
-        label: 'Traverse',
-        emoji: '🔢',
-        style: ButtonStyle.Primary,
-      },
-    },
-  };
-
-  private readonly cache = new Map<string, PaginationBuilder>();
+  private readonly cache = new Map<string, PaginationBuilder<PaginatorTypeEnum>>();
 
   public constructor(
     @Inject(MODULE_OPTIONS_TOKEN)
     private readonly options: NestCordPaginationOptions,
-  ) {
-    this.options = options;
+  ) {}
+
+  public register(
+    paginatorType: PaginatorTypeEnum,
+    factory: (builder: PaginationBuilder<PaginatorTypeEnum>) => PaginationBuilder<PaginatorTypeEnum>,
+  ): PaginationBuilder<PaginatorTypeEnum> {
+    switch (paginatorType) {
+      case PaginatorTypeEnum.BUTTONS: {
+        const builder = factory(new ButtonsPaginationBuilder(this.options));
+        this.cache.set(builder.customId, builder);
+        return builder;
+      }
+      case PaginatorTypeEnum.SELECT_MENU: {
+        const builder = factory(new SelectMenuPaginationBuilder(this.options));
+        this.cache.set(builder.customId, builder);
+        return builder;
+      }
+      default:
+        throw new Error(`Unsupported paginator type: ${this.options.type}`);
+    }
   }
 
-  public register(factory: (builder: PaginationBuilder) => PaginationBuilder): PaginationBuilder {
-    const builder = factory(new PaginationBuilder(this.options));
-    this.cache.set(builder.customId, builder);
-
-    return builder;
-  }
-
-  public get(customId: string): PaginationBuilder {
-    return this.cache.get(customId);
+  public get<T extends PaginatorTypeEnum>(customId: string): PaginationBuilder<T> | undefined {
+    return this.cache.get(customId) as PaginationBuilder<T> | undefined;
   }
 
   public delete(customId: string): boolean {
