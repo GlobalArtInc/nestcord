@@ -25,4 +25,9 @@ export interface NestCordModuleOptions extends DiscordClientOptions {
    * If skipRegistration is true, nestcord would not automatically register your application commands with Discord. You would have to register the application commands manually.
    */
   skipRegistration?: boolean;
+
+  /**
+   * If true, the bot won't fetch data from the Discord API, and discordResponse in the commandDiscovery will be null."
+   */
+  skipGetCommandInfoFromDiscord?: boolean;
 }

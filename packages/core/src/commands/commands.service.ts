@@ -115,7 +115,7 @@ export class CommandsService {
     const commandsCache = this.client.application.commands.cache;
     const matchingCommands = Array.from(commandsCache.values()).filter((command) => commands.has(command.name));
     for (const command of matchingCommands) {
-      const commandByName = commands.get(command.name) as unknown as SlashCommandDiscovery;
+      const commandByName = commands.get(command.name) as SlashCommandDiscovery;
       if (commandByName.meta) {
         commandByName.meta.discordResponse = command;
       }

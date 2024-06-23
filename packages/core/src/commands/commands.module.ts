@@ -25,17 +25,27 @@ export class CommandsModule implements OnModuleInit, OnApplicationBootstrap {
 
   async onModuleInit() {
     this.client.once('ready', async () => {
+      await this.initializeClient();
+    });
+  }
+
+  private async initializeClient() {
+    const { skipGetCommandInfoFromDiscord, skipRegistration } = this.options;
+
+    if (!skipGetCommandInfoFromDiscord) {
       await this.client.application.commands.fetch();
       this.commandsService.getAllCommandsAndSetAdditionalMeta();
-      if (this.options.skipRegistration) {
-        return;
-      }
+    }
+
+    if (!skipRegistration) {
       if (this.client.application.partial) {
         await this.client.application.fetch();
       }
       await this.commandsService.registerAllCommands();
-      this.commandsService.getAllCommandsAndSetAdditionalMeta();
-    });
+      if (!skipGetCommandInfoFromDiscord) {
+        this.commandsService.getAllCommandsAndSetAdditionalMeta();
+      }
+    }
   }
 
   onApplicationBootstrap() {
