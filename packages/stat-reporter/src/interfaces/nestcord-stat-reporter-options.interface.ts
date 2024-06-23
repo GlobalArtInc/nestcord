@@ -3,53 +3,49 @@ import { StatCronExpression } from '../enums';
 
 export interface ServiceOption {
   /**
-   * Stat service name
-   * @returns string
+   * The name of the stat service.
    */
   name: string;
 
   /**
-   * Stat service api url to send the body data
-   * @returns string;
+   * The API URL of the stat service where the body data will be sent.
    */
   url: string;
 
   /**
-   * Stat service request method
-   * @returns RequestMethod
+   * The HTTP request method to use for the stat service.
    */
   method?: Method;
 
   /**
-   *  Stat service body data
-   *  @returns Record<string, unknown>
+   * The body data to send to the stat service.
    */
   bodyData: Record<string, unknown>;
 
   /**
-   *  Stat service header data
-   *  @returns Record<string, unknown>
+   * The header data to include in the request to the stat service.
    */
   headerData?: RawAxiosRequestHeaders;
 
   /**
-   * Crontab expression
-   * @returns StatCronExpression
-   * @returns string
+   * The crontab expression that defines the schedule for the stat service.
    */
   schedule?: StatCronExpression | string;
 }
 
 export interface NestCordStatReporterOptions {
-  services: ServiceOption[];
   /**
-   * If true skip all jobs
+   * The list of stat service options.
+   */
+  services: ServiceOption[];
+
+  /**
+   * If true, skip all jobs.
    */
   development?: boolean;
 
   /**
-   * Show log
-   * @returns boolean
+   * If true, enable logging.
    */
   log?: boolean;
 }

@@ -29,7 +29,11 @@ export class NestCordStatReporterService implements OnModuleInit {
   }
 
   private isFirstShard(): boolean {
-    return this.shard?.ids?.[0] === 0 || !this.shard;
+    if (!this.shard || !Array.isArray(this.shard.ids)) {
+      return false;
+    }
+
+    return this.shard.ids[0] === 0;
   }
 
   private isProduction(): boolean {
@@ -90,7 +94,7 @@ export class NestCordStatReporterService implements OnModuleInit {
     }
   }
 
-  private logErrors(serviceName, error: Error) {
+  private logErrors(serviceName: string, error: Error) {
     if (this.options.log ?? true) {
       this.logger.error(`Error reporting stats for ${serviceName}`, error);
     }
