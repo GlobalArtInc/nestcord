@@ -118,9 +118,6 @@ export class CommandsService {
       const commandByName = commands.get(command.name) as unknown as SlashCommandDiscovery;
       if (commandByName.meta) {
         commandByName.meta.discordResponse = command;
-      } else {
-        // @ts-ignore
-        commandByName.meta = { discordResponse: command };
       }
       this.slashCommandsService.update(commandByName);
     }
