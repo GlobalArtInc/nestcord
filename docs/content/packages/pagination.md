@@ -84,6 +84,7 @@ export class AppService implements OnModuleInit {
 ```
 
 ### Select Menu Pagination
+
 ```typescript
 import { OnModuleInit, Injectable } from '@nestjs/common';
 import { NestCordPaginationService, PageBuilder } from '@globalart/nestcord/pagination';
@@ -150,6 +151,10 @@ export class AppService implements OnModuleInit {
     }
 }
 ```
+
+If all goes well, you should see something like this:
+<img src="/img/content/pagination_select_menu_example.png" alt="Pagination Select Menu" width="400" />
+<br /><br />
 
 Congratulations! You have successfully created your first pagination!
 Just use `pagination` command and you will see your pagination!
