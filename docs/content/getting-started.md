@@ -71,16 +71,17 @@ export interface NestCordModuleOptions extends DiscordClientOptions {
     prefix?: string | (message: Message) => string | Promise<string>;
     development?: Snowflake[] | false;
     skipRegistration?: boolean;
+    skipGetCommandInfoFromDiscord?: boolean;
 }
 ```
 
-| Property           | Type                                       | Description                                         |
-|--------------------|--------------------------------------------|-----------------------------------------------------|
-| `token`            | `string`                                   | Your Discord token                                  |
-| `prefix`           | `string` or `(message: Message) => string` | The prefix for your bot                             |
-| `development`      | `Snowflake[]` or `false`                   | The development guilds for your bot                 |
-| `skipRegistration` | `boolean`                                  | Skip automatic registration of application commands |
-
+| Property                        | Type                                       | Description                                                                                           |
+|---------------------------------|--------------------------------------------|-------------------------------------------------------------------------------------------------------|
+| `token`                         | `string`                                   | Your Discord token                                                                                    |
+| `prefix`                        | `string` or `(message: Message) => string` | The prefix for your bot                                                                               |
+| `development`                   | `Snowflake[]` or `false`                   | The development guilds for your bot                                                                   |
+| `skipRegistration`              | `boolean`                                  | Skip automatic registration of application commands                                                   |
+| `skipGetCommandInfoFromDiscord` | `boolean`                                  | Skip automic fetch command info from DiscordAPI, DiscordResponse will be null in CommandDiscovery     |
 :::caution Warning
 
 If you have commands using the `guilds` property, the global development argument **will not** overwrite it.
