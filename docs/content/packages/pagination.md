@@ -27,14 +27,7 @@ import { AppService } from './app.service';
             token: 'DISCORD_BOT_TOKEN',
             intents: ['Guilds', 'GuildMessages', 'DirectMessages']
         }),
-        NestCordPaginationModule.forRoot({
-            // Change your buttons appearance
-            buttons: {},
-            // Add buttons for skip to first and last page
-            allowSkip: true,
-            // Add buttons for search page
-            allowTraversal: true
-        })
+        NestCordPaginationModule.forRoot(null)
     ],
     providers: [AppService]
 })
@@ -43,10 +36,11 @@ export class AppModule {}
 
 Then, we can inject the `PaginationService` into our service and register a pagination handler:
 
+### Buttons pagination
 ```typescript
 import { OnModuleInit, Injectable } from '@nestjs/common';
 import { NestCordPaginationService, PageBuilder } from '@globalart/nestcord/pagination';
-import { Context, SlashCommand, SlashCommandContext } from '@globalart/nestcord';
+import { Context, SlashCommand, PaginatorTypeEnum, SlashCommandContext } from '@globalart/nestcord';
 
 @Injectable()
 export class AppService implements OnModuleInit {
@@ -54,31 +48,105 @@ export class AppService implements OnModuleInit {
     }
 
     public onModuleInit(): void {
-        return this.paginationService.register(builder =>
+        this.paginationService.register(PaginatorTypeEnum.BUTTONS, (builder) =>
             builder
-                // Required, need for search your builder
-                .setCustomId('test')
-                // First way to set pages
-                .setPages([
-                    new PageBuilder().setContent('Page 1'),
-                    new PageBuilder().setContent('Page 2'),
-                    new PageBuilder().setContent('Page 3'),
-                    new PageBuilder().setContent('Page 4'),
-                    new PageBuilder().setContent('Page 5')
-                ])
-                // Second way, you can manually set pages using `setPages` method
-                .setPagesFactory(page => new PageBuilder().setContent(`Page ${page}`))
-                // Optional, only if you want to use pages factory
-                .setMaxPages(5)
+              .setCustomId('test')
+        
         );
     }
 
     @SlashCommand({ name: 'pagination', description: 'Test pagination' })
     public async onPagination(@Context() [interaction]: SlashCommandContext) {
-        const pagination = this.paginationService.get('test');
-        const page = await pagination.build();
+        const pagination = this.paginationService.get<PaginatorTypeEnum.BUTTONS>('test');
+        pagination.setButtons([
+            [
+              { 
+                customId: 'page1',
+                label: 'Page 1',
+                style: ButtonStyle.Secondary,
+              },
+              { 
+                customId: 'page2',
+                label: 'Page 2',
+                style: ButtonStyle.Secondary,
+              }
+            ]
+        ]);
+        pagination.setPages([
+          new PageBuilder().setContent('Page 1'),
+          new PageBuilder().setContent('Page 2')
+        ]);
+        const page = await pagination.build(1);
 
         return interaction.reply(page);
+    }
+}
+```
+
+### Select Menu Pagination
+```typescript
+import { OnModuleInit, Injectable } from '@nestjs/common';
+import { NestCordPaginationService, PageBuilder } from '@globalart/nestcord/pagination';
+import { Context, SlashCommand, PaginatorTypeEnum, SlashCommandContext } from '@globalart/nestcord';
+
+@Injectable()
+export class AppService implements OnModuleInit {
+    public constructor(private readonly paginationService: NestCordPaginationService) {
+    }
+
+    public onModuleInit(): void {
+        this.paginationService.register(PaginatorTypeEnum.SELECT_MENU, (builder) =>
+            builder
+              .setCustomId('test')
+        
+        );
+    }
+
+    @SlashCommand({ name: 'pagination', description: 'Test pagination' })
+    public async onPagination(@Context() [interaction]: SlashCommandContext) {
+        const pagination = this.paginationService.get<PaginatorTypeEnum.SELECT_MENU>('test');
+        pagination.setSelectMenuItems(this.setMenuItems());
+        pagination.setPages(this.setMenuPages());
+        const page = await pagination.build('page1');
+
+        return interaction.reply(page);
+    }
+
+    @StringSelect('nestcord-pagination/test')
+    async MenusInteraction(@Context() [interaction]: ButtonContext, @SelectedStrings() selected: string[]) {
+      const selectedPage = selected?.[0] || null;
+      const pagination = this.paginationService.get<PaginatorTypeEnum.SELECT_MENU>('menus');
+      pagination.setSelectMenuItems(this.setMenuItems());
+      pagination.setPages(this.setMenuPages());
+      const page = await pagination.build(selectedPage);
+
+      await interaction.update(page);
+    }
+
+    private readonly setMenuPages() {
+      return [
+        {
+          pageId: 'page1',
+          builder: new PageBuilder().setContent('Page 1'),
+        },
+        {
+          pageId: 'page2',
+          builder: new PageBuilder().setContent('Page 2'),
+        },
+      ];
+    }
+
+    private readonly setMenuItems() {
+      return [
+        {
+          label: 'Page 1',
+          value: 'page1',
+        },
+        {
+          label: 'Page 2',
+          value: 'page2',
+        },
+      ]
     }
 }
 ```
