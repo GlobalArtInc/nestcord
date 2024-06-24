@@ -1,4 +1,3 @@
-import { PaginatorTypeEnum } from '../enums';
 import { NestCordPaginationOptions } from '../interfaces';
 import { BaseMessageOptions as PageOptions } from 'discord.js';
 

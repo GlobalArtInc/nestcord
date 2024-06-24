@@ -1,5 +1,8 @@
 import {
+  ApplicationCommand,
   ApplicationCommandOptionType,
+  ApplicationCommandSubCommandData,
+  ApplicationCommandSubGroupData,
   ApplicationCommandType,
   AutocompleteInteraction,
   ChatInputApplicationCommandData,
@@ -9,21 +12,30 @@ import {
   Snowflake,
 } from 'discord.js';
 import { APIApplicationCommandOptionBase } from 'discord-api-types/payloads/v10/_interactions/_applicationCommands/_chatInput/base';
-import { CommandDiscovery } from '../command.discovery';
+import { BaseCommandMeta, CommandDiscovery } from '../command.discovery';
 import { OPTIONS_METADATA } from './options';
 
-// @ts-ignore
-export interface SlashCommandMeta extends ChatInputApplicationCommandData {
-  type?:
-    | ApplicationCommandType.ChatInput
-    | ApplicationCommandOptionType.SubcommandGroup
-    | ApplicationCommandOptionType.Subcommand;
+interface BaseSlashCommandMeta {
   category?: string;
   guilds?: Snowflake[];
-  discordResponse?: any;
+  discordResponse?: ApplicationCommand;
 }
 
-export interface OptionMeta extends APIApplicationCommandOptionBase<any> {
+export interface ChatInputSlashCommandMeta extends BaseSlashCommandMeta, ChatInputApplicationCommandData {
+  type: ApplicationCommandType.ChatInput;
+}
+
+export interface SubcommandSlashCommandMeta extends BaseSlashCommandMeta, ApplicationCommandSubCommandData {
+  type: ApplicationCommandOptionType.Subcommand;
+}
+
+export interface SubcommandGroupSlashCommandMeta extends BaseCommandMeta, ApplicationCommandSubGroupData {
+  type: ApplicationCommandOptionType.SubcommandGroup;
+}
+
+export type SlashCommandMeta = ChatInputSlashCommandMeta | SubcommandSlashCommandMeta | SubcommandGroupSlashCommandMeta;
+
+export interface OptionMeta extends APIApplicationCommandOptionBase<ApplicationCommandOptionType> {
   resolver?: keyof CommandInteractionOptionResolver;
 }
 

@@ -1,6 +1,7 @@
 import { replacePlaceholdersInObjectWithFlatten } from '@globalart/text-utils';
 import { BaseLocalizationAdapter } from './base-localization.adapter';
 import { LocalizationInterceptor } from '../interceptors';
+import { Locale } from 'discord.js';
 
 interface DefaultLocalizationAdapterOptions {
   fallbackLocale?: string;
@@ -22,7 +23,7 @@ export class DefaultLocalizationAdapter extends BaseLocalizationAdapter<DefaultL
       : this.getTranslation(key, this.options.fallbackLocale, placeholders);
   }
 
-  public updateLocales(locales: Record<string, Record<string, string>>) {
+  public updateLocales(locales: Record<Locale, Record<string, string>>) {
     this.options.locales = locales;
   }
 

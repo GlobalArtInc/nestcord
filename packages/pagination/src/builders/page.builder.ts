@@ -11,31 +11,37 @@ export class PageBuilder {
 
   public setContent(content: PageOptions['content']): this {
     this.content = content;
+
     return this;
   }
 
   public setEmbeds(embeds: PageOptions['embeds']): this {
     this.embeds = embeds;
+
     return this;
   }
 
   public addEmbed(embed: PageOptions['embeds'][0]): this {
     this.embeds = [embed];
+
     return this;
   }
 
   public setFiles(files: PageOptions['files']): this {
     this.files = files;
+
     return this;
   }
 
   public addFile(file: PageOptions['files'][0]): this {
     this.files = [file];
+
     return this;
   }
 
   public setComponents(components: PageOptions['components']): this {
     this.components = components;
+
     return this;
   }
 

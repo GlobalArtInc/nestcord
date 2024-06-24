@@ -12,7 +12,7 @@ import { AutocompleteInteraction } from 'discord.js';
 export abstract class AutocompleteInterceptor implements NestInterceptor {
   public abstract transformOptions(interaction: AutocompleteInteraction): void | Promise<void>;
 
-  public async intercept(context: ExecutionContext, next: CallHandler): Promise<Observable<any>> {
+  public async intercept(context: ExecutionContext, next: CallHandler): Promise<Observable<void | Promise<void>>> {
     const nestcordContext = NestCordExecutionContext.create(context);
     const [interaction] = nestcordContext.getContext<AutocompleteContext>();
     const discovery = nestcordContext.getDiscovery();

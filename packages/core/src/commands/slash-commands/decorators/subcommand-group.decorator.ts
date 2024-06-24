@@ -1,6 +1,6 @@
 import { applyDecorators } from '@nestjs/common';
 import { ApplicationCommandOptionType } from 'discord.js';
-import { SlashCommandDiscovery, SlashCommandMeta } from '../slash-command.discovery';
+import { SlashCommandDiscovery, SlashCommandMeta, SubcommandGroupSlashCommandMeta } from '../slash-command.discovery';
 import { SlashCommand } from './slash-command.decorator';
 import { noop } from 'rxjs';
 import { Reflector } from '@nestjs/core';
@@ -19,7 +19,7 @@ export const SubcommandGroup = Reflector.createDecorator<
     new SlashCommandDiscovery({
       type: ApplicationCommandOptionType.SubcommandGroup,
       ...options,
-    }),
+    } as SubcommandGroupSlashCommandMeta),
 });
 
 /**

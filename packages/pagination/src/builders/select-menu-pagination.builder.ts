@@ -1,6 +1,6 @@
 import { ActionRowBuilder, BaseMessageOptions as PageOptions, StringSelectMenuBuilder } from 'discord.js';
 import { BasePaginationBuilder } from './base-pagination.builder';
-import { ButtonAppearance, MenuAppearance } from '../interfaces';
+import { MenuAppearance } from '../interfaces';
 import { PageBuilder } from './page.builder';
 import assert = require('assert');
 
@@ -10,6 +10,7 @@ export class SelectMenuPaginationBuilder extends BasePaginationBuilder {
 
   public setPages(data: { pageId: string; builder: PageBuilder }[]): this {
     this.pages = data;
+
     return this;
   }
 
@@ -19,6 +20,7 @@ export class SelectMenuPaginationBuilder extends BasePaginationBuilder {
 
   public setSelectMenuItems(value: MenuAppearance[]): this {
     this.items = value;
+
     return this;
   }
 

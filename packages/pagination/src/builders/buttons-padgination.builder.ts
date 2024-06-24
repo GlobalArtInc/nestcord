@@ -59,6 +59,7 @@ export class ButtonsPaginationBuilder extends BasePaginationBuilder {
     const pageOptions = pageBuilder.build();
     const row = Object.values(this.buttons).map((buttons) => {
       const component = this.createButtons(buttons);
+
       return new ActionRowBuilder<ButtonBuilder>().addComponents(component);
     });
 

@@ -43,6 +43,7 @@ export const SelectedMembers = createParamDecorator<any, any, ISelectedMembers>(
   if (interaction.isUserSelectMenu() || interaction.isMentionableSelectMenu()) {
     return interaction.members;
   }
+
   return new Collection();
 });
 

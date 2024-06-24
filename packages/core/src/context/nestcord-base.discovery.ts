@@ -6,7 +6,7 @@ import { TextCommandDiscovery } from '../text-commands';
 import { ModalDiscovery } from '../modals';
 
 interface DiscoveredItem {
-  class: any;
+  class: new (...args: unknown[]) => unknown;
   handler?: (...args: unknown[]) => void;
 }
 
@@ -15,8 +15,7 @@ export abstract class NestCordBaseDiscovery<T = unknown> {
 
   protected discovery: DiscoveredItem;
 
-  // eslint-disable-next-line @typescript-eslint/ban-types
-  protected contextCallback: Function;
+  protected contextCallback: (context: unknown, discovery: this) => unknown;
 
   public constructor(public meta: T) {}
 
@@ -32,8 +31,7 @@ export abstract class NestCordBaseDiscovery<T = unknown> {
     this.discovery ||= meta;
   }
 
-  // eslint-disable-next-line @typescript-eslint/ban-types
-  public setContextCallback(fn: Function) {
+  public setContextCallback(fn: (context: unknown, discovery: this) => unknown) {
     this.contextCallback ||= fn;
   }
 
@@ -65,5 +63,6 @@ export abstract class NestCordBaseDiscovery<T = unknown> {
     return false;
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   public abstract toJSON(): Record<string, any>;
 }

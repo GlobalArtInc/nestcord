@@ -28,7 +28,7 @@ export class LocalizationInterceptor implements NestInterceptor, OnModuleInit {
     this.cachedResolvers = await Promise.all(this.resolvers.map((r) => this.getResolver(r)));
   }
 
-  public async intercept(context: ExecutionContext, next: CallHandler<any>): Promise<Observable<any>> {
+  public async intercept(context: ExecutionContext, next: CallHandler<unknown>): Promise<Observable<unknown>> {
     if (context.getType<NestCordContextType>() !== 'nestcord') {
       return next.handle();
     }
