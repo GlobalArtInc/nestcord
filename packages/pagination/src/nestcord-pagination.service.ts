@@ -23,15 +23,17 @@ export class NestCordPaginationService {
       case PaginatorTypeEnum.BUTTONS: {
         const builder = factory(new ButtonsPaginationBuilder(this.options));
         this.cache.set(builder.customId, builder);
+
         return builder;
       }
       case PaginatorTypeEnum.SELECT_MENU: {
         const builder = factory(new SelectMenuPaginationBuilder(this.options));
         this.cache.set(builder.customId, builder);
+
         return builder;
       }
       default:
-        throw new Error(`Unsupported paginator type: ${this.options.type}`);
+        throw new Error(`Unsupported paginator type: ${paginatorType}`);
     }
   }
 

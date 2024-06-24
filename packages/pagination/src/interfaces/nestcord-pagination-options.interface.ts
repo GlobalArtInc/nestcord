@@ -1,5 +1,5 @@
 import { ButtonStyle } from 'discord.js';
-import { PaginationAction, PaginatorTypeEnum } from '../enums';
+import { PaginationAction } from '../enums';
 
 export interface ButtonAppearance {
   style: ButtonStyle;
@@ -30,5 +30,5 @@ export type ButtonsAppearance = {
 };
 
 export interface NestCordPaginationOptions {
-  type: PaginatorTypeEnum;
+  // todo... add some options
 }

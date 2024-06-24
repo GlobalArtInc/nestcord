@@ -27,7 +27,7 @@ import { AppService } from './app.service';
             token: 'DISCORD_BOT_TOKEN',
             intents: ['Guilds', 'GuildMessages', 'DirectMessages']
         }),
-        NestCordPaginationModule.forRoot(null)
+        NestCordPaginationModule.forRoot()
     ],
     providers: [AppService]
 })
