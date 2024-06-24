@@ -1,18 +1,17 @@
-import { Injectable, Logger, OnModuleInit, Param, UseInterceptors } from '@nestjs/common';
+import { Injectable, Logger, OnModuleInit } from '@nestjs/common';
 import {
   Once,
   Context,
   ContextOf,
   SlashCommand,
   SlashCommandContext,
-  On,
   Button,
   ComponentParam,
   ButtonContext,
   StringSelect,
 } from '../../../packages/core';
-import { ButtonAppearance, NestCordPaginationService, PaginatorTypeEnum, SelectedStrings } from '../../../packages';
-import { ActionRowBuilder, ButtonStyle } from 'discord.js';
+import { NestCordPaginationService, PaginatorTypeEnum, SelectedStrings } from '../../../packages';
+import { ButtonStyle } from 'discord.js';
 import { PageBuilder } from '../../../packages/pagination/src/builders/page.builder';
 
 enum PageEnum {

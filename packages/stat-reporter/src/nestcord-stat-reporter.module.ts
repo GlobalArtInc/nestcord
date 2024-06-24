@@ -1,5 +1,5 @@
 import { Global, Module } from '@nestjs/common';
-import { ConfigurableModuleClass } from './nestcord-stat-reporter.module-definition';
+import { NestCordStatReporterConfigurableModule } from './nestcord-stat-reporter.module-definition';
 import { NestCordStatReporterService } from './nestcord-stat-reporter.service';
 import { ScheduleModule } from '@nestjs/schedule';
 import { HttpModule } from '@nestjs/axios';
@@ -10,4 +10,4 @@ import { HttpModule } from '@nestjs/axios';
   providers: [NestCordStatReporterService],
   exports: [NestCordStatReporterService],
 })
-export class NestCordStatReporterModule extends ConfigurableModuleClass {}
+export class NestCordStatReporterModule extends NestCordStatReporterConfigurableModule {}

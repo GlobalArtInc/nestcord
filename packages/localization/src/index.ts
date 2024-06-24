@@ -5,5 +5,6 @@ export * from './providers';
 export * from './resolvers';
 export * from './utils';
 
+export * from './nestcord-localization.module-definition';
 export * from './nestcord-localization.module';
 export * from './nestcord-localization.service';

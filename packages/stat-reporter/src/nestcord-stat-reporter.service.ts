@@ -1,6 +1,6 @@
 import { Inject, Injectable, Logger, OnModuleInit } from '@nestjs/common';
 import { Client, ShardClientUtil } from 'discord.js';
-import { MODULE_OPTIONS_TOKEN } from './nestcord-stat-reporter.module-definition';
+import { NESTCORD_STAT_REPORTER_OPTIONS_TOKEN } from './nestcord-stat-reporter.module-definition';
 import { NestCordStatReporterOptions, ServiceOption } from './interfaces';
 import { SchedulerRegistry } from '@nestjs/schedule';
 import { CronJob } from 'cron';
@@ -15,7 +15,7 @@ export class NestCordStatReporterService implements OnModuleInit {
   constructor(
     private readonly client: Client,
     private readonly shard: ShardClientUtil,
-    @Inject(MODULE_OPTIONS_TOKEN) private readonly options: NestCordStatReporterOptions,
+    @Inject(NESTCORD_STAT_REPORTER_OPTIONS_TOKEN) private readonly options: NestCordStatReporterOptions,
     private readonly schedulerRegistry: SchedulerRegistry,
     private readonly httpService: HttpService,
   ) {}
