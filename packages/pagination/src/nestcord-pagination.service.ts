@@ -1,6 +1,6 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { NestCordPaginationOptions } from './interfaces';
-import { MODULE_OPTIONS_TOKEN } from './nestcord-pagination.module-definition';
+import { NESTCORD_PAGINATION_OTPIONS } from './nestcord-pagination.module-definition';
 import { PaginatorTypeEnum } from './enums';
 import { ButtonsPaginationBuilder } from './builders/buttons-padgination.builder';
 import { SelectMenuPaginationBuilder } from './builders/select-menu-pagination.builder';
@@ -11,7 +11,7 @@ export class NestCordPaginationService {
   private readonly cache = new Map<string, PaginationBuilder<PaginatorTypeEnum>>();
 
   public constructor(
-    @Inject(MODULE_OPTIONS_TOKEN)
+    @Inject(NESTCORD_PAGINATION_OTPIONS)
     private readonly options: NestCordPaginationOptions,
   ) {}
 

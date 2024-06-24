@@ -1,6 +1,6 @@
 import { DynamicModule, Global, Module } from '@nestjs/common';
 import { NestCordPaginationService } from './nestcord-pagination.service';
-import { ConfigurableModuleClass, MODULE_OPTIONS_TOKEN } from './nestcord-pagination.module-definition';
+import { ConfigurableModuleClass, NESTCORD_PAGINATION_OTPIONS } from './nestcord-pagination.module-definition';
 import { NestCordPaginationOptions } from './interfaces';
 
 @Global()
@@ -17,7 +17,7 @@ export class NestCordPaginationModule extends ConfigurableModuleClass {
       global: true,
       providers: [
         {
-          provide: MODULE_OPTIONS_TOKEN,
+          provide: NESTCORD_PAGINATION_OTPIONS,
           useValue: moduleOptions,
         },
         NestCordPaginationService,
@@ -33,7 +33,7 @@ export class NestCordPaginationModule extends ConfigurableModuleClass {
       module: NestCordPaginationModule,
       providers: [
         {
-          provide: MODULE_OPTIONS_TOKEN,
+          provide: NESTCORD_PAGINATION_OTPIONS,
           useValue: featureOptions,
         },
         NestCordPaginationService,
