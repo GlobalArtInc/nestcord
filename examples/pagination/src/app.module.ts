@@ -18,7 +18,7 @@ import { NestCordPaginationModule } from '../../../packages';
       ],
       partials: [Partials.Message, Partials.Channel, Partials.Reaction],
     }),
-    NestCordPaginationModule.forRoot(null),
+    NestCordPaginationModule.forRoot(),
   ],
   providers: [AppGateway],
 })

@@ -1,4 +1,4 @@
-import { Injectable, Logger, OnModuleInit } from '@nestjs/common';
+import { Inject, Injectable, Logger, OnModuleInit } from '@nestjs/common';
 import {
   Once,
   Context,
@@ -10,7 +10,13 @@ import {
   ButtonContext,
   StringSelect,
 } from '../../../packages/core';
-import { NestCordPaginationService, PaginatorTypeEnum, SelectedStrings } from '../../../packages';
+import {
+  NESTCORD_PAGINATION_MODULE_OPTIONS,
+  NestCordPaginationOptions,
+  NestCordPaginationService,
+  PaginatorTypeEnum,
+  SelectedStrings,
+} from '../../../packages';
 import { ButtonStyle } from 'discord.js';
 import { PageBuilder } from '../../../packages/pagination/src/builders/page.builder';
 
@@ -25,7 +31,11 @@ export class AppGateway implements OnModuleInit {
   private readonly logger = new Logger(AppGateway.name);
   private readonly paginationId = 'page';
 
-  public constructor(private readonly paginationService: NestCordPaginationService) {}
+  public constructor(
+    @Inject(NESTCORD_PAGINATION_MODULE_OPTIONS)
+    private readonly options: NestCordPaginationOptions,
+    private readonly paginationService: NestCordPaginationService,
+  ) {}
 
   public onModuleInit(): void {
     this.paginationService.register(PaginatorTypeEnum.BUTTONS, (builder) => builder.setCustomId('buttons'));

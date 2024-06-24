@@ -33,7 +33,7 @@ export class NestCordPaginationService {
         return builder;
       }
       default:
-        throw new Error(`Unsupported paginator type: ${this.options.type}`);
+        throw new Error(`Unsupported paginator type: ${paginatorType}`);
     }
   }
 
