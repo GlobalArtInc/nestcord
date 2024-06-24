@@ -6,10 +6,7 @@ title: Pagination
 sidebar_position: 1
 ---
 
-Certainly! Pagination is a useful technique employed in user interfaces to present large amounts of information in a structured and
-manageable way. When dealing with substantial volumes of data, such as search results, articles, or product listings, presenting it all at
-once can overwhelm users and lead to a poor user experience. Pagination allows you to divide the information into smaller, organized chunks,
-enhancing user engagement and ease of navigation. This module allows you to create a pagination with a few lines of code.
+Certainly! Pagination is a valuable technique in user interfaces for displaying large amounts of information in a structured and manageable way. When dealing with extensive data, such as search results, articles, or product listings, showing everything at once can overwhelm users and degrade the user experience. Pagination breaks down the information into smaller, organized sections, enhancing user engagement and ease of navigation. This module allows you to implement pagination with just a few lines of code.
 
 ## Usage
 
@@ -27,7 +24,7 @@ import { AppService } from './app.service';
             token: 'DISCORD_BOT_TOKEN',
             intents: ['Guilds', 'GuildMessages', 'DirectMessages']
         }),
-        NestCordPaginationModule.forRoot(null)
+        NestCordPaginationModule.forRoot()
     ],
     providers: [AppService]
 })
