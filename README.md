@@ -11,7 +11,6 @@
 
 <p align="center">
   <a href='https://img.shields.io/npm/v/@globalart/nestcord'><img src="https://img.shields.io/npm/v/@globalart/nestcord" alt="NPM Version" /></a>
-  <a href='https://img.shields.io/npm/l/@globalart/nestcord'><img src="https://img.shields.io/npm/l/@globalart/nestcord" alt="NPM License" /></a>
   <a href='https://img.shields.io/npm/dm/@globalart/nestcord'><img src="https://img.shields.io/npm/dm/@globalart/nestcord" alt="NPM Downloads" /></a>
 </p>
 
