@@ -8,6 +8,7 @@ export class NestCordExecutionContext extends NestCordArgumentsHost {
     const type = context.getType();
     const necContext = new NestCordExecutionContext(context.getArgs(), context.getClass(), context.getHandler());
     necContext.setType(type);
+
     return necContext;
   }
 }
