@@ -78,7 +78,9 @@ export class ButtonsPaginationBuilder extends BasePaginationBuilder {
       if (button.emoji) {
         builder.setEmoji(button.emoji);
       }
-
+      if (button.disabled) {
+        builder.setDisabled(true);
+      }
       if (button.style === ButtonStyle.Link) {
         builder.setURL(button.link);
       } else {
