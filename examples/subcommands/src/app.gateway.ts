@@ -1,5 +1,4 @@
-import { LOCALIZATION_ADAPTER } from '../../../packages/localization/providers/localization-adapter.provider';
-import { Inject, Injectable, Logger } from '@nestjs/common';
+import { Injectable, Logger } from '@nestjs/common';
 import {
   Once,
   Context,
@@ -14,6 +13,7 @@ export const PingCommandDecorator = createCommandGroupDecorator({
   name: 'ping',
   description: 'ping_command',
 });
+
 @Injectable()
 @PingCommandDecorator()
 export class AppGateway {

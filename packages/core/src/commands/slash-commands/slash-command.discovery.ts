@@ -43,7 +43,7 @@ export interface OptionMeta extends APIApplicationCommandOptionBase<ApplicationC
  * Represents a slash command discovery.
  */
 export class SlashCommandDiscovery extends CommandDiscovery<SlashCommandMeta> {
-  private readonly subcommands = new Collection<string, SlashCommandDiscovery>();
+  public readonly subcommands = new Collection<string, SlashCommandDiscovery>();
 
   /**
    * Returns the command description.

@@ -1,4 +1,4 @@
-import { ApplicationCommand, BaseApplicationCommandData, Snowflake } from 'discord.js';
+import { ApplicationCommand, BaseApplicationCommandData, Collection, Snowflake } from 'discord.js';
 import { NestCordBaseDiscovery } from '../context';
 
 export interface BaseCommandMeta extends BaseApplicationCommandData {
@@ -34,6 +34,13 @@ export abstract class CommandDiscovery<T extends BaseCommandMeta = BaseCommandMe
   }
 
   /**
+   * Get command category
+   */
+  public getCategory(): string | undefined {
+    return this.meta.category;
+  }
+
+  /**
    * Sets the command guilds for register.
    * @param guilds
    */
@@ -54,5 +61,24 @@ export abstract class CommandDiscovery<T extends BaseCommandMeta = BaseCommandMe
    */
   public getGuilds(): Snowflake[] | undefined {
     return this.meta.guilds;
+  }
+
+  /**
+   * Get sub commands
+   */
+  public getSubCommands() {
+    if (this.isSlashCommand()) {
+      return this.subcommands;
+    }
+
+    return new Collection();
+  }
+
+  public hasSubCommands() {
+    if (this.isSlashCommand()) {
+      return this.subcommands.size > 0;
+    }
+
+    return false;
   }
 }

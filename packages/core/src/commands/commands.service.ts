@@ -79,6 +79,7 @@ export class CommandsService {
         map.set(category, []);
       }
       map.get(category)!.push(command);
+
       return map;
     }, new Map<string, CommandDiscovery[]>());
   }
@@ -86,6 +87,7 @@ export class CommandsService {
   public getCommandsMap(): Map<string, CommandDiscovery> {
     return this.getCommands().reduce((map, command) => {
       map.set(command.getName(), command);
+
       return map;
     }, new Map<string, CommandDiscovery>());
   }
