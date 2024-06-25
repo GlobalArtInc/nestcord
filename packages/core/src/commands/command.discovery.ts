@@ -66,7 +66,7 @@ export abstract class CommandDiscovery<T extends BaseCommandMeta = BaseCommandMe
   /**
    * Get sub commands
    */
-  public getSubCommands() {
+  public getSubCommands(): Collection<string, CommandDiscovery> {
     if (this.isSlashCommand()) {
       return this.subcommands;
     }
