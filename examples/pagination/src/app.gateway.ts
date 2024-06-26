@@ -81,19 +81,24 @@ export class AppGateway implements OnModuleInit {
     const pagination = this.paginationService.get<PaginatorTypeEnum.SELECT_MENU>('menus');
     pagination.setSelectMenuItems(this.setMenuItems());
     pagination.setPages(this.setMenuPages());
+    pagination.setCustomOptions(interaction.user.id);
     const page = await pagination.build('page1');
 
     return interaction.reply(page);
   }
 
-  @StringSelect('nestcord-pagination/menus')
-  async MenusInteraction(@Context() [interaction]: ButtonContext, @SelectedStrings() selected: string[]) {
+  @StringSelect('nestcord-pagination/menus/:userId')
+  async MenusInteraction(
+    @Context() [interaction]: ButtonContext,
+    @ComponentParam('userId') userId: number,
+    @SelectedStrings() selected: string[],
+  ) {
     const selectedPage = selected?.[0] || null;
     const pagination = this.paginationService.get<PaginatorTypeEnum.SELECT_MENU>('menus');
     pagination.setSelectMenuItems(this.setMenuItems());
     pagination.setPages(this.setMenuPages());
     const page = await pagination.build(selectedPage);
-
+    console.log(userId);
     await interaction.update(page);
   }
 

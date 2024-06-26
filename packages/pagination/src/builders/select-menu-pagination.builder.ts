@@ -7,11 +7,16 @@ import assert = require('assert');
 export class SelectMenuPaginationBuilder extends BasePaginationBuilder {
   private items: MenuAppearance[] = [];
   private pages: { pageId: string; builder: PageBuilder }[] = [];
+  private customOptions: string;
 
   public setPages(data: { pageId: string; builder: PageBuilder }[]): this {
     this.pages = data;
 
     return this;
+  }
+
+  public setCustomOptions(value: string) {
+    this.customOptions = value;
   }
 
   private getPagesMap(): Map<string, PageBuilder> {
@@ -40,6 +45,8 @@ export class SelectMenuPaginationBuilder extends BasePaginationBuilder {
   }
 
   private createMenuItems(items: MenuAppearance[]): StringSelectMenuBuilder {
-    return new StringSelectMenuBuilder().setCustomId(`nestcord-pagination/${this.customId}`).addOptions(items);
+    return new StringSelectMenuBuilder()
+      .setCustomId(`nestcord-pagination/${this.customId}/${this.customOptions || ''}`)
+      .addOptions(items);
   }
 }
