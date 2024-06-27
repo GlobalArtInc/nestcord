@@ -92,6 +92,14 @@ export class CommandsService {
     }, new Map<string, CommandDiscovery>());
   }
 
+  public getGuildCommandsMap(guildId: string) {
+    return this.getGuildCommands(guildId).reduce((map, command) => {
+      map.set(command.getName(), command);
+
+      return map;
+    }, new Map<string, CommandDiscovery>());
+  }
+
   public getCommandByName(name: string): CommandDiscovery {
     return this.getCommands().find((command) => command.getName() === name);
   }
@@ -101,7 +109,7 @@ export class CommandsService {
   }
 
   public getGlobalCommandByName(name: string): CommandDiscovery {
-    return this.getGlobalCommands().find((command) => command.getName() === name);
+    return this.getCommandsMap().get(name);
   }
 
   public getGuildCommands(guildId: string): CommandDiscovery[] {
@@ -109,10 +117,10 @@ export class CommandsService {
   }
 
   public getGuildCommandByName(guildId: string, name: string): CommandDiscovery {
-    return this.getGuildCommands(guildId).find((command) => command.getName() === name);
+    return this.getGuildCommandsMap(guildId).get(name);
   }
 
-  public getAllCommandsAndSetAdditionalMeta() {
+  public getAllCommandsAndSetDiscordResponseMeta() {
     const commands = this.getCommandsMap();
     const commandsCache = this.client.application.commands.cache;
     const matchingCommands = Array.from(commandsCache.values()).filter((command) => commands.has(command.name));
