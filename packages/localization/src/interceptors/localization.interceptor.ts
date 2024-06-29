@@ -48,16 +48,9 @@ export class LocalizationInterceptor implements NestInterceptor, OnModuleInit {
 
     const locale = await this.getLocale(nestcordContext);
     const translationFn = this.getTranslationFn(locale);
-
     LocalizationInterceptor.currentTranslationFn = translationFn;
 
-    return next.handle().pipe(
-      tap({
-        finalize: () => {
-          LocalizationInterceptor.currentTranslationFn = null;
-        },
-      }),
-    );
+    return next.handle();
   }
 
   private async getLocale(ctx: ExecutionContext): Promise<string> {
