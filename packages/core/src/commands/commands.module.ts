@@ -34,7 +34,7 @@ export class CommandsModule implements OnModuleInit, OnApplicationBootstrap {
 
     if (!skipGetCommandInfoFromDiscord) {
       await this.client.application.commands.fetch();
-      this.commandsService.getAllCommandsAndSetAdditionalMeta();
+      this.commandsService.getAllCommandsAndSetDiscordResponseMeta();
     }
 
     if (!skipRegistration) {
@@ -43,7 +43,7 @@ export class CommandsModule implements OnModuleInit, OnApplicationBootstrap {
       }
       await this.commandsService.registerAllCommands();
       if (!skipGetCommandInfoFromDiscord) {
-        this.commandsService.getAllCommandsAndSetAdditionalMeta();
+        this.commandsService.getAllCommandsAndSetDiscordResponseMeta();
       }
     }
   }
