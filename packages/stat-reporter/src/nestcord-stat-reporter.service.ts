@@ -29,11 +29,7 @@ export class NestCordStatReporterService implements OnModuleInit {
   }
 
   private isFirstShard(): boolean {
-    if (!this.shard || !Array.isArray(this.shard.ids)) {
-      return false;
-    }
-
-    return this.shard.ids[0] === 0;
+    return !this.shard || (Array.isArray(this.shard.ids) && this.shard.ids[0] === 0);
   }
 
   private isProduction(): boolean {
