@@ -21,6 +21,12 @@ export class ExplorerService<T extends NestCordBaseDiscovery> extends Reflector 
 
     return instance && prototype && wrapper.isDependencyTreeStatic();
   });
+  private readonly controllerWrappers = this.discoveryService.getControllers().filter((wrapper) => {
+    const { instance } = wrapper;
+    const prototype = instance ? Object.getPrototypeOf(instance) : null;
+
+    return instance && prototype && wrapper.isDependencyTreeStatic();
+  });
 
   public constructor(
     private readonly discoveryService: DiscoveryService,
@@ -35,7 +41,10 @@ export class ExplorerService<T extends NestCordBaseDiscovery> extends Reflector 
   }
 
   private flatMap(callback: (wrapper: InstanceWrapper) => T[]) {
-    return this.wrappers.flatMap(callback).filter(Boolean);
+    return [
+      ...this.wrappers.flatMap(callback).filter(Boolean),
+      ...this.controllerWrappers.flatMap(callback).filter(Boolean),
+    ];
   }
 
   private filterProperties({ instance }: InstanceWrapper, metadataKey: string) {
