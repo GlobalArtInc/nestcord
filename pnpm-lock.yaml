@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@globalart/text-utils':
-        specifier: ^1.0.2
-        version: 1.0.2
+        specifier: ^1.0.3
+        version: 1.0.3
       '@nestjs/axios':
         specifier: ^3.0.2
         version: 3.0.2(@nestjs/common@10.3.9(reflect-metadata@0.2.2)(rxjs@7.8.1))(axios@1.7.2)(rxjs@7.8.1)
@@ -781,8 +781,8 @@ packages:
     engines: {node: '>=16'}
     hasBin: true
 
-  '@globalart/text-utils@1.0.2':
-    resolution: {integrity: sha512-HAYC/356PrQ6hqS30h8heifZtlrEgELR097vex7Q42tQh/U9C/albQ/bhJPMwQWnHDg5HJFuvhv4BEjszmt46Q==}
+  '@globalart/text-utils@1.0.3':
+    resolution: {integrity: sha512-Isk7QX8MRYMCZLzszteAtXCB3F5mrl+YIXmLu3ji4FGeI+roK6lmJrCS/ln4dob62OFd2dJ6Kl1PbuDDeSnKEA==}
     engines: {node: '>=16.6.0', npm: '>=7.0.0'}
 
   '@humanwhocodes/config-array@0.11.14':
@@ -4357,7 +4357,7 @@ snapshots:
       - encoding
       - supports-color
 
-  '@globalart/text-utils@1.0.2':
+  '@globalart/text-utils@1.0.3':
     dependencies:
       rimraf: 5.0.7
 
