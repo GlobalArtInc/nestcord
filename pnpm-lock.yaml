@@ -241,7 +241,7 @@ importers:
         version: 7.0.0
       ts-loader:
         specifier: ^9.4.3
-        version: 9.5.1(typescript@5.5.2)(webpack@5.90.1)
+        version: 9.5.1(typescript@5.5.2)(webpack@5.92.1)
       ts-node:
         specifier: ^10.9.1
         version: 10.9.2(@types/node@20.14.7)(typescript@5.5.2)
@@ -314,7 +314,7 @@ importers:
         version: 7.0.0
       ts-loader:
         specifier: ^9.4.3
-        version: 9.5.1(typescript@5.5.2)(webpack@5.90.1)
+        version: 9.5.1(typescript@5.5.2)(webpack@5.92.1)
       ts-node:
         specifier: ^10.9.1
         version: 10.9.2(@types/node@20.14.7)(typescript@5.5.2)
@@ -387,7 +387,7 @@ importers:
         version: 7.0.0
       ts-loader:
         specifier: ^9.4.3
-        version: 9.5.1(typescript@5.5.2)(webpack@5.90.1)
+        version: 9.5.1(typescript@5.5.2)(webpack@5.92.1)
       ts-node:
         specifier: ^10.9.1
         version: 10.9.2(@types/node@20.14.7)(typescript@5.5.2)
@@ -460,7 +460,7 @@ importers:
         version: 7.0.0
       ts-loader:
         specifier: ^9.4.3
-        version: 9.5.1(typescript@5.5.2)(webpack@5.90.1)
+        version: 9.5.1(typescript@5.5.2)(webpack@5.92.1)
       ts-node:
         specifier: ^10.9.1
         version: 10.9.2(@types/node@20.14.7)(typescript@5.5.2)
@@ -533,7 +533,7 @@ importers:
         version: 7.0.0
       ts-loader:
         specifier: ^9.4.3
-        version: 9.5.1(typescript@5.5.2)(webpack@5.90.1)
+        version: 9.5.1(typescript@5.5.2)(webpack@5.92.1)
       ts-node:
         specifier: ^10.9.1
         version: 10.9.2(@types/node@20.14.7)(typescript@5.5.2)
@@ -606,7 +606,7 @@ importers:
         version: 7.0.0
       ts-loader:
         specifier: ^9.4.3
-        version: 9.5.1(typescript@5.5.2)(webpack@5.90.1)
+        version: 9.5.1(typescript@5.5.2)(webpack@5.92.1)
       ts-node:
         specifier: ^10.9.1
         version: 10.9.2(@types/node@20.14.9)(typescript@5.5.2)
@@ -1323,6 +1323,11 @@ packages:
 
   acorn-import-assertions@1.9.0:
     resolution: {integrity: sha512-cmMwop9x+8KFhxvKrKfPYmN6/pKTYYHBqLa0DfvVZcKMJWNyWLnaqND7dx/qn66R7ewM1UX5XMaDVP5wlVTaVA==}
+    peerDependencies:
+      acorn: ^8
+
+  acorn-import-attributes@1.9.5:
+    resolution: {integrity: sha512-n02Vykv5uA3eHGM/Z2dQrcD56kL8TyDb2p1+0P83PClMnC/nc+anbQRhIOWnSq4Ke/KvDPrY3C9hDtC/A3eHnQ==}
     peerDependencies:
       acorn: ^8
 
@@ -3819,6 +3824,16 @@ packages:
       webpack-cli:
         optional: true
 
+  webpack@5.92.1:
+    resolution: {integrity: sha512-JECQ7IwJb+7fgUFBlrJzbyu3GEuNBcdqr1LD7IbSzwkSmIevTm8PF+wej3Oxuz/JFBUZ6O1o43zsPkwm1C4TmA==}
+    engines: {node: '>=10.13.0'}
+    hasBin: true
+    peerDependencies:
+      webpack-cli: '*'
+    peerDependenciesMeta:
+      webpack-cli:
+        optional: true
+
   whatwg-url@5.0.0:
     resolution: {integrity: sha512-saE57nupxk6v3HY35+jzBwYa0rKSy0XR8JSxZPwgLr7ys0IBzhGviA1/TUGJLmSVqs8pb9AnvICXEuOHLprYTw==}
 
@@ -4908,6 +4923,10 @@ snapshots:
       negotiator: 0.6.3
 
   acorn-import-assertions@1.9.0(acorn@8.12.0):
+    dependencies:
+      acorn: 8.12.0
+
+  acorn-import-attributes@1.9.5(acorn@8.12.0):
     dependencies:
       acorn: 8.12.0
 
@@ -7291,6 +7310,15 @@ snapshots:
       terser: 5.31.1
       webpack: 5.90.1
 
+  terser-webpack-plugin@5.3.10(webpack@5.92.1):
+    dependencies:
+      '@jridgewell/trace-mapping': 0.3.25
+      jest-worker: 27.5.1
+      schema-utils: 3.3.0
+      serialize-javascript: 6.0.2
+      terser: 5.31.1
+      webpack: 5.92.1
+
   terser@5.31.1:
     dependencies:
       '@jridgewell/source-map': 0.3.6
@@ -7335,6 +7363,16 @@ snapshots:
       source-map: 0.7.4
       typescript: 5.5.2
       webpack: 5.90.1
+
+  ts-loader@9.5.1(typescript@5.5.2)(webpack@5.92.1):
+    dependencies:
+      chalk: 4.1.2
+      enhanced-resolve: 5.17.0
+      micromatch: 4.0.7
+      semver: 7.6.2
+      source-map: 0.7.4
+      typescript: 5.5.2
+      webpack: 5.92.1
 
   ts-mixer@6.0.4: {}
 
@@ -7545,6 +7583,37 @@ snapshots:
       schema-utils: 3.3.0
       tapable: 2.2.1
       terser-webpack-plugin: 5.3.10(webpack@5.90.1)
+      watchpack: 2.4.1
+      webpack-sources: 3.2.3
+    transitivePeerDependencies:
+      - '@swc/core'
+      - esbuild
+      - uglify-js
+
+  webpack@5.92.1:
+    dependencies:
+      '@types/eslint-scope': 3.7.7
+      '@types/estree': 1.0.5
+      '@webassemblyjs/ast': 1.12.1
+      '@webassemblyjs/wasm-edit': 1.12.1
+      '@webassemblyjs/wasm-parser': 1.12.1
+      acorn: 8.12.0
+      acorn-import-attributes: 1.9.5(acorn@8.12.0)
+      browserslist: 4.23.1
+      chrome-trace-event: 1.0.4
+      enhanced-resolve: 5.17.0
+      es-module-lexer: 1.5.4
+      eslint-scope: 5.1.1
+      events: 3.3.0
+      glob-to-regexp: 0.4.1
+      graceful-fs: 4.2.11
+      json-parse-even-better-errors: 2.3.1
+      loader-runner: 4.3.0
+      mime-types: 2.1.35
+      neo-async: 2.6.2
+      schema-utils: 3.3.0
+      tapable: 2.2.1
+      terser-webpack-plugin: 5.3.10(webpack@5.92.1)
       watchpack: 2.4.1
       webpack-sources: 3.2.3
     transitivePeerDependencies:
