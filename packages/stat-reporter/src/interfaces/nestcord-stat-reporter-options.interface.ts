@@ -31,6 +31,11 @@ export interface ServiceOption {
    * The crontab expression that defines the schedule for the stat service.
    */
   schedule?: StatCronExpression | string;
+
+  /**
+   * Proxy config.
+   */
+  proxy?: AxiosProxyConfig;
 }
 
 export interface NestCordStatReporterOptions {

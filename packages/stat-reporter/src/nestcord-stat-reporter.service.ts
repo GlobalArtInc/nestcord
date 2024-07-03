@@ -63,7 +63,7 @@ export class NestCordStatReporterService implements OnModuleInit {
           url: service.url,
           data: bodyData,
           headers: headerData,
-          proxy: this.options.proxy,
+          proxy: service.proxy || this.options.proxy,
         }),
       );
 
