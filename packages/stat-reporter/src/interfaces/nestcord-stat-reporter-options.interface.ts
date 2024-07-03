@@ -1,4 +1,4 @@
-import { Method, RawAxiosRequestHeaders } from 'axios';
+import { AxiosProxyConfig, Method, RawAxiosRequestHeaders } from 'axios';
 import { StatCronExpression } from '../enums';
 
 export interface ServiceOption {
@@ -38,6 +38,11 @@ export interface NestCordStatReporterOptions {
    * The list of stat service options.
    */
   services: ServiceOption[];
+
+  /**
+   * Proxy config.
+   */
+  proxy?: AxiosProxyConfig;
 
   /**
    * If true, skip all jobs.
