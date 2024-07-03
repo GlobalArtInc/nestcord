@@ -55,4 +55,23 @@ export class AppModule {
 ```
 In `services`, all the services on which the bot is monitored should be listed, and the request body should be passed. `{{serverCount}}` and `{{shardCount}}` will be automatically replaced.
 
+### Global Options
+NestCordStatReporterModule interface:
+| Property                        | Type                                       | Description                                                                                           |
+|---------------------------------|--------------------------------------------|-------------------------------------------------------------------------------------------------------|
+| `services`                      | `ServiceOption[]`                          | Services                                                                                              |
+| `proxy`                         | `AxiosProxyConfig` or `undefined`          | Proxy config                                                                                          |
+| `development`                   | `boolean`                                  | If true, module will disable                                                                          |
+| `log`                           | `boolean`                                  | Send log when sended the stats                                                                        |
+
+ServiceOption interface:
+| Property                        | Type                                       | Description                                                                                           |
+|---------------------------------|--------------------------------------------|-------------------------------------------------------------------------------------------------------|
+| `name`                          | `string`                                   | Service Name                                                                                          |
+| `url`                           | `string`                                   | API URL for posting the stats                                                                         |
+| `proxy`                         | `AxiosProxyConfig` or `undefined`          | Proxy config                                                                                          |
+| `bodyData`                      | `object`                                   | Body Data                                                                                             |
+| `headerData`                    | `object`                                   | Header Data                                                                                           |
+| `schedule`                      | `StatCronExpression` or `string`           | Crontab Expression                                                                                    |
+
 Congratulations! You have successfully register cronjob with NestCord!
