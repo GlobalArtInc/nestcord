@@ -1,6 +1,6 @@
 import { Injectable, NestInterceptor, ExecutionContext, CallHandler } from '@nestjs/common';
-import { Observable, of } from 'rxjs';
-import { NestCordExecutionContext, SlashCommandContext } from '../../context';
+import { Observable } from 'rxjs';
+import { NestCordExecutionContext, SlashCommandContext } from '../context';
 
 @Injectable()
 export class DeferCommandInterceptor implements NestInterceptor {

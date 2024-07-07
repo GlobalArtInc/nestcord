@@ -15,18 +15,10 @@ import { STATIC_CONTEXT } from '@nestjs/core/injector/constants';
 export class ExplorerService<T extends NestCordBaseDiscovery> extends Reflector {
   private readonly nestcordParamsFactory = new NestCordParamsFactory();
 
-  private readonly wrappers = this.discoveryService.getProviders().filter((wrapper) => {
-    const { instance } = wrapper;
-    const prototype = instance ? Object.getPrototypeOf(instance) : null;
-
-    return instance && prototype && wrapper.isDependencyTreeStatic();
-  });
-  private readonly controllerWrappers = this.discoveryService.getControllers().filter((wrapper) => {
-    const { instance } = wrapper;
-    const prototype = instance ? Object.getPrototypeOf(instance) : null;
-
-    return instance && prototype && wrapper.isDependencyTreeStatic();
-  });
+  private readonly wrappers = [
+    ...this.getStaticDependencyWrappers(this.discoveryService.getProviders()),
+    ...this.getStaticDependencyWrappers(this.discoveryService.getControllers()),
+  ];
 
   public constructor(
     private readonly discoveryService: DiscoveryService,
@@ -41,10 +33,7 @@ export class ExplorerService<T extends NestCordBaseDiscovery> extends Reflector 
   }
 
   private flatMap(callback: (wrapper: InstanceWrapper) => T[]) {
-    return [
-      ...this.wrappers.flatMap(callback).filter(Boolean),
-      ...this.controllerWrappers.flatMap(callback).filter(Boolean),
-    ];
+    return this.wrappers.flatMap(callback).filter(Boolean);
   }
 
   private filterProperties({ instance }: InstanceWrapper, metadataKey: string) {
@@ -60,6 +49,15 @@ export class ExplorerService<T extends NestCordBaseDiscovery> extends Reflector 
       item.setContextCallback(this.createContextCallback(instance, prototype, methodName));
 
       return item;
+    });
+  }
+
+  private getStaticDependencyWrappers(wrappers: InstanceWrapper[]) {
+    return wrappers.filter((wrapper) => {
+      const { instance } = wrapper;
+      const prototype = instance ? Object.getPrototypeOf(instance) : null;
+
+      return instance && prototype && wrapper.isDependencyTreeStatic();
     });
   }
 
