@@ -51,7 +51,7 @@ export class AppGateway implements OnModuleInit {
     name: 'buttons',
     description: 'Buttons command',
   })
-  async onButtonsCommand(@Context() [interaction]: SlashCommandContext) {
+  async onButtonsCommand(@Context() { interaction }: SlashCommandContext) {
     this.logger.log(`Buttons command called by ${interaction.user.username}`);
     const pagination = this.paginationService.get<PaginatorTypeEnum.BUTTONS>('buttons');
     pagination.setButtons(this.setButtons());
@@ -62,7 +62,7 @@ export class AppGateway implements OnModuleInit {
   }
 
   @Button('nestcord-pagination/buttons/:page')
-  async ButtonInteraction(@Context() [interaction]: ButtonContext, @ComponentParam('page') pageName: string) {
+  async ButtonInteraction(@Context() { interaction }: ButtonContext, @ComponentParam('page') pageName: string) {
     const pagination = this.paginationService.get<PaginatorTypeEnum.BUTTONS>('buttons');
     pagination.setButtons(this.setButtons());
     pagination.setPages(this.setPages());
@@ -76,7 +76,7 @@ export class AppGateway implements OnModuleInit {
     name: 'menu',
     description: 'Menus command',
   })
-  async onMenusCommand(@Context() [interaction]: SlashCommandContext) {
+  async onMenusCommand(@Context() { interaction }: SlashCommandContext) {
     this.logger.log(`Menus command called by ${interaction.user.username}`);
     const pagination = this.paginationService.get<PaginatorTypeEnum.SELECT_MENU>('menus');
     pagination.setSelectMenuItems(this.setMenuItems());
@@ -89,7 +89,7 @@ export class AppGateway implements OnModuleInit {
 
   @StringSelect('nestcord-pagination/menus/:userId')
   async MenusInteraction(
-    @Context() [interaction]: ButtonContext,
+    @Context() { interaction }: ButtonContext,
     @ComponentParam('userId') userId: number,
     @SelectedStrings() selected: string[],
   ) {

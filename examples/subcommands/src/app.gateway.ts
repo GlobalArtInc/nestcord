@@ -28,7 +28,7 @@ export class AppGateway {
     name: 'pong',
     description: 'pong_command',
   })
-  onPingCommand(@Context() [interaction]: SlashCommandContext, @CurrentTranslate() t: TranslationFn) {
+  onPingCommand(@Context() { interaction }: SlashCommandContext, @CurrentTranslate() t: TranslationFn) {
     return interaction.reply({
       content: 'Pong!',
       components: [],

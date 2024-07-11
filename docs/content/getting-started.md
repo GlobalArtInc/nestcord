@@ -106,7 +106,7 @@ export class AppService {
         name: 'ping',
         description: 'Ping command!'
     })
-    public async onPing(@Context() [interaction]: SlashCommandContext) {
+    public async onPing(@Context() { interaction }: SlashCommandContext) {
         return interaction.reply({ content: 'Pong!' });
     }
 }

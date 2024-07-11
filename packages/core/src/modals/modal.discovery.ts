@@ -17,7 +17,7 @@ export class ModalDiscovery extends NestCordBaseDiscovery<ModalMeta> {
   }
 
   public execute(interaction: ModalSubmitInteraction) {
-    return super.execute([interaction]);
+    return super.execute({ interaction });
   }
 
   public isModal(): this is ModalDiscovery {

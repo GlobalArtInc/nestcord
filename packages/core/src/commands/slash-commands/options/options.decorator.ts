@@ -10,7 +10,7 @@ import { OPTIONS_METADATA } from './option.util';
 export const Options = createParamDecorator(
   (_, context: ExecutionContext) => {
     const nestcordContext = NestCordExecutionContext.create(context);
-    const [interaction] = nestcordContext.getContext<SlashCommandContext>();
+    const { interaction } = nestcordContext.getContext<SlashCommandContext>();
     const discovery = nestcordContext.getDiscovery();
 
     if (!discovery.isSlashCommand()) {

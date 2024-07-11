@@ -38,7 +38,7 @@ export class ContextMenuDiscovery extends CommandDiscovery<ContextMenuMeta> {
    * @param interaction The interaction to execute.
    */
   public execute(interaction: ContextMenuCommandInteraction) {
-    return super.execute([interaction]);
+    return super.execute({ interaction });
   }
 
   /**

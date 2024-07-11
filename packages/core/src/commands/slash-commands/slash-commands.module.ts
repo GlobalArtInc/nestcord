@@ -26,12 +26,12 @@ export class SlashCommandsModule implements OnModuleInit, OnApplicationBootstrap
   }
 
   public onApplicationBootstrap() {
-    return this.client.on('interactionCreate', (i) => {
-      if (!i.isChatInputCommand() && !i.isAutocomplete()) {
+    return this.client.on('interactionCreate', (interaction) => {
+      if (!interaction.isChatInputCommand() && !interaction.isAutocomplete()) {
         return;
       }
 
-      return this.slashCommandsService.get(i.commandName)?.execute(i);
+      return this.slashCommandsService.get(interaction.commandName)?.execute(interaction);
     });
   }
 }

@@ -12,7 +12,7 @@ There are several different types of components; this documentation will outline
 
 ## Button
 
-**Buttons** are interactive components that render on messages. They can be clicked by users, and send an [interaction](https://discord.com/developers/docs/interactions/receiving-and-responding#interaction-object) to your app when clicked.
+**Buttons** are interactive components that render on messages. They can be clicked by users, and send an { interaction }(https://discord.com/developers/docs/interactions/receiving-and-responding#interaction-object) to your app when clicked.
 
 <img src="/img/content/button.png" alt="Buttons" width="500" />
 
@@ -23,7 +23,7 @@ import { Context, Button, ButtonContext } from '@globalart/nestcord';
 @Injectable()
 export class AppComponents {
     @Button('BUTTON')
-    public onButton(@Context() [interaction]: ButtonContext) {
+    public onButton(@Context() { interaction }: ButtonContext) {
         return interaction.reply({ content: 'Button clicked!' });
     }
 }
@@ -51,7 +51,7 @@ import { Context, Button, ButtonContext } from '@globalart/nestcord';
 export class AppComponents {
   @Button('click/:value')
   public onButton(
-    @Context() [interaction]: ButtonContext,
+    @Context() { interaction }: ButtonContext,
     @ComponentParam('value') value: string
   ) {
     return interaction.reply({ content: `Button clicked! Value: ${value}` });
@@ -99,7 +99,7 @@ import { Context, StringSelect, StringSelectContext, SelectedStrings } from '@gl
 export class AppComponents {
     @StringSelect('STRING_SELECT_MENU')
     public onStringSelect(
-      @Context() [interaction]: StringSelectContext,
+      @Context() { interaction }: StringSelectContext,
       @SelectedStrings() selected: string[]
     ) {
       return interaction.reply({
@@ -138,7 +138,7 @@ import {
 export class AppComponents {
     @UserSelect('USER_SELECT_MENU')
     public onUserSelect(
-      @Context() [interaction]: UserSelectContext,
+      @Context() { interaction }: UserSelectContext,
       @SelectedUsers() users: ISelectedUsers, // Collection of users
       @SelectedMembers() members: ISelectedMembers // Collection of members
     ) {
@@ -179,7 +179,7 @@ import {
 export class AppComponents {
     @RoleSelect('ROLE_SELECT_MENU')
     public onRoleSelect(
-      @Context() [interaction]: RoleSelectContext,
+      @Context() { interaction }: RoleSelectContext,
       @SelectedRoles() roles: ISelectedRoles, // Collection of roles
     ) {
       interaction.reply({
@@ -218,7 +218,7 @@ import {
 export class AppComponents {
     @ChannelSelect('CHANNEL_SELECT_MENU')
     public onChannelSelect(
-      @Context() [interaction]: ChannelSelectContext,
+      @Context() { interaction }: ChannelSelectContext,
       @SelectedChannels() channels: ISelectedChannels, // Collection of channels
     ) {
       interaction.reply({
@@ -261,7 +261,7 @@ import {
 export class AppComponents {
     @MentionableSelect('MENTIONABLE_SELECT_MENU')
     public onMentionableSelect(
-      @Context() [interaction]: MentionableSelectContext,
+      @Context() { interaction }: MentionableSelectContext,
       @SelectedUsers() users: ISelectedUsers,
       @SelectedMembers() members: ISelectedMembers,
       @SelectedRoles() roles: ISelectedRoles
@@ -303,7 +303,7 @@ import { Context, StringSelect, StringSelectContext,SelectedStrings } from '@glo
 export class AppComponents {
     @StringSelect('preferences/:item')
 	public onPreferenceSelect(
-		@Context() [interaction]: StringSelectContext,
+		@Context() { interaction }: StringSelectContext,
 		@SelectedStrings() values: string[],
 		@ComponentParam('item') item: string
 	) {

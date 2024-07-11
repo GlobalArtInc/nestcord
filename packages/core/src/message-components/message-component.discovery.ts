@@ -22,7 +22,7 @@ export class MessageComponentDiscovery extends NestCordBaseDiscovery<MessageComp
   }
 
   public execute(interaction: MessageComponentInteraction) {
-    return super.execute([interaction]);
+    return super.execute({ interaction });
   }
 
   public isMessageComponent(): this is MessageComponentDiscovery {

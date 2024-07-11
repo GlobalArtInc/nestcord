@@ -7,7 +7,7 @@ import { NestCordExecutionContext, TextCommandContext } from '../../context';
  */
 export const Arguments = createParamDecorator((_, context: ExecutionContext) => {
   const nestcordContext = NestCordExecutionContext.create(context);
-  const [message] = nestcordContext.getContext<TextCommandContext>();
+  const { message } = nestcordContext.getContext<TextCommandContext>();
   const discovery = nestcordContext.getDiscovery();
 
   if (!discovery.isTextCommand()) {

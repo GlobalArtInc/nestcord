@@ -58,7 +58,7 @@ export class UsersCommands {
         description: 'Create a new user'
     })
     public async onCreateUser(
-        @Context() [interaction]: SlashCommandContext,
+        @Context() { interaction }: SlashCommandContext,
         @Options(new ValidationPipe({ validateCustomDecorators: true })) createUserDto: CreateUserDto
     ) {
         return interaction.reply({ content: `User created: ${createUserDto.name}` });

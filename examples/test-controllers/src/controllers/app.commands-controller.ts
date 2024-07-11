@@ -10,7 +10,7 @@ export class AppCommandsController {
     name: 'ping',
     description: 'Ping command',
   })
-  onPingCommand(@Context() [interaction]: SlashCommandContext) {
+  onPingCommand(@Context() { interaction }: SlashCommandContext) {
     this.logger.log(`Ping command called by ${interaction.user.username}`);
     const row = new ActionRowBuilder<ButtonBuilder>().addComponents([
       new ButtonBuilder().setCustomId('ping/pong').setStyle(ButtonStyle.Success).setLabel('Ping'),

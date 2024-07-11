@@ -14,7 +14,7 @@ export abstract class AutocompleteInterceptor implements NestInterceptor {
 
   public async intercept(context: ExecutionContext, next: CallHandler): Promise<Observable<void | Promise<void>>> {
     const nestcordContext = NestCordExecutionContext.create(context);
-    const [interaction] = nestcordContext.getContext<AutocompleteContext>();
+    const { interaction } = nestcordContext.getContext<AutocompleteContext>();
     const discovery = nestcordContext.getDiscovery();
 
     if (!interaction.isAutocomplete() || !discovery.isSlashCommand()) {

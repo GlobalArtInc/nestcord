@@ -13,29 +13,30 @@ import {
   UserSelectMenuInteraction,
 } from 'discord.js';
 import { NestCordEvents } from '../listeners';
+import { SlashCommandDiscovery } from '../commands';
 
-export type AutocompleteContext = [AutocompleteInteraction];
+export type AutocompleteContext = { interaction: AutocompleteInteraction };
 
-export type SlashCommandContext = [ChatInputCommandInteraction];
+export type SlashCommandContext = { interaction: ChatInputCommandInteraction };
 
-export type TextCommandContext = [Message];
+export type TextCommandContext = { message: Message };
 
-export type MessageCommandContext = [MessageContextMenuCommandInteraction];
+export type MessageCommandContext = { interaction: MessageContextMenuCommandInteraction };
 
-export type UserCommandContext = [UserContextMenuCommandInteraction];
+export type UserCommandContext = { interaction: UserContextMenuCommandInteraction };
 
-export type ModalContext = [ModalSubmitInteraction];
+export type ModalContext = { interaction: ModalSubmitInteraction };
 
-export type ButtonContext = [ButtonInteraction];
+export type ButtonContext = { interaction: ButtonInteraction };
 
-export type StringSelectContext = [StringSelectMenuInteraction];
+export type StringSelectContext = { interaction: StringSelectMenuInteraction };
 
-export type ChannelSelectContext = [ChannelSelectMenuInteraction];
+export type ChannelSelectContext = { interaction: ChannelSelectMenuInteraction };
 
-export type RoleSelectContext = [RoleSelectMenuInteraction];
+export type RoleSelectContext = { interaction: RoleSelectMenuInteraction };
 
-export type UserSelectContext = [UserSelectMenuInteraction];
+export type UserSelectContext = { interaction: UserSelectMenuInteraction };
 
-export type MentionableSelectContext = [MentionableSelectMenuInteraction];
+export type MentionableSelectContext = { interaction: MentionableSelectMenuInteraction };
 
 export type ContextOf<K extends keyof E, E = NestCordEvents> = E[K];

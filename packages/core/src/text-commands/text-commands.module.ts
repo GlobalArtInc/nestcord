@@ -48,7 +48,7 @@ export class TextCommandsModule implements OnModuleInit, OnApplicationBootstrap 
         return;
       }
 
-      return this.textCommandsService.get(cmd)?.execute([message]);
+      return this.textCommandsService.get(cmd)?.execute({ message });
     });
   }
 }

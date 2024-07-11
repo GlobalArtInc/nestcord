@@ -25,7 +25,7 @@ export class AppService {
     name: 'ping',
     description: 'pong',
   })
-  async execute(@Context() [interaction]: SlashCommandContext) {
+  async execute(@Context() { interaction }: SlashCommandContext) {
     setTimeout(() => interaction.followUp({ content: 'Pong!' }), 5000);
   }
 }

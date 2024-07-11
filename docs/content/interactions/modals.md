@@ -17,7 +17,7 @@ import { Context, Modal, ModalContext } from '@globalart/nestcord';
 @Injectable()
 export class AppModals {
     @Modal('pizza')
-    public onModal(@Ctx() [interaction]: ModalContext) {
+    public onModal(@Ctx() { interaction }: ModalContext) {
       return interaction.reply({
         content: `Your fav pizza : ${interaction.fields.getTextInputValue('pizza')}`
       });
@@ -53,7 +53,7 @@ import { Context, Modal, ModalContext,ModalParam } from '@globalart/nestcord';
 @Injectable()
 export class AppModals {
     @Modal('pizza/:value')
-    public onModal(@Ctx() [interaction]: ModalContext, @ModalParam('value') value: string) {
+    public onModal(@Ctx() { interaction }: ModalContext, @ModalParam('value') value: string) {
       return interaction.reply({
         content: `Your fav pizza ${value} : ${interaction.fields.getTextInputValue('pizza')}`
       });

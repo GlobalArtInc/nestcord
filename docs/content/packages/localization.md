@@ -139,7 +139,7 @@ import { NestCordExecutionContext } from '@globalart/nestcord';
 export class GuildResolver implements LocaleResolver {
     resolve(context: ExecutionContext): string | string[] | undefined {
         const nestcordContext = NestCordExecutionContext.create(context);
-        const [interaction] = nestcordContext.getContext<CommandContext>();
+        const { interaction } = nestcordContext.getContext<CommandContext>();
 
         return interaction.guildLocale;
     }
@@ -169,7 +169,7 @@ export class AppService implements OnModuleInit {
         nameLocalizations: localizationMapByKey('commands.ping.name'),
         descriptionLocalizations: localizationMapByKey('commands.ping.name')
     })
-    public ping(@Context() [interaction]: SlashCommandContext) {
+    public ping(@Context() { interaction }: SlashCommandContext) {
         const message = this.localizationAdapter.getTranslation(
             'commands.ping.description',
             interaction.locale
@@ -200,7 +200,7 @@ export class AppService implements OnModuleInit {
         nameLocalizations: localizationMapByKey('commands.ping.name'),
         descriptionLocalizations: localizationMapByKey('commands.ping.name')
     })
-    public ping(@Context() [interaction]: SlashCommandContext) {
+    public ping(@Context() { interaction }: SlashCommandContext) {
         const message = this.localizationAdapter.translate(
             'commands.ping.description',
         );
@@ -225,7 +225,7 @@ export class AppService implements OnModuleInit {
         descriptionLocalizations: localizationMapByKey('commands.ping.name')
     })
     public ping(
-        @Context() [interaction]: SlashCommandContext,
+        @Context() { interaction }: SlashCommandContext,
         @CurrentTranslate() t: TranslationFn
     ) {
         const message = t('commands.ping.description');
@@ -290,7 +290,7 @@ export class AppService {
     name: 'update_translations',
     description: 'Update translations',
   })
-  updateTranslations(@Context() [interaction]: SlashCommandContext) {
+  updateTranslations(@Context() { interaction }: SlashCommandContext) {
     // Get data from API
 
     this.nestCordLocalizationService.updateLocales({

@@ -53,7 +53,7 @@ export class AppService implements OnModuleInit {
     }
 
     @SlashCommand({ name: 'pagination', description: 'Test pagination' })
-    public async onPagination(@Context() [interaction]: SlashCommandContext) {
+    public async onPagination(@Context() { interaction }: SlashCommandContext) {
         const pagination = this.paginationService.get<PaginatorTypeEnum.BUTTONS>('test');
         pagination.setButtons([
             [
@@ -101,7 +101,7 @@ export class AppService implements OnModuleInit {
     }
 
     @SlashCommand({ name: 'pagination', description: 'Test pagination' })
-    public async onPagination(@Context() [interaction]: SlashCommandContext) {
+    public async onPagination(@Context() { interaction }: SlashCommandContext) {
         const pagination = this.paginationService.get<PaginatorTypeEnum.SELECT_MENU>('test');
         pagination.setSelectMenuItems(this.setMenuItems());
         pagination.setPages(this.setMenuPages());
@@ -111,7 +111,7 @@ export class AppService implements OnModuleInit {
     }
 
     @StringSelect('nestcord-pagination/test')
-    async MenusInteraction(@Context() [interaction]: ButtonContext, @SelectedStrings() selected: string[]) {
+    async MenusInteraction(@Context() { interaction }: ButtonContext, @SelectedStrings() selected: string[]) {
       const selectedPage = selected?.[0] || null;
       const pagination = this.paginationService.get<PaginatorTypeEnum.SELECT_MENU>('menus');
       pagination.setSelectMenuItems(this.setMenuItems());

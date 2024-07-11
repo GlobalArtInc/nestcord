@@ -20,7 +20,7 @@ export class AppGateway {
     name: 'ping',
     description: 'Ping command',
   })
-  onPingCommand(@Context() [interaction]: SlashCommandContext, @CurrentTranslate() t: TranslationFn) {
+  onPingCommand(@Context() { interaction }: SlashCommandContext, @CurrentTranslate() t: TranslationFn) {
     this.logger.log(`Ping command called by ${interaction.user.username}`);
 
     return interaction.reply({
@@ -33,7 +33,7 @@ export class AppGateway {
     description: 'Options command',
   })
   onOptions(
-    @Context() [interaction]: SlashCommandContext,
+    @Context() { interaction }: SlashCommandContext,
     @Options() {}: AppDtos,
     @CurrentTranslate() t: TranslationFn,
   ) {

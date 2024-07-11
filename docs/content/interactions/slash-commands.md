@@ -35,7 +35,7 @@ export class AppCommands {
         name: 'ping',
         description: 'Ping-Pong Command'
     })
-    public async onPing(@Context() [interaction]: SlashCommandContext) {
+    public async onPing(@Context() { interaction }: SlashCommandContext) {
         return interaction.reply({ content: 'Pong!' });
     }
 }
@@ -56,7 +56,7 @@ export class AppCommands {
         description: 'Ping-Pong Command',
         guilds: [process.env.DEV_GUILD]
     })
-    public async onPing(@Context() [interaction]: SlashCommandContext) {
+    public async onPing(@Context() { interaction }: SlashCommandContext) {
         return interaction.reply({ content: 'Pong!' });
     }
 }
@@ -94,7 +94,7 @@ export class AppCommands {
         name: 'length',
         description: 'Get length of text'
     })
-    public async onLength(@Context() [interaction]: SlashCommandContext, @Options() { text }: TextDto) {
+    public async onLength(@Context() { interaction }: SlashCommandContext, @Options() { text }: TextDto) {
         return interaction.reply({content: `Length of your text ${text.length}`});
     }
 }
@@ -175,7 +175,7 @@ export class AnimeCommands {
         name: 'anime',
         description: 'Lookup information about an anime'
     })
-    public async onSearch(@Context() [interaction]: SlashCommandContext, @Options() { anime }: AnimeDto) {
+    public async onSearch(@Context() { interaction }: SlashCommandContext, @Options() { anime }: AnimeDto) {
         return interaction.reply({content: `I found the anime ${anime}`});
     }
 }

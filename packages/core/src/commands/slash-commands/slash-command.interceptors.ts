@@ -6,7 +6,7 @@ import { NestCordExecutionContext, SlashCommandContext } from '../../context';
 export class DeferCommandInterceptor implements NestInterceptor {
   public async intercept(context: ExecutionContext, next: CallHandler): Promise<Observable<unknown>> {
     const nestcordContext = NestCordExecutionContext.create(context);
-    const [interaction] = nestcordContext.getContext<SlashCommandContext>();
+    const { interaction } = nestcordContext.getContext<SlashCommandContext>();
     const discovery = nestcordContext.getDiscovery();
     if (!discovery.isSlashCommand() && !discovery.isMessageComponent()) {
       return next.handle();

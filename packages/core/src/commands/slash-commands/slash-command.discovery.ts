@@ -116,7 +116,7 @@ export class SlashCommandDiscovery extends CommandDiscovery<SlashCommandMeta> {
       return this.subcommands.get(commandName)?.execute(interaction, depth + 1);
     }
 
-    return super.execute([interaction]);
+    return super.execute({ interaction });
   }
 
   /**

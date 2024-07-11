@@ -21,7 +21,7 @@ import { User } from 'discord.js';
 export class AppCommands {
     @UserCommand({ name: 'Get avatar' })
     public async getUserAvatar(
-        @Context() [interaction]: UserCommandContext,
+        @Context() { interaction }: UserCommandContext,
         @TargetUser() user: User
     ) {
         return interaction.reply({
@@ -52,7 +52,7 @@ import { Message } from 'discord.js';
 export class AppCommands {
     @MessageCommand({ name: 'Copy Message' })
     public async copyMessage(
-        @Context() [interaction]: MessageCommandContext,
+        @Context() { interaction }: MessageCommandContext,
         @TargetMessage() message: Message
     ) {
         return interaction.reply({ content: message.content });
