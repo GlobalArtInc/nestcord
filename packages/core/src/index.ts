@@ -11,3 +11,4 @@ export * from './providers/client.provider';
 export * from './nestcord-explorer.service';
 export * from './nestcord-options.interface';
 export * from './providers/rest.provider';
+export * from './nestcord.service';
