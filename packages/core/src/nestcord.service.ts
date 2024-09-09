@@ -14,7 +14,16 @@ export class NestcordService implements OnApplicationBootstrap {
     });
   }
 
-  get emojis(): Map<string, ApplicationEmoji> {
+  getEmojiPlain(name: string) {
+    const emoji = this.getEmojisMap().get(name);
+    if (!emoji) {
+      return '';
+    }
+
+    return emoji.toString();
+  }
+
+  getEmojisMap(): Map<string, ApplicationEmoji> {
     return new Map(this.discordClient.application.emojis.cache.map((emoji) => [emoji.name, emoji]));
   }
 
