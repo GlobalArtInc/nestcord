@@ -14,8 +14,8 @@ export class NestcordService implements OnApplicationBootstrap {
     });
   }
 
-  getEmojiPlain(name: string) {
-    const emoji = this.getEmojisMap().get(name);
+  getApplicationEmojiPlain(name: string) {
+    const emoji = this.getApplicationEmojisMap().get(name);
     if (!emoji) {
       return '';
     }
@@ -23,7 +23,7 @@ export class NestcordService implements OnApplicationBootstrap {
     return emoji.toString();
   }
 
-  getEmojisMap(): Map<string, ApplicationEmoji> {
+  getApplicationEmojisMap(): Map<string, ApplicationEmoji> {
     return new Map(this.discordClient.application.emojis.cache.map((emoji) => [emoji.name, emoji]));
   }
 
