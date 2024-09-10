@@ -28,7 +28,7 @@ importers:
         version: 4.3.1
       path-to-regexp:
         specifier: ^8.0.0
-        version: 8.0.0
+        version: 8.1.0
     devDependencies:
       '@commitlint/cli':
         specifier: 19.4.1
@@ -3209,8 +3209,8 @@ packages:
   path-to-regexp@3.2.0:
     resolution: {integrity: sha512-jczvQbCUS7XmS7o+y1aEO9OBVFeZBQ1MDSEqmO7xSoPgOPoowY/SxLpZ6Vh97/8qHZOteiCKb7gkG9gA2ZUxJA==}
 
-  path-to-regexp@8.0.0:
-    resolution: {integrity: sha512-GAWaqWlTjYK/7SVpIUA6CTxmcg65SP30sbjdCvyYReosRkk7Z/LyHWwkK3Vu0FcIi0FNTADUs4eh1AsU5s10cg==}
+  path-to-regexp@8.1.0:
+    resolution: {integrity: sha512-Bqn3vc8CMHty6zuD+tG23s6v2kwxslHEhTj4eYaVKGIEB+YX/2wd0/rgXLFD9G9id9KCtbVy/3ZgmvZjpa0UdQ==}
     engines: {node: '>=16'}
 
   path-type@4.0.0:
@@ -6995,7 +6995,7 @@ snapshots:
 
   path-to-regexp@3.2.0: {}
 
-  path-to-regexp@8.0.0: {}
+  path-to-regexp@8.1.0: {}
 
   path-type@4.0.0: {}
 
