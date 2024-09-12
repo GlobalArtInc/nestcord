@@ -14,10 +14,14 @@ export class NestcordService implements OnApplicationBootstrap {
     });
   }
 
+  getApplicationEmoji(name: string) {
+    return this.getApplicationEmojisMap().get(name) || null;
+  }
+
   getApplicationEmojiPlain(name: string) {
     const emoji = this.getApplicationEmojisMap().get(name);
     if (!emoji) {
-      return '';
+      return null;
     }
 
     return emoji.toString();
