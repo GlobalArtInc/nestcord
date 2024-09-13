@@ -21,7 +21,7 @@ export class NestcordService implements OnApplicationBootstrap {
   getApplicationEmojiPlain(name: string) {
     const emoji = this.getApplicationEmojisMap().get(name);
     if (!emoji) {
-      return null;
+      return '';
     }
 
     return emoji.toString();
