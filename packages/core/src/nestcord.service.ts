@@ -39,12 +39,7 @@ export class NestcordService implements OnApplicationBootstrap {
   }
 
   private async updateData(): Promise<void> {
-    try {
-      await this.fetchEmojis();
-      await this.fetchApplicationAssets();
-    } catch (error) {
-      this.logger.error('Error updating data:', error);
-    }
+    await Promise.allSettled([this.fetchEmojis(), this.fetchApplicationAssets()]);
   }
 
   private async fetchEmojis(): Promise<void> {
