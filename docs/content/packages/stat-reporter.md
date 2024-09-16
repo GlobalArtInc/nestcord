@@ -41,8 +41,11 @@ import { NestCordModule,
           {
             name: 'top.gg',
             actions: [
-              url: 'https://top.gg/bots/:bot_id/stats',
-              bodyData: { server_count: '{{serverCount}}', shard_count: '{{shardCount}}' },
+              {
+                name: 'name of the action',
+                url: 'https://top.gg/bots/:bot_id/stats',
+                bodyData: { server_count: '{{serverCount}}', shard_count: '{{shardCount}}' },
+              }
             ],
             headerData: { Authorization: process.env.TOP_GG_TOKEN },
             schedule: StatCronExpression.EVERY_5_MINUTES // or you can use crontab expression like */1 * * * * ,
