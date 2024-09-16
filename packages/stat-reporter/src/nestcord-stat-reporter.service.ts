@@ -6,7 +6,7 @@ import { SchedulerRegistry } from '@nestjs/schedule';
 import { CronJob } from 'cron';
 import { HttpService } from '@nestjs/axios';
 import { replacePlaceholdersInObject } from '@globalart/text-utils';
-import { lastValueFrom } from 'rxjs';
+import { from, lastValueFrom, mergeMap } from 'rxjs';
 
 @Injectable()
 export class NestCordStatReporterService implements OnModuleInit {
@@ -54,17 +54,20 @@ export class NestCordStatReporterService implements OnModuleInit {
         Promise.resolve(this.shard?.count || 1),
       ]);
 
-      const bodyData = replacePlaceholdersInObject(service.bodyData, { serverCount, shardCount });
       const headerData = service.headerData || {};
 
       await lastValueFrom(
-        this.httpService.request({
-          method: service.method || 'POST',
-          url: service.url,
-          data: bodyData,
-          headers: headerData,
-          proxy: service.proxy || this.options.proxy,
-        }),
+        from(service.actions).pipe(
+          mergeMap((action) =>
+            this.httpService.request({
+              method: action.method || 'POST',
+              url: action.url,
+              data: replacePlaceholdersInObject(action.bodyData, { serverCount, shardCount }),
+              headers: headerData,
+              proxy: service.proxy || this.options.proxy,
+            }),
+          ),
+        ),
       );
 
       this.logStats(service.name, serverCount, shardCount);

@@ -1,9 +1,9 @@
 import { AxiosProxyConfig, Method, RawAxiosRequestHeaders } from 'axios';
 import { StatCronExpression } from '../enums';
 
-export interface ServiceOption {
+export interface ServiceOptionAction {
   /**
-   * The name of the stat service.
+   * The name of the action.
    */
   name: string;
 
@@ -21,6 +21,18 @@ export interface ServiceOption {
    * The body data to send to the stat service.
    */
   bodyData: Record<string, unknown>;
+}
+
+export interface ServiceOption {
+  /**
+   * The name of the stat service.
+   */
+  name: string;
+
+  /**
+   * Service actions
+   */
+  actions: ServiceOptionAction[];
 
   /**
    * The header data to include in the request to the stat service.

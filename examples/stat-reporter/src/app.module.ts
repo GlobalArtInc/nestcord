@@ -2,7 +2,7 @@ import { GatewayIntentBits, Partials } from 'discord.js';
 import { NestCordModule } from '../../../packages/core';
 import { Module } from '@nestjs/common';
 import { AppGateway } from './app.gateway';
-import { NestCordStatReporterModule, StatCronExpression } from '../../../packages';
+import { NestCordStatReporterModule } from '../../../packages';
 
 @Module({
   imports: [
@@ -22,8 +22,13 @@ import { NestCordStatReporterModule, StatCronExpression } from '../../../package
       services: [
         {
           name: 'top.gg',
-          url: 'https://top.gg/api/bots/:bot_id/stats',
-          bodyData: { server_count: '{{serverCount}}', shard_count: '{{shardCount}}' },
+          actions: [
+            {
+              name: 'stats',
+              url: 'https://webhook.site/5de44490-7d68-4641-b57e-f43fc8cdacea',
+              bodyData: { server_count: '{{serverCount}}', shard_count: '{{shardCount}}' },
+            },
+          ],
           headerData: {
             Authorization: process.env.TOP_GG_TOKEN,
           },
