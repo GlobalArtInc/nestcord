@@ -52,6 +52,7 @@
 		"axios": "^1.7.2",
 		"cron": "^3.1.7",
 		"deepmerge": "^4.3.1",
+		"lavalink-client": "^2.4.0",
 		"path-to-regexp": "^8.0.0"
 	},
 	"devDependencies": {
