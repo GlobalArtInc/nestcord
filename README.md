@@ -1,10 +1,10 @@
 <div align="center">
    <h1>
-       <a href="#"><img src="https://nestcord.globalart.dev/img/logo.png" alt ="NestCord Logo"></a>
+       <a href="#"><img src="https://nestcord.globalart.dev/img/logo.png" alt="NestCord Logo"></a>
    </h1>
-   🤖 A module for creating <b><a href="https://discord.com/">Discord</a> bots</b> using <a href="https://nestjs.com">NestJS</a>, based on <a href="https://discord.js.org/">Discord.js</a>
+   🤖 A versatile NestJS module for creating <b><a href="https://discord.com/">Discord</a> bots</b>, powered by <a href="https://discord.js.org/">Discord.js</a>.
    <br/><br/>
-   <a href="https://nestcord.globalart.dev">Documentation ✨</a> &emsp; <a href="https://github.com/GlobalArtInc/nestcord">Source code 🪡</a> &emsp; <a href="https://github.com/GlobalArtInc/nestcord/tree/master/examples">Examples 🛠️</a> &emsp; <a href="https://discord.gg/4Tc9hssSAv">Community 💬</a>
+   <a href="https://nestcord.globalart.dev">Documentation ✨</a> &emsp; <a href="https://github.com/GlobalArtInc/nestcord">Source Code 🪡</a> &emsp; <a href="https://github.com/GlobalArtInc/nestcord/tree/master/examples">Examples 🛠️</a> &emsp; <a href="https://discord.gg/4Tc9hssSAv">Community 💬</a>
 </div>
 
 <br/>
@@ -16,19 +16,16 @@
 
 ## About
 
-This package uses the best of the NodeJS world under the hood. [Discord.js](https://github.com/discordjs/discord.js) is the most powerful
-library for creating bots and [Nest.js](https://github.com/nestjs) is a progressive framework for creating well-architectured applications.
-This module provides fast and easy way for creating Discord bots and deep integration with your NestJS application.
+NestCord is a NestJS module designed to streamline the creation of Discord bots by utilizing the power of [Discord.js](https://github.com/discordjs/discord.js) under the hood. This mono-repository offers a structured approach to bot development, allowing deep integration with NestJS’s ecosystem for a seamless and powerful bot-building experience.
 
-**Features**
+### Key Features
 
-- Simple. Flexible. Easy to use.
-- Ability to create custom decorators.
-- Interact with Discord (Slash Commands, Context Menus, Message Components, Listeners).
-- Full support of NestJS guards, interceptors, filters and pipes!
+- **Easy Setup & Flexible Architecture:** Get started quickly with customizable components.
+- **Powerful Custom Decorators:** Build reusable, specialized components.
+- **Comprehensive Discord Interactions:** Supports Slash Commands, Context Menus, Message Components, and Event Listeners.
+- **Full NestJS Compatibility:** Integrate with guards, interceptors, filters, and pipes for full NestJS support.
 
-For questions and support please use
-the [Issues](https://github.com/GlobalArtInc/nestcord/issues/new?assignees=&labels=question&template=question.yml).
+For help and support, refer to the [Issues](https://github.com/GlobalArtInc/nestcord/issues/new?assignees=&labels=question&template=question.yml) page.
 
 ## Installation
 

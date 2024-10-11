@@ -3,6 +3,7 @@ import { ApplicationEmoji, Client, REST } from 'discord.js';
 import { NESTCORD_MODULE_OPTIONS } from './nestcord.module-definition';
 import { NestCordModuleOptions } from './nestcord-options.interface';
 import { DiscordApplicationAsset } from './interfaces';
+import { DISCORD_CDN_URL } from './nestcord.consts';
 
 @Injectable()
 export class NestCordService implements OnApplicationBootstrap {
@@ -71,6 +72,6 @@ export class NestCordService implements OnApplicationBootstrap {
   }
 
   private getAssetUrl(assetId: string): string {
-    return `https://cdn.discordapp.com/app-assets/${this.discordClient.user.id}/${assetId}.png`;
+    return `${DISCORD_CDN_URL}/app-assets/${this.discordClient.user.id}/${assetId}.png`;
   }
 }
