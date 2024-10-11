@@ -1,7 +1,7 @@
 import { NestCordLavaLinkConfigurableModule, LAVALINK_MODULE_OPTIONS } from './nestcord-lavalink.module-definition';
 import { Global, Inject, Logger, Module, OnApplicationShutdown, OnModuleInit } from '@nestjs/common';
 import * as ProvidersMap from './providers';
-import { DestroyReasons, LavalinkManager } from 'lavalink-client';
+import { DestroyReasons, LavalinkManager, NodeManager } from 'lavalink-client';
 import { Client } from 'discord.js';
 import { LavalinkListenersModule } from './listeners';
 import { NestCordLavalinkModuleOptions } from './nestcord-lavalink-options.interface';
@@ -24,6 +24,7 @@ export class NestCordLavalinkModule
   public constructor(
     private readonly client: Client,
     private readonly lavalinkManager: LavalinkManager,
+    private readonly nodeManager: NodeManager,
     @Inject(LAVALINK_MODULE_OPTIONS)
     private readonly options: NestCordLavalinkModuleOptions,
   ) {
@@ -40,6 +41,10 @@ export class NestCordLavalinkModule
       );
 
       this.logger.log('Lavalink Manager Initialized');
+    });
+
+    this.nodeManager.on('error', (node, error) => {
+      this.logger.error(`An error occured while connecting to the node: ${node.id}`, error.stack);
     });
 
     this.client.on('raw', (data) => {

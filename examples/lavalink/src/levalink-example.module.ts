@@ -1,7 +1,7 @@
 import { GatewayIntentBits, Partials } from 'discord.js';
 import { NestCordModule } from '../../../packages/core';
 import { Module } from '@nestjs/common';
-import { AppGateway } from './app.gateway';
+import { LevalinkExampleGateway } from './levalink-example.gateway';
 import { NestCordLavalinkModule } from '../../../packages';
 
 @Module({
@@ -28,6 +28,6 @@ import { NestCordLavalinkModule } from '../../../packages';
       ],
     }),
   ],
-  providers: [AppGateway],
+  providers: [LevalinkExampleGateway],
 })
-export class AppModule {}
+export class LevalinkExampleModule {}

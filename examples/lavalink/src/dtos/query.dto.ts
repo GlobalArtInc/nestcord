@@ -1,5 +1,5 @@
 import { SearchPlatform } from 'lavalink-client';
-import { StringOption } from '../../../packages';
+import { StringOption } from '../../../../packages';
 
 export class QueryDto {
   @StringOption({

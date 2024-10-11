@@ -1,4 +1,4 @@
-import { Injectable, Logger } from '@nestjs/common';
+import { Injectable, Logger, UseInterceptors } from '@nestjs/common';
 import {
   Context,
   OnNodeManager,
@@ -11,20 +11,26 @@ import {
   SlashCommandContext,
   Options,
 } from '../../../packages';
-import { QueryDto } from './app.dto';
+import { QueryDto } from './dtos/query.dto';
+import { SourceAutocompleteInterceptor } from './interceptor/source-autocomplete.interceptor';
 
 @Injectable()
-export class AppGateway {
+export class LevalinkExampleGateway {
   constructor(
     private readonly playerManager: PlayerManager,
     private readonly lavalinkService: NestCordLavalinkService,
   ) {}
 
-  private readonly logger = new Logger(AppGateway.name);
+  private readonly logger = new Logger(LevalinkExampleGateway.name);
 
   @OnNodeManager('connect')
   public onConnect(@Context() [node]: NodeManagerContextOf<'connect'>) {
     this.logger.log(`Node: ${node.options.host} Connected`);
+  }
+
+  @OnNodeManager('disconnect')
+  public onNodeDisconnect(@Context() [node]: NodeManagerContextOf<'disconnect'>) {
+    this.logger.log(`Node: ${node.options.host} disconnected`);
   }
 
   @OnLavalinkManager('playerCreate')
@@ -32,21 +38,30 @@ export class AppGateway {
     this.logger.log(`Player created at ${player.guildId}`);
   }
 
+  @UseInterceptors(SourceAutocompleteInterceptor)
   @SlashCommand({
     name: 'play',
     description: 'play a track',
   })
   async handlePlay(@Context() [interaction]: SlashCommandContext, @Options() { query, source }: QueryDto) {
+    if (!interaction.inCachedGuild()) {
+      return;
+    }
+    if (!interaction.member.voice.channel) {
+      return interaction.reply({
+        content: `You must located in the voice channel.`,
+        ephemeral: true,
+      });
+    }
+
     const player =
       this.playerManager.get(interaction.guild.id) ??
       this.playerManager.create({
         ...this.lavalinkService.extractInfoForPlayer(interaction),
-        // optional configurations:
         selfDeaf: true,
         selfMute: false,
         volume: 50,
       });
-
     await player.connect();
 
     const res = await player.search(
@@ -78,6 +93,11 @@ export class AppGateway {
       });
     }
 
-    player.stopPlaying();
+    await player.stopPlaying();
+    await player.disconnect();
+
+    return interaction.reply({
+      content: 'Player has been stoped',
+    });
   }
 }
