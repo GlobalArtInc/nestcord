@@ -5,9 +5,9 @@ import { NestCordModuleOptions } from './nestcord-options.interface';
 import { DiscordApplicationAsset } from './interfaces';
 
 @Injectable()
-export class NestcordService implements OnApplicationBootstrap {
+export class NestCordService implements OnApplicationBootstrap {
   private readonly dataFetchInterval = 60000;
-  private readonly logger = new Logger(NestcordService.name);
+  private readonly logger = new Logger(NestCordService.name);
   private assetsMap: Map<string, DiscordApplicationAsset> = new Map();
   private emojisMap: Map<string, ApplicationEmoji> = new Map();
 

@@ -9,7 +9,7 @@ import { ModalsModule } from './modals';
 import { ExplorerService } from './nestcord-explorer.service';
 import { TextCommandsModule } from './text-commands';
 import { DiscoveryModule } from '@nestjs/core';
-import { NestcordService } from './nestcord.service';
+import { NestCordService } from './nestcord.service';
 import * as ProvidersMap from './providers';
 
 const Providers = Object.values(ProvidersMap);
@@ -24,7 +24,7 @@ const Providers = Object.values(ProvidersMap);
     ModalsModule,
     TextCommandsModule,
   ],
-  providers: [ExplorerService, NestcordService, ...Providers],
+  providers: [ExplorerService, NestCordService, ...Providers],
   exports: [
     CommandsModule,
     ListenersModule,
@@ -32,7 +32,7 @@ const Providers = Object.values(ProvidersMap);
     ModalsModule,
     TextCommandsModule,
     ExplorerService,
-    NestcordService,
+    NestCordService,
     ...Providers,
     NESTCORD_MODULE_OPTIONS,
   ],
