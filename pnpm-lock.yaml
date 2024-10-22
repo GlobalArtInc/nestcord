@@ -125,7 +125,7 @@ importers:
         version: 2.1.1
       docusaurus-plugin-sass:
         specifier: 0.2.5
-        version: 0.2.5(@docusaurus/core@3.5.2(@docusaurus/types@3.5.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@mdx-js/react@3.1.0(@types/react@18.3.6)(react@18.3.1))(eslint@8.57.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.6.3))(sass@1.80.2)(webpack@5.94.0)
+        version: 0.2.5(@docusaurus/core@3.5.2(@docusaurus/types@3.5.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@mdx-js/react@3.1.0(@types/react@18.3.6)(react@18.3.1))(eslint@8.57.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.6.3))(sass@1.80.3)(webpack@5.94.0)
       prism-react-renderer:
         specifier: 2.4.0
         version: 2.4.0(react@18.3.1)
@@ -136,8 +136,8 @@ importers:
         specifier: 18.3.1
         version: 18.3.1(react@18.3.1)
       sass:
-        specifier: 1.80.2
-        version: 1.80.2
+        specifier: 1.80.3
+        version: 1.80.3
     devDependencies:
       '@docusaurus/module-type-aliases':
         specifier: 3.5.2
@@ -6808,8 +6808,8 @@ packages:
       sass:
         optional: true
 
-  sass@1.80.2:
-    resolution: {integrity: sha512-9wXY8cGBlUmoUoT+vwOZOFCiS+naiWVjqlreN9ar9PudXbGwlMTFwCR5K9kB4dFumJ6ib98wZyAObJKsWf1nAA==}
+  sass@1.80.3:
+    resolution: {integrity: sha512-ptDWyVmDMVielpz/oWy3YP3nfs7LpJTHIJZboMVs8GEC9eUmtZTZhMHlTW98wY4aEorDfjN38+Wr/XjskFWcfA==}
     engines: {node: '>=14.0.0'}
     hasBin: true
 
@@ -12165,11 +12165,11 @@ snapshots:
     dependencies:
       esutils: 2.0.3
 
-  docusaurus-plugin-sass@0.2.5(@docusaurus/core@3.5.2(@docusaurus/types@3.5.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@mdx-js/react@3.1.0(@types/react@18.3.6)(react@18.3.1))(eslint@8.57.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.6.3))(sass@1.80.2)(webpack@5.94.0):
+  docusaurus-plugin-sass@0.2.5(@docusaurus/core@3.5.2(@docusaurus/types@3.5.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@mdx-js/react@3.1.0(@types/react@18.3.6)(react@18.3.1))(eslint@8.57.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.6.3))(sass@1.80.3)(webpack@5.94.0):
     dependencies:
       '@docusaurus/core': 3.5.2(@docusaurus/types@3.5.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@mdx-js/react@3.1.0(@types/react@18.3.6)(react@18.3.1))(eslint@8.57.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.6.3)
-      sass: 1.80.2
-      sass-loader: 10.5.2(sass@1.80.2)(webpack@5.94.0)
+      sass: 1.80.3
+      sass-loader: 10.5.2(sass@1.80.3)(webpack@5.94.0)
     transitivePeerDependencies:
       - fibers
       - node-sass
@@ -15891,7 +15891,7 @@ snapshots:
 
   safer-buffer@2.1.2: {}
 
-  sass-loader@10.5.2(sass@1.80.2)(webpack@5.94.0):
+  sass-loader@10.5.2(sass@1.80.3)(webpack@5.94.0):
     dependencies:
       klona: 2.0.6
       loader-utils: 2.0.4
@@ -15900,9 +15900,9 @@ snapshots:
       semver: 7.6.3
       webpack: 5.94.0
     optionalDependencies:
-      sass: 1.80.2
+      sass: 1.80.3
 
-  sass@1.80.2:
+  sass@1.80.3:
     dependencies:
       '@parcel/watcher': 2.4.1
       chokidar: 4.0.0
