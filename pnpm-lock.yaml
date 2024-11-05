@@ -115,8 +115,8 @@ importers:
         specifier: 3.6.0
         version: 3.6.0(@algolia/client-search@4.24.0)(@mdx-js/react@3.1.0(@types/react@18.3.6)(react@18.3.1))(@types/react@18.3.6)(eslint@8.57.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(search-insights@2.17.2)(typescript@5.6.3)
       '@docusaurus/remark-plugin-npm2yarn':
-        specifier: 3.5.2
-        version: 3.5.2
+        specifier: 3.6.0
+        version: 3.6.0
       '@mdx-js/react':
         specifier: 3.1.0
         version: 3.1.0(@types/react@18.3.6)(react@18.3.1)
@@ -2302,8 +2302,8 @@ packages:
     peerDependencies:
       react: '*'
 
-  '@docusaurus/remark-plugin-npm2yarn@3.5.2':
-    resolution: {integrity: sha512-EAD7R/skPuhW3lWZyDhRuFs3m2EGaR008tuoe6SrFre7PifoxmSCwXk8Nb4VtVRKnnbn4IgHyqq+ma47gGmKwg==}
+  '@docusaurus/remark-plugin-npm2yarn@3.6.0':
+    resolution: {integrity: sha512-Imh0v68hFWSWlcE7qLlnZD9r4bQOzM6rcWTh6mPpfx2zHAai+so+SJmrMwZ1AJGfC08Y7Ch2Q/G4AThalXRVqQ==}
     engines: {node: '>=18.0'}
 
   '@docusaurus/theme-classic@3.6.0':
@@ -6475,8 +6475,8 @@ packages:
     resolution: {integrity: sha512-ppwTtiJZq0O/ai0z7yfudtBpWIoxM8yE6nHi1X47eFR2EWORqfbu6CnPlNsjeN683eT0qG6H/Pyf9fCcvjnnnQ==}
     engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
 
-  npm-to-yarn@2.2.1:
-    resolution: {integrity: sha512-O/j/ROyX0KGLG7O6Ieut/seQ0oiTpHF2tXAcFbpdTLQFiaNtkyTXXocM1fwpaa60dg1qpWj0nHlbNhx6qwuENQ==}
+  npm-to-yarn@3.0.0:
+    resolution: {integrity: sha512-76YnmsbfrYp0tMsWxM0RNX0Vs+x8JxpJGu6B/jDn4lW8+laiTcKmKi9MeMh4UikO4RkJ1oqURoDy9bXJmMXS6A==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
 
   nprogress@0.2.0:
@@ -11403,11 +11403,11 @@ snapshots:
       '@types/react': 18.3.6
       react: 18.3.1
 
-  '@docusaurus/remark-plugin-npm2yarn@3.5.2':
+  '@docusaurus/remark-plugin-npm2yarn@3.6.0':
     dependencies:
       mdast-util-mdx: 3.0.0
-      npm-to-yarn: 2.2.1
-      tslib: 2.6.3
+      npm-to-yarn: 3.0.0
+      tslib: 2.7.0
       unified: 11.0.5
       unist-util-visit: 5.0.0
     transitivePeerDependencies:
@@ -16942,7 +16942,7 @@ snapshots:
     dependencies:
       path-key: 4.0.0
 
-  npm-to-yarn@2.2.1: {}
+  npm-to-yarn@3.0.0: {}
 
   nprogress@0.2.0: {}
 
