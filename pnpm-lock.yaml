@@ -125,7 +125,7 @@ importers:
         version: 2.1.1
       docusaurus-plugin-sass:
         specifier: 0.2.5
-        version: 0.2.5(@docusaurus/core@3.6.1(@mdx-js/react@3.1.0(@types/react@18.3.6)(react@18.3.1))(eslint@8.57.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.6.3))(sass@1.80.6)(webpack@5.94.0)
+        version: 0.2.5(@docusaurus/core@3.6.1(@mdx-js/react@3.1.0(@types/react@18.3.6)(react@18.3.1))(eslint@8.57.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.6.3))(sass@1.80.7)(webpack@5.94.0)
       prism-react-renderer:
         specifier: 2.4.0
         version: 2.4.0(react@18.3.1)
@@ -136,8 +136,8 @@ importers:
         specifier: 18.3.1
         version: 18.3.1(react@18.3.1)
       sass:
-        specifier: 1.80.6
-        version: 1.80.6
+        specifier: 1.80.7
+        version: 1.80.7
     devDependencies:
       '@docusaurus/module-type-aliases':
         specifier: 3.6.1
@@ -5320,8 +5320,8 @@ packages:
   immer@9.0.21:
     resolution: {integrity: sha512-bc4NBHqOqSfRW7POMkHd51LvClaeMXpm8dx0e8oE2GORbq5aRK7Bxl4FyzVLdGtLmvLKL7BTDBG5ACQm4HWjTA==}
 
-  immutable@4.3.7:
-    resolution: {integrity: sha512-1hqclzwYwjRDFLjcFxOM5AYkkG0rpFPpr1RLPMEuGczoS7YA8gLhy8SWXYRAA/XwfEHpfo3cw5JGioS32fnMRw==}
+  immutable@5.0.2:
+    resolution: {integrity: sha512-1NU7hWZDkV7hJ4PJ9dur9gTNQ4ePNPN4k9/0YhwjzykTi/+3Q5pF93YU5QoVj8BuOnhLgaY8gs0U2pj4kSYVcw==}
 
   import-fresh@3.3.0:
     resolution: {integrity: sha512-veYYhQa+D1QBKznvhUHxb8faxlrwUnxseDAbAp457E0wLNio2bOSKnjYDhMj+YiAq61xrMGhQk9iXVk5FzgQMw==}
@@ -7443,8 +7443,8 @@ packages:
       sass:
         optional: true
 
-  sass@1.80.6:
-    resolution: {integrity: sha512-ccZgdHNiBF1NHBsWvacvT5rju3y1d/Eu+8Ex6c21nHp2lZGLBEtuwc415QfiI1PJa1TpCo3iXwwSRjRpn2Ckjg==}
+  sass@1.80.7:
+    resolution: {integrity: sha512-MVWvN0u5meytrSjsU7AWsbhoXi1sc58zADXFllfZzbsBT1GHjjar6JwBINYPRrkx/zqnQ6uqbQuHgE95O+C+eQ==}
     engines: {node: '>=14.0.0'}
     hasBin: true
 
@@ -10586,7 +10586,7 @@ snapshots:
       react-dev-utils: 12.0.1(eslint@8.57.1)(typescript@5.6.3)(webpack@5.96.1)
       terser-webpack-plugin: 5.3.10(webpack@5.96.1)
       tslib: 2.7.0
-      url-loader: 4.1.1(file-loader@6.2.0(webpack@5.96.1))(webpack@5.96.1)
+      url-loader: 4.1.1(file-loader@6.2.0(webpack@5.94.0))(webpack@5.96.1)
       webpack: 5.96.1
       webpackbar: 6.0.1(webpack@5.96.1)
     transitivePeerDependencies:
@@ -10673,7 +10673,7 @@ snapshots:
       terser-webpack-plugin: 5.3.10(webpack@5.96.1)
       tslib: 2.7.0
       update-notifier: 6.0.2
-      url-loader: 4.1.1(file-loader@6.2.0(webpack@5.96.1))(webpack@5.96.1)
+      url-loader: 4.1.1(file-loader@6.2.0(webpack@5.94.0))(webpack@5.96.1)
       webpack: 5.96.1
       webpack-bundle-analyzer: 4.10.2
       webpack-dev-server: 4.15.2(webpack@5.96.1)
@@ -10814,7 +10814,7 @@ snapshots:
       tslib: 2.7.0
       unified: 11.0.5
       unist-util-visit: 5.0.0
-      url-loader: 4.1.1(file-loader@6.2.0(webpack@5.96.1))(webpack@5.96.1)
+      url-loader: 4.1.1(file-loader@6.2.0(webpack@5.94.0))(webpack@5.96.1)
       vfile: 6.0.3
       webpack: 5.96.1
     transitivePeerDependencies:
@@ -10851,7 +10851,7 @@ snapshots:
       tslib: 2.7.0
       unified: 11.0.5
       unist-util-visit: 5.0.0
-      url-loader: 4.1.1(file-loader@6.2.0(webpack@5.96.1))(webpack@5.96.1)
+      url-loader: 4.1.1(file-loader@6.2.0(webpack@5.94.0))(webpack@5.96.1)
       vfile: 6.0.3
       webpack: 5.96.1
     transitivePeerDependencies:
@@ -11533,7 +11533,7 @@ snapshots:
       resolve-pathname: 3.0.0
       shelljs: 0.8.5
       tslib: 2.7.0
-      url-loader: 4.1.1(file-loader@6.2.0(webpack@5.96.1))(webpack@5.96.1)
+      url-loader: 4.1.1(file-loader@6.2.0(webpack@5.94.0))(webpack@5.96.1)
       utility-types: 3.11.0
       webpack: 5.96.1
     optionalDependencies:
@@ -11566,7 +11566,7 @@ snapshots:
       resolve-pathname: 3.0.0
       shelljs: 0.8.5
       tslib: 2.7.0
-      url-loader: 4.1.1(file-loader@6.2.0(webpack@5.96.1))(webpack@5.96.1)
+      url-loader: 4.1.1(file-loader@6.2.0(webpack@5.94.0))(webpack@5.96.1)
       utility-types: 3.11.0
       webpack: 5.96.1
     transitivePeerDependencies:
@@ -13998,11 +13998,11 @@ snapshots:
     dependencies:
       esutils: 2.0.3
 
-  docusaurus-plugin-sass@0.2.5(@docusaurus/core@3.6.1(@mdx-js/react@3.1.0(@types/react@18.3.6)(react@18.3.1))(eslint@8.57.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.6.3))(sass@1.80.6)(webpack@5.94.0):
+  docusaurus-plugin-sass@0.2.5(@docusaurus/core@3.6.1(@mdx-js/react@3.1.0(@types/react@18.3.6)(react@18.3.1))(eslint@8.57.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.6.3))(sass@1.80.7)(webpack@5.94.0):
     dependencies:
       '@docusaurus/core': 3.6.1(@mdx-js/react@3.1.0(@types/react@18.3.6)(react@18.3.1))(eslint@8.57.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.6.3)
-      sass: 1.80.6
-      sass-loader: 10.5.2(sass@1.80.6)(webpack@5.94.0)
+      sass: 1.80.7
+      sass-loader: 10.5.2(sass@1.80.7)(webpack@5.94.0)
     transitivePeerDependencies:
       - fibers
       - node-sass
@@ -15294,7 +15294,7 @@ snapshots:
 
   immer@9.0.21: {}
 
-  immutable@4.3.7: {}
+  immutable@5.0.2: {}
 
   import-fresh@3.3.0:
     dependencies:
@@ -17719,7 +17719,7 @@ snapshots:
 
   safer-buffer@2.1.2: {}
 
-  sass-loader@10.5.2(sass@1.80.6)(webpack@5.94.0):
+  sass-loader@10.5.2(sass@1.80.7)(webpack@5.94.0):
     dependencies:
       klona: 2.0.6
       loader-utils: 2.0.4
@@ -17728,12 +17728,12 @@ snapshots:
       semver: 7.6.3
       webpack: 5.94.0
     optionalDependencies:
-      sass: 1.80.6
+      sass: 1.80.7
 
-  sass@1.80.6:
+  sass@1.80.7:
     dependencies:
       chokidar: 4.0.0
-      immutable: 4.3.7
+      immutable: 5.0.2
       source-map-js: 1.2.1
     optionalDependencies:
       '@parcel/watcher': 2.4.1
@@ -18627,7 +18627,7 @@ snapshots:
 
   url-join@5.0.0: {}
 
-  url-loader@4.1.1(file-loader@6.2.0(webpack@5.96.1))(webpack@5.96.1):
+  url-loader@4.1.1(file-loader@6.2.0(webpack@5.94.0))(webpack@5.96.1):
     dependencies:
       loader-utils: 2.0.4
       mime-types: 2.1.35
