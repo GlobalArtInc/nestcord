@@ -19,7 +19,7 @@
 		"upgrade": "npx npm-check-updates -u"
 	},
 	"dependencies": {
-		"@docusaurus/core": "3.6.1",
+		"@docusaurus/core": "3.6.2",
 		"@docusaurus/plugin-pwa": "^3.5.2",
 		"@docusaurus/preset-classic": "3.6.1",
 		"@docusaurus/remark-plugin-npm2yarn": "3.6.1",
