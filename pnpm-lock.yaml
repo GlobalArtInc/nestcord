@@ -61,8 +61,8 @@ importers:
         specifier: 6.21.0
         version: 6.21.0(eslint@8.57.1)(typescript@5.6.3)
       discord-api-types:
-        specifier: 0.37.105
-        version: 0.37.105
+        specifier: 0.37.108
+        version: 0.37.108
       discord.js:
         specifier: 14.16.3
         version: 14.16.3
@@ -4378,8 +4378,8 @@ packages:
   discord-api-types@0.37.100:
     resolution: {integrity: sha512-a8zvUI0GYYwDtScfRd/TtaNBDTXwP5DiDVX7K5OmE+DRT57gBqKnwtOC5Ol8z0mRW8KQfETIgiB8U0YZ9NXiCA==}
 
-  discord-api-types@0.37.105:
-    resolution: {integrity: sha512-TSNlLF5Q9vFLMeHjYskhmDj/zCQ4dFA+OLxQrHUypGW48gt8ttGaB+opCD9w3Zkq1otyoBoetrwaoDFZAFuGng==}
+  discord-api-types@0.37.108:
+    resolution: {integrity: sha512-WVdewWLnz2BvRv8r8wYLoLwL0xPycUCvN+6OirAKoHXkn+hubR2bwAFoSPfaAMDEE2QkKGAE90mUNkwGYBlIlQ==}
 
   discord-api-types@0.37.83:
     resolution: {integrity: sha512-urGGYeWtWNYMKnYlZnOnDHm8fVRffQs3U0SpE8RHeiuLKb/u92APS8HoQnPTFbnXmY1vVnXjXO4dOxcAn3J+DA==}
@@ -10586,7 +10586,7 @@ snapshots:
       react-dev-utils: 12.0.1(eslint@8.57.1)(typescript@5.6.3)(webpack@5.96.1)
       terser-webpack-plugin: 5.3.10(webpack@5.96.1)
       tslib: 2.7.0
-      url-loader: 4.1.1(file-loader@6.2.0(webpack@5.96.1))(webpack@5.96.1)
+      url-loader: 4.1.1(file-loader@6.2.0(webpack@5.94.0))(webpack@5.96.1)
       webpack: 5.96.1
       webpackbar: 6.0.1(webpack@5.96.1)
     transitivePeerDependencies:
@@ -10673,7 +10673,7 @@ snapshots:
       terser-webpack-plugin: 5.3.10(webpack@5.96.1)
       tslib: 2.7.0
       update-notifier: 6.0.2
-      url-loader: 4.1.1(file-loader@6.2.0(webpack@5.96.1))(webpack@5.96.1)
+      url-loader: 4.1.1(file-loader@6.2.0(webpack@5.94.0))(webpack@5.96.1)
       webpack: 5.96.1
       webpack-bundle-analyzer: 4.10.2
       webpack-dev-server: 4.15.2(webpack@5.96.1)
@@ -10814,7 +10814,7 @@ snapshots:
       tslib: 2.7.0
       unified: 11.0.5
       unist-util-visit: 5.0.0
-      url-loader: 4.1.1(file-loader@6.2.0(webpack@5.96.1))(webpack@5.96.1)
+      url-loader: 4.1.1(file-loader@6.2.0(webpack@5.94.0))(webpack@5.96.1)
       vfile: 6.0.3
       webpack: 5.96.1
     transitivePeerDependencies:
@@ -10851,7 +10851,7 @@ snapshots:
       tslib: 2.7.0
       unified: 11.0.5
       unist-util-visit: 5.0.0
-      url-loader: 4.1.1(file-loader@6.2.0(webpack@5.96.1))(webpack@5.96.1)
+      url-loader: 4.1.1(file-loader@6.2.0(webpack@5.94.0))(webpack@5.96.1)
       vfile: 6.0.3
       webpack: 5.96.1
     transitivePeerDependencies:
@@ -11533,7 +11533,7 @@ snapshots:
       resolve-pathname: 3.0.0
       shelljs: 0.8.5
       tslib: 2.7.0
-      url-loader: 4.1.1(file-loader@6.2.0(webpack@5.96.1))(webpack@5.96.1)
+      url-loader: 4.1.1(file-loader@6.2.0(webpack@5.94.0))(webpack@5.96.1)
       utility-types: 3.11.0
       webpack: 5.96.1
     optionalDependencies:
@@ -11566,7 +11566,7 @@ snapshots:
       resolve-pathname: 3.0.0
       shelljs: 0.8.5
       tslib: 2.7.0
-      url-loader: 4.1.1(file-loader@6.2.0(webpack@5.96.1))(webpack@5.96.1)
+      url-loader: 4.1.1(file-loader@6.2.0(webpack@5.94.0))(webpack@5.96.1)
       utility-types: 3.11.0
       webpack: 5.96.1
     transitivePeerDependencies:
@@ -13966,7 +13966,7 @@ snapshots:
 
   discord-api-types@0.37.100: {}
 
-  discord-api-types@0.37.105: {}
+  discord-api-types@0.37.108: {}
 
   discord-api-types@0.37.83: {}
 
@@ -18627,7 +18627,7 @@ snapshots:
 
   url-join@5.0.0: {}
 
-  url-loader@4.1.1(file-loader@6.2.0(webpack@5.96.1))(webpack@5.96.1):
+  url-loader@4.1.1(file-loader@6.2.0(webpack@5.94.0))(webpack@5.96.1):
     dependencies:
       loader-utils: 2.0.4
       mime-types: 2.1.35
