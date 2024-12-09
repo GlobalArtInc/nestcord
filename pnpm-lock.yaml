@@ -217,7 +217,7 @@ importers:
         version: 7.0.0
       ts-loader:
         specifier: ^9.4.3
-        version: 9.5.1(typescript@5.6.3)(webpack@5.90.1)
+        version: 9.5.1(typescript@5.6.3)(webpack@5.96.1)
       ts-node:
         specifier: ^10.9.1
         version: 10.9.2(@types/node@22.7.4)(typescript@5.6.3)
@@ -293,7 +293,7 @@ importers:
         version: 7.0.0
       ts-loader:
         specifier: ^9.4.3
-        version: 9.5.1(typescript@5.5.2)(webpack@5.96.1)
+        version: 9.5.1(typescript@5.5.2)(webpack@5.90.1)
       ts-node:
         specifier: ^10.9.1
         version: 10.9.2(@types/node@22.0.0)(typescript@5.5.2)
@@ -19342,6 +19342,16 @@ snapshots:
     dependencies:
       typescript: 5.7.2
 
+  ts-loader@9.5.1(typescript@5.5.2)(webpack@5.90.1):
+    dependencies:
+      chalk: 4.1.2
+      enhanced-resolve: 5.17.0
+      micromatch: 4.0.7
+      semver: 7.6.2
+      source-map: 0.7.4
+      typescript: 5.5.2
+      webpack: 5.90.1
+
   ts-loader@9.5.1(typescript@5.5.2)(webpack@5.96.1):
     dependencies:
       chalk: 4.1.2
@@ -19352,7 +19362,7 @@ snapshots:
       typescript: 5.5.2
       webpack: 5.96.1
 
-  ts-loader@9.5.1(typescript@5.6.3)(webpack@5.90.1):
+  ts-loader@9.5.1(typescript@5.6.3)(webpack@5.96.1):
     dependencies:
       chalk: 4.1.2
       enhanced-resolve: 5.17.0
@@ -19360,7 +19370,7 @@ snapshots:
       semver: 7.6.2
       source-map: 0.7.4
       typescript: 5.6.3
-      webpack: 5.90.1
+      webpack: 5.96.1
 
   ts-mixer@6.0.4: {}
 
