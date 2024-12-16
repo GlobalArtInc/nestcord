@@ -125,7 +125,7 @@ importers:
         version: 2.1.1
       docusaurus-plugin-sass:
         specifier: 0.2.6
-        version: 0.2.6(@docusaurus/core@3.6.3(@mdx-js/react@3.1.0(@types/react@18.3.6)(react@19.0.0))(eslint@8.57.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(typescript@5.7.2))(sass@1.82.0)(webpack@5.94.0)
+        version: 0.2.6(@docusaurus/core@3.6.3(@mdx-js/react@3.1.0(@types/react@18.3.6)(react@19.0.0))(eslint@8.57.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(typescript@5.7.2))(sass@1.83.0)(webpack@5.94.0)
       prism-react-renderer:
         specifier: 2.4.0
         version: 2.4.0(react@19.0.0)
@@ -136,8 +136,8 @@ importers:
         specifier: 19.0.0
         version: 19.0.0(react@19.0.0)
       sass:
-        specifier: 1.82.0
-        version: 1.82.0
+        specifier: 1.83.0
+        version: 1.83.0
     devDependencies:
       '@docusaurus/module-type-aliases':
         specifier: 3.6.3
@@ -7936,8 +7936,8 @@ packages:
       webpack:
         optional: true
 
-  sass@1.82.0:
-    resolution: {integrity: sha512-j4GMCTa8elGyN9A7x7bEglx0VgSpNUG4W4wNedQ33wSMdnkqQCT8HTwOaVSV4e6yQovcu/3Oc4coJP/l0xhL2Q==}
+  sass@1.83.0:
+    resolution: {integrity: sha512-qsSxlayzoOjdvXMVLkzF84DJFc2HZEL/rFyGIKbbilYtAvlCxyuzUeff9LawTn4btVnLKg75Z8MMr1lxU1lfGw==}
     engines: {node: '>=14.0.0'}
     hasBin: true
 
@@ -14951,11 +14951,11 @@ snapshots:
     dependencies:
       esutils: 2.0.3
 
-  docusaurus-plugin-sass@0.2.6(@docusaurus/core@3.6.3(@mdx-js/react@3.1.0(@types/react@18.3.6)(react@19.0.0))(eslint@8.57.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(typescript@5.7.2))(sass@1.82.0)(webpack@5.94.0):
+  docusaurus-plugin-sass@0.2.6(@docusaurus/core@3.6.3(@mdx-js/react@3.1.0(@types/react@18.3.6)(react@19.0.0))(eslint@8.57.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(typescript@5.7.2))(sass@1.83.0)(webpack@5.94.0):
     dependencies:
       '@docusaurus/core': 3.6.3(@mdx-js/react@3.1.0(@types/react@18.3.6)(react@19.0.0))(eslint@8.57.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(typescript@5.7.2)
-      sass: 1.82.0
-      sass-loader: 16.0.4(sass@1.82.0)(webpack@5.94.0)
+      sass: 1.83.0
+      sass-loader: 16.0.4(sass@1.83.0)(webpack@5.94.0)
     transitivePeerDependencies:
       - '@rspack/core'
       - node-sass
@@ -18933,14 +18933,14 @@ snapshots:
 
   safer-buffer@2.1.2: {}
 
-  sass-loader@16.0.4(sass@1.82.0)(webpack@5.94.0):
+  sass-loader@16.0.4(sass@1.83.0)(webpack@5.94.0):
     dependencies:
       neo-async: 2.6.2
     optionalDependencies:
-      sass: 1.82.0
+      sass: 1.83.0
       webpack: 5.94.0
 
-  sass@1.82.0:
+  sass@1.83.0:
     dependencies:
       chokidar: 4.0.0
       immutable: 5.0.2
