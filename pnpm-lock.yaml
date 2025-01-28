@@ -35,7 +35,7 @@ importers:
     devDependencies:
       '@commitlint/cli':
         specifier: 19.6.0
-        version: 19.6.0(@types/node@22.10.3)(typescript@5.7.2)
+        version: 19.6.0(@types/node@22.12.0)(typescript@5.7.2)
       '@commitlint/config-angular':
         specifier: 19.6.0
         version: 19.6.0
@@ -52,8 +52,8 @@ importers:
         specifier: ^10.3.8
         version: 10.4.15(@nestjs/common@10.4.15(reflect-metadata@0.2.2)(rxjs@7.8.1))(@nestjs/core@10.4.15)
       '@types/node':
-        specifier: 22.10.3
-        version: 22.10.3
+        specifier: 22.12.0
+        version: 22.12.0
       '@typescript-eslint/eslint-plugin':
         specifier: 7.0.0
         version: 7.0.0(@typescript-eslint/parser@6.21.0(eslint@8.57.1)(typescript@5.7.2))(eslint@8.57.1)(typescript@5.7.2)
@@ -98,7 +98,7 @@ importers:
         version: 7.8.1
       ts-node:
         specifier: 10.9.2
-        version: 10.9.2(@types/node@22.10.3)(typescript@5.7.2)
+        version: 10.9.2(@types/node@22.12.0)(typescript@5.7.2)
       typescript:
         specifier: 5.7.2
         version: 5.7.2
@@ -187,7 +187,7 @@ importers:
         version: 5.0.0
       '@types/node':
         specifier: ^22.0.0
-        version: 22.7.4
+        version: 22.12.0
       '@types/supertest':
         specifier: ^6.0.0
         version: 6.0.2
@@ -220,7 +220,7 @@ importers:
         version: 9.5.1(typescript@5.6.3)(webpack@5.90.1)
       ts-node:
         specifier: ^10.9.1
-        version: 10.9.2(@types/node@22.7.4)(typescript@5.6.3)
+        version: 10.9.2(@types/node@22.12.0)(typescript@5.6.3)
       tsconfig-paths:
         specifier: ^4.2.0
         version: 4.2.0
@@ -263,7 +263,7 @@ importers:
         version: 5.0.0
       '@types/node':
         specifier: ^22.0.0
-        version: 22.0.0
+        version: 22.12.0
       '@types/supertest':
         specifier: ^6.0.0
         version: 6.0.2
@@ -296,7 +296,7 @@ importers:
         version: 9.5.1(typescript@5.5.2)(webpack@5.97.1)
       ts-node:
         specifier: ^10.9.1
-        version: 10.9.2(@types/node@22.0.0)(typescript@5.5.2)
+        version: 10.9.2(@types/node@22.12.0)(typescript@5.5.2)
       tsconfig-paths:
         specifier: ^4.2.0
         version: 4.2.0
@@ -339,7 +339,7 @@ importers:
         version: 5.0.0
       '@types/node':
         specifier: ^22.0.0
-        version: 22.0.0
+        version: 22.12.0
       '@types/supertest':
         specifier: ^6.0.0
         version: 6.0.2
@@ -372,7 +372,7 @@ importers:
         version: 9.5.1(typescript@5.5.2)(webpack@5.97.1)
       ts-node:
         specifier: ^10.9.1
-        version: 10.9.2(@types/node@22.0.0)(typescript@5.5.2)
+        version: 10.9.2(@types/node@22.12.0)(typescript@5.5.2)
       tsconfig-paths:
         specifier: ^4.2.0
         version: 4.2.0
@@ -412,7 +412,7 @@ importers:
         version: 5.0.0
       '@types/node':
         specifier: ^22.0.0
-        version: 22.0.0
+        version: 22.12.0
       '@types/supertest':
         specifier: ^6.0.0
         version: 6.0.2
@@ -445,7 +445,7 @@ importers:
         version: 9.5.1(typescript@5.5.2)(webpack@5.97.1)
       ts-node:
         specifier: ^10.9.1
-        version: 10.9.2(@types/node@22.0.0)(typescript@5.5.2)
+        version: 10.9.2(@types/node@22.12.0)(typescript@5.5.2)
       tsconfig-paths:
         specifier: ^4.2.0
         version: 4.2.0
@@ -485,7 +485,7 @@ importers:
         version: 5.0.0
       '@types/node':
         specifier: ^22.0.0
-        version: 22.0.0
+        version: 22.12.0
       '@types/supertest':
         specifier: ^6.0.0
         version: 6.0.2
@@ -518,7 +518,7 @@ importers:
         version: 9.5.1(typescript@5.5.2)(webpack@5.97.1)
       ts-node:
         specifier: ^10.9.1
-        version: 10.9.2(@types/node@22.0.0)(typescript@5.5.2)
+        version: 10.9.2(@types/node@22.12.0)(typescript@5.5.2)
       tsconfig-paths:
         specifier: ^4.2.0
         version: 4.2.0
@@ -558,7 +558,7 @@ importers:
         version: 5.0.0
       '@types/node':
         specifier: ^22.0.0
-        version: 22.0.0
+        version: 22.12.0
       '@types/supertest':
         specifier: ^6.0.0
         version: 6.0.2
@@ -591,7 +591,7 @@ importers:
         version: 9.5.1(typescript@5.5.2)(webpack@5.97.1)
       ts-node:
         specifier: ^10.9.1
-        version: 10.9.2(@types/node@22.0.0)(typescript@5.5.2)
+        version: 10.9.2(@types/node@22.12.0)(typescript@5.5.2)
       tsconfig-paths:
         specifier: ^4.2.0
         version: 4.2.0
@@ -631,7 +631,7 @@ importers:
         version: 5.0.0
       '@types/node':
         specifier: ^22.0.0
-        version: 22.0.0
+        version: 22.12.0
       '@types/supertest':
         specifier: ^6.0.0
         version: 6.0.2
@@ -664,7 +664,7 @@ importers:
         version: 9.5.1(typescript@5.5.2)(webpack@5.97.1)
       ts-node:
         specifier: ^10.9.1
-        version: 10.9.2(@types/node@22.0.0)(typescript@5.5.2)
+        version: 10.9.2(@types/node@22.12.0)(typescript@5.5.2)
       tsconfig-paths:
         specifier: ^4.2.0
         version: 4.2.0
@@ -704,7 +704,7 @@ importers:
         version: 5.0.0
       '@types/node':
         specifier: ^22.0.0
-        version: 22.0.0
+        version: 22.12.0
       '@types/supertest':
         specifier: ^6.0.0
         version: 6.0.2
@@ -737,7 +737,7 @@ importers:
         version: 9.5.1(typescript@5.5.2)(webpack@5.97.1)
       ts-node:
         specifier: ^10.9.1
-        version: 10.9.2(@types/node@22.0.0)(typescript@5.5.2)
+        version: 10.9.2(@types/node@22.12.0)(typescript@5.5.2)
       tsconfig-paths:
         specifier: ^4.2.0
         version: 4.2.0
@@ -3410,17 +3410,8 @@ packages:
   '@types/node@17.0.45':
     resolution: {integrity: sha512-w+tIMs3rq2afQdsPJlODhoUEKzFP1ayaoyl1CcnwtIlsVe7K7bA1NGm4s3PraqTLlXnbIN84zuBlxBWo1u9BLw==}
 
-  '@types/node@22.0.0':
-    resolution: {integrity: sha512-VT7KSYudcPOzP5Q0wfbowyNLaVR8QWUdw+088uFWwfvpY6uCWaXpqV6ieLAu9WBcnTa7H4Z5RLK8I5t2FuOcqw==}
-
-  '@types/node@22.10.1':
-    resolution: {integrity: sha512-qKgsUwfHZV2WCWLAnVP1JqnpE6Im6h3Y0+fYgMTasNQ7V++CBX5OT1as0g0f+OyubbFqhf6XVNIsmN4IIhEgGQ==}
-
-  '@types/node@22.10.3':
-    resolution: {integrity: sha512-DifAyw4BkrufCILvD3ucnuN8eydUfc/C1GlyrnI+LK6543w5/L3VeVgf05o3B4fqSXP1dKYLOZsKfutpxPzZrw==}
-
-  '@types/node@22.7.4':
-    resolution: {integrity: sha512-y+NPi1rFzDs1NdQHHToqeiX2TIS79SWEAw9GYhkkx8bD0ChpfqC+n2j5OXOCpzfojBEBt6DnEnnG9MY0zk1XLg==}
+  '@types/node@22.12.0':
+    resolution: {integrity: sha512-Fll2FZ1riMjNmlmJOdAyY5pUbkftXslB5DgEzlIuNaiWhXd00FhWxVC/r4yV/4wBb9JfImTu+jiSvXTkJ7F/gA==}
 
   '@types/parse-json@4.0.2':
     resolution: {integrity: sha512-dISoDXWWQwUquiKsyZ4Ng+HX2KsPL7LyHKHQwgGFEA3IaKac4Obd+h2a/a6waisAoepJlBcx9paWqjA8/HVjCw==}
@@ -8565,12 +8556,6 @@ packages:
   unbox-primitive@1.0.2:
     resolution: {integrity: sha512-61pPlCD9h51VoreyJ0BReideM3MDKMKnh6+V9L08331ipq6Q8OFXZYiqP6n/tbHx4s5I9uRhcye6BrbkizkBDw==}
 
-  undici-types@6.11.1:
-    resolution: {integrity: sha512-mIDEX2ek50x0OlRgxryxsenE5XaQD4on5U2inY7RApK3SOJpofyw7uW2AyfMKkhAxXIceo2DeWGVGwyvng1GNQ==}
-
-  undici-types@6.19.6:
-    resolution: {integrity: sha512-e/vggGopEfTKSvj4ihnOLTsqhrKRN3LeO6qSN/GxohhuRv8qH9bNQ4B8W7e/vFL+0XTnmHPB4/kegunZGA4Org==}
-
   undici-types@6.20.0:
     resolution: {integrity: sha512-Ny6QZ2Nju20vw1SRHe3d9jVu6gJ+4e3+MMpqu7pqE5HT6WsTSlce++GQmK5UXS8mzV8DSYHrQH+Xrf2jVcuKNg==}
 
@@ -10866,11 +10851,11 @@ snapshots:
   '@colors/colors@1.5.0':
     optional: true
 
-  '@commitlint/cli@19.6.0(@types/node@22.10.3)(typescript@5.7.2)':
+  '@commitlint/cli@19.6.0(@types/node@22.12.0)(typescript@5.7.2)':
     dependencies:
       '@commitlint/format': 19.5.0
       '@commitlint/lint': 19.6.0
-      '@commitlint/load': 19.5.0(@types/node@22.10.3)(typescript@5.7.2)
+      '@commitlint/load': 19.5.0(@types/node@22.12.0)(typescript@5.7.2)
       '@commitlint/read': 19.5.0
       '@commitlint/types': 19.5.0
       tinyexec: 0.3.0
@@ -10918,7 +10903,7 @@ snapshots:
       '@commitlint/rules': 19.6.0
       '@commitlint/types': 19.5.0
 
-  '@commitlint/load@19.5.0(@types/node@22.10.3)(typescript@5.7.2)':
+  '@commitlint/load@19.5.0(@types/node@22.12.0)(typescript@5.7.2)':
     dependencies:
       '@commitlint/config-validator': 19.5.0
       '@commitlint/execute-rule': 19.5.0
@@ -10926,7 +10911,7 @@ snapshots:
       '@commitlint/types': 19.5.0
       chalk: 5.3.0
       cosmiconfig: 9.0.0(typescript@5.7.2)
-      cosmiconfig-typescript-loader: 5.0.0(@types/node@22.10.3)(cosmiconfig@9.0.0(typescript@5.7.2))(typescript@5.7.2)
+      cosmiconfig-typescript-loader: 5.0.0(@types/node@22.12.0)(cosmiconfig@9.0.0(typescript@5.7.2))(typescript@5.7.2)
       lodash.isplainobject: 4.0.6
       lodash.merge: 4.6.2
       lodash.uniq: 4.5.0
@@ -12441,7 +12426,7 @@ snapshots:
       '@jest/schemas': 29.6.3
       '@types/istanbul-lib-coverage': 2.0.6
       '@types/istanbul-reports': 3.0.4
-      '@types/node': 22.10.3
+      '@types/node': 22.12.0
       '@types/yargs': 17.0.33
       chalk: 4.1.2
 
@@ -13097,24 +13082,24 @@ snapshots:
   '@types/body-parser@1.19.5':
     dependencies:
       '@types/connect': 3.4.38
-      '@types/node': 22.10.1
+      '@types/node': 22.12.0
 
   '@types/bonjour@3.5.13':
     dependencies:
-      '@types/node': 22.10.1
+      '@types/node': 22.12.0
 
   '@types/connect-history-api-fallback@1.5.4':
     dependencies:
       '@types/express-serve-static-core': 5.0.0
-      '@types/node': 22.10.1
+      '@types/node': 22.12.0
 
   '@types/connect@3.4.38':
     dependencies:
-      '@types/node': 22.10.1
+      '@types/node': 22.12.0
 
   '@types/conventional-commits-parser@5.0.0':
     dependencies:
-      '@types/node': 22.10.3
+      '@types/node': 22.12.0
 
   '@types/cookiejar@2.1.5': {}
 
@@ -13144,14 +13129,14 @@ snapshots:
 
   '@types/express-serve-static-core@4.19.5':
     dependencies:
-      '@types/node': 22.10.1
+      '@types/node': 22.12.0
       '@types/qs': 6.9.15
       '@types/range-parser': 1.2.7
       '@types/send': 0.17.4
 
   '@types/express-serve-static-core@5.0.0':
     dependencies:
-      '@types/node': 22.10.1
+      '@types/node': 22.12.0
       '@types/qs': 6.9.15
       '@types/range-parser': 1.2.7
       '@types/send': 0.17.4
@@ -13186,7 +13171,7 @@ snapshots:
 
   '@types/http-proxy@1.17.15':
     dependencies:
-      '@types/node': 22.10.1
+      '@types/node': 22.12.0
 
   '@types/istanbul-lib-coverage@2.0.6': {}
 
@@ -13216,25 +13201,13 @@ snapshots:
 
   '@types/node-forge@1.3.11':
     dependencies:
-      '@types/node': 22.10.1
+      '@types/node': 22.12.0
 
   '@types/node@17.0.45': {}
 
-  '@types/node@22.0.0':
-    dependencies:
-      undici-types: 6.11.1
-
-  '@types/node@22.10.1':
+  '@types/node@22.12.0':
     dependencies:
       undici-types: 6.20.0
-
-  '@types/node@22.10.3':
-    dependencies:
-      undici-types: 6.20.0
-
-  '@types/node@22.7.4':
-    dependencies:
-      undici-types: 6.19.6
 
   '@types/parse-json@4.0.2': {}
 
@@ -13274,14 +13247,14 @@ snapshots:
 
   '@types/sax@1.2.7':
     dependencies:
-      '@types/node': 22.10.1
+      '@types/node': 22.12.0
 
   '@types/semver@7.5.8': {}
 
   '@types/send@0.17.4':
     dependencies:
       '@types/mime': 1.3.5
-      '@types/node': 22.10.1
+      '@types/node': 22.12.0
 
   '@types/serve-index@1.9.4':
     dependencies:
@@ -13290,18 +13263,18 @@ snapshots:
   '@types/serve-static@1.15.7':
     dependencies:
       '@types/http-errors': 2.0.4
-      '@types/node': 22.10.1
+      '@types/node': 22.12.0
       '@types/send': 0.17.4
 
   '@types/sockjs@0.3.36':
     dependencies:
-      '@types/node': 22.10.1
+      '@types/node': 22.12.0
 
   '@types/superagent@8.1.7':
     dependencies:
       '@types/cookiejar': 2.1.5
       '@types/methods': 1.1.4
-      '@types/node': 22.10.1
+      '@types/node': 22.12.0
 
   '@types/supertest@6.0.2':
     dependencies:
@@ -13316,7 +13289,7 @@ snapshots:
 
   '@types/ws@8.5.10':
     dependencies:
-      '@types/node': 22.10.3
+      '@types/node': 22.12.0
 
   '@types/yargs-parser@21.0.3': {}
 
@@ -14562,9 +14535,9 @@ snapshots:
       object-assign: 4.1.1
       vary: 1.1.2
 
-  cosmiconfig-typescript-loader@5.0.0(@types/node@22.10.3)(cosmiconfig@9.0.0(typescript@5.7.2))(typescript@5.7.2):
+  cosmiconfig-typescript-loader@5.0.0(@types/node@22.12.0)(cosmiconfig@9.0.0(typescript@5.7.2))(typescript@5.7.2):
     dependencies:
-      '@types/node': 22.10.3
+      '@types/node': 22.12.0
       cosmiconfig: 9.0.0(typescript@5.7.2)
       jiti: 1.21.6
       typescript: 5.7.2
@@ -15370,7 +15343,7 @@ snapshots:
 
   eval@0.1.8:
     dependencies:
-      '@types/node': 22.10.1
+      '@types/node': 22.12.0
       require-like: 0.1.2
 
   eventemitter3@4.0.7: {}
@@ -16663,7 +16636,7 @@ snapshots:
   jest-util@29.7.0:
     dependencies:
       '@jest/types': 29.6.3
-      '@types/node': 22.10.3
+      '@types/node': 22.12.0
       chalk: 4.1.2
       ci-info: 3.9.0
       graceful-fs: 4.2.11
@@ -16671,13 +16644,13 @@ snapshots:
 
   jest-worker@27.5.1:
     dependencies:
-      '@types/node': 22.10.1
+      '@types/node': 22.12.0
       merge-stream: 2.0.0
       supports-color: 8.1.1
 
   jest-worker@29.7.0:
     dependencies:
-      '@types/node': 22.10.3
+      '@types/node': 22.12.0
       jest-util: 29.7.0
       merge-stream: 2.0.0
       supports-color: 8.1.1
@@ -19629,14 +19602,14 @@ snapshots:
 
   ts-mixer@6.0.4: {}
 
-  ts-node@10.9.2(@types/node@22.0.0)(typescript@5.5.2):
+  ts-node@10.9.2(@types/node@22.12.0)(typescript@5.5.2):
     dependencies:
       '@cspotcode/source-map-support': 0.8.1
       '@tsconfig/node10': 1.0.11
       '@tsconfig/node12': 1.0.11
       '@tsconfig/node14': 1.0.3
       '@tsconfig/node16': 1.0.4
-      '@types/node': 22.0.0
+      '@types/node': 22.12.0
       acorn: 8.12.0
       acorn-walk: 8.3.3
       arg: 4.1.3
@@ -19647,32 +19620,14 @@ snapshots:
       v8-compile-cache-lib: 3.0.1
       yn: 3.1.1
 
-  ts-node@10.9.2(@types/node@22.10.3)(typescript@5.7.2):
+  ts-node@10.9.2(@types/node@22.12.0)(typescript@5.6.3):
     dependencies:
       '@cspotcode/source-map-support': 0.8.1
       '@tsconfig/node10': 1.0.11
       '@tsconfig/node12': 1.0.11
       '@tsconfig/node14': 1.0.3
       '@tsconfig/node16': 1.0.4
-      '@types/node': 22.10.3
-      acorn: 8.12.0
-      acorn-walk: 8.3.3
-      arg: 4.1.3
-      create-require: 1.1.1
-      diff: 4.0.2
-      make-error: 1.3.6
-      typescript: 5.7.2
-      v8-compile-cache-lib: 3.0.1
-      yn: 3.1.1
-
-  ts-node@10.9.2(@types/node@22.7.4)(typescript@5.6.3):
-    dependencies:
-      '@cspotcode/source-map-support': 0.8.1
-      '@tsconfig/node10': 1.0.11
-      '@tsconfig/node12': 1.0.11
-      '@tsconfig/node14': 1.0.3
-      '@tsconfig/node16': 1.0.4
-      '@types/node': 22.7.4
+      '@types/node': 22.12.0
       acorn: 8.12.0
       acorn-walk: 8.3.3
       arg: 4.1.3
@@ -19680,6 +19635,24 @@ snapshots:
       diff: 4.0.2
       make-error: 1.3.6
       typescript: 5.6.3
+      v8-compile-cache-lib: 3.0.1
+      yn: 3.1.1
+
+  ts-node@10.9.2(@types/node@22.12.0)(typescript@5.7.2):
+    dependencies:
+      '@cspotcode/source-map-support': 0.8.1
+      '@tsconfig/node10': 1.0.11
+      '@tsconfig/node12': 1.0.11
+      '@tsconfig/node14': 1.0.3
+      '@tsconfig/node16': 1.0.4
+      '@types/node': 22.12.0
+      acorn: 8.12.0
+      acorn-walk: 8.3.3
+      arg: 4.1.3
+      create-require: 1.1.1
+      diff: 4.0.2
+      make-error: 1.3.6
+      typescript: 5.7.2
       v8-compile-cache-lib: 3.0.1
       yn: 3.1.1
 
@@ -19780,10 +19753,6 @@ snapshots:
       has-bigints: 1.0.2
       has-symbols: 1.0.3
       which-boxed-primitive: 1.0.2
-
-  undici-types@6.11.1: {}
-
-  undici-types@6.19.6: {}
 
   undici-types@6.20.0: {}
 
