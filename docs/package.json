@@ -19,23 +19,23 @@
 		"upgrade": "npx npm-check-updates -u"
 	},
 	"dependencies": {
-		"@docusaurus/core": "3.6.3",
-		"@docusaurus/plugin-pwa": "^3.5.2",
-		"@docusaurus/preset-classic": "3.6.3",
-		"@docusaurus/remark-plugin-npm2yarn": "3.6.3",
+		"@docusaurus/core": "3.7.0",
+		"@docusaurus/plugin-pwa": "^3.7.0",
+		"@docusaurus/preset-classic": "3.7.0",
+		"@docusaurus/remark-plugin-npm2yarn": "3.7.0",
 		"@mdx-js/react": "3.1.0",
 		"clsx": "2.1.1",
 		"docusaurus-plugin-sass": "0.2.6",
 		"prism-react-renderer": "2.4.1",
-		"react": "19.0.0",
-		"react-dom": "19.0.0",
-		"sass": "1.86.1"
+		"react": "19.1.0",
+		"react-dom": "19.1.0",
+		"sass": "1.89.0"
 	},
 	"devDependencies": {
-		"@docusaurus/module-type-aliases": "3.6.3",
+		"@docusaurus/module-type-aliases": "3.7.0",
 		"@tsconfig/docusaurus": "2.0.3",
-		"prettier": "^3.3.3",
-		"typescript": "5.7.2"
+		"prettier": "^3.5.3",
+		"typescript": "5.8.3"
 	},
 	"browserslist": {
 		"production": [

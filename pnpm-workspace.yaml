@@ -1,4 +1,9 @@
 packages:
-- examples/*
-- packages/*
-- docs
+  - examples/*
+  - packages/*
+  - docs
+onlyBuiltDependencies:
+  - '@nestjs/core'
+  - '@parcel/watcher'
+  - core-js
+  - core-js-pure
