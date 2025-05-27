@@ -28,7 +28,7 @@ importers:
         version: 4.3.1
       lavalink-client:
         specifier: ^2.5.3
-        version: 2.5.3
+        version: 2.5.4
       path-to-regexp:
         specifier: ^8.0.0
         version: 8.2.0
@@ -213,7 +213,7 @@ importers:
         version: 11.1.1(@nestjs/common@11.1.1(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.2)
       lavalink-client:
         specifier: ^2.5.3
-        version: 2.5.3
+        version: 2.5.4
       reflect-metadata:
         specifier: ^0.2.0
         version: 0.2.2
@@ -1461,6 +1461,10 @@ packages:
 
   '@babel/runtime@7.27.1':
     resolution: {integrity: sha512-1x3D2xEk2fRo3PAhwQwu5UubzgiVWSXTBfWpVd2Mx2AzRqJuDJCsgaDVZ7HB5iGzDW1Hl1sWN2mFyKjmR9uAog==}
+    engines: {node: '>=6.9.0'}
+
+  '@babel/runtime@7.27.3':
+    resolution: {integrity: sha512-7EYtGezsdiDMyY80+65EzwiGmcJqpmcZCojSXaRgdrBaGtWTgDZKq69cPIVped6MkIM78cTQ2GOiEYjwOlG4xw==}
     engines: {node: '>=6.9.0'}
 
   '@babel/template@7.27.2':
@@ -5692,8 +5696,8 @@ packages:
   launch-editor@2.10.0:
     resolution: {integrity: sha512-D7dBRJo/qcGX9xlvt/6wUYzQxjh5G1RvZPgPv8vi4KRU99DVQL/oW7tnVOCCTm2HGeo3C5HvGE5Yrh6UBoZ0vA==}
 
-  lavalink-client@2.5.3:
-    resolution: {integrity: sha512-4R87S7Xti3TSvA/vlLgu0sQWoz6FtetPzilkgLH1J9iHAXua7bSh9NX2gVaoPuClD6AANPyxy3nbph2IVag5KA==}
+  lavalink-client@2.5.4:
+    resolution: {integrity: sha512-PN1JkgEEDDjqtxTfXX/ZIKYYMqJecqP8Vv2lUE9/Is5UVBfberLkHX+8Q5AZUD2rMyLGm02wczQbDtANhJiqmw==}
     engines: {bun: '>=1.1.27', node: '>=18.0.0'}
 
   leven@3.1.0:
@@ -9641,6 +9645,8 @@ snapshots:
 
   '@babel/runtime@7.27.1': {}
 
+  '@babel/runtime@7.27.3': {}
+
   '@babel/template@7.27.2':
     dependencies:
       '@babel/code-frame': 7.27.1
@@ -11659,7 +11665,7 @@ snapshots:
 
   '@slorber/react-helmet-async@1.3.0(react-dom@19.1.0(react@19.1.0))(react@19.1.0)':
     dependencies:
-      '@babel/runtime': 7.27.1
+      '@babel/runtime': 7.27.3
       invariant: 2.2.4
       prop-types: 15.8.1
       react: 19.1.0
@@ -15025,7 +15031,7 @@ snapshots:
       picocolors: 1.1.1
       shell-quote: 1.8.2
 
-  lavalink-client@2.5.3:
+  lavalink-client@2.5.4:
     dependencies:
       tslib: 2.8.1
       ws: 8.18.2
