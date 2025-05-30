@@ -1,5 +1,15 @@
 import { ClientOptions as DiscordClientOptions, Snowflake } from 'discord.js';
 
+export interface NestCordProxyOptions {
+  host: string;
+  port: number;
+  auth?: {
+    username: string;
+    password: string;
+  };
+  protocol?: 'http' | 'https';
+}
+
 /**
  * The NestCord module options.
  */
@@ -30,4 +40,7 @@ export interface NestCordModuleOptions extends DiscordClientOptions {
    * If true, the bot won't fetch data from the Discord API, and discordResponse in the commandDiscovery will be null."
    */
   skipGetCommandInfoFromDiscord?: boolean;
+
+  proxyPath?: string;
+  proxy?: NestCordProxyOptions;
 }

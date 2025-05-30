@@ -1,0 +1,158 @@
+---
+id: proxy-integration
+
+title: Proxy Integration
+
+sidebar_position: 6
+---
+
+NestCord supports proxy configuration for all connections to the Discord API. This is useful for deployments in corporate networks or when using VPNs.
+
+## Proxy Configuration Methods
+
+### 1. Simple configuration using proxyPath
+
+```typescript title="src/app.module.ts"
+import { NestCordModule } from '@globalart/nestcord';
+import { GatewayIntentBits } from 'discord.js';
+
+@Module({
+  imports: [
+    NestCordModule.forRoot({
+      token: process.env.DISCORD_TOKEN,
+      intents: [GatewayIntentBits.Guilds],
+      proxyPath: 'http://proxy.company.com:8080',
+    }),
+  ],
+})
+export class AppModule {}
+```
+
+### 2. Advanced configuration using proxy object
+
+```typescript title="src/app.module.ts"
+@Module({
+  imports: [
+    NestCordModule.forRoot({
+      token: process.env.DISCORD_TOKEN,
+      intents: [GatewayIntentBits.Guilds],
+      proxy: {
+        host: 'proxy.company.com',
+        port: 8080,
+        protocol: 'http',
+        auth: {
+          username: 'user',
+          password: 'password',
+        },
+      },
+    }),
+  ],
+})
+export class AppModule {}
+```
+
+## Configuration Parameters
+
+### proxyPath
+- **Type**: `string`
+- **Description**: Full URL of the proxy server
+- **Examples**: 
+  - `'http://proxy.company.com:8080'`
+  - `'https://user:pass@proxy.company.com:8080'`
+  - `'socks5://proxy.company.com:1080'`
+
+### proxy
+- **Type**: `NestCordProxyOptions`
+- **Description**: Object with detailed proxy settings
+
+#### NestCordProxyOptions
+
+```typescript
+interface NestCordProxyOptions {
+  host: string;                    
+  port: number;                    
+  protocol?: 'http' | 'https';     
+  auth?: {                         
+    username: string;
+    password: string;
+  };
+}
+```
+
+## How It Works
+
+1. **Environment Variables**: When initializing the module, `HTTP_PROXY` and `HTTPS_PROXY` variables are automatically set
+2. **Discord.js Client**: All connections to Discord API will go through the specified proxy
+3. **NestCordService**: REST API requests will also use proxy settings
+
+## Usage Examples
+
+### Corporate Network
+```typescript title="src/app.module.ts"
+NestCordModule.forRoot({
+  token: process.env.DISCORD_TOKEN,
+  intents: [GatewayIntentBits.Guilds],
+  proxyPath: 'http://corporate-proxy.company.com:8080',
+})
+```
+
+### Proxy with Authentication
+```typescript title="src/app.module.ts"
+NestCordModule.forRoot({
+  token: process.env.DISCORD_TOKEN,
+  intents: [GatewayIntentBits.Guilds],
+  proxy: {
+    host: 'secure-proxy.company.com',
+    port: 8080,
+    protocol: 'https',
+    auth: {
+      username: process.env.PROXY_USER,
+      password: process.env.PROXY_PASS,
+    },
+  },
+})
+```
+
+### SOCKS5 Proxy
+```typescript title="src/app.module.ts"
+NestCordModule.forRoot({
+  token: process.env.DISCORD_TOKEN,
+  intents: [GatewayIntentBits.Guilds],
+  proxyPath: 'socks5://proxy.company.com:1080',
+})
+```
+
+## Getting Proxy Information
+
+You can get the current proxy configuration through NestCordService:
+
+```typescript title="src/my.service.ts"
+import { Injectable } from '@nestjs/common';
+import { NestCordService } from '@globalart/nestcord';
+
+@Injectable()
+export class MyService {
+  constructor(private readonly nestcord: NestCordService) {}
+
+  getProxyInfo() {
+    const proxyConfig = this.nestcord.getProxyConfig();
+    console.log('Current proxy config:', proxyConfig);
+  }
+}
+```
+
+## Debugging
+
+When configuring the proxy, corresponding messages will be displayed in the logs:
+
+```
+[NestCordService] Proxy path configured: http://proxy.company.com:8080
+[NestCordService] Proxy configured: http://proxy.company.com:8080
+```
+
+## Notes
+
+- Proxy settings are applied globally for the entire application
+- HTTP, HTTPS, and SOCKS5 proxies are supported
+- If proxy configuration fails, the application will continue to work without a proxy
+- Proxy settings affect all Discord.js connections, including WebSocket and REST API 

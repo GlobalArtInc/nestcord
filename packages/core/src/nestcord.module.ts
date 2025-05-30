@@ -1,16 +1,16 @@
 import { Global, Inject, Module, OnApplicationBootstrap, OnApplicationShutdown } from '@nestjs/common';
+import { DiscoveryModule } from '@nestjs/core';
 import { Client } from 'discord.js';
-import { ConfigurableModuleClass, NESTCORD_MODULE_OPTIONS } from './nestcord.module-definition';
-import { NestCordModuleOptions } from './nestcord-options.interface';
 import { CommandsModule } from './commands';
 import { ListenersModule } from './listeners';
 import { MessageComponentsModule } from './message-components';
 import { ModalsModule } from './modals';
 import { ExplorerService } from './nestcord-explorer.service';
-import { TextCommandsModule } from './text-commands';
-import { DiscoveryModule } from '@nestjs/core';
+import { NestCordModuleOptions } from './nestcord-options.interface';
+import { ConfigurableModuleClass, NESTCORD_MODULE_OPTIONS } from './nestcord.module-definition';
 import { NestCordService } from './nestcord.service';
 import * as ProvidersMap from './providers';
+import { TextCommandsModule } from './text-commands';
 
 const Providers = Object.values(ProvidersMap);
 
