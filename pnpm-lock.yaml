@@ -118,8 +118,8 @@ importers:
         specifier: 3.8.0
         version: 3.8.0(@algolia/client-search@5.25.0)(@mdx-js/react@3.1.0(@types/react@19.1.6)(react@19.1.0))(@types/react@19.1.6)(acorn@8.14.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(search-insights@2.17.2)(typescript@5.8.3)
       '@docusaurus/remark-plugin-npm2yarn':
-        specifier: 3.8.0
-        version: 3.8.0
+        specifier: 3.8.1
+        version: 3.8.1
       '@docusaurus/theme-common':
         specifier: ^3.7.0
         version: 3.8.0(@docusaurus/plugin-content-docs@3.8.0(@mdx-js/react@3.1.0(@types/react@19.1.6)(react@19.1.0))(acorn@8.14.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(typescript@5.8.3))(acorn@8.14.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
@@ -2112,8 +2112,8 @@ packages:
     peerDependencies:
       react: '*'
 
-  '@docusaurus/remark-plugin-npm2yarn@3.8.0':
-    resolution: {integrity: sha512-6YcpUipBV9e9PN1RRWl+o1F1e98V66pf2ogpJoI4Nr7V8DCgJTgtFernlPCJBVAB43fsuE/FIgLleDjLrFHqjA==}
+  '@docusaurus/remark-plugin-npm2yarn@3.8.1':
+    resolution: {integrity: sha512-lrws3n7jyJrDKqpdFiEX0ZIwVOgGj9z+ZXf0k/rXrftcNh06Y+cEMnNVoNpO3EJKiLDXmTWoxGf/I1qWb/WV6g==}
     engines: {node: '>=18.0'}
 
   '@docusaurus/theme-classic@3.8.0':
@@ -11406,7 +11406,7 @@ snapshots:
       '@types/react': 19.1.6
       react: 19.1.0
 
-  '@docusaurus/remark-plugin-npm2yarn@3.8.0':
+  '@docusaurus/remark-plugin-npm2yarn@3.8.1':
     dependencies:
       mdast-util-mdx: 3.0.0
       npm-to-yarn: 3.0.1
