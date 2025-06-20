@@ -170,10 +170,10 @@ importers:
         version: 3.3.0
       tailwindcss:
         specifier: ^4.1.7
-        version: 4.1.8
+        version: 4.1.10
       tailwindcss-animate:
         specifier: ^1.0.7
-        version: 1.0.7(tailwindcss@4.1.8)
+        version: 1.0.7(tailwindcss@4.1.10)
     devDependencies:
       '@docusaurus/module-type-aliases':
         specifier: 3.8.1
@@ -18536,9 +18536,11 @@ snapshots:
 
   tailwind-merge@3.3.0: {}
 
-  tailwindcss-animate@1.0.7(tailwindcss@4.1.8):
+  tailwindcss-animate@1.0.7(tailwindcss@4.1.10):
     dependencies:
-      tailwindcss: 4.1.8
+      tailwindcss: 4.1.10
+
+  tailwindcss@4.1.10: {}
 
   tailwindcss@4.1.10: {}
 
