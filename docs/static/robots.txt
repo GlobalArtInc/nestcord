@@ -1,5 +1,5 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://nestcord.globalart.dev/sitemap.xml
-Sitemap: https://www.nestcord.globalart.dev/sitemap.xml
+Sitemap: https://nestcord.js.org/sitemap.xml
+Sitemap: https://www.nestcord.js.org/sitemap.xml
