@@ -10,7 +10,7 @@
 	"related_applications": [
 		{
 			"platform": "webapp",
-			"url": "https://nestcord.globalart.dev/manifest.json"
+			"url": "https://nestcord.js.org/manifest.json"
 		}
 	],
 	"icons": [

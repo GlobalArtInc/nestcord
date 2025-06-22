@@ -13,7 +13,7 @@ const isPreview = process.env.NODE_ENV === 'preview';
 const config: Config = {
 	title: 'NestCord',
 	tagline: 'A module for creating Discord bots using NestJS, based on Discord.js',
-	url: 'https://nestcord.globalart.dev',
+	url: 'https://nestcord.js.org',
 	baseUrl: '/',
 	onBrokenLinks: 'throw',
 	onBrokenMarkdownLinks: 'warn',
@@ -71,7 +71,7 @@ const config: Config = {
 				searchPagePath: false,
 				insights: true
 			},
-			cname: 'nestcord.globalart.dev',
+			cname: 'nestcord.js.org',
 			announcementBar: {
 				id: 'banner',
 				content:
@@ -125,12 +125,12 @@ const config: Config = {
 				{
 					hid: 'og:image',
 					property: 'og:image',
-					content: 'https://nestcord.globalart.dev/img/preview.png'
+					content: 'https://nestcord.js.org/img/preview.png'
 				},
 				{
 					hid: 'og:image:secure_url',
 					property: 'og:image:secure_url',
-					content: 'https://nestcord.globalart.dev/img/preview.png'
+					content: 'https://nestcord.js.org/img/preview.png'
 				},
 				{
 					hid: 'og:image:alt',
@@ -145,7 +145,7 @@ const config: Config = {
 				{
 					hid: 'twitter:image',
 					name: 'twitter:image',
-					content: 'https://nestcord.globalart.dev/img/preview.png'
+					content: 'https://nestcord.js.org/img/preview.png'
 				},
 				{
 					hid: 'twitter:image:alt',
