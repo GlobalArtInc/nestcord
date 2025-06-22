@@ -6,7 +6,6 @@ import { themes } from 'prism-react-renderer';
 const lightCodeTheme = themes.github;
 const darkCodeTheme = themes.oceanicNext;
 
-const defaultLocale = 'en';
 const isDev = process.env.NODE_ENV === 'development' || !process.env.NODE_ENV;
 const isPreview = process.env.NODE_ENV === 'preview';
 
@@ -254,12 +253,7 @@ const config: Config = {
 				]
 			}
 		]
-	],
-	i18n: {
-		defaultLocale,
-		locales: ['en', 'ru', 'pt-BR'],
-		path: 'i18n'
-	}
+	]
 };
 
 module.exports = config;
