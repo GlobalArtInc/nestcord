@@ -1,15 +1,15 @@
 ---
 id: standalone-application
-title: Автономное приложение
+title: Standalone application
 sidebar_position: 3
 ---
 
-Если вы инициализировали ваше приложение с помощью Nest CLI, Express Framework будет установлен по умолчанию вместе с Nest. Nest и NestCord не требуют Express для работы. Так что если вам не нужен веб-сервер, вы можете удалить Экспресс.
+If you initialized your application with the Nest CLI, Express framework will be installed by default along with Nest. Nest and NestCord does not require Express for work. So if you you don't need a web server, you can remove Express.
 
-Чтобы сделать это, измените функцию bootstrap в файле `main.ts` вашего проекта на что-то вроде следующего:
+To do this, change the bootstrap function in the `main.ts` file of your project on something like that:
 
 ```typescript title="src/main.ts"
-импорт { NestFactory } из '@nestjs/core';
+import { NestFactory } from '@nestjs/core';
 
 async function bootstrap() {
     const app = await NestFactory.createApplicationContext(AppModule);
@@ -18,14 +18,14 @@ async function bootstrap() {
 bootstrap();
 ```
 
-Это инициализирует Nest как **автономное приложение** (без каких-либо слушателей сети).
+This initializes Nest as a **standalone application** (without any network listeners).
 
-Все что осталось - это удалить неиспользуемые зависимости:
+All that remains is to remove unused dependencies:
 
 ```bash
 npm un @nestjs/platform-express @types/express
 ```
 
 :::caution
-Но когда вы запускаете автономное приложение, вы не можете использовать глобальные усилители из-за того, что они не зарегистрированы в контексте приложения. В то время как [issue](https://github.com/nestjs/nest/issues/9017) не решено, вместо этого вы можете использовать локальные усилители или запускать приложение методом `app.init()`.
+But when you run standalone application you can't use global enhancers due to the fact that they are not registered in the application context. While [issue](https://github.com/nestjs/nest/issues/9017) not resolved, you can use local enhancers instead or start your application via `app.init()` method.
 :::

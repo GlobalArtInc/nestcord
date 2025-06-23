@@ -1,6 +1,6 @@
 {
   "version.label": {
-    "message": "Следующий",
+    "message": "Следующая",
     "description": "The label for version current"
   },
   "sidebar.docsSidebar.category.Interactions": {
@@ -8,7 +8,7 @@
     "description": "The label for category Interactions in sidebar docsSidebar"
   },
   "sidebar.docsSidebar.category.Interceptors": {
-    "message": "Перехватчики",
+    "message": "Интерцепторы",
     "description": "The label for category Interceptors in sidebar docsSidebar"
   },
   "sidebar.docsSidebar.category.Packages": {

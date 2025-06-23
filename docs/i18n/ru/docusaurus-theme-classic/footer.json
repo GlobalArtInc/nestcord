@@ -1,6 +1,6 @@
 {
   "copyright": {
-    "message": "Copyright ©️ 2003 - 2025 • Создано <a target=\"_blank\" href=\"https://globalart.dev\">GlobalArt Inc</a>",
+    "message": "Copyright © 2003 - 2025 - Built by <a target=\"_blank\" href=\"https://globalart.dev\">GlobalArt Inc</a>",
     "description": "The footer copyright"
   },
   "link.title.Support us": {
@@ -24,15 +24,15 @@
     "description": "The label of footer link with label=Discord linking to https://discord.gg/4Tc9hssSAv"
   },
   "link.item.label.GitHub Organization": {
-    "message": "Организация GitHub",
+    "message": "Организация на GitHub",
     "description": "The label of footer link with label=GitHub Organization linking to https://github.com/GlobalArtInc"
   },
   "link.item.label.NPM Organization": {
-    "message": "Организация Музея",
+    "message": "Организация на NPM",
     "description": "The label of footer link with label=NPM Organization linking to https://www.npmjs.com/org/globalart"
   },
   "logo.alt": {
-    "message": "Логотип NestCord",
+    "message": "NestCord Logo",
     "description": "The alt text of footer logo"
   }
 }

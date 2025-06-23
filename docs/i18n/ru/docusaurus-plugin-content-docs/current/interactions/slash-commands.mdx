@@ -1,25 +1,25 @@
 ---
-id: команды слэша
-title: Слэш команды
+id: slash-commands
+title: Slash Commands
 sidebar_position: 1
 ---
 
-**Слэш команды** новый, захватывающий способ создания и взаимодействия с ботами в **Discord**. With Slash Commands, all you have to do is
-type `/` and you're ready to use your favorite bot. Вы можете легко увидеть все команды, которые имеет бот, а также проверить и поработать с ошибками
-вы получаете команду в первый раз.
+**Slash Commands** are the new, exciting way to build and interact with bots on **Discord**. With Slash Commands, all you have to do is
+type `/` and you're ready to use your favorite bot. You can easily see all the commands a bot has, and validation and error handling help
+you get the command right the first time.
 
-## Глобальные команды
+## Global Commands
 
 :::tip
 
-Глобальные команды кэшируются на один час. Новые глобальные команды медленно разгонятся во всех гильдиях и гарантированно будут обновлены
-только через час. Команды гильдии обновляются мгновенно. As such, we recommend you use guild-based commands during development and publish them to
+Global commands are cached for one hour. New global commands will fan out slowly across all guilds and will only be guaranteed to be updated
+after an hour. Guild commands update instantly. As such, we recommend you use guild-based commands during development and publish them to
 global commands when they're ready for public use.
 
-[Подробнее о конфигурации dev-mode](/start#development)
+[Read more about dev-mode configuration](/start#development)
 :::
 
-Создайте файл `app.commands.ts` и добавьте метод с декоратором `SlashCommand`.
+Create `app.commands.ts` file and add method with `SlashCommand` decorator.
 
 ```typescript title="src/app.commands.ts"
 import { Injectable } from '@nestjs/common';
@@ -32,14 +32,14 @@ export class AppCommands {
         description: 'Ping-Pong Command'
     })
     public async onPing(@Context() [interaction]: SlashCommandContext) {
-        return interaction. eply({ content: 'Pong!' });
+        return interaction.reply({ content: 'Pong!' });
     }
 }
 ```
 
-## Команды гильдии
+## Guild Commands
 
-Если вы хотите иметь специфические команды для гильдии, используйте свойство `guilds` на декораторе `SlashCommand`
+If you want to have guild specific commands, use the `guilds` property on the `SlashCommand` decorator
 
 ```typescript title="src/app.commands.ts"
 import { Injectable } from '@nestjs/common';
@@ -49,23 +49,23 @@ import { Context, SlashCommand, SlashCommandContext } from '@globalart/nestcord'
 export class AppCommands {
     @SlashCommand({
         name: 'ping',
-        описание: 'Команда Ping-Pong',
-        гильдий: [process.env.DEV_GUILD]
+        description: 'Ping-Pong Command',
+        guilds: [process.env.DEV_GUILD]
     })
     public async onPing(@Context() [interaction]: SlashCommandContext) {
-        return interaction. eply({ content: 'Pong!' });
+        return interaction.reply({ content: 'Pong!' });
     }
 }
 ```
 
-> Можно использовать декоратор как по методу, так и по классу.
+> You can use decorator on both method and class.
 
-## Варианты
+## Options
 
-Используйте декоратор опций для определения параметра в комманде слэша, давайте создадим класс «LengthDto»:
+Use the option decorator to define a parameter in a slash command, let's create the `LengthDto` class:
 
 ```typescript title="length.dto.ts"
-import { StringOption } из '@globalart/nestcord';
+import { StringOption } from '@globalart/nestcord';
 
 export class TextDto {
     @StringOption({
@@ -73,16 +73,16 @@ export class TextDto {
         description: 'Your text',
         required: true
     })
-    текст: строка;
+    text: string;
 }
 ```
 
-У него только одно базовое свойство. После этого мы можем использовать только что созданный DTO внутри `AppCommands`:
+It has only one basic properties. Thereafter we can use the newly created DTO inside the `AppCommands`:
 
 ```typescript title="app.commands.ts"
 import { Injectable } from '@nestjs/common';
 import { Context, SlashCommand, Options, SlashCommandContext } from '@globalart/nestcord';
-import { TextDto } from './length. to';
+import { TextDto } from './length.dto';
 
 @Injectable()
 export class AppCommands {
@@ -91,77 +91,77 @@ export class AppCommands {
         description: 'Get length of text'
     })
     public async onLength(@Context() [interaction]: SlashCommandContext, @Options() { text }: TextDto) {
-        return interaction. eply({content: `Длина текста ${text.length}`});
+        return interaction.reply({content: `Length of your text ${text.length}`});
     }
 }
 ```
 
-Список встроенных декораторов опций:
+List of all built-in option decorators:
 
-| Декоратор                 | Тип                                   | Описание                        |
-| :------------------------ | :------------------------------------ | :------------------------------ |
-| `StringOption`            | `строка`                              | Опция строки                    |
-| «Вариант количества»      | `number`                              | Вариант числа                   |
-| `IntegerOption`           | `number`                              | Вариант целочисленного числа    |
-| `BooleanOption`           | `boolean`                             | Логическая опция                |
-| `UserOption`              | `Пользователь`                        | Опция пользователя              |
-| `MemberOption`            | «Участник гильдии»                    | Вариант участника               |
-| `ChannelOption`           | `GuildChannel`                        | Вариант канала                  |
-| `Опция роля`              | `Роль`                                | Вариант роли                    |
-| `MentionableOption`       | `GuildMember` \| `Role` \| `User`     | Упоминаемый вариант             |
-| `Опция вложения`          | `Опция вложения`                      | Опция вложения                  |
+| Decorator           | Type                              | Description          |
+| :------------------ | :-------------------------------- | :------------------- |
+| `StringOption`      | `string`                          | A string option      |
+| `NumberOption`      | `number`                          | A number option      |
+| `IntegerOption`     | `number`                          | An integer option    |
+| `BooleanOption`     | `boolean`                         | A boolean option     |
+| `UserOption`        | `User`                            | A user option        |
+| `MemberOption`      | `GuildMember`                     | A member option      |
+| `ChannelOption`     | `GuildChannel`                    | A channel option     |
+| `RoleOption`        | `Role`                            | A role option        |
+| `MentionableOption` | `GuildMember` \| `Role` \| `User` | A mentionable option |
+| `AttachmentOption`  | `AttachmentOption`                | An attachment option |
 
-## Автозаполнение
+## Autocomplete
 
-Чтобы добавить автозаполнение к вашей команде Slash, вам сначала понадобится перехватчик. Этот класс перехватит все запросы пользователя после ввода в поле опции автозаполнения
+To add autocomplete to your Slashcommand you will need a interceptor first. This class will intercept all requests from the user after typing in the autocomplete option field
 
 ```typescript title="anime.interceptor.ts"
 import { Injectable } from '@nestjs/common';
-import { AutocompleteInteraction } from 'discord. s';
-импортировать { AutocompleteInterceptor } из '@globalart/nestcord';
+import { AutocompleteInteraction } from 'discord.js';
+import { AutocompleteInterceptor } from '@globalart/nestcord';
 
 @Injectable()
-класс AnimeAutocompleteInterceptor расширяет AutocompleteInterceptor {
+class AnimeAutocompleteInterceptor extends AutocompleteInterceptor {
     public transformOptions(interaction: AutocompleteInteraction) {
-        const focused = interaction. ptions.getFocused(true);
+        const focused = interaction.options.getFocused(true);
         let choices: string[];
 
-        if (focused. ame === 'anime') {
-            выбор = ['Хантер x Охотник', 'Наруто', 'One Piece'];
+        if (focused.name === 'anime') {
+            choices = ['Hunter x Hunter', 'Naruto', 'One Piece'];
         }
 
-        возврат взаимодействия. espond(
-            выбора
-                . ilter(choice => choice.startsWith(focused.value.toString()))
-                . ap(выбор => ({ name: choice, value: choice }))
+        return interaction.respond(
+            choices
+                .filter(choice => choice.startsWith(focused.value.toString()))
+                .map(choice => ({ name: choice, value: choice }))
         );
     }
 }
 ```
 
-Затем вам нужно добавить `autocomplete: true` к вашему классу опций:
+You'll then have to add `autocomplete: true` to your options class:
 
 ```typescript title="anime.dto.ts"
-import { StringOption } из '@globalart/nestcord';
+import { StringOption } from '@globalart/nestcord';
 
 export class AnimeDto {
     @StringOption({
         name: 'anime',
-        описание: «Аниме для поиска»,
-        автозаполнение: true,
-        необходимо: true
+        description: 'The anime to look up',
+        autocomplete: true,
+        required: true
     })
-    анимация: строка;
+    anime: string;
 }
 ```
 
-И последнее, но не менее важное, примените перехватчика к вашей команде слэша
+And last but not least, apply the interceptor to your slash command
 
 ```typescript title="anime-commands.service.ts"
 import { Injectable, UseInterceptors } from '@nestjs/common';
 import { Context, SlashCommand, Options, SlashCommandContext } from '@globalart/nestcord';
-import { AnimeDto } from '/anime. to';
-импортировать { AnimeAutocompleteInterceptor } из './anime. nterceptor;
+import { AnimeDto } from '/anime.dto';
+import { AnimeAutocompleteInterceptor } from './anime.interceptor';
 
 @Injectable()
 export class AnimeCommands {
@@ -171,22 +171,22 @@ export class AnimeCommands {
         description: 'Lookup information about an anime'
     })
     public async onSearch(@Context() [interaction]: SlashCommandContext, @Options() { anime }: AnimeDto) {
-        return interaction. eply({content: `Я нашел аниме ${anime}`});
+        return interaction.reply({content: `I found the anime ${anime}`});
     }
 }
 ```
 
-## Группы
+## Groups
 
 :::tip **TIP**
 
-Для тех разработчиков, которые хотят сделать более организованными и сложными группами команд, выглядите не дальше, чем подгруппы и группы.
+For those developers looking to make more organized and complex groups of commands, look no further than subgroups and groups.
 :::
 
-Используйте декораторы `SlashGroup` на уровне класса `(Group)` и методе `(SubGroup)`:
+Use `SlashGroup` decorators on class-level `(Group)` and method-level `(SubGroup)`:
 
 ```typescript title="utils-commands.service.ts"
-импортировать {createCommandGroupDecorator, Subcommand} из '@globalart/nestcord';
+import {createCommandGroupDecorator, Subcommand} from '@globalart/nestcord';
 
 export const UtilsCommandDecorator = createCommandGroupDecorator({
     name: 'utils',
@@ -199,7 +199,7 @@ export class UtilsCommands {
         name: 'ping',
         description: 'Ping-pong command'
     })
-    public async onPing(. .) {
+    public async onPing(...) {
     ...
     }
 }
@@ -208,12 +208,12 @@ export class UtilsCommands {
     name: 'string',
     descriptionn: 'String utility commands'
 })
-класса экспорта UtilsStringCommands {
+export class UtilsStringCommands {
     @Subcommand({
         name: 'length',
         description: 'String length command'
     })
-    public async onLength(. .) {
+    public async onLength(...) {
     ...
     }
 }

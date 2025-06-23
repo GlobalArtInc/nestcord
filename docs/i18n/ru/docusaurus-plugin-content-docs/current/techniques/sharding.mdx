@@ -1,16 +1,16 @@
 ---
-id: акустика
-title: Шардинг
+id: sharding
+title: Sharding
 sidebar_position: 1
 ---
 
-Discord не дает приложению доступа к боту, не сдавая его третьим лицам, как только вы попадете в масштаб 2500 гильдий. Если вы не планируете создать публичное ботское приложение, то вы можете проигнорировать этот раздел. Однако, если вы создаете публичное приложение бота, было бы разумно иметь в виду, так как это может увеличить сложность вашего приложения из-за того, как работает сжатый процесс.
+Discord prevents your bot application from logging in without sharding once you hit a scale of 2,500 guilds. If you are not planning to create a public bot application, then you can go ahead and ignore this section. However, if you are creating a public bot application, it would be wise to keep sharding in mind as it can increase the complexity of your application due to how a sharded process works.
 
 :::caution
-Если вы используете бот как часть веб-сервера в NestJS, затем для того, чтобы расширить распространение, вы должны понять, что инициализация `nestcord` внутри вашего HTTP-сервера не будет жизнеспособным вариантом. Поэтому нам придется разделить их на собственные независимые процессы. Это не означает, что вы не можете поделиться кодом между этими двумя системами, только что они будут запущены в разных процессах. Вы можете рассматривать ваше приложение "бот" как микросервис видов.
+If you are running the bot as part of a webserver within NestJS, then in order to implement sharding you must understand that initialising `nestcord` within your HTTP server process isn't going to be a viable option. So we're going to have to split the two into their own independent processes. This doesn't mean you can't share code between the two, just that they will be running on different processes. You could consider your "bot" application as a microservice of sorts.
 :::
 
-1. В вашей папке `src` создайте новый файл `bot.ts`, который будет использоваться для создания экземпляра бота как отдельного приложения wth некоторые незначительные отличия. `DiscordModule` нельзя импортировать внутри вашего `AppModule`. Это потому, что мы не хотим никаких процессов в ботах в нечетких процессах, поэтому если вам нужно поделиться кодом между собой, вам следует импортировать необходимые модули в ваш `DiscordModule` или создать `SharedModule`, который импортируется как в ваш `AppModule`, так и `DiscordModule`.
+1. In your `src` directory, create a new `bot.ts` file, this will be used to instantiate the bot as a standalone application wth some slight differences. The `DiscordModule` cannot be imported within your `AppModule`. This is because we do not want any bot processes on unsharded processes, so if you need to share code between the two, you should import the necessary modules into your `DiscordModule` or alternatively, create a `SharedModule` which is imported both into your `AppModule` and `DiscordModule`.
 
 ```typescript
 import { NestFactory } from '@nestjs/core';
@@ -29,15 +29,15 @@ You may also need to add a `webpack.config.js` file to your root directory which
 ```js
 const Path = require('path');
 
-module. xports = function (options) {
+module.exports = function (options) {
     return {
-        . .options,
+        ...options,
         entry: {
-            main: options. ntry,
-            bot: Path.join(__dirname, 'src', 'bot. s')
+            main: options.entry,
+            bot: Path.join(__dirname, 'src', 'bot.ts')
         },
         output: {
-            filename: '[name]. '
+            filename: '[name].js'
         }
     };
 };
@@ -45,53 +45,53 @@ module. xports = function (options) {
 
 :::
 
-2. Измените ваш `main.ts` файл, чтобы создать новый экземпляр `ShardingManager`, вызывающий ваш `bot.js` файл (не расширение .ts), указав . расширение s вызовет ошибки, так как это выполняется только после того, как ваш код будет перенесен на JavaScript. Вы можете использовать сниппет ниже в качестве примера:
+2. Modify your `main.ts` file to create a new `ShardingManager` instance which calls your `bot.js` file (not .ts extension), specifying a .ts extension will cause errors as this is executed only after your code has been transpiled into JavaScript. You can use the snippet below as an example:
 
 ```typescript
 import { NestFactory } from '@nestjs/core';
-import { AppModule } from './app. odule';
-импортировать * как путь из 'path';
+import { AppModule } from './app.module';
+import * as Path from 'path';
 
 export async function bootstrap() {
-    const app = await NestFactory. reate(AppModule);
+    const app = await NestFactory.create(AppModule);
     const port = 80;
 
-    ожидают приложения. isten(port);
+    await app.listen(port);
 
-    const manager = new ShardingManager(Path. oin(__dirname, 'bot.js'), {
+    const manager = new ShardingManager(Path.join(__dirname, 'bot.js'), {
         token: 'secret'
     });
 
-    менеджер. pawn();
+    manager.spawn();
 
     manager.on('shardCreate', shard => {
-        shard. n('reconnecting', () => {
-            консоли. og(`Повторное подключение: [${shard.id}]`);
+        shard.on('reconnecting', () => {
+            console.log(`Reconnecting shard: [${shard.id}]`);
         });
 
-        шард. n('spawn', () => {
-            консоли. og(`Заспавненный осколк: [${shard.id}]`);
+        shard.on('spawn', () => {
+            console.log(`Spawned shard: [${shard.id}]`);
         });
 
-        осколк. n('ready', () => {
-            консоль. og(` осколок [${shard.id}] готовы`);
+        shard.on('ready', () => {
+            console.log(` Shard [${shard.id}] is ready`);
         });
 
-        осколки. n('death', () => {
-            консоли. og(`Died Shard: [${shard.id}]`);
+        shard.on('death', () => {
+            console.log(`Died shard: [${shard.id}]`);
         });
 
-        шард. n('error', err => {
-            консоли. og(`Ошибка в [${shard.id}] с : ${err} `);
-            осколка. espawn();
+        shard.on('error', err => {
+            console.log(`Error in  [${shard.id}] with : ${err} `);
+            shard.respawn();
         });
     });
 }
 bootstrap();
 ```
 
-3. Теперь, когда вы запускаете приложение, контекст `bot.ts` создается в заостренном процессе.
+3. Now when you bootstrap your application, your `bot.ts` context is created on a sharded process.
 
 :::tip
-Если у вас возникли проблемы и вам требуется кросс-хостинг вашего бота, затем просто поменяйте `ShardingManager` на другие пакеты, такие как [discord-hybrid-sharding](https://github.com/meister03/discord-hybrid-sharding), которые необходимы для пакета [discord-cross-hosting](https://github.com/meister03/discord-cross-hosting).
+If you are running into further issues and require cross-hosting your bot application, then just swap the `ShardingManager` out for other sharding packages like the [discord-hybrid-sharding](https://github.com/meister03/discord-hybrid-sharding) which is required for the [discord-cross-hosting](https://github.com/meister03/discord-cross-hosting) package.
 :::

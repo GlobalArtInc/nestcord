@@ -1,16 +1,16 @@
 ---
-id: компоненты сообщения
-title: Компоненты сообщения
+id: message-components
+title: Message Components
 sidebar_position: 3
 ---
 
-**Компоненты сообщений** — мы назовем их «компоненты», движущиеся вперед, — это основа для добавления интерактивных элементов в сообщения, отправляемые вашим приложением или ботом. Они доступны, настраиваются и просты в использовании.
+**Message components** — we'll call them "components" moving forward—are a framework for adding interactive elements to the messages your app or bot sends. They're accessible, customizable, and easy to use.
 
-Существует несколько различных типов компонентов, в этой документации будут изложены основы этой новой основы и каждый пример.
+There are several different types of components; this documentation will outline the basics of this new framework and each example.
 
-## Кнопка
+## Button
 
-**Кнопки** — это интерактивные компоненты, отображающие сообщения. Пользователи могут нажимать на них, и при нажатии будет отправлено [взаимодействие](https://discord.com/developers/docs/interactions/receiving-and-responding#interaction-object) в ваше приложение.
+**Buttons** are interactive components that render on messages. They can be clicked by users, and send an [interaction](https://discord.com/developers/docs/interactions/receiving-and-responding#interaction-object) to your app when clicked.
 
 ```typescript title="src/app.components.ts"
 import { Injectable } from '@nestjs/common';
@@ -20,18 +20,18 @@ import { Context, Button, ButtonContext } from '@globalart/nestcord';
 export class AppComponents {
     @Button('BUTTON')
     public onButton(@Context() [interaction]: ButtonContext) {
-        return interaction. eply({ content: 'Кнопка нажата!' });
+        return interaction.reply({ content: 'Button clicked!' });
     }
 }
 ```
 
-### Динамическая кнопка
+### Dynamic Button
 
-Вы можете создать кнопки с динамическим полем `id`. Это полезно для передачи метаданных кнопкам.
+You can create buttons with dynamic `id` field. This is useful for passing metadata to buttons.
 
-Динамические кнопки используют формат [path-to-regexp](https://www.npmjs.com/package/path-to-regexp) для выполнения регулярного сопоставления. Превратите строку пути, такую как `user/:name` в регулярное выражение.
+Dynamic buttons uses [path-to-regexp](https://www.npmjs.com/package/path-to-regexp) format to perform regexp matching. Turn a path string such as `user/:name` into a regular expression.
 
-Создавать динамическую кнопку
+To create a Dynamic button
 
 ```typescript
 new ButtonBuilder()
@@ -40,7 +40,7 @@ new ButtonBuilder()
   .setStyle(ButtonStyle.Primary)
 ```
 
-Получить кнопку Динамика
+To receive a Dynamic button
 
 ```typescript
 import { Injectable } from '@nestjs/common';
@@ -50,84 +50,84 @@ import { Context, Button, ButtonContext } from '@globalart/nestcord';
 export class AppComponents {
   @Button('click/:value')
   public onButton(
-    @Context() [interaction]: Кнопка Контекст,
-    @ComponentParam('value') значение: string
+    @Context() [interaction]: ButtonContext,
+    @ComponentParam('value') value: string
   ) {
-    return interaction. eply({ content: `Button click! Значение: ${value}` });
+    return interaction.reply({ content: `Button clicked! Value: ${value}` });
   }
 }
 
 ```
 
-## Выберите меню
+## Select Menu
 
-**Выберите меню** — это еще один интерактивный компонент, который отображает сообщения. На рабочем столе щелчок по выбору открывает пользовательский интерфейс в виде выпадающего списка; на мобильном телефоне при нажатии на меню открывается поллист с параметрами.
+**Select menus** are another interactive component that renders on messages. On desktop, clicking on a select menu opens a dropdown-style UI; on mobile, tapping a select menu opens up a half-sheet with the options.
 
-Discord представил новые избранные компоненты меню :
+Discord has introduced new select menu components :
 
-- «Выбор строк»
-- `Пользовательский выбор`
-- «Выбор роля»
-- `Упоминаемый выбор`
-- `Выбор канала`
+- `String Select`
+- `User Select`
+- `Role Select`
+- `Mentionable Select`
+- `Channel Select`
 
-### Выбор строки
+### String Select
 
-**String Select** — это меню Выделения для выбора определенных текстовых опций
+**String Select** is Select Menu for picking defined text options
 
-Чтобы создать строку выбрать:
+To create String Select:
 
 ```typescript
 new StringSelectMenuBuilder()
-  .setCustomId('STRING_SELECT_MENU') // заменить на ваш customId
-  .setPlaceholder('Выберите цвет')
-  . etMaxValues(1)
+  .setCustomId('STRING_SELECT_MENU') // replace with your customId
+  .setPlaceholder('Select your color')
+  .setMaxValues(1)
   .setMinValues(1)
-  . etOption([
+  .setOptions([
     { label: 'Red', value: 'Red' },
     { label: 'Blue', value: 'Blue' },
     { label: 'Yellow', value: 'Yellow' }
-])
+  ])
 ```
 
-Чтобы получить строку выбрать:
+To receive a String Select:
 
 ```typescript
-импортировать { Injectable } из '@nestjs/common';
-импортировать { Context, StringSelect, StringSelectContext, SelectedStrings } из '@globalart/nestcord';
+import { Injectable } from '@nestjs/common';
+import { Context, StringSelect, StringSelectContext, SelectedStrings } from '@globalart/nestcord';
 
 @Injectable()
 export class AppComponents {
     @StringSelect('STRING_SELECT_MENU')
     public onStringSelect(
       @Context() [interaction]: StringSelectContext,
-      @SelectedStrings() выбрано: string[]
+      @SelectedStrings() selected: string[]
     ) {
-      return interaction. eply({
-        содержимое: `Ваш выбранный цвет - ${selected. oin(' ')}`
+      return interaction.reply({
+        content: `Your selected color - ${selected.join(' ')}`
       });
     }
 }
 ```
 
-### Выбор пользователя
+### User Select
 
-**Выбор пользователей** — это меню выбора пользователей
+**User Select** are Select Menu for selecting users
 
-Для создания Пользователя:
+To create User Select:
 
 ```typescript
 new UserSelectMenuBuilder()
   .setCustomId('USER_SELECT_MENU')
-  .setPlaceholder('Выберите пользователя')
+  .setPlaceholder('Select a user')
   .setMaxValues(1)
   .setMinValues(1)
 ```
 
-Для получения пользовательского выбора:
+To receive a User Select:
 
 ```typescript
-импорт { Injectable } из '@nestjs/common';
+import { Injectable } from '@nestjs/common';
 import { 
   Context,
   UserSelect,
@@ -136,125 +136,125 @@ import {
   ISelectedUser,
   SelectedMembers,
   ISelectedMembers
-} из '@globalart/nestcord';
+} from '@globalart/nestcord';
 
 @Injectable()
 export class AppComponents {
     @UserSelect('USER_SELECT_MENU')
     public onUserSelect(
       @Context() [interaction]: UserSelectContext,
-      @SelectedUsers() пользователей: выбранные пользователи, // Коллекция пользователей
-      @SelectedMembers() членов: ISelectedMembers // Коллекция членов
+      @SelectedUsers() users: ISelectedUsers, // Collection of users
+      @SelectedMembers() members: ISelectedMembers // Collection of members
     ) {
-      взаимодействия. eply({
+      interaction.reply({
         content: `
-        Selected users - ${users. ap(пользователь => пользователь). sername).join(',')}\n
-        Selected members - ${members. ap(member => member.user?.username). oin(',')}
+        Selected users - ${users.map(user => user.username).join(',')}\n
+        Selected members - ${members.map(member => member.user?.username).join(',')}
         `
       });
     }
 }
 ```
 
-### Выбор роли
+### Role Select
 
-**Выбор роли** — это меню выбора ролей
+**Role Select** are Select Menu for selecting roles
 
-Для создания роли выбрать:
+To create Role Select:
 
 ```typescript
 new RoleSelectMenuBuilder()
   .setCustomId('ROLE_SELECT_MENU')
-  .setPlaceholder('Выберите роль')
+  .setPlaceholder('Select a role')
   .setMaxValues(1)
   .setMinValues(1)
 ```
 
-Чтобы получить роль выбрать:
+To receive a Role Select:
 
 ```typescript
-импорт { Injectable } из '@nestjs/common';
-импортировать { 
-  Контекст,
-  Роль, Выбор,
-  РолеSelectContext,
+import { Injectable } from '@nestjs/common';
+import { 
+  Context,
+  RoleSelect,
+  RoleSelectContext,
   SelectedRole,
   ISelectedRole,
-} из '@globalart/nestcord';
+} from '@globalart/nestcord';
 
 @Injectable()
 export class AppComponents {
     @RoleSelect('ROLE_SELECT_MENU')
     public onRoleSelect(
       @Context() [interaction]: RoleSelectContext,
-      роли @SelectedRoles(): ISelectedRoles, // Сбор ролей
+      @SelectedRoles() roles: ISelectedRoles, // Collection of roles
     ) {
-      взаимодействия. eply({
+      interaction.reply({
         content: `
-        Selected roles - ${roles. ap(роль => роль. d).join(',')}
+        Selected roles - ${roles.map(role => role.id).join(',')}
         `
       });
     }
 }
 ```
 
-### Выбор канала
+### Channel Select
 
-**Выбор канала** — это меню выбора каналов
+**Channel Select** are Select Menu for selecting channels
 
-Для создания канала выбрать:
+To create Channel Select:
 
 ```typescript
-новый ChannelSelectMenuBuilder()
+new ChannelSelectMenuBuilder()
   .setCustomId('CHANNEL_SELECT_MENU')
-  .setPlaceholder('Выберите канал')
+  .setPlaceholder('Select a channel')
   .setMaxValues(1)
   .setMinValues(1)
 ```
 
-Для получения канала выберите канал:
+To receive a Channel Select:
 
 ```typescript
-импорт { Injectable } из '@nestjs/common';
-импорт { 
-  Контекст,
+import { Injectable } from '@nestjs/common';
+import { 
+  Context,
   ChannelSelect,
   ChannelSelectContext,
-  Выбранный Канал,
+  SelectedChannel,
   ISelectedChannel,
-} из '@globalart/nestcord';
+} from '@globalart/nestcord';
 
 @Injectable()
 export class AppComponents {
     @ChannelSelect('CHANNEL_SELECT_MENU')
     public onChannelSelect(
       @Context() [interaction]: ChannelSelectContext,
-      @SelectedChannels() каналы: ISelectedChannels, // Сбор каналов
+      @SelectedChannels() channels: ISelectedChannels, // Collection of channels
     ) {
-      взаимодействия. eply({
+      interaction.reply({
         content: `
-        Selected channels - ${channels. ap(канал => канал. d).join(',')}
+        Selected channels - ${channels.map(channel => channel.id).join(',')}
         `
       });
     }
 }
 ```
 
-### Упоминаемый выбор
+### Mentionable Select
 
-**Упоминаемый выбор** – это меню выбора упоминаний (пользователей и ролей)
+**Mentionable Select** are Select Menu for selecting mentionables (users and roles)
 
-Чтобы создать упоминаемый выбор:
+To create Mentionable Select:
 
 ```typescript
 new MentionableSelectMenuBuilder()
   .setCustomId('MENTIONABLE_SELECT_MENU')
-  .setPlaceholder('Выберите пользователя/роль')
+  .setPlaceholder('Select a user/role')
   .setMaxValues(1)
   .setMinValues(1)
 ```
 
-Чтобы получить упоминаемый выбор:
+To receive a Mentionable Select:
 
 ```typescript
 import { Injectable } from '@nestjs/common';
@@ -290,30 +290,30 @@ export class AppComponents {
 }
 ```
 
-### Динамическое меню
+### Dynamic Select Menu
 
-Все типы меню Select Menu поддерживают динамический `id` используя формат [path-to-regexp](https://www.npmjs.com/package/path-to-regexp).
+All of the Select Menu types, support Dynamic `id` using [path-to-regexp](https://www.npmjs.com/package/path-to-regexp) format.
 
-Для создания динамического меню выберите
+To create a Dynamic select menu
 
 ```typescript
 new StringSelectMenuBuilder()
   .setCustomId('preferences/color')
-  .setPlaceholder('Выберите цвет')
+  .setPlaceholder('Select a color')
   .setMaxValues(1)
   .setMinValues(1)
   .setOptions([
     { label: 'Red', value: 'Red' },
     { label: 'Blue', value: 'Blue' },
     { label: 'Yellow', value: 'Yellow' }
-])
+  ])
 ```
 
-Чтобы получить динамическое меню выберите меню
+To receive a Dynamic select menu
 
 ```typescript
-импорт { Injectable } из '@nestjs/common';
-импорт { Context, StringSelect, StringSelectContext,SelectedStrings } из '@globalart/nestcord';
+import { Injectable } from '@nestjs/common';
+import { Context, StringSelect, StringSelectContext,SelectedStrings } from '@globalart/nestcord';
 
 @Injectable()
 export class AppComponents {
@@ -323,9 +323,9 @@ export class AppComponents {
 		@SelectedStrings() values: string[],
 		@ComponentParam('item') item: string
 	) {
-		return interaction. eply({
+		return interaction.reply({
 			content: `
-      ${item} = ${values. oin(',')}\n
+      ${item} = ${values.join(',')}\n
       `
 		});
 	}
@@ -333,10 +333,10 @@ export class AppComponents {
 
 ```
 
-Динамические меню выбора совместимы с :
+Dynamic select menus are compatible with :
 
 - `StringSelect`
 - `UserSelect`
-- `Выбор роля`
+- `RoleSelect`
 - `MentionableSelect`
 - `ChannelSelect`
