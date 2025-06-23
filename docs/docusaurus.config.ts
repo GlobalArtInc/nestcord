@@ -59,7 +59,38 @@ const config: Config = {
 			} satisfies Preset.Options
 		]
 	],
-
+	headTags: [
+		{
+			tagName: 'script',
+			attributes: {
+				type: 'application/ld+json'
+			},
+			innerHTML: JSON.stringify({
+				'@context': 'https://schema.org/',
+				'@type': 'Organization',
+				name: 'NestCord',
+				description: 'A module for creating Discord bots using NestJS, based on Discord.js',
+				url: 'https://nestcord.js.org',
+				image: 'https://nestcord.js.org/img/preview.png',
+				logo: 'https://nestcord.js.org/img/logo.svg'
+			})
+		},
+		{
+			tagName: 'link',
+			attributes: {
+				rel: 'preconnect',
+				href: 'https://fonts.googleapis.com'
+			}
+		},
+		{
+			tagName: 'link',
+			attributes: {
+				rel: 'preconnect',
+				href: 'https://fonts.gstatic.com',
+				crossOrigin: 'true'
+			}
+		}
+	],
 	themeConfig:
 		/** @type {import("@docusaurus/preset-classic").ThemeConfig} */
 		{
@@ -207,6 +238,34 @@ const config: Config = {
 				respectPrefersColorScheme: true
 			},
 			footer: {
+				links: [
+					{
+						title: 'Support us',
+						items: [
+							{ label: 'Contribute', to: '/contributing/contribution-guide' },
+							{ label: 'Translate', href: 'https://crowdin.com/project/nestcord' }
+						]
+					},
+					{
+						title: 'Community',
+						items: [
+							{ label: 'Discord', href: 'https://discord.gg/4Tc9hssSAv' },
+							{
+								label: 'GitHub Organization',
+								href: 'https://github.com/GlobalArtInc'
+							},
+							{
+								label: 'NPM Organization',
+								href: 'https://www.npmjs.com/org/globalart'
+							}
+						]
+					}
+				],
+				logo: {
+					alt: 'NestCord Logo',
+					src: 'img/logo.svg',
+					href: 'https://nestcord.js.org'
+				},
 				copyright: `Copyright © 2003 - ${new Date().getFullYear()} • Built by <a target="_blank" href="https://globalart.dev">GlobalArt Inc</a>`
 			}
 		} satisfies Preset.ThemeConfig,

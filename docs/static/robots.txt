@@ -2,4 +2,9 @@ User-agent: *
 Disallow:
 
 Sitemap: https://nestcord.js.org/sitemap.xml
+Sitemap: https://nestcord.js.org/ru/sitemap.xml
+Sitemap: https://nestcord.js.org/de/sitemap.xml
+
 Sitemap: https://www.nestcord.js.org/sitemap.xml
+Sitemap: https://www.nestcord.js.org/ru/sitemap.xml
+Sitemap: https://www.nestcord.js.org/de/sitemap.xml
