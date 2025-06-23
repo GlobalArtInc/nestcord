@@ -1,0 +1,97 @@
+---
+id: intro
+slug: /introduction
+title: Introduction
+description: A module for creating Discord bots using NestJS, based on Discord.js.
+sidebar_position: 1
+---
+
+<div align="center">
+   <h1>
+       <a href="#"><img src="/img/logo.png" alt ="NestCord Logo" /></a>
+   </h1>
+   🤖 A module for creating <b><a href="https://discord.com/">Discord</a> bots</b> using <a href="https://nestjs.com">NestJS</a>, based on <a href="https://discord.js.org/">Discord.js</a>
+   <br/><br/>
+   <a href="https://nestcord.js.org">Documentation ✨</a> &amp;emsp; <a href="https://github.com/GlobalArtInc/nestcord">Source code 🪡</a> &amp;emsp; <a href="https://github.com/GlobalArtInc/nestcord/tree/master/examples">Examples 🛠️</a> &amp;emsp; <a href="https://discord.gg/4Tc9hssSAv">Community 💬</a>
+</div>
+
+<br/>
+
+<p align="center">
+    <a href='https://img.shields.io/npm/v/@globalart/nestcord'><img src="https://img.shields.io/npm/v/@globalart/nestcord" alt="NPM Version" /></a>
+    <a href='https://img.shields.io/npm/dm/@globalart/nestcord'><img src="https://img.shields.io/npm/dm/@globalart/nestcord" alt="NPM Downloads" /></a>
+    <a href='https://img.shields.io/github/last-commit/@GlobalArtInc/nestcord'><img src="https://img.shields.io/github/last-commit/GlobalArtInc/nestcord" alt="Last commit" /></a>
+</p>
+
+## About
+
+This package uses the best of the NodeJS world under the hood. [Discord.js](https://github.com/discordjs/discord.js) is the most powerful
+library for creating bots and [Nest.js](https://github.com/nestjs) is a progressive framework for creating well-architectured applications.
+This module provides fast and easy way for creating Discord bots and deep integration with your NestJS application.
+
+**Features**
+
+- Simple. Flexible. Easy to use.
+- Ability to create custom decorators.
+- Interact with Discord (Slash Commands, Context Menus, Message Components, Listeners).
+- Full support of NestJS guards, interceptors, filters and pipes!
+
+For questions and support please use
+the [Issues](https://github.com/GlobalArtInc/nestcord/issues/new?assignees=&labels=question&template=question.yml).
+
+## Installation
+
+**Node.js 16.6.0 or newer is required.**
+
+```bash npm2yarn
+$ npm install @globalart/nestcord discord.js
+```
+
+## Usage
+
+Once the installation process is complete, we can import the `NestCordModule` into the root `AppModule`:
+
+```typescript title="src/app.module.ts"
+import { NestCordModule } from '@globalart/nestcord';
+import { Module } from '@nestjs/common';
+import { IntentsBitField } from 'discord.js';
+import { AppUpdate } from './app.update';
+
+@Module({
+    imports: [
+        NestCordModule.forRoot({
+            token: 'DISCORD_BOT_TOKEN',
+            intents: [IntentsBitField.Flags.Guilds]
+        })
+    ],
+    providers: [AppUpdate]
+})
+export class AppModule {}
+```
+
+Then create `app.update.ts` file and add `On`/`Once` decorators for handling Discord API events:
+
+```typescript title="src/app.update.ts"
+import { Injectable, Logger } from '@nestjs/common';
+import { Context, On, Once, ContextOf } from '@globalart/nestcord';
+import { Client } from 'discord.js';
+
+@Injectable()
+export class AppUpdate {
+    private readonly logger = new Logger(AppUpdate.name);
+
+    public constructor(private readonly client: Client) {}
+
+    @Once('ready')
+    public onReady(@Context() [client]: ContextOf<'ready'>) {
+        this.logger.log(`Bot logged in as ${client.user.username}`);
+    }
+
+    @On('warn')
+    public onWarn(@Context() [message]: ContextOf<'warn'>) {
+        this.logger.warn(message);
+    }
+}
+```
+
+Whenever you need to handle any event data, use the `Context` decorator.

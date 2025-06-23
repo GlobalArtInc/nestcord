@@ -1,0 +1,26 @@
+{
+  "version.label": {
+    "message": "Next",
+    "description": "The label for version current"
+  },
+  "sidebar.docsSidebar.category.Interactions": {
+    "message": "Interactions",
+    "description": "The label for category Interactions in sidebar docsSidebar"
+  },
+  "sidebar.docsSidebar.category.Interceptors": {
+    "message": "Interceptors",
+    "description": "The label for category Interceptors in sidebar docsSidebar"
+  },
+  "sidebar.docsSidebar.category.Packages": {
+    "message": "Packages",
+    "description": "The label for category Packages in sidebar docsSidebar"
+  },
+  "sidebar.docsSidebar.category.Techniques": {
+    "message": "Techniques",
+    "description": "The label for category Techniques in sidebar docsSidebar"
+  },
+  "sidebar.docsSidebar.category.Contributing": {
+    "message": "Contributing",
+    "description": "The label for category Contributing in sidebar docsSidebar"
+  }
+}
