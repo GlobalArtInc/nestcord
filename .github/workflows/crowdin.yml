@@ -1,0 +1,57 @@
+name: Crowdin Action
+
+on:
+  push:
+    branches: [master]
+  workflow_dispatch:
+  schedule:
+    - cron: "0 0 * * *" # every day at 00:00
+
+jobs:
+  synchronize-with-crowdin:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20.18"
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: latest
+
+      - name: Install dependencies
+        run: pnpm install --no-frozen-lockfile
+        working-directory: docs
+
+      - name: Write Docusaurus translations
+        run: pnpm translations:write
+        working-directory: docs
+
+      - name: Crowdin Action
+        uses: crowdin/github-action@v2
+        with:
+          config: "docs/crowdin.yml"
+          upload_sources: true
+          upload_translations: false
+          auto_approve_imported: false
+          download_translations: true
+          localization_branch_name: crowdin/translations
+          create_pull_request: true
+          pull_request_title: "chore: update translations"
+          pull_request_body: "New Crowdin translations by [Crowdin GH Action](https://github.com/crowdin/github-action)"
+          pull_request_base_branch_name: "master"
+          pull_request_assignees: globalart-ci
+          pull_request_reviewers: globalart-ci
+          export_only_approved: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GLOBALART_CI_TOKEN }}
+          CROWDIN_PROJECT_ID: ${{ secrets.CROWDIN_PROJECT_ID }}
+          CROWDIN_PERSONAL_TOKEN: ${{ secrets.CROWDIN_PERSONAL_TOKEN }}

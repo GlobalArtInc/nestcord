@@ -6,6 +6,7 @@ import { themes } from 'prism-react-renderer';
 const lightCodeTheme = themes.github;
 const darkCodeTheme = themes.oceanicNext;
 
+const defaultLocale = 'en';
 const isDev = process.env.NODE_ENV === 'development' || !process.env.NODE_ENV;
 const isPreview = process.env.NODE_ENV === 'preview';
 
@@ -172,7 +173,20 @@ const config: Config = {
 						position: 'left',
 						href: 'https://discord.com/invite/4Tc9hssSAv'
 					},
-
+					{
+						type: 'localeDropdown',
+						position: 'right',
+						dropdownItemsAfter: [
+							{
+								type: 'html',
+								value: '<hr style="margin: 0.3rem 0;">'
+							},
+							{
+								href: 'https://crowdin.com/project/necord',
+								label: 'Help Us Translate'
+							}
+						]
+					},
 					{
 						href: 'https://www.npmjs.com/package/@globalart/nestcord',
 						position: 'right',
@@ -253,7 +267,12 @@ const config: Config = {
 				]
 			}
 		]
-	]
+	],
+	i18n: {
+		defaultLocale,
+		locales: ['en', 'ru', 'de'],
+		path: 'i18n'
+	}
 };
 
 module.exports = config;
