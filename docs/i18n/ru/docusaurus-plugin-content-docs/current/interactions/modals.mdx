@@ -1,10 +1,10 @@
 ---
-id: modals
-title: Modals
+id: модули
+title: Модули
 sidebar_position: 4
 ---
 
-With modals you can create pop-up forms that allow users to provide you with formatted inputs through submissions. We'll cover how to create, show, and receive modal forms using nestcord
+С модулями вы можете создавать всплывающие формы, которые позволяют пользователям предоставлять вам форматированные входы через отправку. Мы рассмотрим как создавать, показывать и получать формы модали, используя nestcord
 
 ```typescript title="src/app.modals.ts"
 import { Injectable } from '@nestjs/common';
@@ -14,47 +14,47 @@ import { Context, Modal, ModalContext } from '@globalart/nestcord';
 export class AppModals {
     @Modal('pizza')
     public onModal(@Ctx() [interaction]: ModalContext) {
-      return interaction.reply({
-        content: `Your fav pizza : ${interaction.fields.getTextInputValue('pizza')}`
+      return interaction. eply({
+        content: `Your fav pizza : ${interaction.fields. etTextInputValue('pizza')}`
       });
     }
 }
 ```
 
-### Dynamic Modal
+### Динамическая модаль
 
-You can create modals with dynamic `id` field. This is useful for passing metadata to modals.
+Вы можете создать модули с помощью динамического поля `id`. Это полезно для передачи метаданных модам.
 
-Dynamic modals uses [path-to-regexp](https://www.npmjs.com/package/path-to-regexp) format to perform regexp matching. Turn a path string such as `user/:name` into a regular expression.
+Динамические модули используют формат [path-to-regexp](https://www.npmjs.com/package/path-to-regexp) для выполнения регулярного сопоставления. Превратите строку пути, такую как `user/:name` в регулярное выражение.
 
-To create a Dynamic modal
+Создавать динамический модаль
 
 ```typescript
 new ModalBuilder()
   .setTitle('What your fav pizza?')
-  .setCustomId('pizza/12345')
+  . etCustomId('pizza/12345')
   .setComponents([
-    new ActionRowBuilder<ModalActionRowComponentBuilder>().addComponents([
+    new ActionRowBuilder<ModalActionRowComponentBuilder>(). ddComponents([
       new TextInputBuilder()
-        .setCustomId('pizza')
-        .setLabel('???')
+        . etCustomId('pizza')
+        . etLabel('???')
         .setStyle(TextInputStyle.Paragraph)
     ])
-  ])
+])
 ```
 
-To receive a Dynamic modal
+Получить динамический модаль
 
 ```typescript title="src/app.modals.ts"
-import { Injectable } from '@nestjs/common';
-import { Context, Modal, ModalContext,ModalParam } from '@globalart/nestcord';
+импортировать { Injectable } из '@nestjs/common';
+импортировать { Context, Modal, ModalContext,ModalParam } из '@globalart/nestcord';
 
 @Injectable()
 export class AppModals {
     @Modal('pizza/:value')
-    public onModal(@Ctx() [interaction]: ModalContext, @ModalParam('value') value: string) {
-      return interaction.reply({
-        content: `Your fav pizza ${value} : ${interaction.fields.getTextInputValue('pizza')}`
+    public onModal(@Ctx() [interaction]: ModalContext, @ModalParam('value') значение: string) {
+      возвращает взаимодействие. eply({
+        content: `Your fav pizza ${value} : ${interaction.fields. etTextInputValue('pizza')}`
       });
     }
 }

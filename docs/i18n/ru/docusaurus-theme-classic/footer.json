@@ -1,22 +1,22 @@
 {
   "copyright": {
-    "message": "Copyright © 2003 - 2025 • Built by <a target=\"_blank\" href=\"https://globalart.dev\">GlobalArt Inc</a>",
+    "message": "Copyright ©️ 2003 - 2025 • Создано <a target=\"_blank\" href=\"https://globalart.dev\">GlobalArt Inc</a>",
     "description": "The footer copyright"
   },
   "link.title.Support us": {
-    "message": "Support us",
+    "message": "Поддержать нас",
     "description": "The title of the footer links column with title=Support us in the footer"
   },
   "link.title.Community": {
-    "message": "Community",
+    "message": "Сообщество",
     "description": "The title of the footer links column with title=Community in the footer"
   },
   "link.item.label.Contribute": {
-    "message": "Contribute",
+    "message": "Внести вклад",
     "description": "The label of footer link with label=Contribute linking to /contributing/contribution-guide"
   },
   "link.item.label.Translate": {
-    "message": "Translate",
+    "message": "Перевести",
     "description": "The label of footer link with label=Translate linking to https://crowdin.com/project/nestcord"
   },
   "link.item.label.Discord": {
@@ -24,15 +24,15 @@
     "description": "The label of footer link with label=Discord linking to https://discord.gg/4Tc9hssSAv"
   },
   "link.item.label.GitHub Organization": {
-    "message": "GitHub Organization",
+    "message": "Организация GitHub",
     "description": "The label of footer link with label=GitHub Organization linking to https://github.com/GlobalArtInc"
   },
   "link.item.label.NPM Organization": {
-    "message": "NPM Organization",
+    "message": "Организация Музея",
     "description": "The label of footer link with label=NPM Organization linking to https://www.npmjs.com/org/globalart"
   },
   "logo.alt": {
-    "message": "NestCord Logo",
+    "message": "Логотип NestCord",
     "description": "The alt text of footer logo"
   }
 }

@@ -1,18 +1,18 @@
 {
   "logo.alt": {
-    "message": "NestCord Logo",
+    "message": "Логотип NestCord",
     "description": "The alt text of navbar logo"
   },
   "item.label.Documentation": {
-    "message": "Documentation",
+    "message": "Документация",
     "description": "Navbar item with label Documentation"
   },
   "item.label.Examples": {
-    "message": "Examples",
+    "message": "Примеры",
     "description": "Navbar item with label Examples"
   },
   "item.label.Community": {
-    "message": "Community",
+    "message": "Сообщество",
     "description": "Navbar item with label Community"
   }
 }

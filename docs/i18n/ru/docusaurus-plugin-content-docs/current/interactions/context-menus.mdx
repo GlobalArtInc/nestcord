@@ -1,55 +1,55 @@
 ---
-id: context-menus
-title: Context Menus
+id: контекстное меню
+title: Контекстное меню
 sidebar_position: 2
 ---
 
-**User commands** and **message commands** are now live! These commands appear on context menus for users and messages, with more to come in the future.
+**Пользовательские команды** и **команды сообщения** теперь live! Эти команды появляются в контекстных меню для пользователей и сообщений, и в будущем они появятся еще больше.
 
-## User Commands
+## Команды пользователя
 
-**User commands** are application commands that appear on the context menu (right click or tap) of users. They're a great way to surface quick actions for your app that target users.
+**Пользовательские команды** — это команды приложений, которые появляются в контекстном меню (правый клик или нажатие) пользователей. Это отличный способ поразить быстрые действия для вашего приложения, целевые пользователи.
 
 ```typescript title="src/app.commands.ts"
 import { Injectable } from '@nestjs/common';
 import { Context, UserCommand, UserCommandContext, TargetUser } from '@globalart/nestcord';
-import { User } from 'discord.js';
+import { User } from 'discord. s';
 
 @Injectable()
 export class AppCommands {
     @UserCommand({ name: 'Get avatar' })
     public async getUserAvatar(
         @Context() [interaction]: UserCommandContext,
-        @TargetUser() user: User
+        @TargetUser() пользователь: User
     ) {
-        return interaction.reply({
+        return interaction. eply({
             embeds: [
                 new MessageEmbed()
-                    .setTitle(`Avatar ${user.username}`)
-                    .setImage(user.displayAvatarURL({ size: 4096, dynamic: true }))
+                    . etTitle(`аватар ${user.username}`)
+                    . etImage(пользователь). isplayAvatarURL({ size: 4096, dynamic: true }))
             ]
         });
     }
 }
 ```
 
-## Message Commands
+## Команды сообщений
 
-**Message commands** are application commands that appear on the context menu (right click or tap) of messages. They're a great way to surface quick actions for your app that target messages.
+**Команды сообщений** — это команды, которые появляются в контекстном меню (правый клик или нажатие) сообщений. Это отличный способ поразить быстрые действия для вашего приложения, которые целевые сообщения.
 
 ```typescript title="src/app.commands.ts"
 import { Injectable } from '@nestjs/common';
 import { Context, MessageCommand, MessageCommandContext, TargetMessage } from '@globalart/nestcord';
-import { Message } from 'discord.js';
+import { Message } from 'discord. s';
 
 @Injectable()
 export class AppCommands {
     @MessageCommand({ name: 'Copy Message' })
     public async copyMessage(
         @Context() [interaction]: MessageCommandContext,
-        @TargetMessage() message: Message
+        @TargetMessage() message: Сообщение
     ) {
-        return interaction.reply({ content: message.content });
+        return interaction. eply({ content: message.content });
     }
 }
 ```

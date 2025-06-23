@@ -1,98 +1,98 @@
 ---
-id: async-configuration
-title: Async Configuration
+id: async-конфигурация
+title: Конфигурация Асинхронки
 sidebar_position: 2
 ---
 
-When you need to pass module options asynchronously instead of statically, use the `.forRootAsync()` method. As with most dynamic modules, Nest provides several techniques to deal with async configuration.
+Когда вам нужно асинхронно передать параметры модуля вместо статики, используйте метод `.forRootAsync()`. Как и в случае с самыми динамическими модулями, Nest предлагает несколько техник для работы с асинхронной конфигурацией.
 
-One technique is to use a factory function:
+Одна техника - использовать заводскую функцию:
 
 ```typescript title="src/app.module.ts"
 import { NestCordModule } from '@globalart/nestcord';
 import { Module } from '@nestjs/common';
-import { IntentsBitField } from 'discord.js';
+import { IntentsBitField } from 'discord. s';
 
 @Module({
     imports: [
-        NestCordModule.forRootAsync({
+        NestCordModule. orRootAsync({
             useFactory: () => ({
                 token: 'DISCORD_BOT_TOKEN',
                 intents: [
-                    IntentsBitField.Guilds,
-                    IntentsBitField.GuildMessages,
-                    IntentsBitField.DirectMessages
+                    IntentsBitField. uilds,
+                    IntentsBitField. uildMessages,
+                    IntentsBitField. irectMessages
                 ]
             })
         })
     ]
 })
-export class AppModule {}
+Экспорт класса AppModule {}
 ```
 
-Like other [factory providers](https://docs.nestjs.com/fundamentals/custom-providers#factory-providers-usefactory), our factory function can be async and can inject dependencies through inject.
+Как и другие [заводские провайдеры](https://docs.nestjs.com/fundamentals/custom-providers#factory-providers-usefactory), наша заводская функция может быть асинхронной, и может быть зависимостей через инъекции.
 
 ```typescript title="src/app.module.ts"
 import { NestCordModule } from '@globalart/nestcord';
 import { Module } from '@nestjs/common';
-import { IntentsBitField } from 'discord.js';
+import { IntentsBitField } from 'discord. s';
 
 @Module({
     imports: [
-        NestCordModule.forRootAsync({
-            imports: [ConfigModule.forFeature(nestcordModuleConfig)],
+        NestCordModule. orRootAsync({
+            импорт: [ConfigModule. orFeature(nestcordModuleConfig)],
             useFactory: async (configService: ConfigService) => ({
-                token: configService.get<string>('DISCORD_BOT_TOKEN'),
+                token: configService. et<string>('DISCORD_BOT_TOKEN'),
                 intents: [
-                    IntentsBitField.Guilds,
-                    IntentsBitField.GuildMessages,
-                    IntentsBitField.DirectMessages
+                    IntentsBitField. uilds,
+                    IntentsBitField. uildMessages,
+                    IntentsBitField. irectMessages
                 ]
             }),
             inject: [ConfigService]
         })
     ]
 })
-export class AppModule {}
+экспорт класса AppModule {}
 ```
 
-Alternatively, you can configure the NestCordModule using a class instead of a factory, as shown below:
+В качестве альтернативы, вы можете настроить NestCordModule с помощью класса вместо фабрики, как показано ниже:
 
 ```typescript title="src/app.module.ts"
 import { NestCordModule } from '@globalart/nestcord';
 import { Module } from '@nestjs/common';
-import { IntentsBitField } from 'discord.js';
+import { IntentsBitField } from 'discord. s';
 
 @Module({
     imports: [
-        NestCordModule.forRootAsync({
+        NestCordModule. orRootAsync({
             useClass: NestCordConfigService
         })
     ]
 })
-export class AppModule {}
+экспорт класса AppModule {}
 ```
 
-The construction above instantiates `NestCordConfigService` inside `NestCordModule`, using it to create the required options object. Note that in this example, the `NestCordConfigService` has to implement the `NestCordOptionsFactory` interface, as shown below. The `NestCordModule` will call the `.createNestCordOptions()` method on the instantiated object of the supplied class.
+Сборка выше экземпляров `NestCordConfigService` внутри `NestCordModule`, используя его, чтобы создать необходимый объект параметров. Обратите внимание, что в этом примере `NestCordConfigService` должен реализовать интерфейс `NestCordOptionsFactory`, как показано ниже. `NestCordModule` вызовет метод `.createNestCordOptions()` в экземпляре объекта поставленного класса.
 
 ```typescript title="src/discord-config.service.ts"
 import { Injectable } from '@nestjs/common';
 import { NestCordOptionsFactory, NestCordModuleOptions } from '@globalart/nestcord';
-import { IntentsBitField } from 'discord.js';
+import { IntentsBitField } from 'discord. s';
 
 @Injectable()
-class NestCordConfigService {
+класс NestCordConfigService {
     createNestCordOptions(): NestCordModuleOptions {
         return {
             token: 'DISCORD_BOT_TOKEN',
             intents: [
-                IntentsBitField.Guilds,
-                IntentsBitField.GuildMessages,
-                IntentsBitField.DirectMessages
+                IntentsBitField. uilds,
+                IntentsBitField. uildMessages,
+                IntentsBitField. irectMessages
             ]
         };
     }
 }
 ```
 
-If you want to reuse an existing options provider instead of creating a private copy inside the `NestCordModule`, use the `useExisting` syntax.
+Если вы хотите повторно использовать существующий поставщик опций вместо создания частной копии внутри `NestCordModule`, используйте синтаксис `useExisting`.

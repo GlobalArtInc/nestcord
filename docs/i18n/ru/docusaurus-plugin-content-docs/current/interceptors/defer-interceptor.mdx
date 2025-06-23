@@ -1,12 +1,12 @@
 ---
-id: defer-interceptor
-title: Defer command
+id: перехватчик отсрочки
+title: Отложить команду
 sidebar_position: 1
 ---
 
-Interceptor added `interaction.deferReply()` to the beiginning of the code
+Перехватчик добавил `interaction.deferReply()` к началу кода
 
-## Usage
+## Использование
 
 ```typescript title="src/app.service.ts"
 import {
@@ -24,7 +24,7 @@ export class AppService {
     description: 'pong',
   })
   async execute(@Context() [interaction]: SlashCommandContext) {
-    setTimeout(() => interaction.followUp({ content: 'Pong!' }), 5000);
+    setTimeout(() => взаимодействие. ollowUp({ content: 'Pong!' }), 5000);
   }
 }
 

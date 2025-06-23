@@ -1,80 +1,80 @@
 ---
-id: localization
-title: Localization
+id: локализация
+title: Локализация
 sidebar_position: 2
 ---
 
-Is a lightweight localization module for [NestCord](https://nestcord.js.org/). It allows you to easily localize your bot's
-commands and messages. The module provides a simple API for managing locales and translations, as well as a powerful localization adapter
-system.
+Легкий модуль локализации для [NestCord](https://nestcord.js.org/). It allows you to easily localize your bot's
+commands and messages. Модуль предоставляет простой API для управления локалями и переводами, а также мощный адаптер локализации
+системы.
 
-## Usage
+## Использование
 
-Once the installation process is complete, we can import the `NestCordLocalizationModule` with your `NestCordModule` into the root `AppModule`:
+После завершения установки мы можем импортировать `NestCordLocalizationModule` с вашим `NestCordModule` в корень `AppModule`:
 
 ```typescript
 import { NestCordModule } from '@globalart/nestcord';
 import { Module } from '@nestjs/common';
 import { NestCordLocalizationModule, DefaultLocalizationAdapter, UserResolver } from '@globalart/nestcord';
-import { AppService } from './app.service';
+import { AppService } from '. приложение. ervice';
 
 @Module({
     imports: [
-        NestCordModule.forRoot({
-            token: process.env.DISCORD_TOKEN,
+        NestCordModule. orRoot({
+            токен: процесс. nv.DISCORD_TOKEN,
             intents: [
-                IntentsBitField.Flags.Guilds,
-                IntentsBitField.Flags.DirectMessages,
-                IntentsBitField.Flags.GuildMembers,
-                IntentsBitField.Flags.GuildMessages,
-                IntentsBitField.Flags.MessageContent
+                IntentsBitField. лага. uilds,
+                IntentsBitField.Flags. irectMessages,
+                IntentsBitField.Flags. UildMembers,
+                IntentsBitField.Flags. uildMessages,
+                IntentsBitField. lags.MessageContent
             ],
-            prefix: '!',
-            development: [process.env.DISCORD_TEST_GUILD]
+            префикс: '! ,
+            разработка: [process.env.DISCORD_TEST_GUILD]
         }),
-        NestCordLocalizationModule.forRoot({
+        NestCordLocalizationModule. orRoot({
             resolvers: UserResolver,
-            // Also you can provide class for support injection by @Inject
-            adapter: new DefaultLocalizationAdapter({
+            // Также вы можете предоставить класс для поддержки injection через @Inject
+            адаптер: new DefaultLocalizationAdapter({
                 fallbackLocale: 'en-US',
                 locales: {
                     'en-US': {
-                        'commands.ping.name': 'ping',
-                        'commands.ping.description': 'Pong!'
+                        'commands. ing.name': 'ping',
+                        'команды. вообще. escription': 'Понг!
                     },
                     ru: {
-                        'commands.ping.name': 'пинг',
-                        'commands.ping.description': 'Понг!'
+                        'команды. ing.name': 'пинг',
+                        команды. вообще. escription': 'Понг!
                     }
                 }
             })
         })
     ],
-    providers: [AppService]
+    провайдеров: [AppService]
 })
-export class AppModule {
+класс экспорта AppModule {
 }
 ```
 
-## Adapters
+## Адаптеры
 
-The `DefaultLocalizationAdapter` is a simple adapter that allows you to provide a map of locales and translations.
+`DefaultLocalizationAdapter` является простым адаптером, который позволяет предоставить карту локалей и переводов.
 
-Also you can use the `NestedLocalizationAdapter` that allows you to organize translation keys into objects
+Также вы можете использовать `NestedLocalizationAdapter`, который позволяет разбивать ключи перевода на объекты
 
 ```typescript
-import { NestCordLocalizationModule, NestedLocalizationAdapter, UserResolver } from '@globalart/nestcord/localization';
+импорт { NestCordLocalizationModule, NestedLocalizationAdapter, UserResolver } из '@globalart/nestcord/localization';
 
-NestCordLocalizationModule.forRoot({
+NestCordLocalizationModule. orRoot({
     resolvers: UserResolver,
-    adapter: new NestedLocalizationAdapter({
-        fallbackLocale: 'en-US',
+    адаптер: new NestedLocalizationAdapter({
+        fallLocale: 'en-US',
         locales: {
             'en-US': {
                 'commands': {
                     'ping': {
                         'name': 'ping',
-                        'description': 'Pong!'
+                        'description': 'Pong!
                     }
                 }
             },
@@ -82,7 +82,7 @@ NestCordLocalizationModule.forRoot({
                 'commands': {
                     'ping': {
                         'name': 'пинг',
-                        'description': 'Понг!'
+                        'description': 'Понг!
                     }
                 }
             }
@@ -93,40 +93,40 @@ NestCordLocalizationModule.forRoot({
 ```
 
 :::info
-`DefaultLocalizationAdapter` and `NestedLocalizationAdapter` can translate your localization strings and placeholders (e.g `{{username}}`)
+`DefaultLocalizationAdapter` и `NestedLocalizationAdapter` могут перевести строки и заполнители локализации (например `{{username}}`)
 :::
 
-#### Custom Adapters
+#### Пользовательские адаптеры
 
-Also, you can create your own localization adapter. Just implement the `BaseLocalizationAdapter` interface:
+Также вы можете создать свой собственный адаптер локализации. Просто реализуйте интерфейс «BaseLocalizationAdapter»:
 
 ```typescript
-import { BaseLocalizationAdapter } from '@globalart/nestcord/localization';
+импорт { BaseLocalizationAdapter } из '@globalart/nestcord/localization';
 
-interface CustomLocalizationOptions {
+интерфейс CustomLocalizationOptions {
     fallbackLocale: string;
     locales: Record<string, Record<string, string>>;
 }
 
 export class CustomLocalizationAdapter extends BaseLocalizationAdapter<CustomLocalizationOptions> {
-    public getTranslation(key: string, locale: string, ...args: unknown[]): string {
+    public getTranslation(key: string, locale: string, . .args: unknown[]): string {
         return `${key} by ${locale}`;
     }
 }
 ```
 
-## Resolvers
+## Резолверы
 
-Resolvers are used to get the locale for translation. By default, NestCord provides two resolvers: `UserResolver` and `GuildResolver`.
+Резолверы используются для получения локали для перевода. По умолчанию, NestCord предоставляет два резолвера: `UserResolver` и `GuildResolver`.
 
-| Resolver      | Description                                                                  |
-| ------------- | ---------------------------------------------------------------------------- |
-| UserResolver  | Gets the locale from the user's locale property (`interaction.locale`)       |
-| GuildResolver | Gets the locale from the guild's locale property (`interaction.guildLocale`) |
+| Резолвер               | Описание                                                                     |
+| ---------------------- | ---------------------------------------------------------------------------- |
+| Резолвер пользователя  | Получает локаль из свойства локали пользователя (`interaction.locale`)       |
+| Резольвер гильдии      | Получает локаль из локального свойства гильдии (`interaction.guildLocale`)   |
 
-#### Custom Resolvers
+#### Пользовательские Резолверы
 
-Also, you can create your own Resolver. Just implement the `LocaleResolver` interface:
+Также вы можете создать свой собственный Резольвер. Просто выполните `LocaleResolver` интерфейс:
 
 ```typescript
 import { CommandContext, LocaleResolver } from '@globalart/nestcord';
@@ -136,48 +136,17 @@ import { NestCordExecutionContext } from '@globalart/nestcord';
 @Injectable()
 export class GuildResolver implements LocaleResolver {
     resolve(context: ExecutionContext): string | string[] | undefined {
-        const nestcordContext = NestCordExecutionContext.create(context);
-        const [interaction] = nestcordContext.getContext<CommandContext>();
+        const nestcordContext = NestCordExecutionContext. reate(context);
+        const [interaction] = nestcordContext. etContext<CommandContext>();
 
         return interaction.guildLocale;
     }
 }
 ```
 
-## Localization
+## Локализация
 
-We can inject the `LOCALIZATION_ADAPTER` into our service and use it to localize our commands and messages:
-
-```typescript title="src/app.gateway.ts"
-import { Injectable, Inject, OnModuleInit } from '@nestjs/common';
-import { DefaultLocalizationAdapter, localizationMapByKey, LOCALIZATION_ADAPTER } from '@globalart/nestcord';
-import { Context, SlashCommand, SlashCommandContext } from '@globalart/nestcord';
-
-@Injectable()
-export class AppService implements OnModuleInit {
-    public constructor(
-        @Inject(LOCALIZATION_ADAPTER)
-        private readonly localizationAdapter: DefaultLocalizationAdapter
-    ) {
-    }
-
-    @SlashCommand({
-        name: 'ping',
-        description: 'Pong!',
-        nameLocalizations: localizationMapByKey('commands.ping.name'),
-        descriptionLocalizations: localizationMapByKey('commands.ping.name')
-    })
-    public ping(@Context() [interaction]: SlashCommandContext) {
-        const message = this.localizationAdapter.getTranslation(
-            'commands.ping.description',
-            interaction.locale
-        );
-        return interaction.reply(message);
-    }
-}
-```
-
-Or you can use `translate` function from the localization adapter:
+Мы можем вставить `LOCALIZATION_ADAPTER` в наш сервис и использовать его для локализации наших команд и сообщений:
 
 ```typescript title="src/app.gateway.ts"
 import { Injectable, Inject, OnModuleInit } from '@nestjs/common';
@@ -194,64 +163,94 @@ export class AppService implements OnModuleInit {
 
     @SlashCommand({
         name: 'ping',
-        description: 'Pong!',
-        nameLocalizations: localizationMapByKey('commands.ping.name'),
-        descriptionLocalizations: localizationMapByKey('commands.ping.name')
+        описание: 'Понг! ,
+        Локализаций: localizationMapByKey('команды. ing.name'),
+        descriptionLocalizations: localizationMapByKey('commands.ping. ame')
     })
     public ping(@Context() [interaction]: SlashCommandContext) {
-        const message = this.localizationAdapter.translate(
-            'commands.ping.description',
+        const message = this. ocalizationAdapter.getTranslation(
+            'команд. ing.description', Взаимодействие
+            . ocale
         );
-        return interaction.reply(message);
+        возвращающее взаимодействие. eply(сообщение);
     }
 }
 ```
 
-Or you can use `@CurrentTranslate` decorator to get the current translation from context:
+Или вы можете использовать функцию `translate` из адаптера локализации:
+
+```typescript title="src/app.gateway.ts"
+import { Injectable, Inject, OnModuleInit } from '@nestjs/common';
+import { DefaultLocalizationAdapter, localizationMapByKey, LOCALIZATION_ADAPTER } from '@globalart/nestcord';
+import { Context, SlashCommand, SlashCommandContext } from '@globalart/nestcord';
+
+@Injectable()
+export class AppService implements OnModuleInit {
+    public constructor(
+        @Inject(LOCALIZATION_ADAPTER)
+        private readonly localizationAdapter: DefaultLocalizationAdapter
+    ) {
+    }
+
+    @SlashCommand({
+        name: 'ping',
+        описание: 'Понг! ,
+        Локализаций: localizationMapByKey('команды. ing.name'),
+        descriptionLocalizations: localizationMapByKey('commands.ping. ame')
+    })
+    public ping(@Context() [interaction]: SlashCommandContext) {
+        const message = this. ocalizationAdapter.translate(
+            'commands.ping. escription',
+        );
+        обратное взаимодействие. eply(сообщение);
+    }
+}
+```
+
+Или вы можете использовать декоратор `@CurrentTranslate` для получения текущего перевода из контекста:
 
 ```typescript
-import { Injectable, Inject, OnModuleInit } from '@nestjs/common';
-import { DefaultLocalizationAdapter, CurrentTranslate, localizationMapByKey, TranslationFn } from '@globalart/nestcord/localization';
-import { Context, SlashCommand, SlashCommandContext } from '@globalart/nestcord';
+импортировать { Injectable, Inject, OnModuleInit } из '@nestjs/common';
+import { DefaultLocalizationAdapter, CurrentTranslate, localizationMapByKey, TranslationFn } из '@globalart/nestcord/localization';
+импорт { Context, SlashCommand, SlashCommandContext } из '@globalart/nestcord';
 
 @Injectable()
 export class AppService implements OnModuleInit {
     @SlashCommand({
         name: 'ping',
-        description: 'Pong!',
-        nameLocalizations: localizationMapByKey('commands.ping.name'),
-        descriptionLocalizations: localizationMapByKey('commands.ping.name')
+        описание: 'Понг! ,
+        Локализации: localizationMapByKey('commands. ing.name'),
+        Описание Локализации: localizationMapByKey('commands.ping. ame')
     })
-    public ping(
+    публичных ping(
         @Context() [interaction]: SlashCommandContext,
         @CurrentTranslate() t: TranslationFn
     ) {
-        const message = t('commands.ping.description');
+        const message = t('commands. ing.description');
         return interaction.reply(message);
     }
 }
 ```
 
 :::info
-Function `localizationMapByKey` are used to localize the command name and description. You pass the translation key or localization map as
+Функция `localizationMapByKey` используется для локализации имени и описания команды. You pass the translation key or localization map as
 an argument to the function.
 :::
 
-#### Setting up localized commands
+#### Настройка локализованных команд
 
-You can set what locales the command will be localized
+Вы можете установить, какие локали будет локализована команда
 
 ```typescript
 @SlashCommand({
     name: 'ping',
     description: 'Pong!',
-    nameLocalizations: localizationMapByKey('commands.ping.name', ['en', 'ru']),
-    descriptionLocalizations: localizationMapByKey('commands.ping.name', ['en', 'ru'])
+    nameLocalizations: localizationMapByKey('commands.ping.name', ['ru', 'ru']),
+    descriptionLocalizations: localizationMapByKey('commands.ping.name', ['ru'])
 })
 ```
 
-Or just pass a localization object with the location id and translation key to the `nameLocalization` and `descriptionLocalizations`
-properties
+Или просто передайте объект локализации с идентификатором местоположения и ключом перевода в свойства `nameLocalization` и `descriptionLocalizations`
 
 ```typescript
 @SlashCommand({
@@ -268,10 +267,10 @@ properties
 })
 ```
 
-## Update localization without restarting the app
+## Обновить локализацию без перезапуска приложения
 
-If you get translations from the external API, for example, crowdin, weblate, or another translation services.
-You can update it just call the `localizationService`
+Если вы получаете переводы из внешнего API, например, crowdin, weblate или другой службы переводов.
+Вы можете обновить его просто вызвать `localizationService`
 
 ```typescript
 import {
@@ -291,18 +290,18 @@ export class AppService {
     description: 'Update translations',
   })
   updateTranslations(@Context() [interaction]: SlashCommandContext) {
-    // Get data from API
+    // Получение данных из API
 
-    this.nestCordLocalizationService.updateLocales({
-      // static translates for test or you can put it from API
+    этого. LocalizationService. pdateLocales({
+      // статические переводы для теста или вы можете поместить его из API
       'en-US': {
         'commands.ping.description': 'My new translation',
       },
     });
 
-    return interaction.reply({ content: "Updated successful" });
+    взаимодействие возврата. eply({ content: "Обновлено успешно" });
   }
 }
 ```
 
-Congratulations! You have successfully created your first localized command with NestCord!
+Поздравляем! Вы успешно создали свою первую локализованную команду с NestCord!
