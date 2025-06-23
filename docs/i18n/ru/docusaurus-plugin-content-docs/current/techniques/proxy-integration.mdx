@@ -1,44 +1,44 @@
 ---
-id: интеграция с прокси-сервером
-title: Интеграция прокси-сервера
+id: proxy-integration
+title: Proxy Integration
 sidebar_position: 6
 ---
 
-NestCord поддерживает настройки прокси для всех подключений к API Discord. Это полезно при развертывании в корпоративных сетях или при использовании VPN.
+NestCord supports proxy configuration for all connections to the Discord API. This is useful for deployments in corporate networks or when using VPNs.
 
-## Методы настройки прокси
+## Proxy Configuration Methods
 
-### 1. Простая конфигурация с помощью прокси-пути
+### 1. Simple configuration using proxyPath
 
 ```typescript title="src/app.module.ts"
 import { NestCordModule } from '@globalart/nestcord';
-import { GatewayIntentBits } from 'discord. s';
+import { GatewayIntentBits } from 'discord.js';
 
 @Module({
   imports: [
     NestCordModule.forRoot({
-      token: process. nv.DISCORD_TOKEN,
+      token: process.env.DISCORD_TOKEN,
       intents: [GatewayIntentBits.Guilds],
-      proxyPath: 'http://proxy.company. om:8080',
+      proxyPath: 'http://proxy.company.com:8080',
     }),
   ],
 })
-экспорт класса AppModule {}
+export class AppModule {}
 ```
 
-### 2. Расширенная конфигурация с помощью прокси объекта
+### 2. Advanced configuration using proxy object
 
 ```typescript title="src/app.module.ts"
 @Module({
   imports: [
     NestCordModule.forRoot({
-      token: process.env. ISCORD_TOKEN,
+      token: process.env.DISCORD_TOKEN,
       intents: [GatewayIntentBits.Guilds],
       proxy: {
-        host: 'proxy. оглушение. om',
-        порт: 8080, протокол
-        : 'http',
-        Автор: {
+        host: 'proxy.company.com',
+        port: 8080,
+        protocol: 'http',
+        auth: {
           username: 'user',
           password: 'password',
         },
@@ -46,48 +46,48 @@ import { GatewayIntentBits } from 'discord. s';
     }),
   ],
 })
-экспорт класса AppModule {}
+export class AppModule {}
 ```
 
-## Параметры конфигурации
+## Configuration Parameters
 
 ### proxyPath
 
-- **Тип**: `string`
-- **Описание**: Полный URL прокси-сервера
-- **Примеры**: 
+- **Type**: `string`
+- **Description**: Full URL of the proxy server
+- **Examples**: 
   - `'http://proxy.company.com:8080'`
   - `'https://user:pass@proxy.company.com:8080'`
   - `'socks5://proxy.company.com:1080'`
 
-### прокси
+### proxy
 
-- **Тип**: `NestCordProxyOptions`
-- **Описание**: Объект с подробными настройками прокси
+- **Type**: `NestCordProxyOptions`
+- **Description**: Object with detailed proxy settings
 
 #### NestCordProxyOptions
 
 ```typescript
-интерфейс NestCordProxyOptions {
-  host: строка;                    
-  порт: номер;                    
-  протокол? 'http' | 'https';     
-  автор? {                         
-    имя пользователя: строка;
-    пароль: строка;
+interface NestCordProxyOptions {
+  host: string;                    
+  port: number;                    
+  protocol?: 'http' | 'https';     
+  auth?: {                         
+    username: string;
+    password: string;
   };
 }
 ```
 
-## Как это работает
+## How It Works
 
-1. **Переменные окружения**: при инициализации модуля переменные `HTTP_PROXY` и `HTTPS_PROXY` автоматически устанавливаются
-2. **Discord.js клиент**: Все подключения к Discord API будут проходить через указанный прокси
-3. **NestCordService**: REST API запросы также будут использовать настройки прокси
+1. **Environment Variables**: When initializing the module, `HTTP_PROXY` and `HTTPS_PROXY` variables are automatically set
+2. **Discord.js Client**: All connections to Discord API will go through the specified proxy
+3. **NestCordService**: REST API requests will also use proxy settings
 
-## Примеры использования
+## Usage Examples
 
-### Корпоративная сеть
+### Corporate Network
 
 ```typescript title="src/app.module.ts"
 NestCordModule.forRoot({
@@ -97,16 +97,16 @@ NestCordModule.forRoot({
 })
 ```
 
-### Аутентификация прокси
+### Proxy with Authentication
 
 ```typescript title="src/app.module.ts"
 NestCordModule.forRoot({
   token: process.env.DISCORD_TOKEN,
   intents: [GatewayIntentBits.Guilds],
   proxy: {
-    host: 'secure-proxy. оглушение. om',
-    порт: 8080,
-    протокол: 'https',
+    host: 'secure-proxy.company.com',
+    port: 8080,
+    protocol: 'https',
     auth: {
       username: process.env.PROXY_USER,
       password: process.env.PROXY_PASS,
@@ -115,7 +115,7 @@ NestCordModule.forRoot({
 })
 ```
 
-### SOCKS5 прокси
+### SOCKS5 Proxy
 
 ```typescript title="src/app.module.ts"
 NestCordModule.forRoot({
@@ -125,9 +125,9 @@ NestCordModule.forRoot({
 })
 ```
 
-## Получение информации о прокси
+## Getting Proxy Information
 
-Вы можете получить текущую конфигурацию прокси через NestCordService:
+You can get the current proxy configuration through NestCordService:
 
 ```typescript title="src/my.service.ts"
 import { Injectable } from '@nestjs/common';
@@ -138,24 +138,24 @@ export class MyService {
   constructor(private readonly nestcord: NestCordService) {}
 
   getProxyInfo() {
-    const proxyConfig = this. estcord.getProxyConfig();
-    console.log('Текущая конфигурация прокси:', proxyConfig);
+    const proxyConfig = this.nestcord.getProxyConfig();
+    console.log('Current proxy config:', proxyConfig);
   }
 }
 ```
 
-## Отладка
+## Debugging
 
-При настройке прокси-сервера в логах будут отображаться соответствующие сообщения:
+When configuring the proxy, corresponding messages will be displayed in the logs:
 
 ```
-[NestCordService] Конфигурация прокси: http://proxy.company.com:8080
-[NestCordService] Конфигурация прокси: http://proxy.company.com:8080
+[NestCordService] Proxy path configured: http://proxy.company.com:8080
+[NestCordService] Proxy configured: http://proxy.company.com:8080
 ```
 
-## Примечания
+## Notes
 
-- Настройки прокси применяются глобально для всего приложения
-- Поддерживаются HTTP, HTTPS и SOCKS5 прокси
-- Если конфигурация прокси не удается, приложение продолжит работать без прокси
-- Настройки прокси влияют на все соединения Discord.js, включая WebSocket и REST API 
+- Proxy settings are applied globally for the entire application
+- HTTP, HTTPS, and SOCKS5 proxies are supported
+- If proxy configuration fails, the application will continue to work without a proxy
+- Proxy settings affect all Discord.js connections, including WebSocket and REST API 

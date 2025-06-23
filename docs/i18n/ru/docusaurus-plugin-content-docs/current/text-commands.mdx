@@ -1,54 +1,54 @@
 ---
-id: текстовые команды
-slug: текстовые команды
-title: Текстовые команды
-description: Текстовые команды - это наиболее распространенный тип команды. Они используются для отправки сообщения на канал.
+id: text-commands
+slug: text-commands
+title: Text Commands
+description: Text commands are the most common type of command. They are used to send a message to the channel.
 sidebar_position: 5
 ---
 
 :::caution
 
-Текстовая команда зависит от содержания сообщения, но к сожалению, Discord планирует удалить содержимое сообщений для верифицированных ботов и
-приложений, у которых 100 или более серверов. Следовательно, вы не можете использовать текстовые команды, если ваш бот не может получить доступ к содержимому сообщений.
+A text command is dependent on the content of the message but unfortunately, Discord plans to remove message content for verified bots and
+apps, those with 100 or more servers. Hence, You cannot use text commands if your bot cannot access message content.
 
-[Прочитать Discord сообщение](https://support-dev.discord.com/hc/en-us/articles/4404772028055-Message-Content-Access-Deprecation-for-Verified-Bots)
+[Read discord message here](https://support-dev.discord.com/hc/en-us/articles/4404772028055-Message-Content-Access-Deprecation-for-Verified-Bots)
 
 :::
 
-Создайте простой обработчик команд для сообщений с помощью `@TextCommand`.
+Create a simple command handler for messages using `@TextCommand`.
 
 ```typescript title="src/app.service.ts"
-импортировать { Injectable } из '@nestjs/common';
-импортировать { Context, TextCommandContext, Arguments } из '@globalart/nestcord';
+import { Injectable } from '@nestjs/common';
+import { Context, TextCommand, TextCommandContext, Arguments } from '@globalart/nestcord';
 
 @Injectable()
 export class AppService {
     @TextCommand({
         name: 'ping',
-        описание: 'Команда пинга! ,
+        description: 'Ping command!',
     })
     public onPing(@Context() [message]: TextCommandContext) {
-        return message. eply('pong!');
+        return message.reply('pong!');
     }
 }
 ```
 
-## Аргументы
+## Arguments
 
-Вы также можете использовать аргументы с текстовыми командами. Аргументы - это слова после названия команды.
+You can also use arguments with text commands. Arguments are the words after the command name.
 
 ```typescript title="src/app.service.ts"
-импортировать { Injectable } из '@nestjs/common';
-импортировать { Context, TextCommandContext, Arguments } из '@globalart/nestcord';
+import { Injectable } from '@nestjs/common';
+import { Context, TextCommand, TextCommandContext, Arguments } from '@globalart/nestcord';
 
 @Injectable()
 export class AppService {
     @TextCommand({
         name: 'echo',
-        описание: 'Команда Echo! ,
+        description: 'Echo command!',
     })
     public onEcho(@Context() [message]: TextCommandContext, @Arguments() args: string[]) {
-        return message. eply(args.join(' '));
+        return message.reply(args.join(' '));
     }
 }
 ```
