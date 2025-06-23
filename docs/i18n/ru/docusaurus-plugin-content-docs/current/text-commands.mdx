@@ -1,21 +1,20 @@
 ---
 id: text-commands
 slug: text-commands
-title: Text Commands
-description: Text commands are the most common type of command. They are used to send a message to the channel.
+title: Текстовые команды
+description: Текстовые команды - самый распространенный тип команд. Они используются для отправки сообщения в канал.
 sidebar_position: 5
 ---
 
 :::caution
 
-A text command is dependent on the content of the message but unfortunately, Discord plans to remove message content for verified bots and
-apps, those with 100 or more servers. Hence, You cannot use text commands if your bot cannot access message content.
+Текстовая команда зависит от содержания сообщения, но, к сожалению, Discord планирует удалить содержание сообщений для проверенных ботов и приложений, имеющих 100 и более серверов. Следовательно, вы не можете использовать текстовые команды, если ваш бот не может получить доступ к содержимому сообщения.
 
-[Read discord message here](https://support-dev.discord.com/hc/en-us/articles/4404772028055-Message-Content-Access-Deprecation-for-Verified-Bots)
+[Прочитать сообщение в дискорде здесь] (https://support-dev.discord.com/hc/en-us/articles/4404772028055-Message-Content-Access-Deprecation-for-Verified-Bots)
 
 :::
 
-Create a simple command handler for messages using `@TextCommand`.
+Создайте простой обработчик команд для сообщений с помощью `@TextCommand`.
 
 ```typescript title="src/app.service.ts"
 import { Injectable } from '@nestjs/common';
@@ -33,9 +32,9 @@ export class AppService {
 }
 ```
 
-## Arguments
+## Аргументы
 
-You can also use arguments with text commands. Arguments are the words after the command name.
+Вы также можете использовать аргументы в текстовых командах. Аргументы - это слова после имени команды.
 
 ```typescript title="src/app.service.ts"
 import { Injectable } from '@nestjs/common';

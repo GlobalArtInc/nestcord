@@ -1,8 +1,8 @@
 ---
 id: intro
 slug: /introduction
-title: Introduction
-description: A module for creating Discord bots using NestJS, based on Discord.js.
+title: Введение
+description: Модуль для создания ботов Discord с помощью NestJS, основанный на Discord.js.
 sidebar_position: 1
 ---
 
@@ -23,33 +23,32 @@ sidebar_position: 1
     <a href='https://img.shields.io/github/last-commit/@GlobalArtInc/nestcord'><img src="https://img.shields.io/github/last-commit/GlobalArtInc/nestcord" alt="Last commit" /></a>
 </p>
 
-## About
+## Что это?
 
-This package uses the best of the NodeJS world under the hood. [Discord.js](https://github.com/discordjs/discord.js) is the most powerful
-library for creating bots and [Nest.js](https://github.com/nestjs) is a progressive framework for creating well-architectured applications.
-This module provides fast and easy way for creating Discord bots and deep integration with your NestJS application.
+Этот пакет использует лучшее из мира NodeJS под капотом. [Discord.js](https://github.com/discordjs/discord.js) - самая мощная библиотека для создания ботов, а [Nest.js](https://github.com/nestjs) - прогрессивный фреймворк для создания хорошо структурированных приложений.
+Этот модуль обеспечивает быстрый и простой способ создания ботов Discord и глубокую интеграцию с вашим приложением NestJS.
 
-**Features**
+**Особенности**
 
-- Simple. Flexible. Easy to use.
-- Ability to create custom decorators.
-- Interact with Discord (Slash Commands, Context Menus, Message Components, Listeners).
-- Full support of NestJS guards, interceptors, filters and pipes!
+- Простота. Гибкость. Простота в использовании.
+- Возможность создания пользовательских декораторов.
+- Взаимодействие с Discord (слэш-команды, контекстное меню, компоненты сообщений, слушатели).
+- Полная поддержка фишек и функционала NestJS!
 
-For questions and support please use
-the [Issues](https://github.com/GlobalArtInc/nestcord/issues/new?assignees=&labels=question&template=question.yml).
+Для вопросов и поддержки используйте
+[Issues] (https://github.com/GlobalArtInc/nestcord/issues/new?assignees=&labels=question&template=question.yml).
 
-## Installation
+## Установка
 
-**Node.js 16.6.0 or newer is required.**
+Требуется **Node.js 16.6.0 или новее.**
 
 ```bash npm2yarn
 $ npm install @globalart/nestcord discord.js
 ```
 
-## Usage
+## Использование
 
-Once the installation process is complete, we can import the `NestCordModule` into the root `AppModule`:
+После завершения процесса установки мы можем импортировать `NestCordModule` в корневой `AppModule`:
 
 ```typescript title="src/app.module.ts"
 import { NestCordModule } from '@globalart/nestcord';
@@ -69,7 +68,7 @@ import { AppUpdate } from './app.update';
 export class AppModule {}
 ```
 
-Then create `app.update.ts` file and add `On`/`Once` decorators for handling Discord API events:
+Затем создайте файл `app.update.ts` и добавьте декораторы `On`/`Once` для обработки событий Discord API:
 
 ```typescript title="src/app.update.ts"
 import { Injectable, Logger } from '@nestjs/common';
@@ -94,4 +93,4 @@ export class AppUpdate {
 }
 ```
 
-Whenever you need to handle any event data, use the `Context` decorator.
+Когда вам нужно обработать какие-либо данные о событиях, используйте декоратор `Context`.

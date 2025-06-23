@@ -1,15 +1,15 @@
 ---
 id: listeners
 slug: listeners
-title: Listeners
-description: Listeners are used to listen to events emitted by Discord. They are used to listen to events like `messageCreate`, `interactionCreate`, `guildMemberAdd`, etc.
+title: Слушатели
+description: Слушатели используются для прослушивания событий, испускаемых Discord. Они используются для прослушивания таких событий, как `messageCreate`, `interactionCreate`, `guildMemberAdd` и т. д.
 sidebar_position: 3
 ---
 
-NestCord supports interacting with all [discord events](https://discord.js.org/#/docs/main/stable/class/Client#Events) via the `@On`
-and `@Once` decorator.\
-While the best practice is to use the more specific decorators when possible, this is useful if you wish to use features NestCord doesn't
-support via custom decorators, to interact with the raw requests, or to listen to all events using a decorator such as `interactionCreate`.
+NestCord поддерживает взаимодействие со всеми событиями [discord events](https://discord.js.org/#/docs/main/stable/class/Client#Events) через декоратор `@On`
+и `@Once`.\
+Хотя лучшей практикой является использование более специфических декораторов, когда это возможно, это полезно, если вы хотите использовать функции, которые NestCord не
+поддерживает с помощью пользовательских декораторов, взаимодействовать с необработанными запросами или слушать все события с помощью декоратора, такого как `interactionCreate`.
 
 ```typescript title="src/app.service.ts"
 import {Injectable, Logger} from '@nestjs/common';
@@ -31,21 +31,21 @@ export class AppService {
 }
 ```
 
-:::caution Warning
+:::caution Внимание
 
-If you use global filters, guards or interceptors, they will be triggered once per event!\
-This means if you are replying to the message in guards, you can run into issues with duplicated responses or invalid interactions.
-Have a look at the `NestCordExecutionContext.getInfo()` metadata to learn more about the current context.
+Если вы используете глобальные фильтры, охранники или перехватчики, они будут срабатывать один раз на каждое событие!\
+Это означает, что если вы отвечаете на сообщение в охранниках, то можете столкнуться с проблемами дублирования ответов или недействительных взаимодействий.
+Посмотрите метаданные `NestCordExecutionContext.getInfo()`, чтобы узнать больше о текущем контексте.
 
 :::
 
-## Context
+## Контекст
 
-You might have noticed the `@Context` decorator in the last snippet: This is used to inject the event context within the method.
-As there are many type of events, its type must be inferred from the `ContextOf<type: string>` type.
+Вы могли заметить декоратор `@Context` в последнем фрагменте: Он используется для введения контекста события в метод.
+Поскольку существует множество типов событий, их тип должен быть выведен из типа `ContextOf<type: string>`.
 
-You can access the context variables by using the `@Context()` decorator within your function, which will populate the variable with an
-array of arguments.
+Вы можете получить доступ к переменным контекста, используя декоратор `@Context()` в вашей функции, который заполнит переменную массивом аргументов
+.
 
 ```typescript title="src/app.service.ts"
 @On('messageCreate')
@@ -54,9 +54,9 @@ public onMessageCreate(@Context() [message]: ContextOf<'messageCreate'>) {
 }
 ```
 
-## Custom Events
+## Нестандартные события
 
-NestCord out of the box supports all the events provided by discord.js. You can also create custom events using the `@CustomListenerHandler` and `@CustomListener` decorators.
+NestCord из коробки поддерживает все события, предоставляемые discord.js. Вы также можете создавать пользовательские события с помощью декораторов `@CustomListenerHandler` и `@CustomListener`.
 
 ```typescript title="src/app.service.ts"
 import { Injectable } from '@nestjs/common';
@@ -89,7 +89,7 @@ export class UserUpdateHandler extends BaseHandler<CustomUserUpdateEvents> {
 }
 ```
 
-And then you can listen to the custom event using the `@On` decorator.
+А затем вы можете прослушать пользовательское событие с помощью декоратора `@On`.
 
 ```typescript title="src/app.service.ts"
 @On('userAvatarUpdate')
@@ -102,111 +102,111 @@ public onUserAvatarUpdate(
 }
 ```
 
-Also supports custom events.
+Также поддерживаются пользовательские события.
 
-### Channel Events
+### События канала
 
-| Event Name                      | Description                                                               |
-| ------------------------------- | ------------------------------------------------------------------------- |
-| `guildChannelPermissionsUpdate` | Emitted whenever a channel's permission overwrite for a guild is updated. |
+| Название события                      | Описание                                                                            |
+| ------------------------------------- | ----------------------------------------------------------------------------------- |
+| `guildChannelPermissionsUpdate`       | Выдается каждый раз, когда обновляется разрешение на перезапись канала для гильдии. |
 
-### Guild Events
+### События сервера
 
-| Event Name                | Description                                                |
-| ------------------------- | ---------------------------------------------------------- |
-| `guildBoostLevelUp`       | Emitted whenever a guild's boost level increases.          |
-| `guildBoostLevelDown`     | Emitted whenever a guild's boost level decreases.          |
-| `guildBannerAdd`          | Emitted whenever a guild's banner is added.                |
-| `guildAfkChannelAdd`      | Emitted whenever a guild's AFK channel is added.           |
-| `guildVanityURLAdd`       | Emitted whenever a guild's vanity URL is added.            |
-| `guildVanityURLUpdate`    | Emitted whenever a guild's vanity URL is updated.          |
-| `guildVanityURLRemove`    | Emitted whenever a guild's vanity URL is removed.          |
-| `guildFeaturesUpdate`     | Emitted whenever a guild's features are updated.           |
-| `guildAcronymUpdate`      | Emitted whenever a guild's acronym is updated.             |
-| `guildOwnerUpdate`        | Emitted whenever a guild's owner is updated.               |
-| `guildPartnerAdd`         | Emitted whenever a guild's is partner of discord now       |
-| `guildPartnerRemove`      | Emitted whenever a guild's is no longer partner of discord |
-| `guildVerificationAdd`    | Emitted whenever a guild's verification level is added.    |
-| `guildVerificationRemove` | Emitted whenever a guild's verification level is removed.  |
+| Название события                | Описание                                                             |
+| ------------------------------- | -------------------------------------------------------------------- |
+| `guildBoostLevelUp`             | Выдается при повышении уровня усиления гильдии.                      |
+| `guildBoostLevelDown`           | Выдается при снижении уровня усиления гильдии.                       |
+| `guildBannerAdd`                | Выдается каждый раз, когда добавляется знамя гильдии.                |
+| `guildAfkChannelAdd`            | Выдается при добавлении AFK-канала гильдии.                          |
+| `guildVanityURLAdd`             | Выдается при добавлении URL-адреса гильдии.                          |
+| `guildVanityURLUpdate`          | Выдается при обновлении URL-адреса гильдии.                          |
+| `guildVanityURLRemove`          | Выдается при удалении URL-адреса гильдии.                            |
+| `guildFeaturesUpdate`           | Выдается при каждом обновлении характеристик гильдии.                |
+| `guildAcronymUpdate`            | Выдается при обновлении аббревиатуры гильдии.                        |
+| `guildOwnerUpdate`              | Выдается при обновлении владельца гильдии.                           |
+| `guildPartnerAdd`               | Выдается всякий раз, когда гильдия является партнером                |
+| `guildPartnerRemove`            | Выдается, когда гильдия больше не является партнером Раздора         |
+| `guildVerificationAdd`          | Выдается при добавлении уровня проверки гильдии.                     |
+| `guildVerificationRemove`       | Выдается всякий раз, когда с гильдии снимается уровень проверки.     |
 
-#### Guild Audit Log Events
+#### События журнала аудита сервера
 
-| Event Name                        | Description                                              |
-| --------------------------------- | -------------------------------------------------------- |
-| `guildAuditLogEntryAdd`           | Emitted whenever an entry is added to the audit log.     |
-| `guildAuditLogEntryUpdate`        | Emitted whenever an entry is updated in the audit log.   |
-| `guildAuditLogEntryDelete`        | Emitted whenever an entry is removed from the audit log. |
-| `guildAuditLogEntryWebhookCreate` | Emitted whenever a webhook is created in the audit log.  |
-| `guildAuditLogEntryWebhookUpdate` | Emitted whenever a webhook is updated in the audit log.  |
-| `guildAuditLogEntryWebhookDelete` | Emitted whenever a webhook is deleted in the audit log.  |
+| Название события                        | Описание                                                             |
+| --------------------------------------- | -------------------------------------------------------------------- |
+| `guildAuditLogEntryAdd`                 | Выдается каждый раз, когда в журнал аудита добавляется запись.       |
+| `guildAuditLogEntryUpdate`              | Выдается при обновлении записи в журнале аудита.                     |
+| `guildAuditLogEntryDelete`              | Выдается всякий раз, когда запись удаляется из журнала аудита.       |
+| `guildAuditLogEntryWebhookCreate`       | Выдается всякий раз, когда в журнале аудита создается веб-крючок.    |
+| `guildAuditLogEntryWebhookUpdate`       | Выдается каждый раз, когда веб-крючок обновляется в журнале аудита.  |
+| `guildAuditLogEntryWebhookDelete`       | Выдается всякий раз, когда веб-крючок удаляется в журнале аудита.    |
 
-#### Guild Member Events
+#### События для участников сервера
 
-| Event Name                  | Description                                       |
-| --------------------------- | ------------------------------------------------- |
-| `guildMemberBoost`          | Emitted whenever a member's boost is activated.   |
-| `guildMemberUnboost`        | Emitted whenever a member's boost is deactivated. |
-| ` guildMemberRoleAdd`       | Emitted whenever a role is added to a member.     |
-| `guildMemberRoleRemove`     | Emitted whenever a role is removed from a member. |
-| `guildMemberNicknameUpdate` | Emitted whenever a member's nickname is updated.  |
-| `guildMemberEntered`        | Emitted whenever a member enters a guild.         |
-| `guildMemberAvatarAdd`      | Emitted whenever a member's avatar is added.      |
-| `guildMemberAvatarRemove`   | Emitted whenever a member's avatar is removed.    |
-| `guildMemberAvatarUpdate`   | Emitted whenever a member's avatar is updated.    |
+| Название события                  | Описание                                                     |
+| --------------------------------- | ------------------------------------------------------------ |
+| `guildMemberBoost`                | Выдается при активации усиления участника.                   |
+| `guildMemberUnboost`              | Выдается каждый раз, когда буст участника деактивируется.    |
+| ` guildMemberRoleAdd`             | Выдается всякий раз, когда роль добавляется к участнику.     |
+| `guildMemberRoleRemove`           | Выдается всякий раз, когда роль удаляется из участника.      |
+| `guildMemberNicknameUpdate`       | Выдается при обновлении псевдонима пользователя.             |
+| `guildMemberEntered`              | Выдается каждый раз, когда член вступает в гильдию.          |
+| `guildMemberAvatarAdd`            | Выдается при добавлении аватара пользователя.                |
+| `guildMemberAvatarRemove`         | Выдается каждый раз, когда аватар пользователя удаляется.    |
+| `guildMemberAvatarUpdate`         | Выдается при обновлении аватара пользователя.                |
 
-#### Role Update Events
+#### События обновления ролей
 
-| Event Name              | Description                                        |
-| ----------------------- | -------------------------------------------------- |
-| `rolePositionUpdate`    | Emitted whenever a role's position is updated.     |
-| `rolePermissionsUpdate` | Emitted whenever a role's permissions are updated. |
-| `roleIconAdd`           | Emitted whenever a role's icon is added.           |
-| `roleIconRemove`        | Emitted whenever a role's icon is removed.         |
-| `roleIconUpdate`        | Emitted whenever a role's icon is updated.         |
+| Название события              | Описание                                                  |
+| ----------------------------- | --------------------------------------------------------- |
+| `rolePositionUpdate`          | Выдается каждый раз, когда обновляется позиция роли.      |
+| `rolePermissionsUpdate`       | Выдается при обновлении прав доступа роли.                |
+| `roleIconAdd`                 | Выдается при добавлении иконки роли.                      |
+| `roleIconRemove`              | Выдается всякий раз, когда иконка роли удаляется.         |
+| `roleIconUpdate`              | Выдается при обновлении иконки роли.                      |
 
-#### Thread Update Events
+#### События обновления тредов
 
-| Event Name                        | Description                                                   |
-| --------------------------------- | ------------------------------------------------------------- |
-| `threadStateUpdate`               | Emitted whenever a thread's state is updated.                 |
-| `threadNameUpdate`                | Emitted whenever a thread's name is updated.                  |
-| `threadLockStateUpdate`           | Emitted whenever a thread's lock state is updated.            |
-| `threadRateLimitPerUserUpdate`    | Emitted whenever a thread's rate limit per user is updated.   |
-| `threadAutoArchiveDurationUpdate` | Emitted whenever a thread's auto archive duration is updated. |
+| Название события                        | Описание                                                                        |
+| --------------------------------------- | ------------------------------------------------------------------------------- |
+| `threadStateUpdate`                     | Выдается всякий раз, когда состояние потока обновляется.                        |
+| `threadNameUpdate`                      | Выдается каждый раз, когда имя потока обновляется.                              |
+| `threadLockStateUpdate`                 | Выдается всякий раз, когда состояние блокировки потока обновляется.             |
+| `threadRateLimitPerUserUpdate`          | Выдается каждый раз, когда обновляется лимит скорости потока на пользователя.   |
+| `threadAutoArchiveDurationUpdate`       | Выдается при обновлении длительности автоархива потока.                         |
 
-### Message Events
+### События сообщения
 
-| Event Name             | Description                            |
-| ---------------------- | -------------------------------------- |
-| `messagePinned`        | Emitted whenever a message is pinned.  |
-| `messageContentEdited` | Emitted whenever a message is updated. |
+| Название события             | Описание                                             |
+| ---------------------------- | ---------------------------------------------------- |
+| `messagePinned`              | Выдается всякий раз, когда сообщение прикрепляется.  |
+| `messageContentEdited`       | Выдается при каждом обновлении сообщения.            |
 
-### Presence Events
+### События присутствия
 
-| Event Name           | Description                             |
-| -------------------- | --------------------------------------- |
-| `guildMemberOffline` | Emitted whenever a member goes offline. |
-| `guildMemberOnline`  | Emitted whenever a member goes online.  |
+| Название события           | Описание                                                              |
+| -------------------------- | --------------------------------------------------------------------- |
+| `guildMemberOffline`       | Выдается всякий раз, когда пользователь переходит в автономный режим. |
+| `guildMemberOnline`        | Выдается каждый раз, когда пользователь выходит в сеть.               |
 
-### User Events
+### Пользовательские события
 
-| Event Name                | Description                                         |
-| ------------------------- | --------------------------------------------------- |
-| `userAvatarUpdate`        | Emitted whenever a user's avatar is updated.        |
-| `userUsernameUpdate`      | Emitted whenever a user's username is updated.      |
-| `userDiscriminatorUpdate` | Emitted whenever a user's discriminator is updated. |
-| `userFlagsUpdate`         | Emitted whenever a user's flags are updated.        |
+| Название события                | Описание                                                           |
+| ------------------------------- | ------------------------------------------------------------------ |
+| `userAvatarUpdate`              | Выдается при обновлении аватара пользователя.                      |
+| `userUsernameUpdate`            | Выдается каждый раз, когда имя пользователя обновляется.           |
+| `userDiscriminatorUpdate`       | Выдается каждый раз, когда обновляется дискриминатор пользователя. |
+| `userFlagsUpdate`               | Выдается при каждом обновлении флагов пользователя.                |
 
-### Voice Events
+### Голосовые события
 
-| Event Name              | Description                                                        |
-| ----------------------- | ------------------------------------------------------------------ |
-| `voiceChannelJoin`      | Emitted whenever a member joins a voice channel.                   |
-| `voiceChannelLeave`     | Emitted whenever a member leaves a voice channel.                  |
-| `voiceChannelSwitch`    | Emitted whenever a member switches voice channel.                  |
-| `voiceChannelMutestate` | Emitted whenever a member is muted or deafened in a voice channel. |
-| `voiceChannelUnmute`    | Emitted whenever a member is unmuted in a voice channel.           |
-| `voiceChannelDeaf`      | Emitted whenever a member is deafened in a voice channel.          |
-| `voiceChannelUndeaf`    | Emitted whenever a member is undeafened in a voice channel.        |
-| `voiceStreamingStart`   | Emitted whenever a member starts streaming.                        |
-| `voiceStreamingStop`    | Emitted whenever a member stops streaming.                         |
+| Название события              | Описание                                                                                   |
+| ----------------------------- | ------------------------------------------------------------------------------------------ |
+| `voiceChannelJoin`            | Выдается всякий раз, когда участник подключается к голосовому каналу.                      |
+| `voiceChannelLeave`           | Выдается всякий раз, когда участник покидает голосовой канал.                              |
+| `voiceChannelSwitch`          | Выдается каждый раз, когда участник переключает голосовой канал.                           |
+| `voiceChannelMutestate`       | Выдается, когда участник отключается или глохнет в голосовом канале.                       |
+| `voiceChannelUnmute`          | Выдается, когда участник отключает звук в голосовом канале.                                |
+| `voiceChannelDeaf`            | Выдается всякий раз, когда член клуба оглушен в голосовом канале.                          |
+| `voiceChannelUndeaf`          | Выдается всякий раз, когда участник не слышит в голосовом канале.                          |
+| `voiceStreamingStart`         | Выдается всякий раз, когда участник начинает потоковую передачу.                           |
+| `voiceStreamingStop`          | Выдается всякий раз, когда участник прекращает потоковую передачу.                         |
