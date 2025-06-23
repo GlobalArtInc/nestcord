@@ -1,0 +1,54 @@
+---
+id: text-commands
+slug: text-commands
+title: Text Commands
+description: Text commands are the most common type of command. They are used to send a message to the channel.
+sidebar_position: 5
+---
+
+:::caution
+
+A text command is dependent on the content of the message but unfortunately, Discord plans to remove message content for verified bots and
+apps, those with 100 or more servers. Hence, You cannot use text commands if your bot cannot access message content.
+
+[Read discord message here](https://support-dev.discord.com/hc/en-us/articles/4404772028055-Message-Content-Access-Deprecation-for-Verified-Bots)
+
+:::
+
+Create a simple command handler for messages using `@TextCommand`.
+
+```typescript title="src/app.service.ts"
+import { Injectable } from '@nestjs/common';
+import { Context, TextCommand, TextCommandContext, Arguments } from '@globalart/nestcord';
+
+@Injectable()
+export class AppService {
+    @TextCommand({
+        name: 'ping',
+        description: 'Ping command!',
+    })
+    public onPing(@Context() [message]: TextCommandContext) {
+        return message.reply('pong!');
+    }
+}
+```
+
+## Arguments
+
+You can also use arguments with text commands. Arguments are the words after the command name.
+
+```typescript title="src/app.service.ts"
+import { Injectable } from '@nestjs/common';
+import { Context, TextCommand, TextCommandContext, Arguments } from '@globalart/nestcord';
+
+@Injectable()
+export class AppService {
+    @TextCommand({
+        name: 'echo',
+        description: 'Echo command!',
+    })
+    public onEcho(@Context() [message]: TextCommandContext, @Arguments() args: string[]) {
+        return message.reply(args.join(' '));
+    }
+}
+```

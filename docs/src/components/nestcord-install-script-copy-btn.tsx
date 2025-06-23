@@ -8,10 +8,10 @@ export function NestCordInstallScriptCopyBtn() {
 	};
 	return (
 		<ScriptCopyBtn
-			showMultiplePackageOptions={false}
+			showMultiplePackageOptions={true}
 			codeLanguage="shell"
-			lightTheme=""
-			darkTheme=""
+			lightTheme="github-light"
+			darkTheme="github-dark"
 			commandMap={customCommandMap}
 		/>
 	);

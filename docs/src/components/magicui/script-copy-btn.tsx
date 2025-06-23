@@ -1,8 +1,8 @@
 'use client';
 
+import { useColorMode } from '@docusaurus/theme-common';
 import { Check, Copy } from 'lucide-react';
 import { motion } from 'motion/react';
-import { useTheme } from 'next-themes';
 import { HTMLAttributes, useEffect, useState } from 'react';
 import { cn } from '../../lib/utils';
 import { Button } from '../ui/button';
@@ -28,7 +28,7 @@ export function ScriptCopyBtn({
 	const [packageManager, setPackageManager] = useState(packageManagers[0]);
 	const [copied, setCopied] = useState(false);
 	const [highlightedCode, setHighlightedCode] = useState('');
-	const { theme } = useTheme();
+	const { colorMode: theme } = useColorMode();
 	const command = commandMap[packageManager];
 
 	useEffect(() => {
@@ -60,85 +60,71 @@ export function ScriptCopyBtn({
 	};
 
 	return (
-		<div className={cn('mx-auto flex max-w-md items-center justify-center', className)}>
-			<div className="w-full space-y-2">
-				<div className="mb-2 flex items-center justify-between">
+		<div className={cn('mx-auto w-full max-w-md rounded-md border border-border', className)}>
+			<div className="flex items-center justify-between p-2">
+				<div>
 					{showMultiplePackageOptions && (
-						<div className="relative">
-							<div className="inline-flex overflow-hidden rounded-md border border-border text-xs">
-								{packageManagers.map((pm, index) => (
-									<div key={pm} className="flex items-center">
-										{index > 0 && (
-											<div
-												className="h-4 w-px bg-border"
-												aria-hidden="true"
-											/>
-										)}
-										<Button
-											variant="ghost"
-											size="sm"
-											className={`relative rounded-none bg-background px-2 py-1 hover:bg-background ${
-												packageManager === pm
-													? 'text-primary'
-													: 'text-muted-foreground'
-											}`}
-											onClick={() => setPackageManager(pm)}
-										>
-											{pm}
-											{packageManager === pm && (
-												<motion.div
-													className="absolute inset-x-0 bottom-[1px] mx-auto h-0.5 w-[90%] bg-primary"
-													layoutId="activeTab"
-													initial={false}
-													transition={{
-														type: 'spring',
-														stiffness: 500,
-														damping: 30
-													}}
-												/>
-											)}
-										</Button>
-									</div>
-								))}
-							</div>
+						<div className="inline-flex items-center justify-center rounded-md bg-muted p-1 text-muted-foreground">
+							{packageManagers.map(pm => (
+								<Button
+									key={pm}
+									variant="ghost"
+									size="sm"
+									className={cn(
+										'relative rounded-sm px-3 py-1.5 text-sm font-medium',
+										'transition-all hover:bg-transparent focus-visible:outline-none',
+										packageManager !== pm && 'hover:text-primary',
+										packageManager === pm ? 'text-primary' : 'text-muted-foreground'
+									)}
+									onClick={() => setPackageManager(pm)}
+								>
+									{pm}
+									{packageManager === pm && (
+										<motion.div
+											className="absolute inset-0 z-[-1] rounded-md bg-background shadow-sm"
+											layoutId="activeTab"
+											initial={false}
+											transition={{
+												type: 'spring',
+												stiffness: 350,
+												damping: 30
+											}}
+										/>
+									)}
+								</Button>
+							))}
 						</div>
 					)}
 				</div>
-				<div className="relative flex items-center">
-					<div className="min-w-[300px] grow font-mono">
-						{highlightedCode ? (
-							<div
-								className={`[&>pre]:overflow-x-auto [&>pre]:rounded-md [&>pre]:p-2 [&>pre]:px-4 [&>pre]:mb-0!  [&>pre]:font-mono ${
-									theme === 'dark' ? 'dark' : 'light'
-								}`}
-								dangerouslySetInnerHTML={{ __html: highlightedCode }}
-							/>
-						) : (
-							<pre className="rounded-md border border-border bg-white p-2 px-4 font-mono dark:bg-black">
-								{command}
-							</pre>
-						)}
-					</div>
-					<Button
-						variant="outline"
-						size="icon"
-						className="relative ml-2 rounded-md cursor-copy"
-						onClick={copyToClipboard}
-						aria-label={copied ? 'Copied' : 'Copy to clipboard'}
-					>
-						<span className="sr-only">{copied ? 'Copied' : 'Copy'}</span>
-						<Copy
-							className={`h-4 w-4 transition-all duration-300 ${
-								copied ? 'scale-0' : 'scale-100'
+				<Button
+					variant="ghost"
+					size="icon"
+					className="relative h-8 w-8 rounded-md"
+					onClick={copyToClipboard}
+					aria-label={copied ? 'Copied' : 'Copy to clipboard'}
+				>
+					<span className="sr-only">{copied ? 'Copied' : 'Copy'}</span>
+					<Copy
+						className={`h-4 w-4 transition-all duration-300 ${copied ? 'scale-0' : 'scale-100'}`}
+					/>
+					<Check
+						className={`absolute inset-0 m-auto h-4 w-4 transition-all duration-300 ${copied ? 'scale-100' : 'scale-0'
 							}`}
-						/>
-						<Check
-							className={`absolute inset-0 m-auto h-4 w-4 transition-all duration-300 ${
-								copied ? 'scale-100' : 'scale-0'
+					/>
+				</Button>
+			</div>
+			<div className="min-w-0 grow font-mono">
+				{highlightedCode ? (
+					<div
+						className={`[&>pre]:overflow-x-auto [&>pre]:rounded-b-md [&>pre]:border-t [&>pre]:border-border [&>pre]:p-2 [&>pre]:px-4 [&>pre]:mb-0!  [&>pre]:font-mono ${theme === 'dark' ? 'dark' : 'light'
 							}`}
-						/>
-					</Button>
-				</div>
+						dangerouslySetInnerHTML={{ __html: highlightedCode }}
+					/>
+				) : (
+					<pre className="rounded-b-md border-t border-border bg-white p-2 px-4 font-mono dark:bg-black">
+						{command}
+					</pre>
+				)}
 			</div>
 		</div>
 	);

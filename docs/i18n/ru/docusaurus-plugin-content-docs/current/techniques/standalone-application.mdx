@@ -1,0 +1,31 @@
+---
+id: standalone-application
+title: Standalone application
+sidebar_position: 3
+---
+
+If you initialized your application with the Nest CLI, Express framework will be installed by default along with Nest. Nest and NestCord does not require Express for work. So if you you don't need a web server, you can remove Express.
+
+To do this, change the bootstrap function in the `main.ts` file of your project on something like that:
+
+```typescript title="src/main.ts"
+import { NestFactory } from '@nestjs/core';
+
+async function bootstrap() {
+    const app = await NestFactory.createApplicationContext(AppModule);
+}
+
+bootstrap();
+```
+
+This initializes Nest as a **standalone application** (without any network listeners).
+
+All that remains is to remove unused dependencies:
+
+```bash
+npm un @nestjs/platform-express @types/express
+```
+
+:::caution
+But when you run standalone application you can't use global enhancers due to the fact that they are not registered in the application context. While [issue](https://github.com/nestjs/nest/issues/9017) not resolved, you can use local enhancers instead or start your application via `app.init()` method.
+:::

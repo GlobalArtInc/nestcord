@@ -1,0 +1,31 @@
+---
+id: defer-interceptor
+title: Defer command
+sidebar_position: 1
+---
+
+Interceptor added `interaction.deferReply()` to the beiginning of the code
+
+## Usage
+
+```typescript title="src/app.service.ts"
+import {
+  Context,
+  SlashCommand,
+  SlashCommandContext,
+  DeferCommandInterceptor,
+} from '@globalart/nestcord';
+
+@Injectable()
+export class AppService {
+  @UseInterceptors(DeferCommandInterceptor)
+  @SlashCommand({
+    name: 'ping',
+    description: 'pong',
+  })
+  async execute(@Context() [interaction]: SlashCommandContext) {
+    setTimeout(() => interaction.followUp({ content: 'Pong!' }), 5000);
+  }
+}
+
+```
