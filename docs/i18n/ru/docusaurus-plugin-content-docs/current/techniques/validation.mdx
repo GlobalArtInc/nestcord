@@ -1,23 +1,23 @@
 ---
-id: validation
-title: Validation
+id: валидация
+title: Проверка
 sidebar_position: 0
 ---
 
-The `ValidationPipe` is a built-in pipe that can be used to validate data coming from the client. It uses [class-validator](https://github.com/typestack/class-validator) package under the hood. The `ValidationPipe` provides a convenient approach to enforce validation rules for all incoming client payloads, where the specific rules are declared with simple annotations in DTO declarations in each module.
+`ValidationPipe` является встроенным пунктом, который может быть использован для проверки данных, поступающих от клиента. Он использует пакет [class-validator](https://github.com/typestack/class-validator) под капюшоном. `ValidationPipe` предоставляет удобный подход к соблюдению правил проверки для всех входящих клиентских загрузок, где конкретные правила объявлены простыми аннотациями в декларациях DTO в каждом модуле.
 
-## Installation
+## Установка
 
 ```bash npm2yarn
-$ npm install class-validator class-transformer
+$ npm установить класс-валидатор класс-трансформатор
 ```
 
-## Usage
+## Использование
 
-Now we can add a few validation rules in our `CreateUserDto`. We do this using decorators provided by the class-validator package, described in detail [here](https://github.com/typestack/class-validator#validation-decorators). In this fashion, any route that uses the `CreateUserDto` will automatically enforce these validation rules.
+Теперь мы можем добавить несколько правил проверки в наш `CreateUserDto`. We do this using decorators provided by the class-validator package, described in detail [here](https://github.com/typestack/class-validator#validation-decorators). Таким образом, любой маршрут, использующий `CreateUserDto` будет автоматически приводить в исполнение эти правила проверки.
 
 ```typescript title="src/users/dto/create-user.dto.ts"
-import { IsNotEmpty, IsString, IsEmail } from 'class-validator';
+импортировать { IsNotEmpty, IsString, IsEmail } из 'class-validator';
 
 export class CreateUserDto {
     @StringOption({
@@ -25,7 +25,7 @@ export class CreateUserDto {
         description: 'Your name',
         required: true
     })
-    name: string;
+    имя: строка;
 
     @IsEmail()
     @StringOption({
@@ -40,10 +40,10 @@ export class CreateUserDto {
 :::tip
 Also you can use `ValidationPipe` for transforming and validating the payload of a request.
 
-[Read more about transforming](https://docs.nestjs.com/techniques/validation#transform-payload-objects)
+[Подробнее о преобразовании](https://docs.nestjs.com/techniques/validation#transform-payload-objects)
 :::
 
-Now, we can use the `ValidationPipe` in our `UsersCommands` to enforce the validation rules we just defined.
+Теперь мы можем использовать `ValidationPipe` в нашем `UsersCommands` для применения правил проверки, которые мы только что определили.
 
 ```typescript title="src/users/users.commands.ts"
 import { Injectable } from '@nestjs/common';
@@ -59,18 +59,18 @@ export class UsersCommands {
         @Context() [interaction]: SlashCommandContext,
         @Options(new ValidationPipe({ validateCustomDecorators: true })) createUserDto: CreateUserDto
     ) {
-        return interaction.reply({ content: `User created: ${createUserDto.name}` });
+        return interaction. eply({ content: `User created: ${createUserDto.name}` });
     }
 }
 ```
 
-Now, if we try to use the `create` command without providing a name or email, we will get an error message.
+Теперь, если мы попытаемся использовать команду `create` без указания имени или электронной почты, мы получим сообщение об ошибке.
 
 ```bash
-{"statusCode":400,"message":["email should not be empty"],"error":"Bad Request"}
+{"statusCode":400,"message":["email не должен быть пустым"],"error":"Некорректный запрос"}
 ```
 
-You can create snippet for validated options decorator:
+Вы можете создать сниппет для проверенных декораторов опций:
 
 ```typescript title="src/decorators/validated-options.decorator.ts"
 import { ValidationPipe, PipeTransform } from '@nestjs/common';
@@ -83,5 +83,5 @@ export const ValidatedOptions = (...dataOrPipes: PipeTransform[] | string) => {
 :::tip
 You can create filters to handle and response validation errors.
 
-[See Exception Filters for more information](https://docs.nestjs.com/exception-filters#exception-filters)
+[Смотрите фильтры исключений для получения дополнительной информации](https://docs.nestjs.com/exception-filters#exception-filters)
 :::

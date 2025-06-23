@@ -1,37 +1,37 @@
 ---
-id: pagination
-title: Pagination
+id: пагинация
+title: Пагинация
 sidebar_position: 1
 ---
 
-Certainly! Pagination is a valuable technique in user interfaces for displaying large amounts of information in a structured and manageable way. When dealing with extensive data, such as search results, articles, or product listings, showing everything at once can overwhelm users and degrade the user experience. Pagination breaks down the information into smaller, organized sections, enhancing user engagement and ease of navigation. This module allows you to implement pagination with just a few lines of code.
+Конечно же! Пагинация - это ценная техника в пользовательских интерфейсах для отображения большого объема информации структурированным и управляемым способом. При работе с обширными данными, такими как результаты поиска, статьи или списки продуктов, показывающие все, что сразу может привести к ухудшению качества работы пользователя. Пагинация разбивает информацию на более мелкие организованные разделы, повышая вовлеченность пользователей и облегчая навигацию. Этот модуль позволяет осуществлять пагинацию всего за несколько строк кода.
 
-## Usage
+## Использование
 
-Once the installation process is complete, we can import the `NestCordPaginationModule` with your `NestCordModule` into the root `AppModule`:
+После завершения установки мы можем импортировать `NestCordPaginationModule` с помощью `NestCordModule` в корень `AppModule`:
 
 ```typescript
 import { NestCordModule } from '@globalart/nestcord';
 import { Module } from '@nestjs/common';
 import { NestCordPaginationModule } from '@globalart/nestcord';
-import { AppService } from './app.service';
+import { AppService } from '. app.service';
 
 @Module({
     imports: [
-        NestCordModule.forRoot({
-            token: 'DISCORD_BOT_TOKEN',
-            intents: ['Guilds', 'GuildMessages', 'DirectMessages']
+        NestCordModule. orRoot({
+            токен: 'DISCORD_BOT_TOKEN',
+            намеревается: ['Гильдия', 'GuildMessages', 'DirectMessages']
         }),
-        NestCordPaginationModule.forRoot()
+        NestCordPaginationModule. orRoot()
     ],
-    providers: [AppService]
+    провайдеров: [AppService]
 })
-export class AppModule {}
+экспорт класса AppModule {}
 ```
 
-Then, we can inject the `PaginationService` into our service and register a pagination handler:
+Затем мы можем вставить `PaginationService` в наш сервис и зарегистрировать обработчик пагинации:
 
-### Buttons pagination
+### Пагинация кнопок
 
 ```typescript
 import { OnModuleInit, Injectable } from '@nestjs/common';
@@ -44,42 +44,42 @@ export class AppService implements OnModuleInit {
     }
 
     public onModuleInit(): void {
-        this.paginationService.register(PaginatorTypeEnum.BUTTONS, (builder) =>
-            builder
-              .setCustomId('test')
+        this. aginationService.register(PaginatorTypeEnum. UTTONS (строитель) =>
+            строитель
+              . etCustomId('test')
         
         );
     }
 
     @SlashCommand({ name: 'pagination', description: 'Test pagination' })
     public async onPagination(@Context() [interaction]: SlashCommandContext) {
-        const pagination = this.paginationService.get<PaginatorTypeEnum.BUTTONS>('test');
-        pagination.setButtons([
+        const pagination = this. aginationService.get<PaginatorTypeEnum.BUTTONS>('test');
+        пагинация. etButtons([
             [
               { 
                 customId: 'page1',
-                label: 'Page 1',
-                style: ButtonStyle.Secondary,
+                метка: 'Страница 1',
+                стиль: Кнопка Стиль. econdary,
               },
               { 
                 customId: 'page2',
-                label: 'Page 2',
-                style: ButtonStyle.Secondary,
+                метка: 'Страница 2',
+                стиль: Кнопки стиля. экондар,
               }
             ]
         ]);
-        pagination.setPages([
-          new PageBuilder().setContent('Page 1'),
-          new PageBuilder().setContent('Page 2')
+        пагинация. etPages([
+          новый PageBuilder(). etContent('Страница 1'),
+          новый PageBuilder(). etContent(«Страница 2»)
         ]);
-        const page = await pagination.build(1);
+        const page = ожидание пагинации. uild(1);
 
         return interaction.reply(page);
     }
 }
 ```
 
-### Select Menu Pagination
+### Выберите нумерацию меню
 
 ```typescript
 import { OnModuleInit, Injectable } from '@nestjs/common';
@@ -92,43 +92,43 @@ export class AppService implements OnModuleInit {
     }
 
     public onModuleInit(): void {
-        this.paginationService.register(PaginatorTypeEnum.SELECT_MENU, (builder) =>
-            builder
-              .setCustomId('test')
+        this. aginationService.register(PaginatorTypeEnum. ELECT_MENU, (строитель) =>
+            строитель
+              . etCustomId('test')
         
         );
     }
 
     @SlashCommand({ name: 'pagination', description: 'Test pagination' })
     public async onPagination(@Context() [interaction]: SlashCommandContext) {
-        const pagination = this.paginationService.get<PaginatorTypeEnum.SELECT_MENU>('test');
+        const pagination = this. aginationService.get<PaginatorTypeEnum.SELECT_MENU>('test');
         pagination.setSelectMenuItems(this.setMenuItems());
-        pagination.setPages(this.setMenuPages());
-        const page = await pagination.build('page1');
+        pagination. etPages(this.setMenuPages());
+        const страница = ожидание пагинации. uild('page1');
 
-        return interaction.reply(page);
+        обратное взаимодействие. eply(страница);
     }
 
     @StringSelect('nestcord-pagination/test')
-    async MenusInteraction(@Context() [interaction]: ButtonContext, @SelectedStrings() selected: string[]) {
+    async MenusInteraction(@Context() [interaction]: ButtonContext, @SelectedStrings() выбрано: string[]) {
       const selectedPage = selected?.[0] || null;
-      const pagination = this.paginationService.get<PaginatorTypeEnum.SELECT_MENU>('menus');
+      const pagination = this. aginationService.get<PaginatorTypeEnum.SELECT_MENU>('menus');
       pagination.setSelectMenuItems(this.setMenuItems());
-      pagination.setPages(this.setMenuPages());
+      pagination. etPages(this.setMenuPages());
       const page = await pagination.build(selectedPage);
 
-      await interaction.update(page);
+      ожидают взаимодействия. pdate(страница);
     }
 
     private readonly setMenuPages() {
       return [
         {
           pageId: 'page1',
-          builder: new PageBuilder().setContent('Page 1'),
+          builder: new PageBuilder(). etContent('Страница 1'),
         },
         {
-          pageId: 'page2',
-          builder: new PageBuilder().setContent('Page 2'),
+          id страницы: 'page2',
+          builder: new PageBuilder(). etContent('Страница 2'),
         },
       ];
     }
@@ -148,5 +148,5 @@ export class AppService implements OnModuleInit {
 }
 ```
 
-Congratulations! You have successfully created your first pagination!
-Just use `pagination` command and you will see your pagination!
+Поздравляем! Вы успешно создали вашу первую страницу!
+Просто используйте команду `pagination` и вы увидите вашу пагинацию!
