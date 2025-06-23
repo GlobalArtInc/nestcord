@@ -1,57 +1,57 @@
 ---
-id: lavalink
-title: Lavalink
+id: лавянный
+title: Лавовый
 sidebar_position: 3
 ---
 
-Transform your bot into a professional DJ with the power of the [Lavalink](https://lavalink.dev/) ecosystem. This package uses [lavalink-client](https://github.com/Tomato6966/lavalink-client) behind the scenes, providing a high-performance and efficient solution for managing audio streams on Discord. By leveraging Lavalink, your bot gains the ability to manage audio playback, queues, and real-time controls with minimal latency, transforming it into a fully capable and professional music system.
+Transform your bot into a professional DJ with the power of the [Lavalink](https://lavalink.dev/) ecosystem. Этот пакет использует [lavalink-client](https://github.com/Tomato6966/lavalink-client) за сцены, обеспечивая высокопроизводительное и эффективное решение для управления аудио потоками в Discord. Используя Lavalink, ваш бот получает возможность управлять воспроизведением, очередями, и управление в реальном времени с минимальными задержками, превращая его в полноценную и профессиональную музыкальную систему.
 
-## Installation
+## Установка
 
 ```bash npm2yarn
 npm i lavalink-client
 ```
 
-- [Lavalink Installation Guide](https://lavalink.dev/getting-started/index.html)
+- [Руководство по установке Lavalink](https://lavalink.dev/getting-started/index.html)
 
-## Usage
+## Использование
 
-Once the installation process is complete, we can import the `NestCordLavalinkModule` with your `NestCordModule` into the root `AppModule`:
+После завершения установки мы можем импортировать `NestCordLavalinkModule` с вашим `NestCordModule` в корень `AppModule`:
 
 ```typescript title="app.module.ts"
 import { NestCordLavalinkModule } from '@globalart/nestcord';
 import { Module } from '@nestjs/common';
-import { Client } from 'discord.js';
-import { AppService } from './app.service';
+import { Client } from 'discord. s';
+импорт { AppService } из './app. ervice';
 
 @Module({
     imports: [
-        NestCordModule.forRoot({
-            token: process.env.DISCORD_TOKEN,
+        NestCordModule. orRoot({
+            token: process.env. Ставка по ISCORD,
             intents: [
-                IntentsBitField.Flags.Guilds,
-                IntentsBitField.Flags.GuildVoiceStates
+                IntentsBitField. lags.Guilds,
+                IntentsBitField.Flags. uildVoiceStates
             ],
         }),
-        NestCordLavalinkModule.forRoot({
-            // At least 1 node is required
-            nodes: [
+        NestCordLavalinkModule. orRoot({
+            // Требуется хотя бы 1 узел
+            узлов: [
                 {
                     authorization: 'youshallnotpass',
-                    host: '127.0.0.1',
-                    port: 2333,
+                    хост: '127. .0.1',
+                    порта: 2333,
                 }
             ]
         })
     ],
-    providers: [AppService]
+    провайдеров: [AppService]
 })
-export class AppModule {}
+экспорт класса AppModule {}
 ```
 
-Checkout more Module options in the official [**lavalink-client** Documentation](https://lc4.gitbook.io/lavalink-client/docs/lavalinkmanager/manager-options).
+Посмотрите больше модулей в официальной [**lavalink-client** Документации](https://lc4.gitbook.io/lavalink-client/docs/lavalinkmanager/manager-options).
 
-## Listeners
+## Слушатели
 
 ```typescript title="app.service.ts"
 import { Injectable, Logger } from '@nestjs/common';
@@ -59,86 +59,86 @@ import { Context, OnLavalinkManager, OnNodeManager, LavalinkManagerContextOf, No
 
 @Injectable()
 export class AppService {
-    private readonly logger = new Logger(AppService.name);
+    private readonly logger = new Logger(AppService.
 
     @OnNodeManager('connect')
     public onConnect(@Context() [node]: NodeManagerContextOf<'connect'>) {
-        this.logger.log(`Node: ${node.options.id} Connected`);
+        это. оггер. og(`Node: ${node.options.id} Подключено`);
     }
 
     @OnLavalinkManager('playerCreate')
     public onPlayerCreate(@Context() [player]: LavalinkManagerContextOf<'playerCreate'>) {
-        this.logger.log(`Player created at ${player.guildId}`);
+        this. ogger.log(`Игрок, созданный на ${player.guildId}`);
     }
 }
 ```
 
-### LavalinkManager Events
+### События LavalinkManager
 
-- View in Official [**lavalink-client** Documentation](https://tomato6966.github.io/lavalink-client/extra/manager-events/).
+- Посмотреть в официальной [**lavalink-client** документации](https://tomato6966.github.io/lavalink-client/extra/manager-events/).
 
-| Event Name                | Description                                                                                                                  |
-| ------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
-| `trackStart`              | Emitted whenever a Track plays.                                                                                              |
-| `trackEnd`                | Emitted whenever a track finished playing.                                                                                   |
-| `trackStuck`              | Emitted whenever a Track got stuck while playing.                                                                            |
-| `trackError`              | Emitted whenever a Track errored.                                                                                            |
-| `queueEnd`                | Emitted when the track Ended, but there are no more tracks in the queue. (`trackEnd`, does NOT get executed)                 |
-| `playerCreate`            | Emitted whenever a Player gets created.                                                                                      |
-| `playerMove`              | Emitted whenever a Player gets moved between Voice Channels.                                                                 |
-| `playerDisconnect`        | Emitted whenever a player is disconnected from a channel.                                                                    |
-| `playerSocketClose`       | Emitted whenever a Node-Socket got closed for a specific Player.                                                             |
-| `playerDestroy`           | Emitted whenever a Player got destroyed.                                                                                     |
-| `playerUpdate`            | Emitted whenever a Player gets an update from Lavalink's playerUpdate Event.                                                 |
-| `playerMuteChange`        | Emitted whenever Player's voice state related to muting is changed.                                                          |
-| `playerDeafChange`        | Emitted whenever Player's voice state related to deafing is changed.                                                         |
-| `playerSuppressChange`    | Emitted whenever Player's voice state related to supressing is changed.                                                      |
-| `playerQueueEmptyStart`   | Emitted whenever the Queue empty handler started (timeout).                                                                  |
-| `playerQueueEmptyEnd`     | Emitted whenever the Queue empty handler finished (successfully) and destroyed the player.                                   |
-| `playerQueueEmptyCancel`  | Emitted whenever the Queue empty handler cancelled (e.g. because a new track got added).                                     |
-| `playerVoiceJoin`         | Emitted whenever a user joins the player's voice channel.                                                                    |
-| `playerVoiceLeave`        | Emitted whenever a user leaves the player's voice channel.                                                                   |
-| `debug`                   | Emitted for several erros, and logs within lavalink-client, if `managerOptions.advancedOptions.enableDebugEvents` is `true`. |
+| Название события                | Описание                                                                                                                               |
+| ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
+| «trackStart»                    | Возникает всякий раз, когда играет трек.                                                                                               |
+| `trackEnd`                      | Возникает всякий раз, когда трек закончил воспроизведение.                                                                             |
+| «trackStuck»                    | Возникает всякий раз, когда трек застрял во время игры.                                                                                |
+| `trackError`                    | Возникает всякий раз, когда трек удаляется.                                                                                            |
+| `очередь`                       | Возникает, когда трек закончился, но в очереди больше нет треков. (`trackEnd`, НЕ выполняется)                                         |
+| `playerCreate`                  | Возникает при создании игрока.                                                                                                         |
+| `playerMove`                    | Возникает всякий раз, когда игрок перемещается между голосовыми каналами.                                                              |
+| `playerDisconnect`              | Возникает всякий раз, когда игрок отключен от канала.                                                                                  |
+| `playerSocketClose`             | Возникает всякий раз, когда Node-Socket был закрыт для определенного игрока.                                                           |
+| `игрокаDestroy`                 | Происходит всякий раз, когда игрок уничтожается.                                                                                       |
+| «обновить»                      | Происходит всякий раз, когда игрок получает обновление от Lavalink'а события.                                                          |
+| `playerMuteChange`              | Возникает всякий раз, когда состояние голоса Игрока связано с заглушением.                                                             |
+| `playerDeafChange`              | Возникает всякий раз, когда состояние голоса Игрока связано с глушителями.                                                             |
+| `игрокаВскрытие`                | Возникает всякий раз, когда состояние голоса Игрока связано с сюжетным изменением.                                                     |
+| `playerQueueEmptyStart`         | Возникает при запуске пустого обработчика очереди (таймаут).                                                                           |
+| «Очередь игрока пуста»          | Происходит когда пустой обработчик очереди завершился (успешно) и уничтожил игрока.                                                    |
+| «Очередь игроков пуста Отмена»  | Возникает всякий раз, когда пустой обработчик отменил (например, потому, что был добавлен новый трек).                                 |
+| `playerVoiceJoin`               | Возникает когда пользователь присоединяется к голосовому каналу игрока.                                                                |
+| «VoiceLeave»                    | Возникает каждый раз, когда пользователь покидает голосовой канал игрока.                                                              |
+| `debug`                         | Возникает для нескольких erros и журналов в lavalink-клиенте, если `managerOptions.advancedOptions.enableDebugEvents` является `true`. |
 
-#### SponsorBlock Plugin Events
+#### События плагина SponsorBlock
 
-- This Events is a part of [LavalinkManager Events](#lavalinkmanager-events).
-- This requires the [**SponsorBlock Plugin**](https://github.com/topi314/Sponsorblock-Plugin) added in Lavalink Server.
+- Эти события являются частью [событий LavalinkManager](#lavalinkmanager-events).
+- Это требует добавления [**SponsorBlock**](https://github.com/topi314/Sponsorblock-Plugin) на сервер Lavalink .
 
-| Event Name                | Description                                                |
-| ------------------------- | ---------------------------------------------------------- |
-| `SegmentsLoaded`          | Emitted whenever Segments are loaded.                      |
-| `SegmentSkipped`          | Emitted whenever a specific Segment was skipped.           |
-| `ChapterStarted`          | Emitted whenever a specific Chapter starts playing.        |
-| `ChaptersLoaded`          | Emitted whenever Chapters are loaded.                      |
+| Название события                | Описание                                                               |
+| ------------------------------- | ---------------------------------------------------------------------- |
+| `SegmentsLoaded`                | Возникает всякий раз, когда сегменты загружаются.                      |
+| `SegmentSkipped`                | Возникает всякий раз, когда пропущен определённый сегмент.             |
+| «Начатая глава»                 | Происходит всякий раз, когда начинает играть конкретная глава          |
+| «Загруженные главы»             | Возникает всякий раз, когда загружаются главы.                         |
 
-#### LavaLyrics Plugin Events
+#### Плагин LavaLyrics
 
-- This Events is a part of [LavalinkManager Events](#lavalinkmanager-events).
-- This requires the [**LavaLyrics Plugin**](https://github.com/topi314/LavaLyrics) added in Lavalink Server.
+- Эти события являются частью [событий LavalinkManager](#lavalinkmanager-events).
+- Это требует добавления [**LavaLyrics Plugin**](https://github.com/topi314/LavaLyrics) на Lavalink Server.
 
-| Event Name                | Description                                                |
-| ------------------------- | ---------------------------------------------------------- |
-| `LyricsLine`              | Emitted whenever a Lyrics line is received.                |
-| `LyricsFound`             | Emitted whenever a Lyrics is found.                        |
-| `LyricsNotFound`          | Emitted whenever a Lyrics is not found.                    |
+| Название события                | Описание                                                               |
+| ------------------------------- | ---------------------------------------------------------------------- |
+| `LyricsLine`                    | Возникает всякий раз, когда получается строка текста.                  |
+| `LyricsFound`                   | Возникает всякий раз, когда найден текст песни.                        |
+| `LyricsNotFound`                | Возникает всякий раз, когда текст песни не найден.                     |
 
-### NodeManager Events
+### События диспетчера узлов
 
-- View in Official [**lavalink-client** Documentation](https://tomato6966.github.io/lavalink-client/extra/node-events/).
+- Посмотреть в официальной [**lavalink-client** документации](https://tomato6966.github.io/lavalink-client/extra/node-events/).
 
-| Event Name                | Description                                                                                                                                                                                                             |
-| ------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `create`                  | Emitted whenever a Node is created.                                                                                                                                                                                     |
-| `destroy`                 | Emitted whenever a Node is destroyed.                                                                                                                                                                                   |
-| `connect`                 | Emitted whenever a Node is connected.                                                                                                                                                                                   |
-| `reconnecting`            | Emitted whenever a Node is reconnecting.                                                                                                                                                                                |
-| `reconnectinprogress`     | Emitted whenever a node starts to reconnect. (if you have a reconnection delay, the reconnecting event will be emitted after the `retryDelay`.) Useful to check wether the internal node reconnect system works or not. |
-| `disconnect`              | Emitted whenever a Node is disconnects.                                                                                                                                                                                 |
-| `error`                   | Emitted whenever a Node is error.                                                                                                                                                                                       |
-| `raw`                     | Emits every single Node event.                                                                                                                                                                                          |
+| Название события                | Описание                                                                                                                                                                                                                                                                     |
+| ------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `создать`                       | Возникает каждый раз, когда создается узел.                                                                                                                                                                                                                                  |
+| `уничтожить`                    | Возникает всякий раз, когда узел уничтожается.                                                                                                                                                                                                                               |
+| `connect`                       | Возникает всякий раз, когда узел подключен.                                                                                                                                                                                                                                  |
+| `переподключение`               | Возникает каждый раз, когда узел переподключается.                                                                                                                                                                                                                           |
+| `переподключение`               | Возникает каждый раз, когда узел начинает переподключаться. (если у вас есть задержка переподключения, то событие повторного подключения будет выведено после задержек повторного подключения.) Полезно для проверки работы внутренней системы переподключения узла или нет. |
+| `disconnect`                    | Возникает всякий раз, когда узел разъединяется.                                                                                                                                                                                                                              |
+| `ошибка`                        | Возникает всякий раз, когда ошибка узла.                                                                                                                                                                                                                                     |
+| `raw`                           | Выполняет каждое событие узла.                                                                                                                                                                                                                                               |
 
-## Providers
+## Поставщики
 
 ```typescript title="app.service.ts"
 import { Injectable } from '@nestjs/common';
@@ -148,31 +148,31 @@ import { LavalinkManager, NodeManager } from 'lavalink-client';
 export class AppService {
     public constructor(
         private readonly lavalinkManager: LavalinkManager,
-        private readonly nodeManager: NodeManager,
+        частный читаемый nodeManager: NodeManager,
     ) {}
 }
 ```
 
-| Class (Type to be injected) | Manager Property (Will access to)    | Description            |
-| --------------------------- | ------------------------------------ | ---------------------- |
-| `LavalinkManager`           | `lavalinkManager`                    | Lavalink Manager       |
-| `NodeManager`               | `lavalinkManager.nodeManager`        | Node Manager           |
-| `PlayerManager`             | `lavalinkManager (player functions)` | Player Manager         |
+| Класс (Тип для впрыскивания)   | Свойство менеджера (будет доступ)    | Описание                 |
+| ------------------------------ | ------------------------------------ | ------------------------ |
+| `LavalinkManager`              | `lavalinkManager`                    | Менеджер Lavalink        |
+| `Менеджер узлов`               | `lavalinkManager.nodeManager`        | Менеджер узлов           |
+| `Менеджер игроков`             | `lavalinkManager (функции игрока)`   | Менеджер плеера          |
 
-## Play Tracks
+## Играть треки
 
 ```typescript title="app.commands.ts"
-import { Injectable, UseInterceptors } from '@nestjs/common';
-import { NestCordLavalinkService, PlayerManager } from 'lavalink-client';
-import { Context, Options, SlashCommand, SlashCommandContext } from '@globalart/nestcord';
-import { QueryDto } from './query.dto';
-import { SourceAutocompleteInterceptor } from 'source.autocomplete';
+импорт { Injectable, UseInterceptors } из '@nestjs/common';
+импорт { NestCordLavalinkService, PlayerManager } из 'lavalink-client';
+импортировать { Context, Options, SlashCommand, SlashCommandContext } из '@globalart/nestcord';
+импортировать { QueryDto } из '. query.dto;
+импортировать { SourceAutocompleteInterceptor } из источника. завершение;
 
 @Injectable()
 export class AppCommands {
     public constructor(
         private readonly playerManager: PlayerManager,
-        private readonly lavalinkService: NestCordLavalinkService
+        частных чтенных lavalinkService: NestCordLavalinkService
     ) {}
 
     @UseInterceptors(SourceAutocompleteInterceptor)
@@ -185,31 +185,31 @@ export class AppCommands {
         @Options() { query, source }: QueryDto,
     ) {
         const player =
-            this.playerManager.get(interaction.guild.id) ??
-            this.playerManager.create({
-                ...this.lavalinkService.extractInfoForPlayer(interaction),
-                // optional configurations:
+            this. layerManager.get(interaction.guild.id) ??
+            this.playerManager. reate({
+                ...this.lavalinkService. xtractInfoForPlayer(взаимодействие),
+                // необязательные конфигурации:
                 selfDeaf: true,
                 selfMute: false,
-                volume: 100,
+                объем 100,
             });
 
-        await player.connect();
+        ждет игрока. onnect();
 
-        const res = await player.search(
+        const res = ожидать игрока. earch(
             {
-                query,
-                source: source ?? 'soundcloud'
+                запрос,
+                источник: исходник ? 'soundcloud'
             },
-            interaction.user.id,
+            взаимодействие. ser.id,
         );
 
-        await player.queue.add(res.tracks[0]);
-        if (!player.playing) await player.play();
+        ожидает player.queue.add(с. стойки[0]);
+        если (!player.playing) ждут игрока. lay();
 
-        // It's extremely recommended to use `trackStart` event for this announcement
-        return interaction.reply({
-            content: `Now playing ${res.tracks[0].info.title}`,
+        // Очень рекомендуется использовать событие `trackStart` для обратного взаимодействия объявления
+        . eply({
+            content: `Now playing ${res.tracks[0]. nfo.title}`,
         });
     }
 }
@@ -222,41 +222,41 @@ import { StringOption } from '@globalart/nestcord';
 export class QueryDto {
     @StringOption({
         name: 'query',
-        description: '<name | url> of the requested track'
-        required: true
+        описание: '<name | url> запрошенного трека'
+        требуется: true
     })
-    public readonly query!: string;
+    доступный запрос! строка;
 
     @StringOption({
         name: 'source',
-        description: 'source of the track',
-        autocomplete: true,
-        required: false,
+        описание: "источник трека",
+        автозаполнение: true,
+        обязательно: false,
     })
-    public readonly source?: SourcePlatform;
+    публичный источник только для чтения? SourcePlatform;
 }
 ```
 
 ```typescript title="source.autocomplete.ts"
 import { Injectable } from '@nestjs/common';
-import { AutocompleteInteraction } from 'discord.js';
-import { DefaultSources } from 'lavalink-client';
-import { AutocompleteInterceptor } from '@globalart/nestcord';
+import { AutocompleteInteraction } from 'discord. s';
+импортировать { DefaultSources } из 'lavalink-client';
+импортировать { AutocompleteInterceptor } из '@globalart/nestcord';
 
 @Injectable()
 export class SourceAutocompleteInterceptor extends AutocompleteInterceptor {
     public transformOptions(interaction: AutocompleteInteraction) {
-        const focused = interaction.options.getFocused(true);
+        const focused = interaction. ptions.getFocused(true);
         let choices: string[];
 
-        if (focused.name === 'source') {
-            choices = [DefaultSources.soundcloud] // Note that some Sources needs extra plugins/configuration to property work
+        if (focused. ame === 'source') {
+            выбора = [DefaultSources.soundcloud] // Заметьте, что некоторым источникам нужны дополнительные плагины/настройки для свойств work
         }
 
-        return interaction.respond(
-        choices
-            .filter((choice) => choice.startsWith(focused.value.toString()))
-            .map((choice) => ({ name: choice, value: choice })),
+        return interaction. espond(
+        выбор
+            . ilter(выбор) => choice.startsWith(focused.value. oString()))
+            . ap((выбор) => ({ name: choice, value: choice })),
         );
     }
 }

@@ -1,26 +1,26 @@
 {
   "version.label": {
-    "message": "Next",
+    "message": "Следующий",
     "description": "The label for version current"
   },
   "sidebar.docsSidebar.category.Interactions": {
-    "message": "Interactions",
+    "message": "Взаимодействия",
     "description": "The label for category Interactions in sidebar docsSidebar"
   },
   "sidebar.docsSidebar.category.Interceptors": {
-    "message": "Interceptors",
+    "message": "Перехватчики",
     "description": "The label for category Interceptors in sidebar docsSidebar"
   },
   "sidebar.docsSidebar.category.Packages": {
-    "message": "Packages",
+    "message": "Пакеты",
     "description": "The label for category Packages in sidebar docsSidebar"
   },
   "sidebar.docsSidebar.category.Techniques": {
-    "message": "Techniques",
+    "message": "Техники",
     "description": "The label for category Techniques in sidebar docsSidebar"
   },
   "sidebar.docsSidebar.category.Contributing": {
-    "message": "Contributing",
+    "message": "Вклад",
     "description": "The label for category Contributing in sidebar docsSidebar"
   }
 }
