@@ -1,16 +1,14 @@
 ---
 id: localization
-title: Localization
+title: Локализация
 sidebar_position: 2
 ---
 
-Is a lightweight localization module for [NestCord](https://nestcord.js.org/). It allows you to easily localize your bot's
-commands and messages. The module provides a simple API for managing locales and translations, as well as a powerful localization adapter
-system.
+Это легковесный модуль локализации для [NestCord](https://nestcord.js.org/). Он позволяет легко локализовать команды и сообщения вашего бота. Модуль предоставляет простой API для управления локалями и переводами, а также мощную систему адаптера локализации.
 
-## Usage
+## Использование
 
-Once the installation process is complete, we can import the `NestCordLocalizationModule` with your `NestCordModule` into the root `AppModule`:
+После завершения процесса установки мы можем импортировать `NestCordPaginationModule` вместе с вашим `NestCordModule` в корневой `AppModule`:
 
 ```typescript
 import { NestCordModule } from '@globalart/nestcord';
@@ -56,11 +54,11 @@ export class AppModule {
 }
 ```
 
-## Adapters
+## Адаптеры
 
-The `DefaultLocalizationAdapter` is a simple adapter that allows you to provide a map of locales and translations.
+Адаптер `DefaultLocalizationAdapter` - это простой адаптер, который позволяет вам предоставить карту локалей и переводов.
 
-Also you can use the `NestedLocalizationAdapter` that allows you to organize translation keys into objects
+Также вы можете использовать `NestedLocalizationAdapter`, который позволяет организовать ключи перевода в объекты
 
 ```typescript
 import { NestCordLocalizationModule, NestedLocalizationAdapter, UserResolver } from '@globalart/nestcord/localization';
@@ -93,12 +91,12 @@ NestCordLocalizationModule.forRoot({
 ```
 
 :::info
-`DefaultLocalizationAdapter` and `NestedLocalizationAdapter` can translate your localization strings and placeholders (e.g `{{username}}`)
+`DefaultLocalizationAdapter` и `NestedLocalizationAdapter` могут переводить строки локализации и заполнители (например, `{{username}}`)
 :::
 
-#### Custom Adapters
+#### Пользовательские адаптеры
 
-Also, you can create your own localization adapter. Just implement the `BaseLocalizationAdapter` interface:
+Кроме того, вы можете создать свой собственный адаптер локализации. Просто реализуйте интерфейс `BaseLocalizationAdapter`:
 
 ```typescript
 import { BaseLocalizationAdapter } from '@globalart/nestcord/localization';
@@ -115,18 +113,18 @@ export class CustomLocalizationAdapter extends BaseLocalizationAdapter<CustomLoc
 }
 ```
 
-## Resolvers
+## Резолверы
 
-Resolvers are used to get the locale for translation. By default, NestCord provides two resolvers: `UserResolver` and `GuildResolver`.
+Резольверы используются для получения локали для перевода. По умолчанию NestCord предоставляет два резольвера: `UserResolver` и `GuildResolver`.
 
-| Resolver      | Description                                                                  |
+| Резолвер      | Описание                                                                     |
 | ------------- | ---------------------------------------------------------------------------- |
-| UserResolver  | Gets the locale from the user's locale property (`interaction.locale`)       |
-| GuildResolver | Gets the locale from the guild's locale property (`interaction.guildLocale`) |
+| UserResolver  | Получает локаль из свойства локали пользователя (`interaction.locale`)       |
+| GuildResolver | Получает локаль из свойства локали гильдии (`interaction.guildLocale`)       |
 
-#### Custom Resolvers
+#### Пользовательские резолверы
 
-Also, you can create your own Resolver. Just implement the `LocaleResolver` interface:
+Кроме того, вы можете создать свой собственный резолвер. Просто реализуйте интерфейс `LocaleResolver`:
 
 ```typescript
 import { CommandContext, LocaleResolver } from '@globalart/nestcord';
@@ -144,9 +142,9 @@ export class GuildResolver implements LocaleResolver {
 }
 ```
 
-## Localization
+## Локализация
 
-We can inject the `LOCALIZATION_ADAPTER` into our service and use it to localize our commands and messages:
+Мы можем внедрить `LOCALIZATION_ADAPTER` в наш сервис и использовать его для локализации наших команд и сообщений:
 
 ```typescript title="src/app.gateway.ts"
 import { Injectable, Inject, OnModuleInit } from '@nestjs/common';
@@ -177,7 +175,7 @@ export class AppService implements OnModuleInit {
 }
 ```
 
-Or you can use `translate` function from the localization adapter:
+Или вы можете использовать функцию `translate` из адаптера локализации:
 
 ```typescript title="src/app.gateway.ts"
 import { Injectable, Inject, OnModuleInit } from '@nestjs/common';
@@ -207,7 +205,7 @@ export class AppService implements OnModuleInit {
 }
 ```
 
-Or you can use `@CurrentTranslate` decorator to get the current translation from context:
+Или вы можете использовать декоратор `@CurrentTranslate`, чтобы получить текущий перевод из контекста:
 
 ```typescript
 import { Injectable, Inject, OnModuleInit } from '@nestjs/common';
@@ -233,13 +231,13 @@ export class AppService implements OnModuleInit {
 ```
 
 :::info
-Function `localizationMapByKey` are used to localize the command name and description. You pass the translation key or localization map as
-an argument to the function.
+Функция `localizationMapByKey` используется для локализации названия и описания команды. Вы передаете ключ перевода или карту локализации в качестве
+аргумента функции.
 :::
 
-#### Setting up localized commands
+#### Настройка локализованных команд
 
-You can set what locales the command will be localized
+Вы можете задать, в каких локалях будет локализована команда
 
 ```typescript
 @SlashCommand({
@@ -250,8 +248,7 @@ You can set what locales the command will be localized
 })
 ```
 
-Or just pass a localization object with the location id and translation key to the `nameLocalization` and `descriptionLocalizations`
-properties
+Или просто передайте объект локализации с идентификатором местоположения и ключом перевода в свойства `nameLocalization` и `descriptionLocalizations`
 
 ```typescript
 @SlashCommand({
@@ -268,10 +265,10 @@ properties
 })
 ```
 
-## Update localization without restarting the app
+## Обновление локализации без перезапуска приложения
 
-If you get translations from the external API, for example, crowdin, weblate, or another translation services.
-You can update it just call the `localizationService`
+Если вы получаете переводы из внешнего API, например, crowdin, weblate или других сервисов перевода.
+Для обновления достаточно вызвать `localizationService`
 
 ```typescript
 import {
@@ -305,4 +302,4 @@ export class AppService {
 }
 ```
 
-Congratulations! You have successfully created your first localized command with NestCord!
+Поздравляем! Вы успешно создали свою первую локализованную команду с помощью NestCord!

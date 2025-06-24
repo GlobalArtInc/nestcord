@@ -1,14 +1,14 @@
 ---
 id: pagination
-title: Pagination
+title: Пагинация
 sidebar_position: 1
 ---
 
-Certainly! Pagination is a valuable technique in user interfaces for displaying large amounts of information in a structured and manageable way. When dealing with extensive data, such as search results, articles, or product listings, showing everything at once can overwhelm users and degrade the user experience. Pagination breaks down the information into smaller, organized sections, enhancing user engagement and ease of navigation. This module allows you to implement pagination with just a few lines of code.
+Конечно! Пагинация - ценный прием в пользовательских интерфейсах, позволяющий отображать большие объемы информации в структурированном и удобном виде. При работе с обширными данными, такими как результаты поиска, статьи или списки товаров, показ всего сразу может перегрузить пользователей и ухудшить их восприятие. Пагинация разбивает информацию на более мелкие, упорядоченные разделы, повышая вовлеченность пользователей и удобство навигации. Этот модуль позволяет реализовать пагинацию с помощью всего нескольких строк кода.
 
-## Usage
+## Использование
 
-Once the installation process is complete, we can import the `NestCordPaginationModule` with your `NestCordModule` into the root `AppModule`:
+После завершения процесса установки мы можем импортировать `NestCordPaginationModule` вместе с вашим `NestCordModule` в корневой `AppModule`:
 
 ```typescript
 import { NestCordModule } from '@globalart/nestcord';
@@ -29,9 +29,9 @@ import { AppService } from './app.service';
 export class AppModule {}
 ```
 
-Then, we can inject the `PaginationService` into our service and register a pagination handler:
+Затем мы можем внедрить `PaginationService` в наш сервис и зарегистрировать обработчик пагинации:
 
-### Buttons pagination
+### Кнопки пагинации
 
 ```typescript
 import { OnModuleInit, Injectable } from '@nestjs/common';
@@ -79,7 +79,7 @@ export class AppService implements OnModuleInit {
 }
 ```
 
-### Select Menu Pagination
+### Пагинация меню выбора
 
 ```typescript
 import { OnModuleInit, Injectable } from '@nestjs/common';
@@ -148,5 +148,5 @@ export class AppService implements OnModuleInit {
 }
 ```
 
-Congratulations! You have successfully created your first pagination!
-Just use `pagination` command and you will see your pagination!
+Поздравляем! Вы успешно создали свою первую пагинацию!
+Просто используйте команду `pagination`, и вы увидите свою пагинацию!
