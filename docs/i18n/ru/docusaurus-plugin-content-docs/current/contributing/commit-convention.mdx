@@ -1,28 +1,28 @@
 ---
 id: commit-convention
-title: Commit convention
+title: Конвенция коммитов
 sidebar_position: 3
 ---
 
-## Git Commit Message Convention
+## Конвенция сообщений коммитов в Git
 
 :::info
 
-This is adapted from [Angular's commit convention](https://github.com/conventional-changelog/conventional-changelog/tree/master/packages/conventional-changelog-angular).
+Это адаптировано из [Angular's commit convention](https://github.com/conventional-changelog/conventional-changelog/tree/master/packages/conventional-changelog-angular).
 
 :::
 
 #### TL;DR:
 
-Commit titles must match the following regex:
+Заголовки коммитов должны совпадать со следующим выражением:
 
 ```js
 /^(revert: )?(feat|fix|docs|style|refactor|perf|test|workflow|build|ci|chore|types|wip)(\(.+\))?: .{1,72}/;
 ```
 
-### Full Message Format
+### Полный формат сообщения
 
-A commit message consists of a **header**, **body** and **footer**. The header has a **type**, **scope** and **subject**:
+Сообщение о фиксации состоит из **заголовка**, **тела** и **запятой**. Заголовок имеет **тип**, **область** и **субъект**:
 
 ```
 <type>(<scope>): <subject>
@@ -32,38 +32,38 @@ A commit message consists of a **header**, **body** and **footer**. The header h
 <footer>
 ```
 
-The **header** is mandatory and the **scope** of the header is optional.
+**Заголовок** является обязательным, и **область заголовка** заголовка является необязательной.
 
-### Revert
+### Реверт
 
-If the commit reverts a previous commit, it should begin with `revert:`, followed by the header of the reverted commit. In the body, it should say: `This reverts commit <hash>.`, where the hash is the SHA of the commit being reverted.
+Если коммит вернет предыдущее коммит, он должен начинаться с «revert:», после чего следует заголовок отмененного коммита. В теле сообщения должно быть написано: `Это отменяет коммит <hash>.`, где хэш - это SHA отменяемого коммита.
 
-### Type
+### Тип
 
-If the prefix is `feat`, `fix` or `perf`, it will appear in the changelog. However, if there is any [BREAKING CHANGE](#footer), the commit will always appear in the changelog.
+Если префикс имеет значение `feat`, `fix` или `perf`, он будет отображаться в журнале изменений. Однако, если есть [BREAKING CHANGE](#footer), коммит всегда будет отображаться в журнале изменений.
 
-Other prefixes are up to your discretion. Suggested prefixes are `docs`, `chore`, `style`, `refactor`, and `test` for non-changelog related tasks.
+Другие префиксы - на ваше усмотрение. Рекомендуемые префиксы: `docs`, `chore`, `style`, `refactor` и `test` для задач, не относящихся к ченджлогу.
 
-### Scope
+### Область применения
 
-The scope refers to which section of the application the changes took place in, such as `SlashCommand`, `ContextMenu`, or `MessageComponents`
+Область действия указывает на то, в каком разделе приложения произошли изменения, например, `SlashCommand`, `ContextMenu` или `MessageComponents`
 
-### Subject
+### Тема
 
-The subject contains a succinct description of the change:
+Тема содержит краткое описание изменений:
 
-- Use the imperative, present tense: "change", not "changed" nor "changes"
-- do not capitalize the first letter
-- do not end you message with a period (.)
+- Используйте императив, настоящее время: "измениться", а не "изменился" или "изменяется"
+- не пишите первую букву с заглавной буквы
+- Не заканчивайте сообщение точкой (.)
 
-### Body
+### Тело
 
-Like in the **subject**, use the imperative, present tense
-The body should include the motivation for the change and difference with the previous behavior.
+Как и в **субъекте**, используйте императив, настоящее время
+Тело должно включать мотивацию изменения и разницу с предыдущим поведением.
 
-### Footer
+### Подвал
 
-The footer should contain any information about **Breaking Changes** and is also the place to
-reference GitHub issues that this commit **Closes**.
+Нижний колонтитул должен содержать информацию о **Общих изменениях**, а также место для ссылки
+на проблемы GitHub, которые этот коммит **закрывает**.
 
-**Breaking Changes** should start with the word `BREAKING CHANGE:` with a space or two newlines. The rest of the commit message is then used for this.
+**Обновляющие изменения** должны начинаться со слова `Обновляющие изменения:` через пробел или две новые строки. Для этого используется остальная часть сообщения коммита.
