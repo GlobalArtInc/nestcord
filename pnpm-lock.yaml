@@ -74,7 +74,7 @@ importers:
         version: 10.1.5(eslint@9.29.0(jiti@2.4.2))
       eslint-plugin-prettier:
         specifier: 5.5.0
-        version: 5.5.0(@types/eslint@9.6.1)(eslint-config-prettier@10.1.5(eslint@9.29.0(jiti@2.4.2)))(eslint@9.29.0(jiti@2.4.2))(prettier@3.5.3)
+        version: 5.5.0(@types/eslint@9.6.1)(eslint-config-prettier@10.1.5(eslint@9.29.0(jiti@2.4.2)))(eslint@9.29.0(jiti@2.4.2))(prettier@3.6.0)
       husky:
         specifier: 9.1.7
         version: 9.1.7
@@ -82,8 +82,8 @@ importers:
         specifier: 16.1.2
         version: 16.1.2
       prettier:
-        specifier: 3.5.3
-        version: 3.5.3
+        specifier: 3.6.0
+        version: 3.6.0
       reflect-metadata:
         specifier: 0.2.2
         version: 0.2.2
@@ -192,10 +192,10 @@ importers:
         version: 2.0.3
       prettier:
         specifier: ^3.5.3
-        version: 3.5.3
+        version: 3.6.0
       prettier-plugin-tailwindcss:
         specifier: ^0.6.11
-        version: 0.6.11(prettier@3.5.3)
+        version: 0.6.11(prettier@3.6.0)
       typescript:
         specifier: 5.8.3
         version: 5.8.3
@@ -253,10 +253,10 @@ importers:
         version: 10.1.5(eslint@9.27.0(jiti@2.4.2))
       eslint-plugin-prettier:
         specifier: ^5.4.1
-        version: 5.4.1(@types/eslint@9.6.1)(eslint-config-prettier@10.1.5(eslint@9.27.0(jiti@2.4.2)))(eslint@9.27.0(jiti@2.4.2))(prettier@3.5.3)
+        version: 5.4.1(@types/eslint@9.6.1)(eslint-config-prettier@10.1.5(eslint@9.27.0(jiti@2.4.2)))(eslint@9.27.0(jiti@2.4.2))(prettier@3.6.0)
       prettier:
         specifier: ^3.5.3
-        version: 3.5.3
+        version: 3.6.0
       source-map-support:
         specifier: ^0.5.21
         version: 0.5.21
@@ -329,10 +329,10 @@ importers:
         version: 10.1.5(eslint@9.27.0(jiti@2.4.2))
       eslint-plugin-prettier:
         specifier: ^5.4.1
-        version: 5.4.1(@types/eslint@9.6.1)(eslint-config-prettier@10.1.5(eslint@9.27.0(jiti@2.4.2)))(eslint@9.27.0(jiti@2.4.2))(prettier@3.5.3)
+        version: 5.4.1(@types/eslint@9.6.1)(eslint-config-prettier@10.1.5(eslint@9.27.0(jiti@2.4.2)))(eslint@9.27.0(jiti@2.4.2))(prettier@3.6.0)
       prettier:
         specifier: ^3.5.3
-        version: 3.5.3
+        version: 3.6.0
       source-map-support:
         specifier: ^0.5.21
         version: 0.5.21
@@ -405,10 +405,10 @@ importers:
         version: 10.1.5(eslint@9.27.0(jiti@2.4.2))
       eslint-plugin-prettier:
         specifier: ^5.4.1
-        version: 5.4.1(@types/eslint@9.6.1)(eslint-config-prettier@10.1.5(eslint@9.27.0(jiti@2.4.2)))(eslint@9.27.0(jiti@2.4.2))(prettier@3.5.3)
+        version: 5.4.1(@types/eslint@9.6.1)(eslint-config-prettier@10.1.5(eslint@9.27.0(jiti@2.4.2)))(eslint@9.27.0(jiti@2.4.2))(prettier@3.6.0)
       prettier:
         specifier: ^3.5.3
-        version: 3.5.3
+        version: 3.6.0
       source-map-support:
         specifier: ^0.5.21
         version: 0.5.21
@@ -478,10 +478,10 @@ importers:
         version: 10.1.5(eslint@9.27.0(jiti@2.4.2))
       eslint-plugin-prettier:
         specifier: ^5.4.1
-        version: 5.4.1(@types/eslint@9.6.1)(eslint-config-prettier@10.1.5(eslint@9.27.0(jiti@2.4.2)))(eslint@9.27.0(jiti@2.4.2))(prettier@3.5.3)
+        version: 5.4.1(@types/eslint@9.6.1)(eslint-config-prettier@10.1.5(eslint@9.27.0(jiti@2.4.2)))(eslint@9.27.0(jiti@2.4.2))(prettier@3.6.0)
       prettier:
         specifier: ^3.5.3
-        version: 3.5.3
+        version: 3.6.0
       source-map-support:
         specifier: ^0.5.21
         version: 0.5.21
@@ -551,10 +551,10 @@ importers:
         version: 10.1.5(eslint@9.27.0(jiti@2.4.2))
       eslint-plugin-prettier:
         specifier: ^5.4.1
-        version: 5.4.1(@types/eslint@9.6.1)(eslint-config-prettier@10.1.5(eslint@9.27.0(jiti@2.4.2)))(eslint@9.27.0(jiti@2.4.2))(prettier@3.5.3)
+        version: 5.4.1(@types/eslint@9.6.1)(eslint-config-prettier@10.1.5(eslint@9.27.0(jiti@2.4.2)))(eslint@9.27.0(jiti@2.4.2))(prettier@3.6.0)
       prettier:
         specifier: ^3.5.3
-        version: 3.5.3
+        version: 3.6.0
       source-map-support:
         specifier: ^0.5.21
         version: 0.5.21
@@ -624,10 +624,10 @@ importers:
         version: 10.1.5(eslint@9.27.0(jiti@2.4.2))
       eslint-plugin-prettier:
         specifier: ^5.4.1
-        version: 5.4.1(@types/eslint@9.6.1)(eslint-config-prettier@10.1.5(eslint@9.27.0(jiti@2.4.2)))(eslint@9.27.0(jiti@2.4.2))(prettier@3.5.3)
+        version: 5.4.1(@types/eslint@9.6.1)(eslint-config-prettier@10.1.5(eslint@9.27.0(jiti@2.4.2)))(eslint@9.27.0(jiti@2.4.2))(prettier@3.6.0)
       prettier:
         specifier: ^3.5.3
-        version: 3.5.3
+        version: 3.6.0
       source-map-support:
         specifier: ^0.5.21
         version: 0.5.21
@@ -697,10 +697,10 @@ importers:
         version: 10.1.5(eslint@9.27.0(jiti@2.4.2))
       eslint-plugin-prettier:
         specifier: ^5.4.1
-        version: 5.4.1(@types/eslint@9.6.1)(eslint-config-prettier@10.1.5(eslint@9.27.0(jiti@2.4.2)))(eslint@9.27.0(jiti@2.4.2))(prettier@3.5.3)
+        version: 5.4.1(@types/eslint@9.6.1)(eslint-config-prettier@10.1.5(eslint@9.27.0(jiti@2.4.2)))(eslint@9.27.0(jiti@2.4.2))(prettier@3.6.0)
       prettier:
         specifier: ^3.5.3
-        version: 3.5.3
+        version: 3.6.0
       source-map-support:
         specifier: ^0.5.21
         version: 0.5.21
@@ -770,10 +770,10 @@ importers:
         version: 10.1.5(eslint@9.27.0(jiti@2.4.2))
       eslint-plugin-prettier:
         specifier: ^5.4.1
-        version: 5.4.1(@types/eslint@9.6.1)(eslint-config-prettier@10.1.5(eslint@9.27.0(jiti@2.4.2)))(eslint@9.27.0(jiti@2.4.2))(prettier@3.5.3)
+        version: 5.4.1(@types/eslint@9.6.1)(eslint-config-prettier@10.1.5(eslint@9.27.0(jiti@2.4.2)))(eslint@9.27.0(jiti@2.4.2))(prettier@3.6.0)
       prettier:
         specifier: ^3.5.3
-        version: 3.5.3
+        version: 3.6.0
       source-map-support:
         specifier: ^0.5.21
         version: 0.5.21
@@ -843,10 +843,10 @@ importers:
         version: 10.1.5(eslint@9.27.0(jiti@2.4.2))
       eslint-plugin-prettier:
         specifier: ^5.4.1
-        version: 5.4.1(@types/eslint@9.6.1)(eslint-config-prettier@10.1.5(eslint@9.27.0(jiti@2.4.2)))(eslint@9.27.0(jiti@2.4.2))(prettier@3.5.3)
+        version: 5.4.1(@types/eslint@9.6.1)(eslint-config-prettier@10.1.5(eslint@9.27.0(jiti@2.4.2)))(eslint@9.27.0(jiti@2.4.2))(prettier@3.6.0)
       prettier:
         specifier: ^3.5.3
-        version: 3.5.3
+        version: 3.6.0
       source-map-support:
         specifier: ^0.5.21
         version: 0.5.21
@@ -7520,8 +7520,8 @@ packages:
       prettier-plugin-svelte:
         optional: true
 
-  prettier@3.5.3:
-    resolution: {integrity: sha512-QQtaxnoDJeAkDvDKWCLiwIXkTgRhwYDEQCghU9Z6q03iyek/rxRh/2lC3HB7P8sWT2xC/y5JDctPLBIGzHKbhw==}
+  prettier@3.6.0:
+    resolution: {integrity: sha512-ujSB9uXHJKzM/2GBuE0hBOUgC77CN3Bnpqa+g80bkv3T3A93wL/xlzDATHhnhkzifz/UE2SNOvmbTz5hSkDlHw==}
     engines: {node: '>=14'}
     hasBin: true
 
@@ -11620,7 +11620,7 @@ snapshots:
 
   '@docusaurus/react-loadable@6.0.0(react@19.1.0)':
     dependencies:
-      '@types/react': 19.1.6
+      '@types/react': 19.1.8
       react: 19.1.0
 
   '@docusaurus/remark-plugin-npm2yarn@3.8.1':
@@ -14784,20 +14784,20 @@ snapshots:
     dependencies:
       eslint: 9.29.0(jiti@2.4.2)
 
-  eslint-plugin-prettier@5.4.1(@types/eslint@9.6.1)(eslint-config-prettier@10.1.5(eslint@9.27.0(jiti@2.4.2)))(eslint@9.27.0(jiti@2.4.2))(prettier@3.5.3):
+  eslint-plugin-prettier@5.4.1(@types/eslint@9.6.1)(eslint-config-prettier@10.1.5(eslint@9.27.0(jiti@2.4.2)))(eslint@9.27.0(jiti@2.4.2))(prettier@3.6.0):
     dependencies:
       eslint: 9.27.0(jiti@2.4.2)
-      prettier: 3.5.3
+      prettier: 3.6.0
       prettier-linter-helpers: 1.0.0
       synckit: 0.11.8
     optionalDependencies:
       '@types/eslint': 9.6.1
       eslint-config-prettier: 10.1.5(eslint@9.27.0(jiti@2.4.2))
 
-  eslint-plugin-prettier@5.5.0(@types/eslint@9.6.1)(eslint-config-prettier@10.1.5(eslint@9.29.0(jiti@2.4.2)))(eslint@9.29.0(jiti@2.4.2))(prettier@3.5.3):
+  eslint-plugin-prettier@5.5.0(@types/eslint@9.6.1)(eslint-config-prettier@10.1.5(eslint@9.29.0(jiti@2.4.2)))(eslint@9.29.0(jiti@2.4.2))(prettier@3.6.0):
     dependencies:
       eslint: 9.29.0(jiti@2.4.2)
-      prettier: 3.5.3
+      prettier: 3.6.0
       prettier-linter-helpers: 1.0.0
       synckit: 0.11.8
     optionalDependencies:
@@ -15662,7 +15662,7 @@ snapshots:
 
   history@4.10.1:
     dependencies:
-      '@babel/runtime': 7.27.3
+      '@babel/runtime': 7.27.6
       loose-envify: 1.4.0
       resolve-pathname: 3.0.0
       tiny-invariant: 1.3.3
@@ -17980,11 +17980,11 @@ snapshots:
     dependencies:
       fast-diff: 1.3.0
 
-  prettier-plugin-tailwindcss@0.6.11(prettier@3.5.3):
+  prettier-plugin-tailwindcss@0.6.11(prettier@3.6.0):
     dependencies:
-      prettier: 3.5.3
+      prettier: 3.6.0
 
-  prettier@3.5.3: {}
+  prettier@3.6.0: {}
 
   pretty-bytes@5.6.0: {}
 
