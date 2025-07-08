@@ -262,7 +262,7 @@ importers:
         version: 0.5.21
       supertest:
         specifier: ^7.1.1
-        version: 7.1.1
+        version: 7.1.3
       ts-loader:
         specifier: ^9.5.2
         version: 9.5.2(typescript@5.8.3)(webpack@5.99.6)
@@ -338,7 +338,7 @@ importers:
         version: 0.5.21
       supertest:
         specifier: ^7.1.1
-        version: 7.1.1
+        version: 7.1.3
       ts-loader:
         specifier: ^9.5.2
         version: 9.5.2(typescript@5.8.3)(webpack@5.99.9)
@@ -414,7 +414,7 @@ importers:
         version: 0.5.21
       supertest:
         specifier: ^7.1.1
-        version: 7.1.1
+        version: 7.1.3
       ts-loader:
         specifier: ^9.5.2
         version: 9.5.2(typescript@5.8.3)(webpack@5.99.9)
@@ -487,7 +487,7 @@ importers:
         version: 0.5.21
       supertest:
         specifier: ^7.1.1
-        version: 7.1.1
+        version: 7.1.3
       ts-loader:
         specifier: ^9.5.2
         version: 9.5.2(typescript@5.8.3)(webpack@5.99.9)
@@ -560,7 +560,7 @@ importers:
         version: 0.5.21
       supertest:
         specifier: ^7.1.1
-        version: 7.1.1
+        version: 7.1.3
       ts-loader:
         specifier: ^9.5.2
         version: 9.5.2(typescript@5.8.3)(webpack@5.99.9)
@@ -633,7 +633,7 @@ importers:
         version: 0.5.21
       supertest:
         specifier: ^7.1.1
-        version: 7.1.1
+        version: 7.1.3
       ts-loader:
         specifier: ^9.5.2
         version: 9.5.2(typescript@5.8.3)(webpack@5.99.9)
@@ -706,7 +706,7 @@ importers:
         version: 0.5.21
       supertest:
         specifier: ^7.1.1
-        version: 7.1.1
+        version: 7.1.3
       ts-loader:
         specifier: ^9.5.2
         version: 9.5.2(typescript@5.8.3)(webpack@5.99.9)
@@ -779,7 +779,7 @@ importers:
         version: 0.5.21
       supertest:
         specifier: ^7.1.1
-        version: 7.1.1
+        version: 7.1.3
       ts-loader:
         specifier: ^9.5.2
         version: 9.5.2(typescript@5.8.3)(webpack@5.99.9)
@@ -852,7 +852,7 @@ importers:
         version: 0.5.21
       supertest:
         specifier: ^7.1.1
-        version: 7.1.1
+        version: 7.1.3
       ts-loader:
         specifier: ^9.5.2
         version: 9.5.2(typescript@5.8.3)(webpack@5.99.9)
@@ -7978,12 +7978,12 @@ packages:
     peerDependencies:
       postcss: ^8.4.31
 
-  superagent@10.2.1:
-    resolution: {integrity: sha512-O+PCv11lgTNJUzy49teNAWLjBZfc+A1enOwTpLlH6/rsvKcTwcdTT8m9azGkVqM7HBl5jpyZ7KTPhHweokBcdg==}
+  superagent@10.2.2:
+    resolution: {integrity: sha512-vWMq11OwWCC84pQaFPzF/VO3BrjkCeewuvJgt1jfV0499Z1QSAWN4EqfMM5WlFDDX9/oP8JjlDKpblrmEoyu4Q==}
     engines: {node: '>=14.18.0'}
 
-  supertest@7.1.1:
-    resolution: {integrity: sha512-aI59HBTlG9e2wTjxGJV+DygfNLgnWbGdZxiA/sgrnNNikIW8lbDvCtF6RnhZoJ82nU7qv7ZLjrvWqCEm52fAmw==}
+  supertest@7.1.3:
+    resolution: {integrity: sha512-ORY0gPa6ojmg/C74P/bDoS21WL6FMXq5I8mawkEz30/zkwdu0gOeqstFy316vHG6OKxqQ+IbGneRemHI8WraEw==}
     engines: {node: '>=14.18.0'}
 
   supports-color@7.2.0:
@@ -17592,7 +17592,7 @@ snapshots:
       postcss: 8.5.6
       postcss-selector-parser: 6.1.2
 
-  superagent@10.2.1:
+  superagent@10.2.2:
     dependencies:
       component-emitter: 1.3.1
       cookiejar: 2.1.4
@@ -17606,10 +17606,10 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  supertest@7.1.1:
+  supertest@7.1.3:
     dependencies:
       methods: 1.1.2
-      superagent: 10.2.1
+      superagent: 10.2.2
     transitivePeerDependencies:
       - supports-color
 
