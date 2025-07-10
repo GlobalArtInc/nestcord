@@ -28,7 +28,7 @@ importers:
         version: 4.3.1
       lavalink-client:
         specifier: ^2.5.3
-        version: 2.5.6
+        version: 2.5.7
       path-to-regexp:
         specifier: ^8.0.0
         version: 8.2.0
@@ -213,7 +213,7 @@ importers:
         version: 11.1.3(@nestjs/common@11.1.3(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.3)
       lavalink-client:
         specifier: ^2.5.3
-        version: 2.5.6
+        version: 2.5.7
       reflect-metadata:
         specifier: ^0.2.0
         version: 0.2.2
@@ -5727,8 +5727,8 @@ packages:
   launch-editor@2.10.0:
     resolution: {integrity: sha512-D7dBRJo/qcGX9xlvt/6wUYzQxjh5G1RvZPgPv8vi4KRU99DVQL/oW7tnVOCCTm2HGeo3C5HvGE5Yrh6UBoZ0vA==}
 
-  lavalink-client@2.5.6:
-    resolution: {integrity: sha512-RkYDIuwj1lRY8eKJ+oyz/EItmAjXhjQY6Cq7njIDiXggzzcc3eev05OiLz1GYiy/nXjmLxmMdu3nLBfyODk9bw==}
+  lavalink-client@2.5.7:
+    resolution: {integrity: sha512-/jABlAiCYsylKmF7LbVzqLdqWhI78BnSGYuDFAG6ZVi36nUI+iFoiiywet98grq1lIVQpn52UDSky3qoRDubcg==}
     engines: {bun: '>=1.1.27', node: '>=18.0.0'}
 
   leven@3.1.0:
@@ -8647,6 +8647,18 @@ packages:
       utf-8-validate:
         optional: true
 
+  ws@8.18.3:
+    resolution: {integrity: sha512-PEIGCY5tSlUt50cqyMXfCzX+oOPqN0vuGqWzbcJ2xvnkzkq46oOpz7dQaTDBdfICb4N14+GARUDw2XV2N4tvzg==}
+    engines: {node: '>=10.0.0'}
+    peerDependencies:
+      bufferutil: ^4.0.1
+      utf-8-validate: '>=5.0.2'
+    peerDependenciesMeta:
+      bufferutil:
+        optional: true
+      utf-8-validate:
+        optional: true
+
   xdg-basedir@5.1.0:
     resolution: {integrity: sha512-GCPAHLvrIH13+c0SuacwvRYj2SxJXQ4kaVTT5xgL3kPrz56XxkF21IGhjSE1+W0aw7gpBWRGXLCPnPby6lSpmQ==}
     engines: {node: '>=12'}
@@ -10045,7 +10057,7 @@ snapshots:
       '@vladfrangu/async_event_emitter': 2.4.6
       discord-api-types: 0.38.15
       tslib: 2.8.1
-      ws: 8.18.2
+      ws: 8.18.3
     transitivePeerDependencies:
       - bufferutil
       - utf-8-validate
@@ -14946,10 +14958,10 @@ snapshots:
       picocolors: 1.1.1
       shell-quote: 1.8.3
 
-  lavalink-client@2.5.6:
+  lavalink-client@2.5.7:
     dependencies:
       tslib: 2.8.1
-      ws: 8.18.2
+      ws: 8.18.3
     transitivePeerDependencies:
       - bufferutil
       - utf-8-validate
@@ -18499,6 +18511,8 @@ snapshots:
   ws@7.5.10: {}
 
   ws@8.18.2: {}
+
+  ws@8.18.3: {}
 
   xdg-basedir@5.1.0: {}
 
