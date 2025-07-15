@@ -21,8 +21,8 @@ importers:
         specifier: ^1.9.0
         version: 1.10.0
       cron:
-        specifier: 4.3.0
-        version: 4.3.0
+        specifier: 4.3.2
+        version: 4.3.2
       deepmerge:
         specifier: ^4.3.1
         version: 4.3.1
@@ -4021,6 +4021,10 @@ packages:
     resolution: {integrity: sha512-ciiYNLfSlF9MrDqnbMdRWFiA6oizSF7kA1osPP9lRzNu0Uu+AWog1UKy7SkckiDY2irrNjeO6qLyKnXC8oxmrw==}
     engines: {node: '>=18.x'}
 
+  cron@4.3.2:
+    resolution: {integrity: sha512-JxBBnf5zRz+NhW9XcP16gwUKAKIimy2G0QCCQu8kk5XwM4aCGwMt+nntouAfXF9A57965XzB6hitBlJAz5Ts6w==}
+    engines: {node: '>=18.x'}
+
   cross-spawn@7.0.6:
     resolution: {integrity: sha512-uV2QOWP2nWzsy2aMp8aRibhi9dlzF5Hgh5SHaB9OiTGEyDTiJJyx0uy51QXdyWbtAHNua4XJzUKca3OzKUd3vA==}
     engines: {node: '>= 8'}
@@ -5907,6 +5911,10 @@ packages:
 
   luxon@3.6.1:
     resolution: {integrity: sha512-tJLxrKJhO2ukZ5z0gyjY1zPh3Rh88Ej9P7jNrZiHMUXHae1yvI2imgOZtL1TO8TW6biMMKfTtAOoEJANgtWBMQ==}
+    engines: {node: '>=12'}
+
+  luxon@3.7.1:
+    resolution: {integrity: sha512-RkRWjA926cTvz5rAb1BqyWkKbbjzCGchDUIKMCUvNi17j6f6j8uHGDV82Aqcqtzd+icoYpELmG3ksgGiFNNcNg==}
     engines: {node: '>=12'}
 
   macos-release@3.4.0:
@@ -12966,6 +12974,11 @@ snapshots:
       '@types/luxon': 3.6.2
       luxon: 3.6.1
 
+  cron@4.3.2:
+    dependencies:
+      '@types/luxon': 3.6.2
+      luxon: 3.7.1
+
   cross-spawn@7.0.6:
     dependencies:
       path-key: 3.1.1
@@ -15072,6 +15085,8 @@ snapshots:
       react: 19.1.0
 
   luxon@3.6.1: {}
+
+  luxon@3.7.1: {}
 
   macos-release@3.4.0: {}
 
