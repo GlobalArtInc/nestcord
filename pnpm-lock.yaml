@@ -226,7 +226,7 @@ importers:
         version: 11.0.9(@types/node@24.1.0)
       '@nestjs/schematics':
         specifier: ^11.0.5
-        version: 11.0.5(chokidar@4.0.3)(typescript@5.8.3)
+        version: 11.0.7(chokidar@4.0.3)(typescript@5.8.3)
       '@nestjs/testing':
         specifier: ^11.1.1
         version: 11.1.5(@nestjs/common@11.1.5(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.5)(@nestjs/platform-express@11.1.5)
@@ -302,7 +302,7 @@ importers:
         version: 11.0.9(@types/node@24.1.0)
       '@nestjs/schematics':
         specifier: ^11.0.5
-        version: 11.0.5(chokidar@4.0.3)(typescript@5.8.3)
+        version: 11.0.7(chokidar@4.0.3)(typescript@5.8.3)
       '@nestjs/testing':
         specifier: ^11.1.1
         version: 11.1.5(@nestjs/common@11.1.5(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.5)(@nestjs/platform-express@11.1.5)
@@ -378,7 +378,7 @@ importers:
         version: 11.0.9(@types/node@24.1.0)
       '@nestjs/schematics':
         specifier: ^11.0.5
-        version: 11.0.5(chokidar@4.0.3)(typescript@5.8.3)
+        version: 11.0.7(chokidar@4.0.3)(typescript@5.8.3)
       '@nestjs/testing':
         specifier: ^11.1.1
         version: 11.1.5(@nestjs/common@11.1.5(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.5)(@nestjs/platform-express@11.1.5)
@@ -451,7 +451,7 @@ importers:
         version: 11.0.9(@types/node@24.1.0)
       '@nestjs/schematics':
         specifier: ^11.0.5
-        version: 11.0.5(chokidar@4.0.3)(typescript@5.8.3)
+        version: 11.0.7(chokidar@4.0.3)(typescript@5.8.3)
       '@nestjs/testing':
         specifier: ^11.1.1
         version: 11.1.5(@nestjs/common@11.1.5(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.5)(@nestjs/platform-express@11.1.5)
@@ -524,7 +524,7 @@ importers:
         version: 11.0.9(@types/node@24.1.0)
       '@nestjs/schematics':
         specifier: ^11.0.5
-        version: 11.0.5(chokidar@4.0.3)(typescript@5.8.3)
+        version: 11.0.7(chokidar@4.0.3)(typescript@5.8.3)
       '@nestjs/testing':
         specifier: ^11.1.1
         version: 11.1.5(@nestjs/common@11.1.5(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.5)(@nestjs/platform-express@11.1.5)
@@ -597,7 +597,7 @@ importers:
         version: 11.0.9(@types/node@24.1.0)
       '@nestjs/schematics':
         specifier: ^11.0.5
-        version: 11.0.5(chokidar@4.0.3)(typescript@5.8.3)
+        version: 11.0.7(chokidar@4.0.3)(typescript@5.8.3)
       '@nestjs/testing':
         specifier: ^11.1.1
         version: 11.1.5(@nestjs/common@11.1.5(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.5)(@nestjs/platform-express@11.1.5)
@@ -670,7 +670,7 @@ importers:
         version: 11.0.9(@types/node@24.1.0)
       '@nestjs/schematics':
         specifier: ^11.0.5
-        version: 11.0.5(chokidar@4.0.3)(typescript@5.8.3)
+        version: 11.0.7(chokidar@4.0.3)(typescript@5.8.3)
       '@nestjs/testing':
         specifier: ^11.1.1
         version: 11.1.5(@nestjs/common@11.1.5(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.5)(@nestjs/platform-express@11.1.5)
@@ -743,7 +743,7 @@ importers:
         version: 11.0.9(@types/node@24.1.0)
       '@nestjs/schematics':
         specifier: ^11.0.5
-        version: 11.0.5(chokidar@4.0.3)(typescript@5.8.3)
+        version: 11.0.7(chokidar@4.0.3)(typescript@5.8.3)
       '@nestjs/testing':
         specifier: ^11.1.1
         version: 11.1.5(@nestjs/common@11.1.5(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.5)(@nestjs/platform-express@11.1.5)
@@ -816,7 +816,7 @@ importers:
         version: 11.0.9(@types/node@24.1.0)
       '@nestjs/schematics':
         specifier: ^11.0.5
-        version: 11.0.5(chokidar@4.0.3)(typescript@5.8.3)
+        version: 11.0.7(chokidar@4.0.3)(typescript@5.8.3)
       '@nestjs/testing':
         specifier: ^11.1.1
         version: 11.1.5(@nestjs/common@11.1.5(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.5)(@nestjs/platform-express@11.1.5)
@@ -951,8 +951,8 @@ packages:
     resolution: {integrity: sha512-30iZtAPgz+LTIYoeivqYo853f02jBYSd5uGnGpkFV0M3xOt9aN73erkgYAmZU43x4VfqcnLxW9Kpg3R5LC4YYw==}
     engines: {node: '>=6.0.0'}
 
-  '@angular-devkit/core@19.2.6':
-    resolution: {integrity: sha512-WFgiYhrDMq83UNaGRAneIM7CYYdBozD+yYA9BjoU8AgBLKtrvn6S8ZcjKAk5heoHtY/u8pEb0mwDTz9gxFmJZQ==}
+  '@angular-devkit/core@19.2.15':
+    resolution: {integrity: sha512-pU2RZYX6vhd7uLSdLwPnuBcr0mXJSjp3EgOXKsrlQFQZevc+Qs+2JdXgIElnOT/aDqtRtriDmLlSbtdE8n3ZbA==}
     engines: {node: ^18.19.1 || ^20.11.1 || >=22.0.0, npm: ^6.11.0 || ^7.5.6 || >=8.0.0, yarn: '>= 1.13.0'}
     peerDependencies:
       chokidar: ^4.0.0
@@ -974,8 +974,8 @@ packages:
     engines: {node: ^20.19.0 || ^22.12.0 || >=24.0.0, npm: ^6.11.0 || ^7.5.6 || >=8.0.0, yarn: '>= 1.13.0'}
     hasBin: true
 
-  '@angular-devkit/schematics@19.2.6':
-    resolution: {integrity: sha512-YTAxNnT++5eflx19OUHmOWu597/TbTel+QARiZCv1xQw99+X8DCKKOUXtqBRd53CAHlREDI33Rn/JLY3NYgMLQ==}
+  '@angular-devkit/schematics@19.2.15':
+    resolution: {integrity: sha512-kNOJ+3vekJJCQKWihNmxBkarJzNW09kP5a9E1SRNiQVNOUEeSwcRR0qYotM65nx821gNzjjhJXnAZ8OazWldrg==}
     engines: {node: ^18.19.1 || ^20.11.1 || >=22.0.0, npm: ^6.11.0 || ^7.5.6 || >=8.0.0, yarn: '>= 1.13.0'}
 
   '@angular-devkit/schematics@20.1.3':
@@ -2476,8 +2476,8 @@ packages:
       '@nestjs/common': ^10.0.0 || ^11.0.0
       '@nestjs/core': ^10.0.0 || ^11.0.0
 
-  '@nestjs/schematics@11.0.5':
-    resolution: {integrity: sha512-T50SCNyqCZ/fDssaOD7meBKLZ87ebRLaJqZTJPvJKjlib1VYhMOCwXYsr7bjMPmuPgiQHOwvppz77xN/m6GM7A==}
+  '@nestjs/schematics@11.0.7':
+    resolution: {integrity: sha512-t8dNYYMwEeEsrlwc2jbkfwCfXczq4AeNEgx1KVQuJ6wYibXk0ZbXbPdfp8scnEAaQv1grpncNV5gWgzi7ZwbvQ==}
     peerDependencies:
       typescript: '>=4.8.2'
 
@@ -8879,7 +8879,7 @@ snapshots:
       '@jridgewell/gen-mapping': 0.3.8
       '@jridgewell/trace-mapping': 0.3.25
 
-  '@angular-devkit/core@19.2.6(chokidar@4.0.3)':
+  '@angular-devkit/core@19.2.15(chokidar@4.0.3)':
     dependencies:
       ajv: 8.17.1
       ajv-formats: 3.0.1(ajv@8.17.1)
@@ -8912,9 +8912,9 @@ snapshots:
       - '@types/node'
       - chokidar
 
-  '@angular-devkit/schematics@19.2.6(chokidar@4.0.3)':
+  '@angular-devkit/schematics@19.2.15(chokidar@4.0.3)':
     dependencies:
-      '@angular-devkit/core': 19.2.6(chokidar@4.0.3)
+      '@angular-devkit/core': 19.2.15(chokidar@4.0.3)
       jsonc-parser: 3.3.1
       magic-string: 0.30.17
       ora: 5.4.1
@@ -11296,7 +11296,7 @@ snapshots:
       '@angular-devkit/schematics': 20.1.3(chokidar@4.0.3)
       '@angular-devkit/schematics-cli': 20.1.3(@types/node@24.1.0)(chokidar@4.0.3)
       '@inquirer/prompts': 7.8.0(@types/node@24.1.0)
-      '@nestjs/schematics': 11.0.5(chokidar@4.0.3)(typescript@5.8.3)
+      '@nestjs/schematics': 11.0.7(chokidar@4.0.3)(typescript@5.8.3)
       ansis: 4.1.0
       chokidar: 4.0.3
       cli-table3: 0.6.5
@@ -11361,10 +11361,10 @@ snapshots:
       '@nestjs/core': 11.1.5(@nestjs/common@11.1.5(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/platform-express@11.1.5)(reflect-metadata@0.2.2)(rxjs@7.8.2)
       cron: 4.3.0
 
-  '@nestjs/schematics@11.0.5(chokidar@4.0.3)(typescript@5.8.3)':
+  '@nestjs/schematics@11.0.7(chokidar@4.0.3)(typescript@5.8.3)':
     dependencies:
-      '@angular-devkit/core': 19.2.6(chokidar@4.0.3)
-      '@angular-devkit/schematics': 19.2.6(chokidar@4.0.3)
+      '@angular-devkit/core': 19.2.15(chokidar@4.0.3)
+      '@angular-devkit/schematics': 19.2.15(chokidar@4.0.3)
       comment-json: 4.2.5
       jsonc-parser: 3.3.1
       pluralize: 8.0.0
