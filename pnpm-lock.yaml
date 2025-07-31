@@ -28,7 +28,7 @@ importers:
         version: 4.3.1
       lavalink-client:
         specifier: ^2.5.3
-        version: 2.5.8
+        version: 2.5.9
       path-to-regexp:
         specifier: ^8.0.0
         version: 8.2.0
@@ -213,7 +213,7 @@ importers:
         version: 11.1.5(@nestjs/common@11.1.5(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.5)
       lavalink-client:
         specifier: ^2.5.3
-        version: 2.5.8
+        version: 2.5.9
       reflect-metadata:
         specifier: ^0.2.0
         version: 0.2.2
@@ -5759,8 +5759,8 @@ packages:
   launch-editor@2.10.0:
     resolution: {integrity: sha512-D7dBRJo/qcGX9xlvt/6wUYzQxjh5G1RvZPgPv8vi4KRU99DVQL/oW7tnVOCCTm2HGeo3C5HvGE5Yrh6UBoZ0vA==}
 
-  lavalink-client@2.5.8:
-    resolution: {integrity: sha512-MqHoi8bfHe1/uOTkK8CDaeFzq6JeNs6JiUe85NXdgBe6W4P7xgS5qg/D41gaWR18kptZxnWAKVGcEHaHJ4+3sw==}
+  lavalink-client@2.5.9:
+    resolution: {integrity: sha512-zEWikCMU3ssCrHT6nmSWkCkCguIZd3iiCMT8HOZQXxybStCU5IQOsvtu9JSM1qcp5vyTVCHDwQMJQJjyPS6yNA==}
     engines: {bun: '>=1.1.27', node: '>=18.0.0'}
 
   leven@3.1.0:
@@ -14997,7 +14997,7 @@ snapshots:
       picocolors: 1.1.1
       shell-quote: 1.8.3
 
-  lavalink-client@2.5.8:
+  lavalink-client@2.5.9:
     dependencies:
       tslib: 2.8.1
       ws: 8.18.3
