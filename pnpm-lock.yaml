@@ -265,7 +265,7 @@ importers:
         version: 7.1.4
       ts-loader:
         specifier: ^9.5.2
-        version: 9.5.2(typescript@5.9.2)(webpack@5.100.2)
+        version: 9.5.4(typescript@5.9.2)(webpack@5.100.2)
       ts-node:
         specifier: ^10.9.1
         version: 10.9.2(@types/node@24.3.0)(typescript@5.9.2)
@@ -341,7 +341,7 @@ importers:
         version: 7.1.4
       ts-loader:
         specifier: ^9.5.2
-        version: 9.5.2(typescript@5.9.2)(webpack@5.100.2)
+        version: 9.5.4(typescript@5.9.2)(webpack@5.100.2)
       ts-node:
         specifier: ^10.9.1
         version: 10.9.2(@types/node@24.3.0)(typescript@5.9.2)
@@ -417,7 +417,7 @@ importers:
         version: 7.1.4
       ts-loader:
         specifier: ^9.5.2
-        version: 9.5.2(typescript@5.9.2)(webpack@5.100.2)
+        version: 9.5.4(typescript@5.9.2)(webpack@5.100.2)
       ts-node:
         specifier: ^10.9.1
         version: 10.9.2(@types/node@24.3.0)(typescript@5.9.2)
@@ -490,7 +490,7 @@ importers:
         version: 7.1.4
       ts-loader:
         specifier: ^9.5.2
-        version: 9.5.2(typescript@5.9.2)(webpack@5.100.2)
+        version: 9.5.4(typescript@5.9.2)(webpack@5.100.2)
       ts-node:
         specifier: ^10.9.1
         version: 10.9.2(@types/node@24.3.0)(typescript@5.9.2)
@@ -563,7 +563,7 @@ importers:
         version: 7.1.4
       ts-loader:
         specifier: ^9.5.2
-        version: 9.5.2(typescript@5.9.2)(webpack@5.100.2)
+        version: 9.5.4(typescript@5.9.2)(webpack@5.100.2)
       ts-node:
         specifier: ^10.9.1
         version: 10.9.2(@types/node@24.3.0)(typescript@5.9.2)
@@ -636,7 +636,7 @@ importers:
         version: 7.1.4
       ts-loader:
         specifier: ^9.5.2
-        version: 9.5.2(typescript@5.9.2)(webpack@5.100.2)
+        version: 9.5.4(typescript@5.9.2)(webpack@5.100.2)
       ts-node:
         specifier: ^10.9.1
         version: 10.9.2(@types/node@24.3.0)(typescript@5.9.2)
@@ -709,7 +709,7 @@ importers:
         version: 7.1.4
       ts-loader:
         specifier: ^9.5.2
-        version: 9.5.2(typescript@5.9.2)(webpack@5.100.2)
+        version: 9.5.4(typescript@5.9.2)(webpack@5.100.2)
       ts-node:
         specifier: ^10.9.1
         version: 10.9.2(@types/node@24.3.0)(typescript@5.9.2)
@@ -782,7 +782,7 @@ importers:
         version: 7.1.4
       ts-loader:
         specifier: ^9.5.2
-        version: 9.5.2(typescript@5.9.2)(webpack@5.100.2)
+        version: 9.5.4(typescript@5.9.2)(webpack@5.100.2)
       ts-node:
         specifier: ^10.9.1
         version: 10.9.2(@types/node@24.3.0)(typescript@5.9.2)
@@ -855,7 +855,7 @@ importers:
         version: 7.1.4
       ts-loader:
         specifier: ^9.5.2
-        version: 9.5.2(typescript@5.9.2)(webpack@5.100.2)
+        version: 9.5.4(typescript@5.9.2)(webpack@5.100.2)
       ts-node:
         specifier: ^10.9.1
         version: 10.9.2(@types/node@24.3.0)(typescript@5.9.2)
@@ -7943,6 +7943,10 @@ packages:
     resolution: {integrity: sha512-l3BikUxvPOcn5E74dZiq5BGsTb5yEwhaTSzccU6t4sDOH8NWJCstKO5QT2CvtFoK6F0saL7p9xHAqHOlCPJygA==}
     engines: {node: '>= 8'}
 
+  source-map@0.7.6:
+    resolution: {integrity: sha512-i5uvt8C3ikiWeNZSVZNWcfZPItFQOsYTUAOkcUPGd8DqDy1uOUikjt5dG+uRlwyvR108Fb9DOd4GvXfT0N2/uQ==}
+    engines: {node: '>= 12'}
+
   source-map@0.8.0-beta.0:
     resolution: {integrity: sha512-2ymg6oRBpebeZi9UUNsgQ89bhx01TcTkmNTGnNO88imTmbSgy4nfujrgVEFKWpMTEGA11EDkTt7mqObTPdigIA==}
     engines: {node: '>= 8'}
@@ -8155,6 +8159,10 @@ packages:
     resolution: {integrity: sha512-Re10+NauLTMCudc7T5WLFLAwDhQ0JWdrMK+9B2M8zR5hRExKmsRDCBA7/aV/pNJFltmBFO5BAMlQFi/vq3nKOg==}
     engines: {node: '>=6'}
 
+  tapable@2.2.3:
+    resolution: {integrity: sha512-ZL6DDuAlRlLGghwcfmSn9sK3Hr6ArtyudlSAiCqQ6IfE+b+HHbydbYDIG15IfS5do+7XQQBdBiubF/cV2dnDzg==}
+    engines: {node: '>=6'}
+
   tar@7.4.3:
     resolution: {integrity: sha512-5S7Va8hKfV7W5U6g3aYxXmlPoZVAwUMy9AOKyF2fVuZa2UD3qZjg578OrLRt8PcNN1PleVaL/5/yYATNL0ICUw==}
     engines: {node: '>=18'}
@@ -8257,8 +8265,8 @@ packages:
     peerDependencies:
       typescript: '>=4.8.4'
 
-  ts-loader@9.5.2:
-    resolution: {integrity: sha512-Qo4piXvOTWcMGIgRiuFa6nHNm+54HbYaZCKqc9eeZCLRy3XqafQgwX2F7mofrbJG3g7EEb+lkiR+z2Lic2s3Zw==}
+  ts-loader@9.5.4:
+    resolution: {integrity: sha512-nCz0rEwunlTZiy6rXFByQU1kVVpCIgUpc/psFiKVrUwrizdnIbRFu8w7bxhUF0X613DYwT4XzrZHpVyMe758hQ==}
     engines: {node: '>=12.0.0'}
     peerDependencies:
       typescript: '*'
@@ -13610,7 +13618,7 @@ snapshots:
   enhanced-resolve@5.18.3:
     dependencies:
       graceful-fs: 4.2.11
-      tapable: 2.2.2
+      tapable: 2.2.3
 
   entities@2.2.0: {}
 
@@ -17679,6 +17687,8 @@ snapshots:
 
   source-map@0.7.4: {}
 
+  source-map@0.7.6: {}
+
   source-map@0.8.0-beta.0:
     dependencies:
       whatwg-url: 7.1.0
@@ -17914,6 +17924,8 @@ snapshots:
 
   tapable@2.2.2: {}
 
+  tapable@2.2.3: {}
+
   tar@7.4.3:
     dependencies:
       '@isaacs/fs-minipass': 4.0.1
@@ -18009,13 +18021,13 @@ snapshots:
     dependencies:
       typescript: 5.9.2
 
-  ts-loader@9.5.2(typescript@5.9.2)(webpack@5.100.2):
+  ts-loader@9.5.4(typescript@5.9.2)(webpack@5.100.2):
     dependencies:
       chalk: 4.1.2
-      enhanced-resolve: 5.18.2
+      enhanced-resolve: 5.18.3
       micromatch: 4.0.8
       semver: 7.7.2
-      source-map: 0.7.4
+      source-map: 0.7.6
       typescript: 5.9.2
       webpack: 5.100.2
 
@@ -18042,7 +18054,7 @@ snapshots:
   tsconfig-paths-webpack-plugin@4.2.0:
     dependencies:
       chalk: 4.1.2
-      enhanced-resolve: 5.18.2
+      enhanced-resolve: 5.18.3
       tapable: 2.2.2
       tsconfig-paths: 4.2.0
 
@@ -18396,7 +18408,7 @@ snapshots:
       acorn-import-phases: 1.0.4(acorn@8.15.0)
       browserslist: 4.25.1
       chrome-trace-event: 1.0.4
-      enhanced-resolve: 5.18.2
+      enhanced-resolve: 5.18.3
       es-module-lexer: 1.7.0
       eslint-scope: 5.1.1
       events: 3.3.0
