@@ -118,8 +118,8 @@ importers:
         specifier: 3.9.0
         version: 3.9.0(@algolia/client-search@5.38.0)(@mdx-js/react@3.1.1(@types/react@19.1.13)(react@19.1.1))(@types/react@19.1.13)(react-dom@19.1.1(react@19.1.1))(react@19.1.1)(search-insights@2.17.3)(typescript@5.9.2)
       '@docusaurus/remark-plugin-npm2yarn':
-        specifier: 3.8.1
-        version: 3.8.1
+        specifier: 3.9.0
+        version: 3.9.0
       '@docusaurus/theme-common':
         specifier: ^3.8.1
         version: 3.8.1(@docusaurus/plugin-content-docs@3.9.0(@mdx-js/react@3.1.1(@types/react@19.1.13)(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1)(typescript@5.9.2))(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
@@ -2121,9 +2121,9 @@ packages:
     peerDependencies:
       react: '*'
 
-  '@docusaurus/remark-plugin-npm2yarn@3.8.1':
-    resolution: {integrity: sha512-lrws3n7jyJrDKqpdFiEX0ZIwVOgGj9z+ZXf0k/rXrftcNh06Y+cEMnNVoNpO3EJKiLDXmTWoxGf/I1qWb/WV6g==}
-    engines: {node: '>=18.0'}
+  '@docusaurus/remark-plugin-npm2yarn@3.9.0':
+    resolution: {integrity: sha512-9ZY4wHQ875YC8KHsxJWngUQ/rZ7/tA7LNh4R8Fw82Fd+RNIZcVL+mDgIt/YqQmAnqNCSFFtssQzQxXo/jHa7gA==}
+    engines: {node: '>=20.0'}
 
   '@docusaurus/theme-classic@3.9.0':
     resolution: {integrity: sha512-RToUIabJOyX41nMIxkFn8LPeA+uHgySzyd6Ak/gsINqWHHTLDMoYPxBUmNm3S+okcfuMI54kNYvD6TY+6TIYDA==}
@@ -8694,9 +8694,6 @@ packages:
   vfile-location@5.0.3:
     resolution: {integrity: sha512-5yXvWDEgqeiYiBe1lbxYF7UMAIm/IcopxMHrMQDq3nvKcjPKIhZklUKL+AE7J7uApI4kwe2snsK+eI6UTj9EHg==}
 
-  vfile-message@4.0.2:
-    resolution: {integrity: sha512-jRDZ1IMLttGj41KcZvlrYAaI3CfqpLpfpf+Mfig13viT6NKvRzWZ+lXz0Y5D60w6uJIBAOGq9mSHf0gktF0duw==}
-
   vfile-message@4.0.3:
     resolution: {integrity: sha512-QTHzsGd1EhbZs4AsQ20JX1rC3cOlt/IWJruk893DfLRr57lcnOeMaWG4K0JrRta4mIJZKth2Au3mM3u03/JWKw==}
 
@@ -11060,7 +11057,7 @@ snapshots:
       '@types/react': 19.1.8
       react: 19.1.1
 
-  '@docusaurus/remark-plugin-npm2yarn@3.8.1':
+  '@docusaurus/remark-plugin-npm2yarn@3.9.0':
     dependencies:
       mdast-util-mdx: 3.0.0
       npm-to-yarn: 3.0.1
@@ -15940,7 +15937,7 @@ snapshots:
       parse-entities: 4.0.2
       stringify-entities: 4.0.4
       unist-util-stringify-position: 4.0.0
-      vfile-message: 4.0.2
+      vfile-message: 4.0.3
     transitivePeerDependencies:
       - supports-color
 
@@ -18768,11 +18765,6 @@ snapshots:
     dependencies:
       '@types/unist': 3.0.3
       vfile: 6.0.3
-
-  vfile-message@4.0.2:
-    dependencies:
-      '@types/unist': 3.0.3
-      unist-util-stringify-position: 4.0.0
 
   vfile-message@4.0.3:
     dependencies:
