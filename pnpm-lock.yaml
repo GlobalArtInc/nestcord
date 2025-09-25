@@ -179,8 +179,8 @@ importers:
         specifier: 3.9.0
         version: 3.9.0(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
       '@docusaurus/tsconfig':
-        specifier: 3.8.1
-        version: 3.8.1
+        specifier: 3.9.0
+        version: 3.9.0
       '@docusaurus/types':
         specifier: 3.9.0
         version: 3.9.0(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
@@ -2134,8 +2134,8 @@ packages:
     resolution: {integrity: sha512-4HUELBsE+rhtlnR1MsaNB9nJXPFZANeDQa5If1GfFVlis5mWUfdmXmbGangR7PfpK2tc56UETMtzjKrX5L5UWw==}
     engines: {node: '>=20.0'}
 
-  '@docusaurus/tsconfig@3.8.1':
-    resolution: {integrity: sha512-XBWCcqhRHhkhfolnSolNL+N7gj3HVE3CoZVqnVjfsMzCoOsuQw2iCLxVVHtO+rePUUfouVZHURDgmqIySsF66A==}
+  '@docusaurus/tsconfig@3.9.0':
+    resolution: {integrity: sha512-DPD1NcEAqBov2e2Rgwy/oNuExbWzU/eGc+DEAxl8tttfQ+xxN6iFXNMCzBuMeAvMC8OwUO+i9mZHYFP95903DA==}
 
   '@docusaurus/types@3.9.0':
     resolution: {integrity: sha512-0klJLhHFHqkYoxIVp1LD7dnU1ASRTfSX+HFDiELOdz+YQUkOSfuU5hDa46zD8bLxrYffCb8FtJI7Z6BWAmVodg==}
@@ -11080,7 +11080,7 @@ snapshots:
       fs-extra: 11.3.2
       tslib: 2.8.1
 
-  '@docusaurus/tsconfig@3.8.1': {}
+  '@docusaurus/tsconfig@3.9.0': {}
 
   '@docusaurus/types@3.9.0(react-dom@19.1.1(react@19.1.1))(react@19.1.1)':
     dependencies:
