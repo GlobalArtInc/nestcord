@@ -24,7 +24,7 @@
 		"upgrade": "npx npm-check-updates -u"
 	},
 	"dependencies": {
-		"@docusaurus/core": "3.9.0",
+		"@docusaurus/core": "3.9.1",
 		"@docusaurus/plugin-google-tag-manager": "^3.8.1",
 		"@docusaurus/plugin-pwa": "^3.8.1",
 		"@docusaurus/preset-classic": "3.9.1",
