@@ -106,8 +106,8 @@ importers:
   docs:
     dependencies:
       '@docusaurus/core':
-        specifier: 3.9.0
-        version: 3.9.0(@mdx-js/react@3.1.1(@types/react@19.1.14)(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1)(typescript@5.9.2)
+        specifier: 3.9.1
+        version: 3.9.1(@mdx-js/react@3.1.1(@types/react@19.1.14)(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1)(typescript@5.9.2)
       '@docusaurus/plugin-google-tag-manager':
         specifier: ^3.8.1
         version: 3.9.1(@mdx-js/react@3.1.1(@types/react@19.1.14)(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1)(typescript@5.9.2)
@@ -140,7 +140,7 @@ importers:
         version: 2.1.1
       docusaurus-plugin-sass:
         specifier: 0.2.6
-        version: 0.2.6(@docusaurus/core@3.9.0(@mdx-js/react@3.1.1(@types/react@19.1.14)(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1)(typescript@5.9.2))(sass@1.93.2)(webpack@5.101.3)
+        version: 0.2.6(@docusaurus/core@3.9.1(@mdx-js/react@3.1.1(@types/react@19.1.14)(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1)(typescript@5.9.2))(sass@1.93.2)(webpack@5.101.3)
       lucide-react:
         specifier: ^0.544.0
         version: 0.544.0(react@19.1.1)
@@ -11255,7 +11255,7 @@ snapshots:
 
   '@docusaurus/react-loadable@6.0.0(react@19.1.1)':
     dependencies:
-      '@types/react': 19.1.13
+      '@types/react': 19.1.14
       react: 19.1.1
 
   '@docusaurus/remark-plugin-npm2yarn@3.9.1':
@@ -14170,9 +14170,9 @@ snapshots:
     dependencies:
       '@leichtgewicht/ip-codec': 2.0.5
 
-  docusaurus-plugin-sass@0.2.6(@docusaurus/core@3.9.0(@mdx-js/react@3.1.1(@types/react@19.1.14)(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1)(typescript@5.9.2))(sass@1.93.2)(webpack@5.101.3):
+  docusaurus-plugin-sass@0.2.6(@docusaurus/core@3.9.1(@mdx-js/react@3.1.1(@types/react@19.1.14)(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1)(typescript@5.9.2))(sass@1.93.2)(webpack@5.101.3):
     dependencies:
-      '@docusaurus/core': 3.9.0(@mdx-js/react@3.1.1(@types/react@19.1.14)(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1)(typescript@5.9.2)
+      '@docusaurus/core': 3.9.1(@mdx-js/react@3.1.1(@types/react@19.1.14)(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1)(typescript@5.9.2)
       sass: 1.93.2
       sass-loader: 16.0.5(sass@1.93.2)(webpack@5.101.3)
     transitivePeerDependencies:
