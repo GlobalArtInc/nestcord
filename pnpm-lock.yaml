@@ -110,7 +110,7 @@ importers:
         version: 3.9.0(@mdx-js/react@3.1.1(@types/react@19.1.14)(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1)(typescript@5.9.2)
       '@docusaurus/plugin-google-tag-manager':
         specifier: ^3.8.1
-        version: 3.9.0(@mdx-js/react@3.1.1(@types/react@19.1.14)(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1)(typescript@5.9.2)
+        version: 3.9.1(@mdx-js/react@3.1.1(@types/react@19.1.14)(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1)(typescript@5.9.2)
       '@docusaurus/plugin-pwa':
         specifier: ^3.8.1
         version: 3.9.1(@docusaurus/plugin-content-docs@3.9.0(@mdx-js/react@3.1.1(@types/react@19.1.14)(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1)(typescript@5.9.2))(@mdx-js/react@3.1.1(@types/react@19.1.14)(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1)(typescript@5.9.2)
@@ -2109,6 +2109,13 @@ packages:
 
   '@docusaurus/plugin-google-tag-manager@3.9.0':
     resolution: {integrity: sha512-+jWO3tkrvsMUKQ69KTIj9ZBf8sKY5kodLcP4yIaEkPzfWq9IEpE+ekQCtFWlrAmkJUtSxbjHK6HNZZkUNwwq7w==}
+    engines: {node: '>=20.0'}
+    peerDependencies:
+      react: ^18.0.0 || ^19.0.0
+      react-dom: ^18.0.0 || ^19.0.0
+
+  '@docusaurus/plugin-google-tag-manager@3.9.1':
+    resolution: {integrity: sha512-rZAQZ25ZuXaThBajxzLjXieTDUCMmBzfAA6ThElQ3o7Q+LEpOjCIrwGFau0KLY9HeG6x91+FwwsAM8zeApYDrg==}
     engines: {node: '>=20.0'}
     peerDependencies:
       react: ^18.0.0 || ^19.0.0
@@ -11076,6 +11083,32 @@ snapshots:
       - utf-8-validate
       - webpack-cli
 
+  '@docusaurus/plugin-google-tag-manager@3.9.1(@mdx-js/react@3.1.1(@types/react@19.1.14)(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1)(typescript@5.9.2)':
+    dependencies:
+      '@docusaurus/core': 3.9.1(@mdx-js/react@3.1.1(@types/react@19.1.14)(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1)(typescript@5.9.2)
+      '@docusaurus/types': 3.9.1(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
+      '@docusaurus/utils-validation': 3.9.1(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
+      react: 19.1.1
+      react-dom: 19.1.1(react@19.1.1)
+      tslib: 2.8.1
+    transitivePeerDependencies:
+      - '@docusaurus/faster'
+      - '@mdx-js/react'
+      - '@parcel/css'
+      - '@rspack/core'
+      - '@swc/core'
+      - '@swc/css'
+      - bufferutil
+      - csso
+      - debug
+      - esbuild
+      - lightningcss
+      - supports-color
+      - typescript
+      - uglify-js
+      - utf-8-validate
+      - webpack-cli
+
   '@docusaurus/plugin-pwa@3.9.1(@docusaurus/plugin-content-docs@3.9.0(@mdx-js/react@3.1.1(@types/react@19.1.14)(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1)(typescript@5.9.2))(@mdx-js/react@3.1.1(@types/react@19.1.14)(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1)(typescript@5.9.2)':
     dependencies:
       '@babel/core': 7.28.4
@@ -11222,7 +11255,7 @@ snapshots:
 
   '@docusaurus/react-loadable@6.0.0(react@19.1.1)':
     dependencies:
-      '@types/react': 19.1.14
+      '@types/react': 19.1.13
       react: 19.1.1
 
   '@docusaurus/remark-plugin-npm2yarn@3.9.1':
