@@ -182,8 +182,8 @@ importers:
         specifier: 3.9.1
         version: 3.9.1
       '@docusaurus/types':
-        specifier: 3.9.0
-        version: 3.9.0(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
+        specifier: 3.9.1
+        version: 3.9.1(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
       '@tailwindcss/postcss':
         specifier: ^4.1.7
         version: 4.1.13
@@ -3418,9 +3418,6 @@ packages:
 
   '@types/react-router@5.1.20':
     resolution: {integrity: sha512-jGjmu/ZqS7FjSH6owMcD5qpq19+1RS9DeVRqfl1FeBMxTDQAGwlMWOcs52NDoXaNKyG3d1cYQFMs9rCrb88o9Q==}
-
-  '@types/react@19.1.13':
-    resolution: {integrity: sha512-hHkbU/eoO3EG5/MZkuFSKmYqPbSVk5byPFa3e7y/8TybHiLMACgI8seVYlicwk7H5K/rI2px9xrQp/C+AUDTiQ==}
 
   '@types/react@19.1.14':
     resolution: {integrity: sha512-ukd93VGzaNPMAUPy0gRDSC57UuQbnH9Kussp7HBjM06YFi9uZTFhOvMSO2OKqXm1rSgzOE+pVx1k1PYHGwlc8Q==}
@@ -11255,7 +11252,7 @@ snapshots:
 
   '@docusaurus/react-loadable@6.0.0(react@19.1.1)':
     dependencies:
-      '@types/react': 19.1.13
+      '@types/react': 19.1.14
       react: 19.1.1
 
   '@docusaurus/remark-plugin-npm2yarn@3.9.1':
@@ -11421,7 +11418,7 @@ snapshots:
       '@mdx-js/mdx': 3.1.1
       '@types/history': 4.7.11
       '@types/mdast': 4.0.4
-      '@types/react': 19.1.13
+      '@types/react': 19.1.14
       commander: 5.1.0
       joi: 17.13.3
       react: 19.1.1
@@ -12845,10 +12842,6 @@ snapshots:
     dependencies:
       '@types/history': 4.7.11
       '@types/react': 19.1.14
-
-  '@types/react@19.1.13':
-    dependencies:
-      csstype: 3.1.3
 
   '@types/react@19.1.14':
     dependencies:
