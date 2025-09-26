@@ -176,8 +176,8 @@ importers:
         version: 1.0.7(tailwindcss@4.1.13)
     devDependencies:
       '@docusaurus/module-type-aliases':
-        specifier: 3.9.0
-        version: 3.9.0(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
+        specifier: 3.9.1
+        version: 3.9.1(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
       '@docusaurus/tsconfig':
         specifier: 3.9.1
         version: 3.9.1
@@ -10799,7 +10799,7 @@ snapshots:
     dependencies:
       '@docusaurus/types': 3.9.0(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
       '@types/history': 4.7.11
-      '@types/react': 19.1.13
+      '@types/react': 19.1.14
       '@types/react-router-config': 5.0.11
       '@types/react-router-dom': 5.3.3
       react: 19.1.1
@@ -12805,13 +12805,13 @@ snapshots:
   '@types/react-router-dom@5.3.3':
     dependencies:
       '@types/history': 4.7.11
-      '@types/react': 19.1.13
+      '@types/react': 19.1.14
       '@types/react-router': 5.1.20
 
   '@types/react-router@5.1.20':
     dependencies:
       '@types/history': 4.7.11
-      '@types/react': 19.1.13
+      '@types/react': 19.1.14
 
   '@types/react@19.1.13':
     dependencies:
