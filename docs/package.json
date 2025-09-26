@@ -49,7 +49,7 @@
 		"tailwindcss-animate": "^1.0.7"
 	},
 	"devDependencies": {
-		"@docusaurus/module-type-aliases": "3.9.0",
+		"@docusaurus/module-type-aliases": "3.9.1",
 		"@docusaurus/tsconfig": "3.9.1",
 		"@docusaurus/types": "3.9.0",
 		"@tailwindcss/postcss": "^4.1.7",
