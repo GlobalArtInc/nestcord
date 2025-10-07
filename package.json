@@ -63,7 +63,7 @@
 		"@nestjs/core": "11.1.6",
 		"@nestjs/platform-express": "^11.1.1",
 		"@types/node": "24.7.0",
-		"@typescript-eslint/eslint-plugin": "8.45.0",
+		"@typescript-eslint/eslint-plugin": "8.46.0",
 		"@typescript-eslint/parser": "8.46.0",
 		"discord-api-types": "0.38.26",
 		"discord.js": "14.22.1",
