@@ -50,7 +50,7 @@
 	},
 	"devDependencies": {
 		"@docusaurus/module-type-aliases": "3.9.1",
-		"@docusaurus/tsconfig": "3.9.1",
+		"@docusaurus/tsconfig": "3.9.2",
 		"@docusaurus/types": "3.9.1",
 		"@tailwindcss/postcss": "^4.1.7",
 		"@tsconfig/docusaurus": "2.0.4",
