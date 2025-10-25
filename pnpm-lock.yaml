@@ -182,8 +182,8 @@ importers:
         specifier: 3.9.2
         version: 3.9.2
       '@docusaurus/types':
-        specifier: 3.9.1
-        version: 3.9.1(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
+        specifier: 3.9.2
+        version: 3.9.2(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
       '@tailwindcss/postcss':
         specifier: ^4.1.7
         version: 4.1.16
