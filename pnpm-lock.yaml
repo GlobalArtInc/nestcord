@@ -13,13 +13,13 @@ importers:
         version: 1.0.4
       '@nestjs/axios':
         specifier: ^4.0.0
-        version: 4.0.1(@nestjs/common@11.1.8(reflect-metadata@0.2.2)(rxjs@7.8.2))(axios@1.13.0)(rxjs@7.8.2)
+        version: 4.0.1(@nestjs/common@11.1.8(reflect-metadata@0.2.2)(rxjs@7.8.2))(axios@1.13.1)(rxjs@7.8.2)
       '@nestjs/schedule':
         specifier: ^6.0.0
         version: 6.0.1(@nestjs/common@11.1.8(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.8)
       axios:
         specifier: ^1.9.0
-        version: 1.13.0
+        version: 1.13.1
       cron:
         specifier: 4.3.3
         version: 4.3.3
@@ -3659,8 +3659,8 @@ packages:
     resolution: {integrity: sha512-wvUjBtSGN7+7SjNpq/9M2Tg350UZD3q62IFZLbRAR1bSMlCo1ZaeW+BJ+D090e4hIIZLBcTDWe4Mh4jvUDajzQ==}
     engines: {node: '>= 0.4'}
 
-  axios@1.13.0:
-    resolution: {integrity: sha512-zt40Pz4zcRXra9CVV31KeyofwiNvAbJ5B6YPz9pMJ+yOSLikvPT4Yi5LjfgjRa9CawVYBaD1JQzIVcIvBejKeA==}
+  axios@1.13.1:
+    resolution: {integrity: sha512-hU4EGxxt+j7TQijx1oYdAjw4xuIp1wRQSsbMFwSthCWeBQur1eF+qJ5iQ5sN3Tw8YRzQNKb8jszgBdMDVqwJcw==}
 
   babel-loader@9.2.1:
     resolution: {integrity: sha512-fqe8naHt46e0yIdkjUZYqddSXfej3AHajX+CSO5X7oy0EmPc6o5Xh+RClNoHjnieWz9AW4kZxW9yyFMhVB1QLA==}
@@ -11455,10 +11455,10 @@ snapshots:
       '@types/react': 19.2.2
       react: 19.2.0
 
-  '@nestjs/axios@4.0.1(@nestjs/common@11.1.8(reflect-metadata@0.2.2)(rxjs@7.8.2))(axios@1.13.0)(rxjs@7.8.2)':
+  '@nestjs/axios@4.0.1(@nestjs/common@11.1.8(reflect-metadata@0.2.2)(rxjs@7.8.2))(axios@1.13.1)(rxjs@7.8.2)':
     dependencies:
       '@nestjs/common': 11.1.8(reflect-metadata@0.2.2)(rxjs@7.8.2)
-      axios: 1.13.0
+      axios: 1.13.1
       rxjs: 7.8.2
 
   '@nestjs/cli@11.0.10(@types/node@24.9.1)':
@@ -12724,7 +12724,7 @@ snapshots:
     dependencies:
       possible-typed-array-names: 1.1.0
 
-  axios@1.13.0:
+  axios@1.13.1:
     dependencies:
       follow-redirects: 1.15.11
       form-data: 4.0.4
