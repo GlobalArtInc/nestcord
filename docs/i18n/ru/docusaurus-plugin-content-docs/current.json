@@ -5,22 +5,22 @@
   },
   "sidebar.docsSidebar.category.Interactions": {
     "message": "Взаимодействия",
-    "description": "The label for category Interactions in sidebar docsSidebar"
+    "description": "The label for category 'Interactions' in sidebar 'docsSidebar'"
   },
   "sidebar.docsSidebar.category.Interceptors": {
     "message": "Интерцепторы",
-    "description": "The label for category Interceptors in sidebar docsSidebar"
+    "description": "The label for category 'Interceptors' in sidebar 'docsSidebar'"
   },
   "sidebar.docsSidebar.category.Packages": {
     "message": "Пакеты",
-    "description": "The label for category Packages in sidebar docsSidebar"
+    "description": "The label for category 'Packages' in sidebar 'docsSidebar'"
   },
   "sidebar.docsSidebar.category.Techniques": {
     "message": "Техники",
-    "description": "The label for category Techniques in sidebar docsSidebar"
+    "description": "The label for category 'Techniques' in sidebar 'docsSidebar'"
   },
   "sidebar.docsSidebar.category.Contributing": {
     "message": "Вклад",
-    "description": "The label for category Contributing in sidebar docsSidebar"
+    "description": "The label for category 'Contributing' in sidebar 'docsSidebar'"
   }
 }
