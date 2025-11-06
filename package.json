@@ -50,7 +50,7 @@
 		"@nestjs/axios": "^4.0.0",
 		"@nestjs/schedule": "^6.0.0",
 		"axios": "^1.9.0",
-		"cron": "4.3.3",
+		"cron": "4.3.4",
 		"deepmerge": "^4.3.1",
 		"lavalink-client": "^2.5.3",
 		"path-to-regexp": "^8.0.0"
