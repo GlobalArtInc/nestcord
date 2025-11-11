@@ -42,7 +42,7 @@
 		"prism-react-renderer": "2.4.1",
 		"react": "19.2.0",
 		"react-dom": "19.2.0",
-		"sass": "1.93.3",
+		"sass": "1.94.0",
 		"shiki": "^3.4.2",
 		"tailwind-merge": "^3.3.0",
 		"tailwindcss": "^4.1.7",
