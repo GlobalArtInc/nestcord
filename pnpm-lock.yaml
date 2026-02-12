@@ -188,8 +188,8 @@ importers:
         specifier: ^4.1.7
         version: 4.1.18
       '@tsconfig/docusaurus':
-        specifier: 2.0.8
-        version: 2.0.8
+        specifier: 2.0.9
+        version: 2.0.9
       prettier:
         specifier: ^3.5.3
         version: 3.8.1
@@ -3106,8 +3106,8 @@ packages:
     resolution: {integrity: sha512-L7z9BgrNEcYyUYtF+HaEfiS5ebkh9jXqbszz7pC0hRBPaatV0XjSD3+eHrpqFemQfgwiFF0QPIarnIihIDn7OA==}
     engines: {node: '>=10.13.0'}
 
-  '@tsconfig/docusaurus@2.0.8':
-    resolution: {integrity: sha512-25cxrJH44gGHdjljVHNMPWu3Baf96sPtMjkUgoon+mXViaSuCeoYki+XUTFIitsnoPmpev/vMGjk06Kqan3a7Q==}
+  '@tsconfig/docusaurus@2.0.9':
+    resolution: {integrity: sha512-0jVxZCgy2v7TnJrW9kVNikNwJHeiWb68Zhiiw2vHw4tzBFSP5vS2zn3O5EY2oPEVz5dXZRkK7MnWG3Ay5q0mIg==}
 
   '@tsconfig/node10@1.0.11':
     resolution: {integrity: sha512-DcRjDCujK/kCk/cUe8Xz8ZSpm8mS3mNNpta+jGCA6USEDfktlNvm1+IuZ9eTcDbNk41BHwpHHeW+N1lKCz4zOw==}
@@ -12134,7 +12134,7 @@ snapshots:
 
   '@trysound/sax@0.2.0': {}
 
-  '@tsconfig/docusaurus@2.0.8': {}
+  '@tsconfig/docusaurus@2.0.9': {}
 
   '@tsconfig/node10@1.0.11': {}
 
