@@ -43,7 +43,7 @@
 		"react": "19.2.4",
 		"react-dom": "19.2.4",
 		"sass": "1.97.3",
-		"shiki": "^3.4.2",
+		"shiki": "^4.0.0",
 		"tailwind-merge": "^3.3.0",
 		"tailwindcss": "^4.1.7",
 		"tailwindcss-animate": "^1.0.7"
