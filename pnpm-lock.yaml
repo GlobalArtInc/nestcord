@@ -37,8 +37,8 @@ importers:
         specifier: 20.4.3
         version: 20.4.3(@types/node@25.4.0)(typescript@5.9.3)
       '@commitlint/config-angular':
-        specifier: 20.4.3
-        version: 20.4.3
+        specifier: 20.4.4
+        version: 20.4.4
       '@favware/npm-deprecate':
         specifier: 2.0.0
         version: 2.0.0
@@ -1602,8 +1602,8 @@ packages:
     resolution: {integrity: sha512-6HAMnXyUl3EUBgECjvfLzlghbkMfZx28YBPDry3pPWR0+xpzqSbUY19VIkmdetqYKeawFViudvkqD4VH93gKKg==}
     engines: {node: '>=v18'}
 
-  '@commitlint/config-angular@20.4.3':
-    resolution: {integrity: sha512-WawaRHilu/5ezf1YicqpQcWNzBY+Yn/+plHl2ZTN+9sdItrZSmC1oVeg4tSKeJPLFky2aFBp6rhs1y65uu83gA==}
+  '@commitlint/config-angular@20.4.4':
+    resolution: {integrity: sha512-sXxTQLw86nambAh5Wno0fNpfAPDwJ+HkfPUvZ87MCORe0sfEZlYXVZD47hpUl46xrU+kpfJl/JAIrcPTSauwyQ==}
     engines: {node: '>=v18'}
 
   '@commitlint/config-validator@20.4.3':
@@ -9888,7 +9888,7 @@ snapshots:
 
   '@commitlint/config-angular-type-enum@20.0.0': {}
 
-  '@commitlint/config-angular@20.4.3':
+  '@commitlint/config-angular@20.4.4':
     dependencies:
       '@commitlint/config-angular-type-enum': 20.0.0
 
