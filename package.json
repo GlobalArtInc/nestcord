@@ -57,7 +57,7 @@
 	},
 	"devDependencies": {
 		"@commitlint/cli": "20.4.4",
-		"@commitlint/config-angular": "20.4.4",
+		"@commitlint/config-angular": "20.5.0",
 		"@favware/npm-deprecate": "2.0.0",
 		"@nestjs/common": "11.1.16",
 		"@nestjs/core": "11.1.16",
