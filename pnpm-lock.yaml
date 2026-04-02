@@ -265,7 +265,7 @@ importers:
         version: 7.2.2
       ts-loader:
         specifier: ^9.5.2
-        version: 9.5.4(typescript@6.0.2)(webpack@5.105.4)
+        version: 9.5.7(typescript@6.0.2)(webpack@5.105.4)
       ts-node:
         specifier: ^10.9.1
         version: 10.9.2(@types/node@25.5.0)(typescript@6.0.2)
@@ -341,7 +341,7 @@ importers:
         version: 7.2.2
       ts-loader:
         specifier: ^9.5.2
-        version: 9.5.4(typescript@6.0.2)(webpack@5.105.4)
+        version: 9.5.7(typescript@6.0.2)(webpack@5.105.4)
       ts-node:
         specifier: ^10.9.1
         version: 10.9.2(@types/node@25.5.0)(typescript@6.0.2)
@@ -417,7 +417,7 @@ importers:
         version: 7.2.2
       ts-loader:
         specifier: ^9.5.2
-        version: 9.5.4(typescript@6.0.2)(webpack@5.105.4)
+        version: 9.5.7(typescript@6.0.2)(webpack@5.105.4)
       ts-node:
         specifier: ^10.9.1
         version: 10.9.2(@types/node@25.5.0)(typescript@6.0.2)
@@ -490,7 +490,7 @@ importers:
         version: 7.2.2
       ts-loader:
         specifier: ^9.5.2
-        version: 9.5.4(typescript@6.0.2)(webpack@5.105.4)
+        version: 9.5.7(typescript@6.0.2)(webpack@5.105.4)
       ts-node:
         specifier: ^10.9.1
         version: 10.9.2(@types/node@25.5.0)(typescript@6.0.2)
@@ -563,7 +563,7 @@ importers:
         version: 7.2.2
       ts-loader:
         specifier: ^9.5.2
-        version: 9.5.4(typescript@6.0.2)(webpack@5.105.4)
+        version: 9.5.7(typescript@6.0.2)(webpack@5.105.4)
       ts-node:
         specifier: ^10.9.1
         version: 10.9.2(@types/node@25.5.0)(typescript@6.0.2)
@@ -636,7 +636,7 @@ importers:
         version: 7.2.2
       ts-loader:
         specifier: ^9.5.2
-        version: 9.5.4(typescript@6.0.2)(webpack@5.105.4)
+        version: 9.5.7(typescript@6.0.2)(webpack@5.105.4)
       ts-node:
         specifier: ^10.9.1
         version: 10.9.2(@types/node@25.5.0)(typescript@6.0.2)
@@ -709,7 +709,7 @@ importers:
         version: 7.2.2
       ts-loader:
         specifier: ^9.5.2
-        version: 9.5.4(typescript@6.0.2)(webpack@5.105.4)
+        version: 9.5.7(typescript@6.0.2)(webpack@5.105.4)
       ts-node:
         specifier: ^10.9.1
         version: 10.9.2(@types/node@25.5.0)(typescript@6.0.2)
@@ -782,7 +782,7 @@ importers:
         version: 7.2.2
       ts-loader:
         specifier: ^9.5.2
-        version: 9.5.4(typescript@6.0.2)(webpack@5.105.4)
+        version: 9.5.7(typescript@6.0.2)(webpack@5.105.4)
       ts-node:
         specifier: ^10.9.1
         version: 10.9.2(@types/node@25.5.0)(typescript@6.0.2)
@@ -855,7 +855,7 @@ importers:
         version: 7.2.2
       ts-loader:
         specifier: ^9.5.2
-        version: 9.5.4(typescript@6.0.2)(webpack@5.105.4)
+        version: 9.5.7(typescript@6.0.2)(webpack@5.105.4)
       ts-node:
         specifier: ^10.9.1
         version: 10.9.2(@types/node@25.5.0)(typescript@6.0.2)
@@ -8374,8 +8374,8 @@ packages:
     peerDependencies:
       typescript: '>=4.8.4'
 
-  ts-loader@9.5.4:
-    resolution: {integrity: sha512-nCz0rEwunlTZiy6rXFByQU1kVVpCIgUpc/psFiKVrUwrizdnIbRFu8w7bxhUF0X613DYwT4XzrZHpVyMe758hQ==}
+  ts-loader@9.5.7:
+    resolution: {integrity: sha512-/ZNrKgA3K3PtpMYOC71EeMWIloGw3IYEa5/t1cyz2r5/PyUwTXGzYJvcD3kfUvmhlfpz1rhV8B2O6IVTQ0avsg==}
     engines: {node: '>=12.0.0'}
     peerDependencies:
       typescript: '*'
@@ -13811,7 +13811,7 @@ snapshots:
   enhanced-resolve@5.20.1:
     dependencies:
       graceful-fs: 4.2.11
-      tapable: 2.3.0
+      tapable: 2.3.2
 
   entities@2.2.0: {}
 
@@ -14746,7 +14746,7 @@ snapshots:
 
   history@4.10.1:
     dependencies:
-      '@babel/runtime': 7.29.2
+      '@babel/runtime': 7.28.4
       loose-envify: 1.4.0
       resolve-pathname: 3.0.0
       tiny-invariant: 1.3.3
@@ -16074,7 +16074,7 @@ snapshots:
   micromatch@4.0.8:
     dependencies:
       braces: 3.0.3
-      picomatch: 2.3.1
+      picomatch: 2.3.2
 
   mime-db@1.33.0: {}
 
@@ -16281,7 +16281,7 @@ snapshots:
     dependencies:
       hosted-git-info: 8.1.0
       proc-log: 5.0.0
-      semver: 7.7.3
+      semver: 7.7.4
       validate-npm-package-name: 6.0.2
 
   npm-registry-fetch@18.0.2:
@@ -18252,12 +18252,12 @@ snapshots:
     dependencies:
       typescript: 6.0.2
 
-  ts-loader@9.5.4(typescript@6.0.2)(webpack@5.105.4):
+  ts-loader@9.5.7(typescript@6.0.2)(webpack@5.105.4):
     dependencies:
       chalk: 4.1.2
-      enhanced-resolve: 5.18.3
+      enhanced-resolve: 5.20.1
       micromatch: 4.0.8
-      semver: 7.7.3
+      semver: 7.7.4
       source-map: 0.7.6
       typescript: 6.0.2
       webpack: 5.105.4
