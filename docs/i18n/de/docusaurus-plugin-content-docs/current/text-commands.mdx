@@ -33,6 +33,25 @@ export class AppService {
 }
 ```
 
+Another simple command with aliase
+
+```typescript title="src/app.service.ts"
+import { Injectable } from '@nestjs/common';
+import { Context, TextCommand, TextCommandContext } from '@globalart/nestcord';
+
+@Injectable()
+export class AppService {
+    @TextCommand({
+        name: 'hello',
+        description: 'Say hello',
+        aliases: ['hi', 'hey'],
+    })
+    public onHello(@Context() [message]: TextCommandContext) {
+        return message.reply('Hello!');
+    }
+}
+```
+
 ## Arguments
 
 You can also use arguments with text commands. Arguments are the words after the command name.
