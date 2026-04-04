@@ -1,0 +1,204 @@
+---
+id: sharding
+
+title: Sharding
+
+sidebar_position: 4
+---
+
+A NestJS wrapper around Discord.js [`ShardingManager`](https://discord.js.org/docs/packages/discord.js/main/ShardingManager:Class) that lets you orchestrate bot shards from a dedicated NestJS application context.
+
+:::info
+This module runs in the **manager process** — the process that spawns and supervises shard workers. It is separate from your bot application.
+If you are looking for a basic sharding setup without a dedicated NestJS context, see [Techniques → Sharding](../techniques/sharding).
+:::
+
+## Setup
+
+Create a dedicated entry point for the manager process:
+
+```typescript title="src/manager.ts"
+import { NestFactory } from '@nestjs/core';
+import { ManagerModule } from './manager.module';
+
+async function bootstrap() {
+    await NestFactory.createApplicationContext(ManagerModule);
+}
+
+bootstrap();
+```
+
+Then import `NestCordShardingModule` into your manager module:
+
+```typescript title="src/manager.module.ts"
+import { Module } from '@nestjs/common';
+import { join } from 'node:path';
+import { NestCordShardingModule } from '@globalart/nestcord';
+
+@Module({
+    imports: [
+        NestCordShardingModule.forRoot({
+            file: join(__dirname, 'main.js'),
+            token: process.env.DISCORD_TOKEN,
+            totalShards: 'auto',
+        }),
+    ],
+})
+export class ManagerModule {}
+```
+
+`main.js` is the compiled entry point of your actual bot application (the one that imports `NestCordModule`). By default the module calls `ShardingManager.spawn()` automatically on init.
+
+### Module Options
+
+`NestCordShardingModuleOptions` extends Discord.js [`ShardingManagerOptions`](https://discord.js.org/docs/packages/discord.js/main/ShardingManagerOptions:Interface):
+
+| Property         | Type                                   | Default    | Description                                                        |
+|------------------|----------------------------------------|------------|--------------------------------------------------------------------|
+| `file`           | `string`                               | —          | Path to the compiled bot script file.                              |
+| `token`          | `string`                               | —          | Discord bot token passed to the manager.                           |
+| `totalShards`    | `number \| 'auto'`                     | `'auto'`   | Number of shards to spawn.                                         |
+| `autoSpawn`      | `boolean`                              | `true`     | Whether to call `spawn()` automatically on module init.            |
+| `spawnOptions`   | `NestCordShardingSpawnOptions`         | —          | Options forwarded to `ShardingManager.spawn()`.                    |
+
+`NestCordShardingSpawnOptions`:
+
+| Property    | Type                  | Default  | Description                                          |
+|-------------|-----------------------|----------|------------------------------------------------------|
+| `amount`    | `number \| 'auto'`    | `'auto'` | Number of shards to spawn.                           |
+| `delay`     | `number`              | `5500`   | Delay in milliseconds between each shard spawn.      |
+| `timeout`   | `number`              | `30000`  | Timeout in milliseconds to wait for a shard to ready.|
+
+## Listeners
+
+Use `@OnShardingManager` and `@OnShard` to react to shard lifecycle events directly in any provider:
+
+```typescript title="src/shard-events.service.ts"
+import { Injectable, Logger } from '@nestjs/common';
+import { Shard } from 'discord.js';
+import {
+    OnShardingManager,
+    OnShard,
+    NestCordShardingManagerEvents,
+    NestCordShardEvents,
+} from '@globalart/nestcord';
+
+@Injectable()
+export class ShardEventsService {
+    private readonly logger = new Logger(ShardEventsService.name);
+
+    @OnShardingManager('shardCreate')
+    onShardCreate([shard]: NestCordShardingManagerEvents['shardCreate']) {
+        this.logger.log(`Shard #${shard.id} created`);
+    }
+
+    @OnShard('ready')
+    onShardReady([shard]: NestCordShardEvents['ready']) {
+        this.logger.log(`Shard #${shard.id} is ready`);
+    }
+
+    @OnShard('error')
+    onShardError([shard, error]: NestCordShardEvents['error']) {
+        this.logger.error(`Shard #${shard.id} error: ${error.message}`);
+    }
+
+    @OnShard('death')
+    onShardDeath([shard]: NestCordShardEvents['death']) {
+        this.logger.warn(`Shard #${shard.id} died`);
+    }
+}
+```
+
+Don't forget to add `ShardEventsService` to the `providers` array of your `ManagerModule`.
+
+### ShardingManager Events (`@OnShardingManager`)
+
+| Event           | Arguments            | Description                              |
+|-----------------|----------------------|------------------------------------------|
+| `shardCreate`   | `shard: Shard`       | Emitted when a new shard is created.     |
+
+### Shard Events (`@OnShard`)
+
+These listeners are automatically registered on **every shard** as it spawns.
+
+| Event          | Arguments                                  | Description                                              |
+|----------------|--------------------------------------------|----------------------------------------------------------|
+| `spawn`        | `shard, process`                           | Emitted when the shard process is spawned.               |
+| `ready`        | `shard`                                    | Emitted when the shard becomes ready.                    |
+| `reconnecting` | `shard`                                    | Emitted when the shard starts reconnecting.              |
+| `resume`       | `shard`                                    | Emitted when the shard resumes its connection.           |
+| `disconnect`   | `shard`                                    | Emitted when the shard disconnects.                      |
+| `error`        | `shard, error: Error`                      | Emitted when the shard encounters an error.              |
+| `message`      | `shard, message`                           | Emitted when the shard sends a message to the manager.   |
+| `death`        | `shard, process`                           | Emitted when the shard process exits.                    |
+
+## Providers
+
+`ShardingManager` is injectable directly into any provider:
+
+```typescript title="src/manager.service.ts"
+import { Injectable } from '@nestjs/common';
+import { ShardingManager } from 'discord.js';
+
+@Injectable()
+export class ManagerService {
+    public constructor(private readonly shardingManager: ShardingManager) {}
+}
+```
+
+Alternatively, use the `NestCordShardingService` wrapper for convenience methods:
+
+```typescript title="src/manager.service.ts"
+import { Injectable } from '@nestjs/common';
+import { NestCordShardingService } from '@globalart/nestcord';
+
+@Injectable()
+export class ManagerService {
+    public constructor(private readonly shardingService: NestCordShardingService) {}
+
+    async getGuildCount(): Promise<number> {
+        const counts = await this.shardingService.fetchClientValues('guilds.cache.size');
+        return (counts as number[]).reduce((acc, count) => acc + count, 0);
+    }
+
+    async broadcastReload(): Promise<void> {
+        await this.shardingService.broadcastEval((client) => client.guilds.cache.size);
+    }
+}
+```
+
+### `NestCordShardingService` API
+
+| Method                    | Returns                            | Description                                                  |
+|---------------------------|------------------------------------|--------------------------------------------------------------|
+| `shards`                  | `Collection<number, Shard>`        | All currently spawned shards.                                |
+| `spawn(options?)`         | `Promise<Collection<number, Shard>>` | Spawns shards (useful when `autoSpawn` is `false`).        |
+| `broadcast(message)`      | `Promise<unknown[]>`               | Sends a message to all shards.                               |
+| `broadcastEval(fn, opts?)`| `Promise<T[]>`                     | Evaluates a function on all shard clients and returns results.|
+| `fetchClientValues(prop)` | `Promise<unknown>`                 | Fetches a client property from all shards.                   |
+| `respawnAll(options?)`    | `Promise<Collection<number, Shard>>` | Kills and restarts all shards.                             |
+
+## Async Configuration
+
+```typescript title="src/manager.module.ts"
+import { Module } from '@nestjs/common';
+import { ConfigModule, ConfigService } from '@nestjs/config';
+import { join } from 'node:path';
+import { NestCordShardingModule } from '@globalart/nestcord';
+
+@Module({
+    imports: [
+        ConfigModule.forRoot(),
+        NestCordShardingModule.forRootAsync({
+            imports: [ConfigModule],
+            inject: [ConfigService],
+            useFactory: (config: ConfigService) => ({
+                file: join(__dirname, 'main.js'),
+                token: config.getOrThrow('DISCORD_TOKEN'),
+                totalShards: 'auto',
+            }),
+        }),
+    ],
+})
+export class ManagerModule {}
+```

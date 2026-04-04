@@ -1,6 +1,6 @@
 import { ColorModeProvider } from '@docusaurus/theme-common/internal';
-import { ArrowRight, Code2, Cpu, Github, Layers, MessageCircle, Sparkles } from 'lucide-react';
-import { motion } from 'motion/react';
+import { ArrowRight, Code2, Cpu, ExternalLink, Layers, MessageCircle, Sparkles } from 'lucide-react';
+import { motion, type Variants } from 'motion/react';
 import ColorModeSwitch from '../components/color-mode-switch';
 import { Button } from '../components/ui/button';
 
@@ -45,7 +45,7 @@ function HomeContent() {
 		window.location.href = '/introduction';
 	};
 
-	const containerVariants = {
+	const containerVariants: Variants = {
 		hidden: { opacity: 0 },
 		visible: {
 			opacity: 1,
@@ -56,7 +56,7 @@ function HomeContent() {
 		}
 	};
 
-	const itemVariants = {
+	const itemVariants: Variants = {
 		hidden: { y: 30, opacity: 0 },
 		visible: {
 			y: 0,
@@ -68,7 +68,7 @@ function HomeContent() {
 		}
 	};
 
-	const featureVariants = {
+	const featureVariants: Variants = {
 		hidden: { y: 20, opacity: 0 },
 		visible: {
 			y: 0,
@@ -135,7 +135,7 @@ function HomeContent() {
 								className="px-8 py-4 border-slate-300 dark:border-slate-600 hover:border-slate-400 dark:hover:border-slate-500 text-lg font-medium rounded-xl transition-all duration-200 hover:shadow-lg cursor-pointer"
 								onClick={() => openLink(LINKS.github)}
 							>
-								<Github className="mr-2 h-5 w-5" />
+								<ExternalLink className="mr-2 h-5 w-5" />
 								View on GitHub
 							</Button>
 						</motion.div>
@@ -229,7 +229,9 @@ function HomeContent() {
 }
 
 export default function Home() {
-	return ColorModeProvider({
-		children: <HomeContent />
-	});
+	return (
+		<ColorModeProvider>
+			<HomeContent />
+		</ColorModeProvider>
+	);
 }
