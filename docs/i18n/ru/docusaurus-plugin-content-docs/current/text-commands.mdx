@@ -32,6 +32,25 @@ export class AppService {
 }
 ```
 
+Another simple command with aliase
+
+```typescript title="src/app.service.ts"
+import { Injectable } from '@nestjs/common';
+import { Context, TextCommand, TextCommandContext } from '@globalart/nestcord';
+
+@Injectable()
+export class AppService {
+    @TextCommand({
+        name: 'hello',
+        description: 'Say hello',
+        aliases: ['hi', 'hey'],
+    })
+    public onHello(@Context() [message]: TextCommandContext) {
+        return message.reply('Hello!');
+    }
+}
+```
+
 ## Аргументы
 
 Вы также можете использовать аргументы в текстовых командах. Аргументы - это слова после имени команды.
