@@ -1,4 +1,4 @@
-import { Global, Inject, Logger, Module, OnApplicationShutdown, OnModuleInit } from '@nestjs/common';
+import { Global, Inject, Logger, Module, OnApplicationBootstrap, OnApplicationShutdown } from '@nestjs/common';
 import { ShardingManager } from 'discord.js';
 import { NestCordShardingConfigurableModule, SHARDING_MODULE_OPTIONS } from './nestcord-sharding.module-definition';
 import { NestCordShardingModuleOptions } from './nestcord-sharding-options.interface';
@@ -16,7 +16,7 @@ const Providers = Object.values(ProvidersMap);
 })
 export class NestCordShardingModule
   extends NestCordShardingConfigurableModule
-  implements OnModuleInit, OnApplicationShutdown
+  implements OnApplicationBootstrap, OnApplicationShutdown
 {
   private readonly logger = new Logger(NestCordShardingModule.name);
 
@@ -28,7 +28,7 @@ export class NestCordShardingModule
     super();
   }
 
-  public async onModuleInit(): Promise<void> {
+  public async onApplicationBootstrap(): Promise<void> {
     if (this.options.autoSpawn === false) {
       return;
     }

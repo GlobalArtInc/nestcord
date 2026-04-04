@@ -1,4 +1,4 @@
-import { Module, OnModuleInit } from '@nestjs/common';
+import { Module, OnApplicationBootstrap } from '@nestjs/common';
 import { DiscoveryModule, DiscoveryService, MetadataScanner, Reflector } from '@nestjs/core';
 import { Shard, ShardingManager } from 'discord.js';
 import { EventEmitter } from 'node:events';
@@ -13,7 +13,7 @@ interface ExecutableListener extends ShardingListenerMeta {
 @Module({
   imports: [DiscoveryModule],
 })
-export class ShardingListenersModule implements OnModuleInit {
+export class ShardingListenersModule implements OnApplicationBootstrap {
   public constructor(
     private readonly discoveryService: DiscoveryService,
     private readonly metadataScanner: MetadataScanner,
@@ -21,7 +21,7 @@ export class ShardingListenersModule implements OnModuleInit {
     private readonly shardingManager: ShardingManager,
   ) {}
 
-  public onModuleInit(): void {
+  public onApplicationBootstrap(): void {
     const groupedListeners = new Map<string, ExecutableListener[]>();
 
     const wrappers = this.discoveryService.getProviders().filter((wrapper) => {
