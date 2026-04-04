@@ -1,7 +1,6 @@
-import { Module, OnApplicationBootstrap } from '@nestjs/common';
+import { Logger, Module, OnApplicationBootstrap, OnModuleDestroy, OnModuleInit } from '@nestjs/common';
 import { DiscoveryModule, DiscoveryService, MetadataScanner, Reflector } from '@nestjs/core';
 import { Shard, ShardingManager } from 'discord.js';
-import { EventEmitter } from 'node:events';
 import { ShardingListener } from './decorators';
 import { ShardingListenerMeta } from './interfaces';
 import { ShardingHostType } from './enums';
@@ -13,7 +12,9 @@ interface ExecutableListener extends ShardingListenerMeta {
 @Module({
   imports: [DiscoveryModule],
 })
-export class ShardingListenersModule implements OnApplicationBootstrap {
+export class ShardingListenersModule implements OnModuleInit {
+  private readonly logger = new Logger(ShardingListenersModule.name);
+
   public constructor(
     private readonly discoveryService: DiscoveryService,
     private readonly metadataScanner: MetadataScanner,
@@ -21,7 +22,8 @@ export class ShardingListenersModule implements OnApplicationBootstrap {
     private readonly shardingManager: ShardingManager,
   ) {}
 
-  public onApplicationBootstrap(): void {
+  public onModuleInit(): void {
+    this.registerBaseShardEvents();
     const groupedListeners = new Map<string, ExecutableListener[]>();
 
     const wrappers = this.discoveryService.getProviders().filter((wrapper) => {
@@ -46,35 +48,45 @@ export class ShardingListenersModule implements OnApplicationBootstrap {
       }
     }
 
-    for (const [key, listeners] of groupedListeners) {
-      const [event, host] = key.split(':');
+    const allListeners = [...groupedListeners.values()].flat();
 
-      if (host === ShardingHostType.ShardingManager) {
-        /**
-         * ShardingManager extends EventEmitter. Casting to EventEmitter lets us
-         * register listeners with a dynamic event name without bypassing type safety —
-         * EventEmitter.on(event: string) is the correct untyped surface for this.
-         */
-        (this.shardingManager as EventEmitter).on(event, (...args: unknown[]) => {
-          for (const listener of listeners) {
-            listener.run(args);
-          }
-        });
-      }
-
-      if (host === ShardingHostType.Shard) {
-        /**
-         * Shard also extends EventEmitter. We subscribe to shardCreate on the manager
-         * so that every new Shard gets the same listener registered on it immediately.
-         */
-        this.shardingManager.on('shardCreate', (shard: Shard) => {
-          (shard as EventEmitter).on(event, (...args: unknown[]) => {
-            for (const listener of listeners) {
-              listener.run(args);
-            }
-          });
+    for (const listener of allListeners) {
+      if (listener.host === ShardingHostType.ShardingManager) {
+        this.shardingManager[listener.type](listener.event as any, (...args: unknown[]) => {
+          listener.run(...args);
         });
       }
     }
+
+    this.shardingManager.on('shardCreate', (shard: Shard) => {
+      for (const listener of allListeners) {
+        if (listener.host === ShardingHostType.Shard) {
+          shard[listener.type](listener.event as any, (...args: unknown[]) => {
+            listener.run(shard, ...args);
+          });
+        }
+      }
+    });
+  }
+
+  private registerBaseShardEvents() {
+    this.shardingManager.on('shardCreate', (shard: Shard) => {
+      shard.on('spawn', () => {
+        this.logger.log(`Shard: [${shard.id}] spawned`);
+      });
+
+      shard.on('ready', () => {
+        this.logger.log(`Shard: [${shard.id}] is ready`);
+      });
+
+      shard.on('death', () => {
+        this.logger.error(`Shard: [${shard.id}] is dead`);
+      });
+
+      shard.on('error', (err: Error) => {
+        this.logger.error(`Error in shard: [${shard.id}]`, err);
+        shard.respawn();
+      });
+    })
   }
 }
