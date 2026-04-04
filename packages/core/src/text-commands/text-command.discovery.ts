@@ -3,6 +3,7 @@ import { NestCordBaseDiscovery } from '../context';
 export interface TextCommandMeta {
   name: string;
   description: string;
+  aliases?: string[];
 }
 
 /**
@@ -15,6 +16,9 @@ export class TextCommandDiscovery extends NestCordBaseDiscovery<TextCommandMeta>
 
   public getDescription() {
     return this.meta.description;
+  }
+  public getAliases() {
+    return this.meta.aliases ?? [];
   }
 
   public isTextCommand(): this is TextCommandDiscovery {
