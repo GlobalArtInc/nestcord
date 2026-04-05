@@ -8,7 +8,6 @@ A NestJS wrapper around Discord.js [`ShardingManager`](https://discord.js.org/do
 
 :::info
 This module runs in the **manager process** — the process that spawns and supervises shard workers. It is separate from your bot application.
-If you are looking for a basic sharding setup without a dedicated NestJS context, see [Techniques → Sharding](../techniques/sharding).
 :::
 
 ## Setup
@@ -86,22 +85,22 @@ export class ShardEventsService {
     private readonly logger = new Logger(ShardEventsService.name);
 
     @OnShardingManager('shardCreate')
-    onShardCreate([shard]: NestCordShardingManagerEvents['shardCreate']) {
+    onShardCreate(shard: Shard) {
         this.logger.log(`Shard #${shard.id} created`);
     }
 
     @OnShard('ready')
-    onShardReady([shard]: NestCordShardEvents['ready']) {
+    onShardReady(shard: Shard) {
         this.logger.log(`Shard #${shard.id} is ready`);
     }
 
     @OnShard('error')
-    onShardError([shard, error]: NestCordShardEvents['error']) {
+    onShardError(shard: Shard, error: Error) {
         this.logger.error(`Shard #${shard.id} error: ${error.message}`);
     }
 
     @OnShard('death')
-    onShardDeath([shard]: NestCordShardEvents['death']) {
+    onShardDeath(shard: Shard) {
         this.logger.warn(`Shard #${shard.id} died`);
     }
 }
