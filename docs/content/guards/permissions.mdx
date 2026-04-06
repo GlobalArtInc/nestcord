@@ -1,0 +1,118 @@
+---
+id: permissions
+title: Permissions
+sidebar_position: 0
+---
+
+The `@Permissions()` decorator restricts command execution to Discord members who hold the specified permissions. It works together with `PermissionsGuard` which checks `interaction.memberPermissions` (or `message.member.permissions` for text commands) before the handler is called.
+
+## Usage
+
+Apply `@Permissions()` to any slash command, context menu, button, select menu, or text command handler. Pass one or more [`PermissionFlagsBits`](https://discord.js.org/docs/packages/discord.js/main/PermissionFlagsBits:Variable) values — the member must have **all** of them.
+
+```typescript title="src/moderation.commands.ts"
+import { Injectable } from '@nestjs/common';
+import { PermissionFlagsBits } from 'discord.js';
+import { Context, Permissions, SlashCommand, SlashCommandContext } from '@globalart/nestcord';
+
+@Injectable()
+export class ModerationCommands {
+  @Permissions(PermissionFlagsBits.KickMembers)
+  @SlashCommand({ name: 'kick', description: 'Kick a member' })
+  async onKick(@Context() [interaction]: SlashCommandContext) {
+    // only members with KickMembers permission reach this point
+  }
+}
+```
+
+### Multiple flags
+
+Pass multiple flags to require all of them simultaneously:
+
+```typescript
+@Permissions(PermissionFlagsBits.ManageMessages, PermissionFlagsBits.ViewChannel)
+@SlashCommand({ name: 'clear', description: 'Delete messages' })
+async onClear(@Context() [interaction]: SlashCommandContext) { ... }
+```
+
+### Class-level permissions
+
+Apply the decorator to the class to protect all handlers inside it:
+
+```typescript
+@Permissions(PermissionFlagsBits.Administrator)
+@Injectable()
+export class AdminCommands {
+  @SlashCommand({ name: 'setup', description: 'Initial server setup' })
+  async onSetup(@Context() [interaction]: SlashCommandContext) { ... }
+
+  @SlashCommand({ name: 'reset', description: 'Reset configuration' })
+  async onReset(@Context() [interaction]: SlashCommandContext) { ... }
+}
+```
+
+## Handling the exception
+
+When a member lacks the required permissions, `PermissionsGuard` throws an `InsufficientPermissionsException`. Without a filter, NestJS would swallow it silently. Create an `ExceptionFilter` to reply to the user:
+
+```typescript title="src/filters/permissions.filter.ts"
+import { ArgumentsHost, Catch, ExceptionFilter } from '@nestjs/common';
+import { NestCordArgumentsHost, InsufficientPermissionsException, AnyContext } from '@globalart/nestcord';
+
+@Catch(InsufficientPermissionsException)
+export class PermissionsExceptionFilter implements ExceptionFilter {
+  catch(exception: InsufficientPermissionsException, host: ArgumentsHost) {
+    const [interaction] = NestCordArgumentsHost.create(host).getContext<AnyContext>();
+    return interaction.reply({
+      content: '🚫 You do not have permission to use this command.',
+      ephemeral: true,
+    });
+  }
+}
+```
+
+Register the filter on the handler, on the class, or globally:
+
+```typescript
+// Per handler
+@UseFilters(PermissionsExceptionFilter)
+@Permissions(PermissionFlagsBits.BanMembers)
+@SlashCommand({ name: 'ban', description: 'Ban a member' })
+async onBan(...) { ... }
+
+// Per class
+@UseFilters(PermissionsExceptionFilter)
+@Injectable()
+export class ModerationCommands { ... }
+
+// Globally (main.ts)
+app.useGlobalFilters(new PermissionsExceptionFilter());
+```
+
+## How it works
+
+```
+User calls /kick
+        │
+        ▼
+ PermissionsGuard
+        │
+  has KickMembers?
+   ┌────┴────┐
+  yes       no
+   │         │
+   ▼         ▼
+handler   throws InsufficientPermissionsException
+             │
+             ▼
+    PermissionsExceptionFilter
+             │
+             ▼
+    ephemeral reply to user
+```
+
+`@Permissions()` checks **member** permissions only (what the user can do in the guild). It does **not** check bot permissions — add a separate guard for that if needed.
+
+:::info DMs
+In direct messages `memberPermissions` is `null`, so any command decorated with `@Permissions()` will be blocked in DMs.
+:::

@@ -39,3 +39,16 @@ export type UserSelectContext = [UserSelectMenuInteraction];
 export type MentionableSelectContext = [MentionableSelectMenuInteraction];
 
 export type ContextOf<K extends keyof E, E = NestCordEvents> = E[K];
+
+export type AnyContext =
+  | SlashCommandContext
+  | TextCommandContext
+  | MessageCommandContext
+  | UserCommandContext
+  | ModalContext
+  | ButtonContext
+  | StringSelectContext
+  | ChannelSelectContext
+  | RoleSelectContext
+  | UserSelectContext
+  | MentionableSelectContext;

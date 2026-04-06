@@ -5,6 +5,8 @@ export * from './message-components';
 export * from './modals';
 export * from './text-commands';
 
+export * from './cooldown';
+export * from './permissions';
 export * from './nestcord.module-definition';
 export * from './nestcord.module';
 export * from './providers/client.provider';

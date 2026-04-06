@@ -87,6 +87,6 @@ export class ShardingListenersModule implements OnModuleInit {
         this.logger.error(`Error in shard: [${shard.id}]`, err);
         shard.respawn();
       });
-    })
+    });
   }
 }
