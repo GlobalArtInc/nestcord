@@ -1,0 +1,201 @@
+---
+id: cooldown
+title: Cooldown
+sidebar_position: 1
+---
+
+The `@Cooldown()` decorator enforces a per-user rate limit on any command or component handler. It automatically applies `CooldownGuard` — no `@UseGuards()` needed.
+
+## Setup
+
+Import `NestCordCooldownModule` once in your root module. Choose a storage backend that fits your use case:
+
+```typescript title="src/app.module.ts"
+import { NestCordCooldownModule } from '@globalart/nestcord';
+
+@Module({
+  imports: [
+    NestCordCooldownModule.forRoot({
+      storage: { type: 'memory' }, // default
+    }),
+  ],
+})
+export class AppModule {}
+```
+
+## Storage backends
+
+### Memory (default)
+
+Zero dependencies. Cooldowns reset when the process restarts. Suitable for development and small single-instance bots.
+
+```typescript
+NestCordCooldownModule.forRoot({})
+// or explicitly:
+NestCordCooldownModule.forRoot({ storage: { type: 'memory' } })
+```
+
+### File
+
+Persists cooldowns to a JSON file on disk. Survives restarts. Suitable for single-process bots that cannot use Redis.
+
+```typescript
+NestCordCooldownModule.forRoot({
+  storage: { type: 'file', path: './cooldowns.json' },
+})
+```
+
+### Redis
+
+Persists cooldowns in Redis. Survives restarts and is shared across all shards and processes. Requires [`ioredis`](https://github.com/redis/ioredis):
+
+```bash npm2yarn
+$ npm install ioredis
+```
+
+```typescript
+NestCordCooldownModule.forRoot({
+  storage: { type: 'redis', options: { url: 'redis://localhost:6379' } },
+})
+```
+
+#### Async configuration
+
+Use `forRootAsync` to inject dependencies (e.g. `ConfigService`):
+
+```typescript
+NestCordCooldownModule.forRootAsync({
+  imports: [ConfigModule],
+  inject: [ConfigService],
+  useFactory: (config: ConfigService) => ({
+    storage: {
+      type: 'redis',
+      options: { url: config.get('REDIS_URL') },
+    },
+  }),
+})
+```
+
+## Usage
+
+Apply `@Cooldown(ms)` to any handler. The argument is the cooldown duration in **milliseconds**.
+
+```typescript title="src/app.commands.ts"
+import { Injectable } from '@nestjs/common';
+import { Context, Cooldown, SlashCommand, SlashCommandContext } from '@globalart/nestcord';
+
+@Injectable()
+export class AppCommands {
+  @Cooldown(5_000) // 5 seconds
+  @SlashCommand({ name: 'roll', description: 'Roll a random number' })
+  async onRoll(@Context() [interaction]: SlashCommandContext) {
+    const result = Math.floor(Math.random() * 100) + 1;
+    return interaction.reply({ content: `🎲 You rolled **${result}**!` });
+  }
+}
+```
+
+The cooldown is **per user per handler** — each user has an independent timer for each command.
+
+### Long cooldowns
+
+```typescript
+@Cooldown(86_400_000) // 24 hours
+@SlashCommand({ name: 'daily', description: 'Claim your daily reward' })
+async onDaily(@Context() [interaction]: SlashCommandContext) {
+  return interaction.reply({ content: '🎁 Daily reward claimed!' });
+}
+```
+
+### Text commands
+
+`@Cooldown()` also works with text commands. The timer is based on `message.author.id`:
+
+```typescript
+@Cooldown(5_000)
+@TextCommand({ name: 'roll', description: 'Roll a random number' })
+async onRoll(@Context() [message]: TextCommandContext) {
+  return message.reply(`🎲 You rolled **${Math.floor(Math.random() * 100) + 1}**!`);
+}
+```
+
+### Combined with @Permissions
+
+Both decorators can be stacked on the same handler:
+
+```typescript
+@Permissions(PermissionFlagsBits.BanMembers)
+@Cooldown(10_000)
+@UserCommand({ name: 'Ban user' })
+async onBan(@Context() [interaction]: UserCommandContext) { ... }
+```
+
+## Handling the exception
+
+When a user is on cooldown, `CooldownGuard` throws a `CooldownException` which exposes `remainingMs` — the exact time left before the cooldown expires.
+
+```typescript title="src/filters/cooldown.filter.ts"
+import { ArgumentsHost, Catch, ExceptionFilter } from '@nestjs/common';
+import { NestCordArgumentsHost, CooldownException, AnyContext } from '@globalart/nestcord';
+
+@Catch(CooldownException)
+export class CooldownExceptionFilter implements ExceptionFilter {
+  catch(exception: CooldownException, host: ArgumentsHost) {
+    const [interaction] = NestCordArgumentsHost.create(host).getContext<AnyContext>();
+
+    const seconds = (exception.remainingMs / 1000).toFixed(1);
+    return interaction.reply({
+      content: `⏳ You're on cooldown. Try again in **${seconds}s**.`,
+      ephemeral: true,
+    });
+  }
+}
+```
+
+Register the filter on the handler, class, or globally:
+
+```typescript
+// Per class
+@UseFilters(CooldownExceptionFilter)
+@Injectable()
+export class AppCommands { ... }
+
+// Globally (main.ts)
+app.useGlobalFilters(new CooldownExceptionFilter());
+```
+
+## How it works
+
+```
+User calls /roll
+       │
+       ▼
+  CooldownGuard
+       │
+  storage.get(key)       key = "AppCommands:onRoll:<userId>"
+   ┌───┴───┐
+  null   lastUsed
+   │       │
+   │    elapsed < ms?
+   │    ┌──┴──┐
+   │   yes    no
+   │    │      │
+   │    ▼      ▼
+   │  throws  storage.set(key, now, ms)
+   │  Cooldown    │
+   │  Exception   ▼
+   │            handler
+   ▼
+storage.set(key, now, ms)
+       │
+       ▼
+    handler
+```
+
+:::tip
+When using the **Redis** backend, `remainingMs` is derived from the stored timestamp, not from Redis TTL, so it remains accurate even if the clock drifts slightly between restarts.
+:::
+
+:::info NestCordCooldownModule not imported
+If you use `@Cooldown()` without importing `NestCordCooldownModule`, the guard will fall back to in-memory storage automatically. This is convenient for quick setups but means cooldowns reset on restart.
+:::
