@@ -22,5 +22,9 @@
   "sidebar.docsSidebar.category.Contributing": {
     "message": "Contributing",
     "description": "The label for category 'Contributing' in sidebar 'docsSidebar'"
+  },
+  "sidebar.docsSidebar.category.Guards": {
+    "message": "Guards",
+    "description": "The label for category 'Guards' in sidebar 'docsSidebar'"
   }
 }
