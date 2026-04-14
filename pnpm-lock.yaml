@@ -64,8 +64,8 @@ importers:
         specifier: 0.38.46
         version: 0.38.46
       discord.js:
-        specifier: 14.26.2
-        version: 14.26.2
+        specifier: 14.26.3
+        version: 14.26.3
       eslint:
         specifier: 10.2.0
         version: 10.2.0(jiti@2.6.1)
@@ -4624,8 +4624,8 @@ packages:
   discord-api-types@0.38.46:
     resolution: {integrity: sha512-Ae7NcagMG+FPxwuQxGCPEHmLCKMm8YBMPWEuF5J3L+KWrlH4XGR3UoVo4Ne8bwhhHXbpf+DxDqOeW2jBFupXCQ==}
 
-  discord.js@14.26.2:
-    resolution: {integrity: sha512-feShi+gULJ6R2MAA4/KkCFnkJcuVrROJrKk4czplzq8gE1oqhqgOy9K0Scu44B8oGeWKe04egquzf+ia6VtXAw==}
+  discord.js@14.26.3:
+    resolution: {integrity: sha512-XEKtYn28YFsiJ5l4fLRyikdbo6RD5oFyqfVHQlvXz2104JhH/E8slN28dbky05w3DCrJcNVWvhVvcJCTSl/KIg==}
     engines: {node: '>=18'}
 
   dns-packet@5.6.1:
@@ -13835,7 +13835,7 @@ snapshots:
 
   discord-api-types@0.38.46: {}
 
-  discord.js@14.26.2:
+  discord.js@14.26.3:
     dependencies:
       '@discordjs/builders': 1.14.1
       '@discordjs/collection': 1.5.3
