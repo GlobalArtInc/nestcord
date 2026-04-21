@@ -170,10 +170,10 @@ importers:
         version: 3.5.0
       tailwindcss:
         specifier: ^4.1.7
-        version: 4.2.2
+        version: 4.2.3
       tailwindcss-animate:
         specifier: ^1.0.7
-        version: 1.0.7(tailwindcss@4.2.2)
+        version: 1.0.7(tailwindcss@4.2.3)
     devDependencies:
       '@docusaurus/module-type-aliases':
         specifier: 3.10.0
@@ -8435,6 +8435,9 @@ packages:
 
   tailwindcss@4.2.2:
     resolution: {integrity: sha512-KWBIxs1Xb6NoLdMVqhbhgwZf2PGBpPEiwOqgI4pFIYbNTfBXiKYyWoTsXgBQ9WFg/OlhnvHaY+AEpW7wSmFo2Q==}
+
+  tailwindcss@4.2.3:
+    resolution: {integrity: sha512-fA/NX5gMf0ooCLISgB0wScaWgaj6rjTN2SVAwleURjiya7ITNkV+VMmoHtKkldP6CIZoYCZyxb8zP/e2TWoEtQ==}
 
   tapable@2.3.2:
     resolution: {integrity: sha512-1MOpMXuhGzGL5TTCZFItxCc0AARf1EZFQkGqMm7ERKj8+Hgr5oLvJOVFcC+lRmR8hCe2S3jC4T5D7Vg/d7/fhA==}
@@ -18496,11 +18499,13 @@ snapshots:
 
   tailwind-merge@3.5.0: {}
 
-  tailwindcss-animate@1.0.7(tailwindcss@4.2.2):
+  tailwindcss-animate@1.0.7(tailwindcss@4.2.3):
     dependencies:
-      tailwindcss: 4.2.2
+      tailwindcss: 4.2.3
 
   tailwindcss@4.2.2: {}
+
+  tailwindcss@4.2.3: {}
 
   tapable@2.3.2: {}
 
