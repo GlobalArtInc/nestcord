@@ -182,8 +182,8 @@ importers:
         specifier: 3.10.1
         version: 3.10.1
       '@docusaurus/types':
-        specifier: 3.10.0
-        version: 3.10.0(react-dom@19.2.5(react@19.2.5))(react@19.2.5)
+        specifier: 3.10.1
+        version: 3.10.1(react-dom@19.2.5(react@19.2.5))(react@19.2.5)
       '@tailwindcss/postcss':
         specifier: ^4.1.7
         version: 4.2.4
@@ -4080,8 +4080,8 @@ packages:
   base64-js@1.5.1:
     resolution: {integrity: sha512-AKpaYlHn8t4SVbOHCy+b5+KKgvR4vrsD8vbvrbiQJps7fKDTkjkDry6ji0rUJjC0kzbNePLwzxq8iypo41qeWA==}
 
-  baseline-browser-mapping@2.10.24:
-    resolution: {integrity: sha512-I2NkZOOrj2XuguvWCK6OVh9GavsNjZjK908Rq3mIBK25+GD8vPX5w2WdxVqnQ7xx3SrZJiCiZFu+/Oz50oSYSA==}
+  baseline-browser-mapping@2.10.25:
+    resolution: {integrity: sha512-QO/VHsXCQdnzADMfmkeOPvHdIAkoB7i0/rGjINPJEetLx75hNttVWGQ/jycHUDP9zZ9rupbm60WRxcwViB0MiA==}
     engines: {node: '>=6.0.0'}
     hasBin: true
 
@@ -4910,8 +4910,8 @@ packages:
     engines: {node: '>=0.10.0'}
     hasBin: true
 
-  electron-to-chromium@1.5.347:
-    resolution: {integrity: sha512-BqbKWR67PjxFypgOFcDevD6j8N8GCPkSnQQRuqQIBh3GYCwr0xsLqw2EtSn83oq5iTqJ/wabM/YHV7KgvWGz7Q==}
+  electron-to-chromium@1.5.348:
+    resolution: {integrity: sha512-QC2X59nRlycQQMc4ZXjSVBX+tSgJfgRtcrYHbIZLgOV2dCvefoQGegLR7lLXKgpPpSuVmJU19LMzGrSa2C7k3Q==}
 
   emoji-regex@10.6.0:
     resolution: {integrity: sha512-toUI84YS5YmxW219erniWD0CIVOo46xGKColeNQRgOzDorgBi1v4D71/OFzgD9GO2UGKIv1C3Sp8DAn0+j5w7A==}
@@ -13667,7 +13667,7 @@ snapshots:
 
   base64-js@1.5.1: {}
 
-  baseline-browser-mapping@2.10.24: {}
+  baseline-browser-mapping@2.10.25: {}
 
   basic-ftp@5.3.1: {}
 
@@ -13764,9 +13764,9 @@ snapshots:
 
   browserslist@4.28.2:
     dependencies:
-      baseline-browser-mapping: 2.10.24
+      baseline-browser-mapping: 2.10.25
       caniuse-lite: 1.0.30001791
-      electron-to-chromium: 1.5.347
+      electron-to-chromium: 1.5.348
       node-releases: 2.0.38
       update-browserslist-db: 1.2.3(browserslist@4.28.2)
 
@@ -14554,7 +14554,7 @@ snapshots:
     dependencies:
       jake: 10.9.4
 
-  electron-to-chromium@1.5.347: {}
+  electron-to-chromium@1.5.348: {}
 
   emoji-regex@10.6.0: {}
 
