@@ -64,8 +64,8 @@ importers:
         specifier: 0.38.47
         version: 0.38.47
       discord.js:
-        specifier: 14.26.3
-        version: 14.26.3
+        specifier: 14.26.4
+        version: 14.26.4
       eslint:
         specifier: 10.2.1
         version: 10.2.1(jiti@2.6.1)
@@ -2220,12 +2220,6 @@ packages:
 
   '@docusaurus/tsconfig@3.10.1':
     resolution: {integrity: sha512-rYvB7yqkdqWIpAbDzQljGfM4cDBkLTbhmagZBEcsyj6oPUsz47lmW2pYdN1j+7sGFgltbAmQH62xfbrij4Eh6Q==}
-
-  '@docusaurus/types@3.10.0':
-    resolution: {integrity: sha512-F0dOt3FOoO20rRaFK7whGFQZ3ggyrWEdQc/c8/UiRuzhtg4y1w9FspXH5zpCT07uMnJKBPGh+qNazbNlCQqvSw==}
-    peerDependencies:
-      react: ^18.0.0 || ^19.0.0
-      react-dom: ^18.0.0 || ^19.0.0
 
   '@docusaurus/types@3.10.1':
     resolution: {integrity: sha512-XYMK8k1szDCFMw2V+Xyen0g7Kee1sP3dtFnl7vkGkZOkeAJ/oPDQPL8iz4HBKOo/cwU8QeV6onVjMqtP+tFzsw==}
@@ -4755,8 +4749,8 @@ packages:
   discord-api-types@0.38.47:
     resolution: {integrity: sha512-XgXQodHQBAE6kfD7kMvVo30863iHX1LHSqNq6MGUTDwIFCCvHva13+rwxyxVXDqudyApMNAd32PGjgVETi5rjA==}
 
-  discord.js@14.26.3:
-    resolution: {integrity: sha512-XEKtYn28YFsiJ5l4fLRyikdbo6RD5oFyqfVHQlvXz2104JhH/E8slN28dbky05w3DCrJcNVWvhVvcJCTSl/KIg==}
+  discord.js@14.26.4:
+    resolution: {integrity: sha512-4oBp8tc6Kf8IDBwAHhbsMaAqx1b5fob9SNasZT7V6yyyUydoO5i5fGuX7TmvRtR+q/WgKRnRViRoAWnG7fNyvA==}
     engines: {node: '>=18'}
 
   dns-packet@5.6.1:
@@ -11213,27 +11207,6 @@ snapshots:
 
   '@docusaurus/tsconfig@3.10.1': {}
 
-  '@docusaurus/types@3.10.0(react-dom@19.2.5(react@19.2.5))(react@19.2.5)':
-    dependencies:
-      '@mdx-js/mdx': 3.1.1
-      '@types/history': 4.7.11
-      '@types/mdast': 4.0.4
-      '@types/react': 19.2.14
-      commander: 5.1.0
-      joi: 17.13.3
-      react: 19.2.5
-      react-dom: 19.2.5(react@19.2.5)
-      react-helmet-async: '@slorber/react-helmet-async@1.3.0(react-dom@19.2.5(react@19.2.5))(react@19.2.5)'
-      utility-types: 3.11.0
-      webpack: 5.106.2
-      webpack-merge: 5.10.0
-    transitivePeerDependencies:
-      - '@swc/core'
-      - esbuild
-      - supports-color
-      - uglify-js
-      - webpack-cli
-
   '@docusaurus/types@3.10.1(react-dom@19.2.5(react@19.2.5))(react@19.2.5)':
     dependencies:
       '@mdx-js/mdx': 3.1.1
@@ -14027,7 +14000,7 @@ snapshots:
 
   discord-api-types@0.38.47: {}
 
-  discord.js@14.26.3:
+  discord.js@14.26.4:
     dependencies:
       '@discordjs/builders': 1.14.1
       '@discordjs/collection': 1.5.3
