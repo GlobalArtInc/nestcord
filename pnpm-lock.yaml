@@ -37,8 +37,8 @@ importers:
         specifier: 20.5.3
         version: 20.5.3(@types/node@25.6.2)(conventional-commits-parser@6.4.0)(typescript@5.9.3)
       '@commitlint/config-angular':
-        specifier: 20.5.0
-        version: 20.5.0
+        specifier: 21.0.0
+        version: 21.0.0
       '@favware/npm-deprecate':
         specifier: 2.0.0
         version: 2.0.0
@@ -1604,13 +1604,13 @@ packages:
     engines: {node: '>=v18'}
     hasBin: true
 
-  '@commitlint/config-angular-type-enum@20.0.0':
-    resolution: {integrity: sha512-6HAMnXyUl3EUBgECjvfLzlghbkMfZx28YBPDry3pPWR0+xpzqSbUY19VIkmdetqYKeawFViudvkqD4VH93gKKg==}
-    engines: {node: '>=v18'}
+  '@commitlint/config-angular-type-enum@21.0.0':
+    resolution: {integrity: sha512-+v59ZisdLGTdQCiDp3NIFWvoeR4ZLsRR1k8B5Q+kRp29JCgm50ckDcyskT51xQhAuQo0wA+R90S8QpMzB/dVsQ==}
+    engines: {node: '>=22.12.0'}
 
-  '@commitlint/config-angular@20.5.0':
-    resolution: {integrity: sha512-AZ8foxHb8VBCpZywnIFxpXgrK6VMizZ957vlz8UEyaMZEzvP0F+RtQmTijHnVPaPVk/scS6EDp0/1sy1UszXoQ==}
-    engines: {node: '>=v18'}
+  '@commitlint/config-angular@21.0.0':
+    resolution: {integrity: sha512-86VyCqEG0oMBqJo6RCTN18c7nguDcBLVRgRlwyzq4n7MTK9IbbupOM7k6BeD20Ju4sGS8eM+cw8pIfssSGcEkg==}
+    engines: {node: '>=22.12.0'}
 
   '@commitlint/config-validator@20.5.0':
     resolution: {integrity: sha512-T/Uh6iJUzyx7j35GmHWdIiGRQB+ouZDk0pwAaYq4SXgB54KZhFdJ0vYmxiW6AMYICTIWuyMxDBl1jK74oFp/Gw==}
@@ -10001,11 +10001,11 @@ snapshots:
       - conventional-commits-parser
       - typescript
 
-  '@commitlint/config-angular-type-enum@20.0.0': {}
+  '@commitlint/config-angular-type-enum@21.0.0': {}
 
-  '@commitlint/config-angular@20.5.0':
+  '@commitlint/config-angular@21.0.0':
     dependencies:
-      '@commitlint/config-angular-type-enum': 20.0.0
+      '@commitlint/config-angular-type-enum': 21.0.0
 
   '@commitlint/config-validator@20.5.0':
     dependencies:
