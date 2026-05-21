@@ -60,7 +60,7 @@
 		"@commitlint/config-angular": "21.0.1",
 		"@favware/npm-deprecate": "2.0.0",
 		"@nestjs/common": "11.1.23",
-		"@nestjs/core": "11.1.21",
+		"@nestjs/core": "11.1.23",
 		"@nestjs/platform-express": "^11.1.1",
 		"@types/node": "25.9.1",
 		"@typescript-eslint/eslint-plugin": "8.59.4",
