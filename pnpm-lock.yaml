@@ -140,7 +140,7 @@ importers:
         version: 2.1.1
       docusaurus-plugin-sass:
         specifier: 0.2.6
-        version: 0.2.6(@docusaurus/core@3.10.1(@mdx-js/react@3.1.1(@types/react@19.2.14)(react@19.2.6))(react-dom@19.2.6(react@19.2.6))(react@19.2.6)(typescript@5.9.3))(sass@1.99.0)(webpack@5.106.2)
+        version: 0.2.6(@docusaurus/core@3.10.1(@mdx-js/react@3.1.1(@types/react@19.2.14)(react@19.2.6))(react-dom@19.2.6(react@19.2.6))(react@19.2.6)(typescript@5.9.3))(sass@1.100.0)(webpack@5.106.2)
       lucide-react:
         specifier: ^1.0.1
         version: 1.16.0(react@19.2.6)
@@ -160,8 +160,8 @@ importers:
         specifier: 19.2.6
         version: 19.2.6(react@19.2.6)
       sass:
-        specifier: 1.99.0
-        version: 1.99.0
+        specifier: 1.100.0
+        version: 1.100.0
       shiki:
         specifier: ^4.0.0
         version: 4.1.0
@@ -7980,9 +7980,9 @@ packages:
       webpack:
         optional: true
 
-  sass@1.99.0:
-    resolution: {integrity: sha512-kgW13M54DUB7IsIRM5LvJkNlpH+WhMpooUcaWGFARkF1Tc82v9mIWkCbCYf+MBvpIUBSeSOTilpZjEPr2VYE6Q==}
-    engines: {node: '>=14.0.0'}
+  sass@1.100.0:
+    resolution: {integrity: sha512-B5j0rYMlinhhOo9tjQebMVVn0TfyXAF+wB3b2ggZUuJ/is/Y+7+JGjirAMxHZ9Z3hIP98NPfamlAkBHa1lAaXQ==}
+    engines: {node: '>=20.19.0'}
     hasBin: true
 
   sax@1.6.0:
@@ -14066,11 +14066,11 @@ snapshots:
     dependencies:
       '@leichtgewicht/ip-codec': 2.0.5
 
-  docusaurus-plugin-sass@0.2.6(@docusaurus/core@3.10.1(@mdx-js/react@3.1.1(@types/react@19.2.14)(react@19.2.6))(react-dom@19.2.6(react@19.2.6))(react@19.2.6)(typescript@5.9.3))(sass@1.99.0)(webpack@5.106.2):
+  docusaurus-plugin-sass@0.2.6(@docusaurus/core@3.10.1(@mdx-js/react@3.1.1(@types/react@19.2.14)(react@19.2.6))(react-dom@19.2.6(react@19.2.6))(react@19.2.6)(typescript@5.9.3))(sass@1.100.0)(webpack@5.106.2):
     dependencies:
       '@docusaurus/core': 3.10.1(@mdx-js/react@3.1.1(@types/react@19.2.14)(react@19.2.6))(react-dom@19.2.6(react@19.2.6))(react@19.2.6)(typescript@5.9.3)
-      sass: 1.99.0
-      sass-loader: 16.0.7(sass@1.99.0)(webpack@5.106.2)
+      sass: 1.100.0
+      sass-loader: 16.0.7(sass@1.100.0)(webpack@5.106.2)
     transitivePeerDependencies:
       - '@rspack/core'
       - node-sass
@@ -17892,16 +17892,16 @@ snapshots:
 
   safer-buffer@2.1.2: {}
 
-  sass-loader@16.0.7(sass@1.99.0)(webpack@5.106.2):
+  sass-loader@16.0.7(sass@1.100.0)(webpack@5.106.2):
     dependencies:
       neo-async: 2.6.2
     optionalDependencies:
-      sass: 1.99.0
+      sass: 1.100.0
       webpack: 5.106.2
 
-  sass@1.99.0:
+  sass@1.100.0:
     dependencies:
-      chokidar: 4.0.3
+      chokidar: 5.0.0
       immutable: 5.1.5
       source-map-js: 1.2.1
     optionalDependencies:
