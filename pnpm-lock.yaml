@@ -37,8 +37,8 @@ importers:
         specifier: 21.0.1
         version: 21.0.1(@types/node@25.9.1)(conventional-commits-parser@6.4.0)(typescript@5.9.3)
       '@commitlint/config-angular':
-        specifier: 21.0.1
-        version: 21.0.1
+        specifier: 21.0.2
+        version: 21.0.2
       '@favware/npm-deprecate':
         specifier: 2.0.0
         version: 2.0.0
@@ -1612,8 +1612,8 @@ packages:
     resolution: {integrity: sha512-xTQlgHTaQyXfFpPI3w2dI7ppuTDWmF++1W/kgNohRpxhBzAoJxc6Q/2P7EjvJodtVl7+38xHyu0STtV4ERXdhg==}
     engines: {node: '>=22.12.0'}
 
-  '@commitlint/config-angular@21.0.1':
-    resolution: {integrity: sha512-3e4HZ1JX8WkotNVuTJ1KYJcjLLkDmj6DCrjx+AFIiAIOUqUjbp1y+498A71J9kFBZIkiMZ45VKwB2yywztLreg==}
+  '@commitlint/config-angular@21.0.2':
+    resolution: {integrity: sha512-r9MQv2ncceCvhr4S3vECbuW1771Di6csfKvFDXEGAJPaW+iTC13gh4Zs5CH9C35SAbZhaAXbIC7iRBTYPocSrQ==}
     engines: {node: '>=22.12.0'}
 
   '@commitlint/config-validator@21.0.1':
@@ -10038,7 +10038,7 @@ snapshots:
 
   '@commitlint/config-angular-type-enum@21.0.1': {}
 
-  '@commitlint/config-angular@21.0.1':
+  '@commitlint/config-angular@21.0.2':
     dependencies:
       '@commitlint/config-angular-type-enum': 21.0.1
 
@@ -15090,7 +15090,7 @@ snapshots:
 
   history@4.10.1:
     dependencies:
-      '@babel/runtime': 7.29.2
+      '@babel/runtime': 7.29.7
       loose-envify: 1.4.0
       resolve-pathname: 3.0.0
       tiny-invariant: 1.3.3
