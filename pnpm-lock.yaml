@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@globalart/text-utils':
-        specifier: ^1.0.4
-        version: 1.1.0
+        specifier: ^4.0.4
+        version: 4.0.4
       '@nestjs/axios':
         specifier: ^4.0.0
         version: 4.0.1(@nestjs/common@11.1.24(reflect-metadata@0.2.2)(rxjs@7.8.2))(axios@1.17.0)(rxjs@7.8.2)
@@ -2278,8 +2278,8 @@ packages:
     engines: {node: '>=18'}
     hasBin: true
 
-  '@globalart/text-utils@1.1.0':
-    resolution: {integrity: sha512-O3UHh0efEtKsHzDSlk6OgUZFIJf0/ys6dEqFiQ80ow0m7Emx97G4eV89FFS3mVUCtDE04Ke4kKFpp38BC1l7Ig==}
+  '@globalart/text-utils@4.0.4':
+    resolution: {integrity: sha512-ckFrirvj5QbsxzMI66/WnIER0Z3TwoUSQBmkbwPHT1sIp44PqmWuSq65vV8/TDd8LrpFZu+PhTOc9fhZNqfl7g==}
 
   '@hapi/hoek@9.3.0':
     resolution: {integrity: sha512-/c6rf4UJlmHlC9b5BaNvzAcFv7HZ2QHaV0D4/HNlBdvFnvQq8RI4kYdhyPCl7Xj+oWvTWQ8ujhqS53LIgAe6KQ==}
@@ -8480,11 +8480,11 @@ packages:
     resolution: {integrity: sha512-Zba82s87IFq9A9XmjiX5uZA/ARWDrB03OHlq+Vw1fSdt0I+4/Kutwy8BP4Y/y/aORMo61FQ0vIb5j44vSo5Pkg==}
     engines: {node: ^18.0.0 || >=20.0.0}
 
-  tldts-core@7.0.29:
-    resolution: {integrity: sha512-W99NuU7b1DcG3uJ3v9k9VztCH3WialNbBkBft5wCs8V8mexu0XQqaZEYb9l9RNNzK8+3EJ9PKWB0/RUtTQ/o+Q==}
+  tldts-core@7.4.2:
+    resolution: {integrity: sha512-nwEyF4vl4RSJjwSjBUmOSxc3BFPoIFdlRthJ6e+5v9P3bHNsoD06UjuqMUspqp7vsEZ1beaHi1km+optiE17yA==}
 
-  tldts@7.0.27:
-    resolution: {integrity: sha512-I4FZcVFcqCRuT0ph6dCDpPuO4Xgzvh+spkcTr1gK7peIvxWauoloVO0vuy1FQnijT63ss6AsHB6+OIM4aXHbPg==}
+  tldts@7.4.2:
+    resolution: {integrity: sha512-kCwffuaH8ntKtygnWe1b4BJKWiCUH30n5KfoTr6IchcXOwR7chAOFJxFrH3vjANafUYrIA4a7SDL+nn7SiR4Sw==}
     hasBin: true
 
   to-regex-range@5.0.1:
@@ -11384,10 +11384,10 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@globalart/text-utils@1.1.0':
+  '@globalart/text-utils@4.0.4':
     dependencies:
       rimraf: 6.1.3
-      tldts: 7.0.27
+      tldts: 7.4.2
 
   '@hapi/hoek@9.3.0': {}
 
@@ -18517,11 +18517,11 @@ snapshots:
 
   tinypool@1.1.1: {}
 
-  tldts-core@7.0.29: {}
+  tldts-core@7.4.2: {}
 
-  tldts@7.0.27:
+  tldts@7.4.2:
     dependencies:
-      tldts-core: 7.0.29
+      tldts-core: 7.4.2
 
   to-regex-range@5.0.1:
     dependencies:
