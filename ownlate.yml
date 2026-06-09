@@ -1,0 +1,7 @@
+project_id: "10f62da7-dc9e-4dbd-93b3-f8671c34fdb7"
+files:
+  - source: /docs/i18n/en/**/*
+    translation: /docs/i18n/%two_letters_code%/**/%original_file_name%
+  # Docs Markdown files
+  - source: /docs/content/**/*
+    translation: /docs/i18n/%two_letters_code%/docusaurus-plugin-content-docs/current/**/%original_file_name%
