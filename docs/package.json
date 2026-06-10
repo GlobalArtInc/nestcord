@@ -58,12 +58,6 @@
 		"prettier-plugin-tailwindcss": "^0.8.0",
 		"typescript": "5.9.3"
 	},
-	"pnpm": {
-		"onlyBuiltDependencies": [
-			"@parcel/watcher",
-			"core-js"
-		]
-	},
 	"browserslist": {
 		"production": [
 			">0.5%",

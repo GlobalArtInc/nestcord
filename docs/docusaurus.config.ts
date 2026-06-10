@@ -266,7 +266,7 @@ const config: Config = {
 					src: 'img/logo.svg',
 					href: 'https://nestcord.js.org'
 				},
-				copyright: `Copyright © 2003 - ${new Date().getFullYear()} • Built by <a target="_blank" href="https://globalart.dev">GlobalArt Inc</a>`
+				copyright: `Copyright © 2003 - ${new Date().getFullYear()} • Built by <a target="_blank"e href="https://globalart.dev">GlobalArt Inc</a>`
 			}
 		} satisfies Preset.ThemeConfig,
 	plugins: [

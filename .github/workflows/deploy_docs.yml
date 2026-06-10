@@ -22,8 +22,7 @@ jobs:
           version: latest
 
       - name: Install dependencies
-        run: pnpm install
-        working-directory: docs
+        run: pnpm install --filter docs --ignore-scripts
 
       - name: Build site
         run: pnpm run build
