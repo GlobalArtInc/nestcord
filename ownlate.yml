@@ -2,7 +2,7 @@ project_id: "10f62da7-dc9e-4dbd-93b3-f8671c34fdb7"
 api_token_env: OWNLATE_API_KEY
 preserve_hierarchy: true
 files:
-  - source: /docs/i18n/en/**/*
-    translation: /docs/i18n/{lang}/**/{original_file_name}
-  - source: /docs/content/**/*
-    translation: /docs/i18n/{lang}/docusaurus-plugin-content-docs/current/**/{original_file_name}
+  - source: docs/i18n/en/**/*
+    translation: docs/i18n/{lang}/**/*
+  - source: docs/content/**/*
+    translation: docs/i18n/{lang}/docusaurus-plugin-content-docs/current/**/*
