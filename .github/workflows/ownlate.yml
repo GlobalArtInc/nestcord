@@ -1,0 +1,66 @@
+name: Ownlate
+
+on:
+  push:
+    branches: [master]
+    paths:
+      - 'docs/i18n/en/**'
+      - 'docs/content/**'
+  workflow_dispatch:
+  schedule:
+    - cron: '0 0 * * *' # every day at 00:00
+
+jobs:
+  synchronize:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20.18'
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: latest
+
+      - name: Install dependencies
+        run: pnpm install --no-frozen-lockfile
+        working-directory: docs
+
+      - name: Write Docusaurus translations
+        run: pnpm translations:write
+        working-directory: docs
+
+      - name: Upload sources
+        uses: globalartinc/ownlate-actions@v1
+        with:
+          api_key: ${{ secrets.OWNLATE_API_KEY }}
+          upload_sources: 'true'
+          
+      - name: Download translations
+        if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+        uses: globalartinc/ownlate-actions@v1
+        with:
+          api_key: ${{ secrets.OWNLATE_API_KEY }}
+          download_translations: 'true'
+
+      - name: Create Pull Request
+        if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+        uses: peter-evans/create-pull-request@v6
+        with:
+          token: ${{ secrets.GLOBALART_CI_TOKEN }}
+          branch: ownlate/translations
+          base: master
+          commit-message: 'chore: update translations from Ownlate'
+          title: 'chore: update translations'
+          body: 'New Ownlate translations by [Ownlate GitHub Action](https://github.com/GlobalArtInc/ownlate-actions)'
+          assignees: globalart-ci
+          reviewers: globalart-ci
