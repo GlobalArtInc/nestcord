@@ -52,6 +52,10 @@ jobs:
           api_key: ${{ secrets.OWNLATE_API_KEY }}
           download_translations: 'true'
 
+      - name: Fix file ownership after ownlate-actions
+        if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+        run: sudo chown -R runner:runner docs/i18n/
+
       - name: Create Pull Request
         if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
         uses: peter-evans/create-pull-request@v6
