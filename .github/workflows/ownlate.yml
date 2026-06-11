@@ -55,6 +55,8 @@ jobs:
       - name: Create Pull Request
         if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
         uses: peter-evans/create-pull-request@v6
+        env:
+          HUSKY: '0'
         with:
           token: ${{ secrets.GLOBALART_CI_TOKEN }}
           branch: ownlate/translations
