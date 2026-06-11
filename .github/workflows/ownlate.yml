@@ -64,5 +64,3 @@ jobs:
           commit-message: 'chore: update translations from Ownlate'
           title: 'chore: update translations'
           body: 'New Ownlate translations by [Ownlate GitHub Action](https://github.com/GlobalArtInc/ownlate-actions)'
-          assignees: globalart-ci
-          reviewers: globalart-ci
