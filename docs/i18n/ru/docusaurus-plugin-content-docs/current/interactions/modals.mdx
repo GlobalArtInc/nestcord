@@ -1,11 +1,3 @@
----
-id: modals
-title: Modals
-sidebar_position: 4
----
-
-With modals you can create pop-up forms that allow users to provide you with formatted inputs through submissions. We'll cover how to create, show, and receive modal forms using nestcord
-
 ```typescript title="src/app.modals.ts"
 import { Injectable } from '@nestjs/common';
 import { Context, Modal, ModalContext } from '@globalart/nestcord';
@@ -15,20 +7,32 @@ export class AppModals {
     @Modal('pizza')
     public onModal(@Ctx() [interaction]: ModalContext) {
       return interaction.reply({
-        content: `Your fav pizza : ${interaction.fields.getTextInputValue('pizza')}`
+        content: `Ваша любимая пицца : ${interaction.fields.getTextInputValue('pizza')}`
       });
     }
 }
 ```
 
-### Dynamic Modal
+Чтобы получить динамический модальное окно
+```typescript title="src/app.modals.ts"
+import { Injectable } from '@nestjs/common';
+import { Context, Modal, ModalContext,ModalParam } from '@globalart/nestcord';
 
-You can create modals with dynamic `id` field. This is useful for passing metadata to modals.
+@Injectable()
+export class AppModals {
+    @Modal('pizza/:value')
+    public onModal(@Ctx() [interaction]: ModalContext, @ModalParam('value') value: string) {
+      return interaction.reply({
+        content: `Ваша любимая пицца ${value} : ${interaction.fields.getTextInputValue('pizza')}`
+      });
+    }
+}
+```
 
-Dynamic modals uses [path-to-regexp](https://www.npmjs.com/package/path-to-regexp) format to perform regexp matching. Turn a path string such as `user/:name` into a regular expression.
+### Динамический модальный диалог
+Вы можете создавать модальные диалоги с динамическим полем `id`. Это полезно для передачи метаданных в модальные диалоги.
 
-To create a Dynamic modal
-
+Для создания динамического модального окна
 ```typescript
 new ModalBuilder()
   .setTitle('What your fav pizza?')
@@ -43,19 +47,6 @@ new ModalBuilder()
   ])
 ```
 
-To receive a Dynamic modal
+С модалями вы можете создавать всплывающие формы, которые позволяют пользователям предоставлять вам отформатированные данные через отправку. Мы рассмотрим, как создавать, отображать и получать формы модальных окон с помощью nestcord
 
-```typescript title="src/app.modals.ts"
-import { Injectable } from '@nestjs/common';
-import { Context, Modal, ModalContext,ModalParam } from '@globalart/nestcord';
-
-@Injectable()
-export class AppModals {
-    @Modal('pizza/:value')
-    public onModal(@Ctx() [interaction]: ModalContext, @ModalParam('value') value: string) {
-      return interaction.reply({
-        content: `Your fav pizza ${value} : ${interaction.fields.getTextInputValue('pizza')}`
-      });
-    }
-}
-```
+Динамические модали используют формат [path-to-regexp](https://www.npmjs.com/package/path-to-regexp) для выполнения сопоставления с регулярными выражениями. Преобразуют строку пути, такую как `user/:name`, в регулярное выражение.

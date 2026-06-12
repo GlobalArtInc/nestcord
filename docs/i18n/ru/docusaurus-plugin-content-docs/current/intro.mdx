@@ -1,54 +1,71 @@
----
-id: intro
-slug: /introduction
-title: Введение
-description: Модуль для создания ботов Discord с помощью NestJS, основанный на Discord.js.
-sidebar_position: 1
----
+I notice you've only sent a `<br/>` tag, which is HTML for a line break and doesn't contain any text to translate.
 
-<div align="center">
-   <h1>
-       <a href="#"><img src="/img/logo.png" alt ="NestCord Logo" /></a>
-   </h1>
-   🤖 A module for creating <b><a href="https://discord.com/">Discord</a> bots</b> using <a href="https://nestjs.com">NestJS</a>, based on <a href="https://discord.js.org/">Discord.js</a>
-   <br/><br/>
-   <a href="https://nestcord.js.org">Documentation ✨</a> &amp;emsp; <a href="https://github.com/GlobalArtInc/nestcord">Source code 🪡</a> &amp;emsp; <a href="https://github.com/GlobalArtInc/nestcord/tree/master/examples">Examples 🛠️</a> &amp;emsp; <a href="https://discord.gg/4Tc9hssSAv">Community 💬</a>
-</div>
-
-<br/>
-
-<p align="center">
-    <a href='https://img.shields.io/npm/v/@globalart/nestcord'><img src="https://img.shields.io/npm/v/@globalart/nestcord" alt="NPM Version" /></a>
-    <a href='https://img.shields.io/npm/dm/@globalart/nestcord'><img src="https://img.shields.io/npm/dm/@globalart/nestcord" alt="NPM Downloads" /></a>
-    <a href='https://img.shields.io/github/last-commit/@GlobalArtInc/nestcord'><img src="https://img.shields.io/github/last-commit/GlobalArtInc/nestcord" alt="Last commit" /></a>
-</p>
-
-## Что это?
-
-Этот пакет использует лучшее из мира NodeJS под капотом. [Discord.js](https://github.com/discordjs/discord.js) - самая мощная библиотека для создания ботов, а [Nest.js](https://github.com/nestjs) - прогрессивный фреймворк для создания хорошо структурированных приложений.
-Этот модуль обеспечивает быстрый и простой способ создания ботов Discord и глубокую интеграцию с вашим приложением NestJS.
-
-**Особенности**
-
-- Простота. Гибкость. Простота в использовании.
-- Возможность создания пользовательских декораторов.
-- Взаимодействие с Discord (слэш-команды, контекстное меню, компоненты сообщений, слушатели).
-- Полная поддержка фишек и функционала NestJS!
-
-Для вопросов и поддержки используйте
-[Issues] (https://github.com/GlobalArtInc/nestcord/issues/new?assignees=&labels=question&template=question.yml).
+Please provide the English text you'd like me to translate to Russian.
 
 ## Установка
 
-Требуется **Node.js 16.6.0 или новее.**
+**Требуется Node.js версии 16.6.0 или выше.**
 
 ```bash npm2yarn
-$ npm install @globalart/nestcord discord.js
+$ yarn add @globalart/nestcord discord.js
 ```
 
-## Использование
+Всякий раз, когда вам нужно обрабатывать данные событий, используйте декоратор `Context`.
+
+**Особенности**
+
+Затем создайте файл `app.update.ts` и добавьте декораторы `On`/`Once` для обработки событий Discord API:
+
+```typescript title="src/app.update.ts"
+import { Injectable, Logger } from '@nestjs/common';
+import { Context, On, Once, ContextOf } from '@globalart/nestcord';
+import { Client } from 'discord.js';
+
+@Injectable()
+export class AppUpdate {
+    private readonly logger = new Logger(AppUpdate.name);
+
+    public constructor(private readonly client: Client) {}
+
+    @Once('ready')
+    public onReady(@Context() [client]: ContextOf<'ready'>) {
+        this.logger.log(`Бот вошел как ${client.user.username}`);
+    }
+
+    @On('warn')
+    public onWarn(@Context() [message]: ContextOf<'warn'>) {
+        this.logger.warn(message);
+    }
+}
+```
+
+Этот пакет использует лучшее из мира NodeJS под капотом. [Discord.js](https://github.com/discordjs/discord.js) — это самая мощная библиотека для создания ботов, а [Nest.js](https://github.com/nestjs) — это прогрессивный фреймворк для создания хорошо архитектурированных приложений. Этот модуль предоставляет быстрый и простой способ создания Discord ботов и глубокую интеграцию с вашим приложением NestJS.
+
+I appreciate you sharing this, but there's no text provided for me to translate. 
+
+Please provide the English text you'd like me to translate to Russian, and I'll translate it for you.
 
 После завершения процесса установки мы можем импортировать `NestCordModule` в корневой `AppModule`:
+
+<div align="center">
+   <h1>
+       <a href="#"><img src="/img/logo.png" alt ="Логотип NestCord" /></a>
+   </h1>
+   🤖 Модуль для создания <b><a href="https://discord.com/">ботов Discord</a></b> с использованием <a href="https://nestjs.com">NestJS</a>, на основе <a href="https://discord.js.org/">Discord.js</a>
+   <br/><br/>
+   <a href="https://nestcord.js.org">Документация ✨</a> &emsp; <a href="https://github.com/GlobalArtInc/nestcord">Исходный код 🪡</a> &emsp; <a href="https://github.com/GlobalArtInc/nestcord/tree/master/examples">Примеры 🛠️</a> &emsp; <a href="https://discord.gg/4Tc9hssSAv">Сообщество 💬</a>
+</div>
+
+<p align="center">
+    <a href='https://img.shields.io/npm/v/@globalart/nestcord'><img src="https://img.shields.io/npm/v/@globalart/nestcord" alt="Версия NPM" /></a>
+    <a href='https://img.shields.io/npm/dm/@globalart/nestcord'><img src="https://img.shields.io/npm/dm/@globalart/nestcord" alt="Загрузки NPM" /></a>
+    <a href='https://img.shields.io/github/last-commit/@GlobalArtInc/nestcord'><img src="https://img.shields.io/github/last-commit/GlobalArtInc/nestcord" alt="Последний коммит" /></a>
+</p>
+
+-   Простой. Гибкий. Легко использовать.
+-   Возможность создания пользовательских декораторов.
+-   Взаимодействие с Discord (Slash Commands, Context Menus, Message Components, Listeners).
+-   Полная поддержка NestJS guards, interceptors, filters и pipes!
 
 ```typescript title="src/app.module.ts"
 import { NestCordModule } from '@globalart/nestcord';
@@ -68,29 +85,7 @@ import { AppUpdate } from './app.update';
 export class AppModule {}
 ```
 
-Затем создайте файл `app.update.ts` и добавьте декораторы `On`/`Once` для обработки событий Discord API:
+## О программе
 
-```typescript title="src/app.update.ts"
-import { Injectable, Logger } from '@nestjs/common';
-import { Context, On, Once, ContextOf } from '@globalart/nestcord';
-import { Client } from 'discord.js';
-
-@Injectable()
-export class AppUpdate {
-    private readonly logger = new Logger(AppUpdate.name);
-
-    public constructor(private readonly client: Client) {}
-
-    @Once('ready')
-    public onReady(@Context() [client]: ContextOf<'ready'>) {
-        this.logger.log(`Bot logged in as ${client.user.username}`);
-    }
-
-    @On('warn')
-    public onWarn(@Context() [message]: ContextOf<'warn'>) {
-        this.logger.warn(message);
-    }
-}
-```
-
-Когда вам нужно обработать какие-либо данные о событиях, используйте декоратор `Context`.
+По вопросам и для получения поддержки используйте
+[Issues](https://github.com/GlobalArtInc/nestcord/issues/new?assignees=&labels=question&template=question.yml).
