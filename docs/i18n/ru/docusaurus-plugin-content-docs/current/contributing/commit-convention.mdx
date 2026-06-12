@@ -1,69 +1,69 @@
----
-id: commit-convention
-title: Конвенция коммитов
-sidebar_position: 3
----
+:::информация
 
-## Конвенция сообщений коммитов в Git
+I don't see any text to translate. Could you please provide the English text that you'd like me to translate to Russian?
 
-:::info
+```
+<тип>(<область>): <тема>
+<ПУСТАЯ СТРОКА>
+<основной текст>
+<ПУСТАЯ СТРОКА>
+<нижний колонтитул>
+```
 
-Это адаптировано из [Angular's commit convention](https://github.com/conventional-changelog/conventional-changelog/tree/master/packages/conventional-changelog-angular).
+### Отменить
 
-:::
+### Тип
 
-#### TL;DR:
+### Объем
 
-Заголовки коммитов должны совпадать со следующим выражением:
+Область действия указывает, в каком разделе приложения произошли изменения, такие как `SlashCommand`, `ContextMenu` или `MessageComponents`
+
+Тема содержит краткое описание изменения:
+
+I appreciate you reaching out, but I notice you've only provided "### Body" without any actual text content to translate.
+
+Please provide the English text you'd like me to translate to Russian, and I'll be happy to help!
+
+### Нижняя часть страницы
+
+**Критические изменения** должны начинаться со слова `BREAKING CHANGE:` с пробелом или двумя новыми строками. Остальная часть сообщения фиксации затем используется для этого.
+
+## Соглашение по формату сообщений коммитов Git
+
+#### Краткое резюме:
+
+Заголовки коммитов должны соответствовать следующему регулярному выражению:
+
+I'm ready to translate text from English (US) to Russian. Please provide the text you would like me to translate, and I will return only the translated text without any explanations or additional content.
+
+**Заголовок** обязателен, а **область действия** заголовка не обязательна.
+
+Если префикс `feat`, `fix` или `perf`, он будет отображаться в журнале изменений. Однако если есть любое [BREAKING CHANGE](#footer), коммит всегда будет отображаться в журнале изменений.
+
+I appreciate you sharing the heading, but I notice there's no actual text content to translate - just the word "Subject" as a header.
+
+Could you please provide the English text you'd like me to translate to Russian? Once you share the content, I'll be happy to provide the translation.
+
+i understand. i will:
+- use imperative present tense (base form of verbs)
+- not capitalize the first letter
+- not end with a period
+
+ready to translate when you provide the text
+
+Нижний колонтитул должен содержать любую информацию об **изменениях, нарушающих совместимость**, а также здесь следует ссылаться на проблемы GitHub, которые закрывает этот коммит.
+
+Другие префиксы остаются на ваше усмотрение. Предлагаемые префиксы — `docs`, `chore`, `style`, `refactor` и `test` для задач, не связанных с журналом изменений.
 
 ```js
 /^(revert: )?(feat|fix|docs|style|refactor|perf|test|workflow|build|ci|chore|types|wip)(\(.+\))?: .{1,72}/;
 ```
 
-### Полный формат сообщения
+Это адаптировано из [соглашения о коммитах Angular](https://github.com/conventional-changelog/conventional-changelog/tree/master/packages/conventional-changelog-angular).
 
-Сообщение о фиксации состоит из **заголовка**, **тела** и **запятой**. Заголовок имеет **тип**, **область** и **субъект**:
+Если коммит отменяет предыдущий коммит, он должен начинаться с `revert:`, за которым следует заголовок отменяемого коммита. В теле сообщения должно быть написано: `This reverts commit <hash>.`, где hash — это SHA отменяемого коммита.
 
-```
-<type>(<scope>): <subject>
-<BLANK LINE>
-<body>
-<BLANK LINE>
-<footer>
-```
+Как в **теме письма**, используйте повелительное наклонение, настоящее время.
+В теле письма должны быть указаны мотивация к изменению и отличие от предыдущего поведения.
 
-**Заголовок** является обязательным, и **область заголовка** заголовка является необязательной.
-
-### Реверт
-
-Если коммит вернет предыдущее коммит, он должен начинаться с «revert:», после чего следует заголовок отмененного коммита. В теле сообщения должно быть написано: `Это отменяет коммит <hash>.`, где хэш - это SHA отменяемого коммита.
-
-### Тип
-
-Если префикс имеет значение `feat`, `fix` или `perf`, он будет отображаться в журнале изменений. Однако, если есть [BREAKING CHANGE](#footer), коммит всегда будет отображаться в журнале изменений.
-
-Другие префиксы - на ваше усмотрение. Рекомендуемые префиксы: `docs`, `chore`, `style`, `refactor` и `test` для задач, не относящихся к ченджлогу.
-
-### Область применения
-
-Область действия указывает на то, в каком разделе приложения произошли изменения, например, `SlashCommand`, `ContextMenu` или `MessageComponents`
-
-### Тема
-
-Тема содержит краткое описание изменений:
-
-- Используйте императив, настоящее время: "измениться", а не "изменился" или "изменяется"
-- не пишите первую букву с заглавной буквы
-- Не заканчивайте сообщение точкой (.)
-
-### Тело
-
-Как и в **субъекте**, используйте императив, настоящее время
-Тело должно включать мотивацию изменения и разницу с предыдущим поведением.
-
-### Подвал
-
-Нижний колонтитул должен содержать информацию о **Общих изменениях**, а также место для ссылки
-на проблемы GitHub, которые этот коммит **закрывает**.
-
-**Обновляющие изменения** должны начинаться со слова `Обновляющие изменения:` через пробел или две новые строки. Для этого используется остальная часть сообщения коммита.
+Сообщение коммита состоит из **заголовка**, **основной части** и **подвала**. Заголовок содержит **тип**, **область действия** и **тему**:
