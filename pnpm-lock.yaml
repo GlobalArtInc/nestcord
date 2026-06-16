@@ -302,7 +302,7 @@ importers:
         version: 7.2.2
       ts-loader:
         specifier: ^9.5.2
-        version: 9.6.0(loader-utils@2.0.4)(typescript@5.9.3)(webpack@5.107.2)
+        version: 9.6.1(loader-utils@2.0.4)(typescript@5.9.3)(webpack@5.107.2)
       ts-node:
         specifier: ^10.9.1
         version: 10.9.2(@types/node@25.9.3)(typescript@5.9.3)
@@ -378,7 +378,7 @@ importers:
         version: 7.2.2
       ts-loader:
         specifier: ^9.5.2
-        version: 9.6.0(loader-utils@2.0.4)(typescript@5.9.3)(webpack@5.107.2)
+        version: 9.6.1(loader-utils@2.0.4)(typescript@5.9.3)(webpack@5.107.2)
       ts-node:
         specifier: ^10.9.1
         version: 10.9.2(@types/node@25.9.3)(typescript@5.9.3)
@@ -454,7 +454,7 @@ importers:
         version: 7.2.2
       ts-loader:
         specifier: ^9.5.2
-        version: 9.6.0(loader-utils@2.0.4)(typescript@5.9.3)(webpack@5.107.2)
+        version: 9.6.1(loader-utils@2.0.4)(typescript@5.9.3)(webpack@5.107.2)
       ts-node:
         specifier: ^10.9.1
         version: 10.9.2(@types/node@25.9.3)(typescript@5.9.3)
@@ -527,7 +527,7 @@ importers:
         version: 7.2.2
       ts-loader:
         specifier: ^9.5.2
-        version: 9.6.0(loader-utils@2.0.4)(typescript@5.9.3)(webpack@5.107.2)
+        version: 9.6.1(loader-utils@2.0.4)(typescript@5.9.3)(webpack@5.107.2)
       ts-node:
         specifier: ^10.9.1
         version: 10.9.2(@types/node@25.9.3)(typescript@5.9.3)
@@ -600,7 +600,7 @@ importers:
         version: 7.2.2
       ts-loader:
         specifier: ^9.5.2
-        version: 9.6.0(loader-utils@2.0.4)(typescript@5.9.3)(webpack@5.107.2)
+        version: 9.6.1(loader-utils@2.0.4)(typescript@5.9.3)(webpack@5.107.2)
       ts-node:
         specifier: ^10.9.1
         version: 10.9.2(@types/node@25.9.3)(typescript@5.9.3)
@@ -673,7 +673,7 @@ importers:
         version: 7.2.2
       ts-loader:
         specifier: ^9.5.2
-        version: 9.6.0(loader-utils@2.0.4)(typescript@5.9.3)(webpack@5.107.2)
+        version: 9.6.1(loader-utils@2.0.4)(typescript@5.9.3)(webpack@5.107.2)
       ts-node:
         specifier: ^10.9.1
         version: 10.9.2(@types/node@25.9.3)(typescript@5.9.3)
@@ -746,7 +746,7 @@ importers:
         version: 7.2.2
       ts-loader:
         specifier: ^9.5.2
-        version: 9.6.0(loader-utils@2.0.4)(typescript@5.9.3)(webpack@5.107.2)
+        version: 9.6.1(loader-utils@2.0.4)(typescript@5.9.3)(webpack@5.107.2)
       ts-node:
         specifier: ^10.9.1
         version: 10.9.2(@types/node@25.9.3)(typescript@5.9.3)
@@ -819,7 +819,7 @@ importers:
         version: 7.2.2
       ts-loader:
         specifier: ^9.5.2
-        version: 9.6.0(loader-utils@2.0.4)(typescript@5.9.3)(webpack@5.107.2)
+        version: 9.6.1(loader-utils@2.0.4)(typescript@5.9.3)(webpack@5.107.2)
       ts-node:
         specifier: ^10.9.1
         version: 10.9.2(@types/node@25.9.3)(typescript@5.9.3)
@@ -892,7 +892,7 @@ importers:
         version: 7.2.2
       ts-loader:
         specifier: ^9.5.2
-        version: 9.6.0(loader-utils@2.0.4)(typescript@5.9.3)(webpack@5.107.2)
+        version: 9.6.1(loader-utils@2.0.4)(typescript@5.9.3)(webpack@5.107.2)
       ts-node:
         specifier: ^10.9.1
         version: 10.9.2(@types/node@25.9.3)(typescript@5.9.3)
@@ -4925,10 +4925,6 @@ packages:
     resolution: {integrity: sha512-aNnGCvbJ/RIyWo1IuhNdVjnNF+EjH9wpzpNHt+ci/m9He9LJvUN8wrCcXjp9cWsGNAuvSpVFTx/vraAFQ8qGjQ==}
     engines: {node: '>=10.13.0'}
 
-  enhanced-resolve@5.22.1:
-    resolution: {integrity: sha512-6QEuw3zoX1SJQc7b87aBXke/no+mG2bTBgw29gWMQonLmpEkWoCAVkl+M49e48AZlWzxiDzDZzYdp6kobcyLww==}
-    engines: {node: '>=10.13.0'}
-
   enhanced-resolve@5.23.0:
     resolution: {integrity: sha512-yJN/BOOLxcOW2aQgeif9mSnaUB8KtvmMMp56oA1kx1CRfBKbhZm2pJ+NBY+3eOboHxix8lfjWpHE0Ei5U8RbSA==}
     engines: {node: '>=10.13.0'}
@@ -8108,11 +8104,6 @@ packages:
     engines: {node: '>=10'}
     hasBin: true
 
-  semver@7.8.1:
-    resolution: {integrity: sha512-rkVq3IXh+4FDGch+KwzX3aV9W3kO54GyEgpvBzSyctDA6Xtd7RJQV1xmXbeQp5v7+VzLOfVqiutSE6GICgPFvg==}
-    engines: {node: '>=10'}
-    hasBin: true
-
   semver@7.8.4:
     resolution: {integrity: sha512-rUCObTnP32Q08R2uuIrt7r9PlEonuTmtuXYcW6s5kjdlj3xbnwe+21yXptAUYcMAABLkYYTtnmzb3w3EDZfueA==}
     engines: {node: '>=10'}
@@ -8603,8 +8594,8 @@ packages:
     peerDependencies:
       typescript: '>=4.8.4'
 
-  ts-loader@9.6.0:
-    resolution: {integrity: sha512-dsJO0S+T7grTDWTc4a0nTygXGjKncVUpx8Y+af8EvI/D5WgTJby5UEk5eoMCB9EcLQmnvitqh99MqtjtHgAwFQ==}
+  ts-loader@9.6.1:
+    resolution: {integrity: sha512-8FMHnmxtpncUAu0ZjkqpXnOTlwc9eY95esH8WVN94guTPPdkg2ofVdiVM5j8L2lmjiGerXd56zXb/D2JyVQPLg==}
     engines: {node: '>=12.0.0'}
     peerDependencies:
       loader-utils: '*'
@@ -13979,7 +13970,7 @@ snapshots:
       postcss-modules-scope: 3.2.1(postcss@8.5.15)
       postcss-modules-values: 4.0.0(postcss@8.5.15)
       postcss-value-parser: 4.2.0
-      semver: 7.8.1
+      semver: 7.7.4
     optionalDependencies:
       webpack: 5.106.2
 
@@ -14344,11 +14335,6 @@ snapshots:
       tapable: 2.3.3
 
   enhanced-resolve@5.21.6:
-    dependencies:
-      graceful-fs: 4.2.11
-      tapable: 2.3.3
-
-  enhanced-resolve@5.22.1:
     dependencies:
       graceful-fs: 4.2.11
       tapable: 2.3.3
@@ -15286,7 +15272,7 @@ snapshots:
 
   history@4.10.1:
     dependencies:
-      '@babel/runtime': 7.29.7
+      '@babel/runtime': 7.29.2
       loose-envify: 1.4.0
       resolve-pathname: 3.0.0
       tiny-invariant: 1.3.3
@@ -16779,7 +16765,7 @@ snapshots:
     dependencies:
       hosted-git-info: 8.1.0
       proc-log: 5.0.0
-      semver: 7.8.1
+      semver: 7.8.4
       validate-npm-package-name: 6.0.2
 
   npm-registry-fetch@18.0.2:
@@ -17265,7 +17251,7 @@ snapshots:
       cosmiconfig: 8.3.6(typescript@5.9.3)
       jiti: 1.21.7
       postcss: 8.5.15
-      semver: 7.8.1
+      semver: 7.7.4
       webpack: 5.106.2
     transitivePeerDependencies:
       - typescript
@@ -18150,13 +18136,11 @@ snapshots:
 
   semver-diff@4.0.0:
     dependencies:
-      semver: 7.8.1
+      semver: 7.7.4
 
   semver@6.3.1: {}
 
   semver@7.7.4: {}
-
-  semver@7.8.1: {}
 
   semver@7.8.4: {}
 
@@ -18746,12 +18730,12 @@ snapshots:
     dependencies:
       typescript: 5.9.3
 
-  ts-loader@9.6.0(loader-utils@2.0.4)(typescript@5.9.3)(webpack@5.107.2):
+  ts-loader@9.6.1(loader-utils@2.0.4)(typescript@5.9.3)(webpack@5.107.2):
     dependencies:
       chalk: 4.1.2
-      enhanced-resolve: 5.22.1
+      enhanced-resolve: 5.24.0
       micromatch: 4.0.8
-      semver: 7.8.1
+      semver: 7.8.4
       source-map: 0.7.6
       typescript: 5.9.3
       webpack: 5.107.2
