@@ -1,15 +1,27 @@
----
-id: stat-reporter
-title: Stat Reporter
-sidebar_position: 2
----
+Интерфейс ServiceOption:
+| Свойство                        | Тип                                        | Описание                                                                                              |
+|---------------------------------|--------------------------------------------|-------------------------------------------------------------------------------------------------------|
+| `name`                          | `string`                                   | Имя сервиса                                                                                          |
+| `url`                           | `string`                                   | URL API для отправки статистики                                                                      |
+| `proxy`                         | `AxiosProxyConfig` или `undefined`         | Конфигурация прокси                                                                                   |
+| `bodyData`                      | `object`                                   | Данные тела запроса                                                                                   |
+| `headerData`                    | `object`                                   | Данные заголовков                                                                                     |
+| `schedule`                      | `StatCronExpression` или `string`          | Выражение Crontab                                                                                     |
 
-Is a lightweight stat reporter module for NestCord. This module sends data from your bot to different monitoring bot services.
+# Использование
 
-## Usage
+Поздравляем! Вы успешно зарегистрировали cronjob в NestCord!
 
-Once the installation process is complete, we can import the `NestCordStatReporterModule` with your `NestCordModule` into the root `AppModule`:
+### Глобальные параметры
+Интерфейс NestCordStatReporterModule:
+| Свойство                        | Тип                                        | Описание                                                                                              |
+|---------------------------------|--------------------------------------------|-------------------------------------------------------------------------------------------------------|
+| `services`                      | `ServiceOption[]`                          | Сервисы                                                                                               |
+| `proxy`                         | `AxiosProxyConfig` или `undefined`         | Конфигурация прокси                                                                                   |
+| `development`                   | `boolean`                                  | Если true, модуль будет отключён                                                                     |
+| `log`                           | `boolean`                                  | Отправлять журнал при отправке статистики                                                            |
 
+После завершения процесса установки мы можем импортировать `NestCordStatReporterModule` вместе с вашим `NestCordModule` в корневой `AppModule`:
 ```typescript
 import { Module } from '@nestjs/common';
 import { AppService } from './app.service';
@@ -41,13 +53,13 @@ import { NestCordModule,
             name: 'top.gg',
             actions: [
               {
-                name: 'name of the action',
+                name: 'название действия',
                 url: 'https://top.gg/bots/:bot_id/stats',
                 bodyData: { server_count: '{{serverCount}}', shard_count: '{{shardCount}}' },
               }
             ],
             headerData: { Authorization: process.env.TOP_GG_TOKEN },
-            schedule: StatCronExpression.EVERY_5_MINUTES // or you can use crontab expression like */1 * * * * ,
+            schedule: StatCronExpression.EVERY_5_MINUTES // или вы можете использовать выражение crontab как */1 * * * * ,
           },
         ],
       }),
@@ -57,27 +69,6 @@ import { NestCordModule,
 export class AppModule {
 }
 ```
+В `services` должны быть перечислены все сервисы, на которых отслеживается бот, и должно быть передано тело запроса. `{{serverCount}}` и `{{shardCount}}` будут автоматически заменены.
 
-In `services`, all the services on which the bot is monitored should be listed, and the request body should be passed. `{{serverCount}}` and `{{shardCount}}` will be automatically replaced.
-
-### Global Options
-
-NestCordStatReporterModule interface:
-| Property                        | Type                                       | Description                                                                                           |
-|---------------------------------|--------------------------------------------|-------------------------------------------------------------------------------------------------------|
-| `services`                      | `ServiceOption[]`                          | Services                                                                                              |
-| `proxy`                         | `AxiosProxyConfig` or `undefined`          | Proxy config                                                                                          |
-| `development`                   | `boolean`                                  | If true, module will disable                                                                          |
-| `log`                           | `boolean`                                  | Send log when sended the stats                                                                        |
-
-ServiceOption interface:
-| Property                        | Type                                       | Description                                                                                           |
-|---------------------------------|--------------------------------------------|-------------------------------------------------------------------------------------------------------|
-| `name`                          | `string`                                   | Service Name                                                                                          |
-| `url`                           | `string`                                   | API URL for posting the stats                                                                         |
-| `proxy`                         | `AxiosProxyConfig` or `undefined`          | Proxy config                                                                                          |
-| `bodyData`                      | `object`                                   | Body Data                                                                                             |
-| `headerData`                    | `object`                                   | Header Data                                                                                           |
-| `schedule`                      | `StatCronExpression` or `string`           | Crontab Expression                                                                                    |
-
-Congratulations! You have successfully register cronjob with NestCord!
+Это легковесный модуль для отчетности статистики NestCord. Этот модуль отправляет данные с вашего бота в различные сервисы мониторинга ботов.

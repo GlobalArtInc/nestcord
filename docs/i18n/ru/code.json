@@ -1,560 +1,318 @@
 {
-  "theme.ErrorPageContent.title": {
-    "message": "На странице произошёл сбой.",
-    "description": "The title of the fallback page when the page crashed"
-  },
-  "theme.BackToTopButton.buttonAriaLabel": {
-    "message": "Наверх",
-    "description": "The ARIA label for the back to top button"
-  },
-  "theme.blog.archive.title": {
-    "message": "Архив",
-    "description": "The page & hero title of the blog archive page"
-  },
-  "theme.blog.archive.description": {
-    "message": "В архив",
-    "description": "The page & hero description of the blog archive page"
-  },
-  "theme.blog.paginator.navAriaLabel": {
-    "message": "Навигация по списку блогов",
-    "description": "The ARIA label for the blog pagination"
-  },
-  "theme.blog.paginator.newerEntries": {
-    "message": "Более новые записи",
-    "description": "The label used to navigate to the newer blog posts page (previous page)"
-  },
-  "theme.blog.paginator.olderEntries": {
-    "message": "Старые записи",
-    "description": "The label used to navigate to the older blog posts page (next page)"
-  },
-  "theme.blog.post.paginator.navAriaLabel": {
-    "message": "Навигация по страницам блога",
-    "description": "The ARIA label for the blog posts pagination"
-  },
-  "theme.blog.post.paginator.newerPost": {
-    "message": "Более новая запись",
-    "description": "The blog post button label to navigate to the newer/previous post"
-  },
-  "theme.blog.post.paginator.olderPost": {
-    "message": "Older post",
-    "description": "The blog post button label to navigate to the older/next post"
-  },
-  "theme.tags.tagsPageLink": {
-    "message": "View all tags",
-    "description": "The label of the link targeting the tag list page"
-  },
-  "theme.colorToggle.ariaLabel.mode.system": {
-    "message": "system mode",
-    "description": "The name for the system color mode"
-  },
-  "theme.colorToggle.ariaLabel.mode.light": {
-    "message": "light mode",
-    "description": "The name for the light color mode"
-  },
-  "theme.colorToggle.ariaLabel.mode.dark": {
-    "message": "dark mode",
-    "description": "The name for the dark color mode"
-  },
-  "theme.colorToggle.ariaLabel": {
-    "message": "Switch between dark and light mode (currently {mode})",
-    "description": "The ARIA label for the color mode toggle"
-  },
-  "theme.docs.breadcrumbs.navAriaLabel": {
-    "message": "Breadcrumbs",
-    "description": "The ARIA label for the breadcrumbs"
-  },
-  "theme.docs.DocCard.categoryDescription.plurals": {
-    "message": "1 item|{count} items",
-    "description": "The default description for a category card in the generated index about how many items this category includes"
-  },
-  "theme.docs.paginator.navAriaLabel": {
-    "message": "Docs pages",
-    "description": "The ARIA label for the docs pagination"
-  },
-  "theme.docs.paginator.previous": {
-    "message": "Previous",
-    "description": "The label used to navigate to the previous doc"
-  },
-  "theme.docs.paginator.next": {
-    "message": "Next",
-    "description": "The label used to navigate to the next doc"
-  },
-  "theme.docs.tagDocListPageTitle.nDocsTagged": {
-    "message": "One doc tagged|{count} docs tagged",
-    "description": "Pluralized label for \"{count} docs tagged\". Use as much plural forms (separated by \"|\") as your language support (see https://www.unicode.org/cldr/cldr-aux/charts/34/supplemental/language_plural_rules.html)"
-  },
-  "theme.docs.tagDocListPageTitle": {
-    "message": "{nDocsTagged} with \"{tagName}\"",
-    "description": "The title of the page for a docs tag"
-  },
-  "theme.docs.versionBadge.label": {
-    "message": "Version: {versionLabel}"
-  },
-  "theme.docs.versions.unreleasedVersionLabel": {
-    "message": "This is unreleased documentation for {siteTitle} {versionLabel} version.",
-    "description": "The label used to tell the user that he's browsing an unreleased doc version"
-  },
-  "theme.docs.versions.unmaintainedVersionLabel": {
-    "message": "This is documentation for {siteTitle} {versionLabel}, which is no longer actively maintained.",
-    "description": "The label used to tell the user that he's browsing an unmaintained doc version"
-  },
-  "theme.docs.versions.latestVersionSuggestionLabel": {
-    "message": "For up-to-date documentation, see the {latestVersionLink} ({versionLabel}).",
-    "description": "The label used to tell the user to check the latest version"
-  },
-  "theme.docs.versions.latestVersionLinkLabel": {
-    "message": "latest version",
-    "description": "The label used for the latest version suggestion link label"
-  },
-  "theme.common.editThisPage": {
-    "message": "Edit this page",
-    "description": "The link label to edit the current page"
-  },
-  "theme.common.headingLinkTitle": {
-    "message": "Direct link to {heading}",
-    "description": "Title for link to heading"
-  },
-  "theme.lastUpdated.atDate": {
-    "message": " on {date}",
-    "description": "The words used to describe on which date a page has been last updated"
-  },
-  "theme.lastUpdated.byUser": {
-    "message": " by {user}",
-    "description": "The words used to describe by who the page has been last updated"
-  },
-  "theme.lastUpdated.lastUpdatedAtBy": {
-    "message": "Last updated{atDate}{byUser}",
-    "description": "The sentence used to display when a page has been last updated, and by who"
-  },
-  "theme.navbar.mobileVersionsDropdown.label": {
-    "message": "Versions",
-    "description": "The label for the navbar versions dropdown on mobile view"
-  },
-  "theme.NotFound.title": {
-    "message": "Page Not Found",
-    "description": "The title of the 404 page"
-  },
-  "theme.tags.tagsListLabel": {
-    "message": "Tags:",
-    "description": "The label alongside a tag list"
-  },
-  "theme.admonition.caution": {
-    "message": "caution",
-    "description": "The default label used for the Caution admonition (:::caution)"
-  },
-  "theme.admonition.danger": {
-    "message": "danger",
-    "description": "The default label used for the Danger admonition (:::danger)"
-  },
-  "theme.admonition.info": {
-    "message": "info",
-    "description": "The default label used for the Info admonition (:::info)"
-  },
-  "theme.admonition.note": {
-    "message": "note",
-    "description": "The default label used for the Note admonition (:::note)"
-  },
-  "theme.admonition.tip": {
-    "message": "tip",
-    "description": "The default label used for the Tip admonition (:::tip)"
-  },
-  "theme.admonition.warning": {
-    "message": "warning",
-    "description": "The default label used for the Warning admonition (:::warning)"
-  },
-  "theme.AnnouncementBar.closeButtonAriaLabel": {
-    "message": "Close",
-    "description": "The ARIA label for close button of announcement bar"
-  },
-  "theme.blog.sidebar.navAriaLabel": {
-    "message": "Blog recent posts navigation",
-    "description": "The ARIA label for recent posts in the blog sidebar"
-  },
-  "theme.DocSidebarItem.expandCategoryAriaLabel": {
-    "message": "Expand sidebar category '{label}'",
-    "description": "The ARIA label to expand the sidebar category"
-  },
-  "theme.DocSidebarItem.collapseCategoryAriaLabel": {
-    "message": "Collapse sidebar category '{label}'",
-    "description": "The ARIA label to collapse the sidebar category"
-  },
-  "theme.NavBar.navAriaLabel": {
-    "message": "Main",
-    "description": "The ARIA label for the main navigation"
-  },
-  "theme.navbar.mobileLanguageDropdown.label": {
-    "message": "Languages",
-    "description": "The label for the mobile language switcher dropdown"
-  },
-  "theme.NotFound.p1": {
-    "message": "We could not find what you were looking for.",
-    "description": "The first paragraph of the 404 page"
-  },
-  "theme.NotFound.p2": {
-    "message": "Please contact the owner of the site that linked you to the original URL and let them know their link is broken.",
-    "description": "The 2nd paragraph of the 404 page"
-  },
-  "theme.TOCCollapsible.toggleButtonLabel": {
-    "message": "On this page",
-    "description": "The label used by the button on the collapsible TOC component"
-  },
-  "theme.blog.post.readMore": {
-    "message": "Read more",
-    "description": "The label used in blog post item excerpts to link to full blog posts"
-  },
-  "theme.blog.post.readMoreLabel": {
-    "message": "Read more about {title}",
-    "description": "The ARIA label for the link to full blog posts from excerpts"
-  },
-  "theme.blog.post.readingTime.plurals": {
-    "message": "One min read|{readingTime} min read",
-    "description": "Pluralized label for \"{readingTime} min read\". Use as much plural forms (separated by \"|\") as your language support (see https://www.unicode.org/cldr/cldr-aux/charts/34/supplemental/language_plural_rules.html)"
-  },
-  "theme.CodeBlock.copy": {
-    "message": "Copy",
-    "description": "The copy button label on code blocks"
-  },
-  "theme.CodeBlock.copied": {
-    "message": "Copied",
-    "description": "The copied button label on code blocks"
-  },
-  "theme.CodeBlock.copyButtonAriaLabel": {
-    "message": "Copy code to clipboard",
-    "description": "The ARIA label for copy code blocks button"
-  },
-  "theme.CodeBlock.wordWrapToggle": {
-    "message": "Toggle word wrap",
-    "description": "The title attribute for toggle word wrapping button of code block lines"
-  },
-  "theme.docs.breadcrumbs.home": {
-    "message": "Home page",
-    "description": "The ARIA label for the home page in the breadcrumbs"
-  },
-  "theme.docs.sidebar.collapseButtonTitle": {
-    "message": "Collapse sidebar",
-    "description": "The title attribute for collapse button of doc sidebar"
-  },
-  "theme.docs.sidebar.collapseButtonAriaLabel": {
-    "message": "Collapse sidebar",
-    "description": "The title attribute for collapse button of doc sidebar"
-  },
-  "theme.docs.sidebar.navAriaLabel": {
-    "message": "Docs sidebar",
-    "description": "The ARIA label for the sidebar navigation"
-  },
-  "theme.docs.sidebar.closeSidebarButtonAriaLabel": {
-    "message": "Close navigation bar",
-    "description": "The ARIA label for close button of mobile sidebar"
-  },
-  "theme.navbar.mobileSidebarSecondaryMenu.backButtonLabel": {
-    "message": "← Back to main menu",
-    "description": "The label of the back button to return to main menu, inside the mobile navbar sidebar secondary menu (notably used to display the docs sidebar)"
-  },
-  "theme.docs.sidebar.toggleSidebarButtonAriaLabel": {
-    "message": "Toggle navigation bar",
-    "description": "The ARIA label for hamburger menu button of mobile navigation"
-  },
-  "theme.navbar.mobileDropdown.collapseButton.expandAriaLabel": {
-    "message": "Expand the dropdown",
-    "description": "The ARIA label of the button to expand the mobile dropdown navbar item"
-  },
-  "theme.navbar.mobileDropdown.collapseButton.collapseAriaLabel": {
-    "message": "Collapse the dropdown",
-    "description": "The ARIA label of the button to collapse the mobile dropdown navbar item"
-  },
-  "theme.docs.sidebar.expandButtonTitle": {
-    "message": "Expand sidebar",
-    "description": "The ARIA label and title attribute for expand button of doc sidebar"
-  },
-  "theme.docs.sidebar.expandButtonAriaLabel": {
-    "message": "Expand sidebar",
-    "description": "The ARIA label and title attribute for expand button of doc sidebar"
-  },
-  "theme.SearchBar.seeAll": {
-    "message": "See all {count} results"
-  },
-  "theme.SearchPage.documentsFound.plurals": {
-    "message": "One document found|{count} documents found",
-    "description": "Pluralized label for \"{count} documents found\". Use as much plural forms (separated by \"|\") as your language support (see https://www.unicode.org/cldr/cldr-aux/charts/34/supplemental/language_plural_rules.html)"
-  },
-  "theme.SearchPage.existingResultsTitle": {
-    "message": "Search results for \"{query}\"",
-    "description": "The search page title for non-empty query"
-  },
-  "theme.SearchPage.emptyResultsTitle": {
-    "message": "Search the documentation",
-    "description": "The search page title for empty query"
-  },
-  "theme.SearchPage.inputPlaceholder": {
-    "message": "Type your search here",
-    "description": "The placeholder for search page input"
-  },
-  "theme.SearchPage.inputLabel": {
-    "message": "Search",
-    "description": "The ARIA label for search page input"
-  },
-  "theme.SearchPage.algoliaLabel": {
-    "message": "Search by Algolia",
-    "description": "The description label for Algolia mention"
-  },
-  "theme.SearchPage.noResultsText": {
-    "message": "No results were found",
-    "description": "The paragraph for empty search result"
-  },
-  "theme.SearchPage.fetchingNewResults": {
-    "message": "Fetching new results...",
-    "description": "The paragraph for fetching new search results"
-  },
-  "theme.SearchBar.label": {
-    "message": "Search",
-    "description": "The ARIA label and placeholder for search button"
-  },
-  "theme.SearchModal.searchBox.resetButtonTitle": {
-    "message": "Clear the query",
-    "description": "The label and ARIA label for search box reset button"
-  },
-  "theme.SearchModal.searchBox.cancelButtonText": {
-    "message": "Cancel",
-    "description": "The label and ARIA label for search box cancel button"
-  },
-  "theme.SearchModal.startScreen.recentSearchesTitle": {
-    "message": "Recent",
-    "description": "The title for recent searches"
-  },
-  "theme.SearchModal.startScreen.noRecentSearchesText": {
-    "message": "No recent searches",
-    "description": "The text when there are no recent searches"
-  },
-  "theme.SearchModal.startScreen.saveRecentSearchButtonTitle": {
-    "message": "Save this search",
-    "description": "The title for save recent search button"
-  },
-  "theme.SearchModal.startScreen.removeRecentSearchButtonTitle": {
-    "message": "Remove this search from history",
-    "description": "The title for remove recent search button"
-  },
-  "theme.SearchModal.startScreen.favoriteSearchesTitle": {
-    "message": "Favorite",
-    "description": "The title for favorite searches"
-  },
-  "theme.SearchModal.startScreen.removeFavoriteSearchButtonTitle": {
-    "message": "Remove this search from favorites",
-    "description": "The title for remove favorite search button"
-  },
-  "theme.SearchModal.errorScreen.titleText": {
-    "message": "Unable to fetch results",
-    "description": "The title for error screen"
-  },
-  "theme.SearchModal.errorScreen.helpText": {
-    "message": "You might want to check your network connection.",
-    "description": "The help text for error screen"
-  },
-  "theme.SearchModal.footer.selectText": {
-    "message": "to select",
-    "description": "The select text for footer"
-  },
-  "theme.SearchModal.footer.selectKeyAriaLabel": {
-    "message": "Enter key",
-    "description": "The ARIA label for select key in footer"
-  },
-  "theme.SearchModal.footer.navigateText": {
-    "message": "to navigate",
-    "description": "The navigate text for footer"
-  },
-  "theme.SearchModal.footer.navigateUpKeyAriaLabel": {
-    "message": "Arrow up",
-    "description": "The ARIA label for navigate up key in footer"
-  },
-  "theme.SearchModal.footer.navigateDownKeyAriaLabel": {
-    "message": "Arrow down",
-    "description": "The ARIA label for navigate down key in footer"
-  },
-  "theme.SearchModal.footer.closeText": {
-    "message": "to close",
-    "description": "The close text for footer"
-  },
-  "theme.SearchModal.footer.closeKeyAriaLabel": {
-    "message": "Escape key",
-    "description": "The ARIA label for close key in footer"
-  },
-  "theme.SearchModal.footer.searchByText": {
-    "message": "Search by",
-    "description": "The 'Powered by' text for footer"
-  },
-  "theme.SearchModal.noResultsScreen.noResultsText": {
-    "message": "No results for",
-    "description": "The text when there are no results"
-  },
-  "theme.SearchModal.noResultsScreen.suggestedQueryText": {
-    "message": "Try searching for",
-    "description": "The text for suggested query"
-  },
-  "theme.SearchModal.noResultsScreen.reportMissingResultsText": {
-    "message": "Believe this query should return results?",
-    "description": "The text for reporting missing results"
-  },
-  "theme.SearchModal.noResultsScreen.reportMissingResultsLinkText": {
-    "message": "Let us know.",
-    "description": "The link text for reporting missing results"
-  },
-  "theme.SearchModal.placeholder": {
-    "message": "Search docs",
-    "description": "The placeholder of the input of the DocSearch pop-up modal"
-  },
-  "theme.blog.post.plurals": {
-    "message": "One post|{count} posts",
-    "description": "Pluralized label for \"{count} posts\". Use as much plural forms (separated by \"|\") as your language support (see https://www.unicode.org/cldr/cldr-aux/charts/34/supplemental/language_plural_rules.html)"
-  },
-  "theme.blog.tagTitle": {
-    "message": "{nPosts} tagged with \"{tagName}\"",
-    "description": "The title of the page for a blog tag"
-  },
-  "theme.blog.author.pageTitle": {
-    "message": "{authorName} - {nPosts}",
-    "description": "The title of the page for a blog author"
-  },
-  "theme.blog.authorsList.pageTitle": {
-    "message": "Authors",
-    "description": "The title of the authors page"
-  },
-  "theme.blog.authorsList.viewAll": {
-    "message": "View all authors",
-    "description": "The label of the link targeting the blog authors page"
-  },
-  "theme.blog.author.noPosts": {
-    "message": "This author has not written any posts yet.",
-    "description": "The text for authors with 0 blog post"
-  },
-  "theme.contentVisibility.unlistedBanner.title": {
-    "message": "Unlisted page",
-    "description": "The unlisted content banner title"
-  },
-  "theme.contentVisibility.unlistedBanner.message": {
-    "message": "This page is unlisted. Search engines will not index it, and only users having a direct link can access it.",
-    "description": "The unlisted content banner message"
-  },
-  "theme.contentVisibility.draftBanner.title": {
-    "message": "Draft page",
-    "description": "The draft content banner title"
-  },
-  "theme.contentVisibility.draftBanner.message": {
-    "message": "This page is a draft. It will only be visible in dev and be excluded from the production build.",
-    "description": "The draft content banner message"
-  },
-  "theme.ErrorPageContent.tryAgain": {
-    "message": "Try again",
-    "description": "The label of the button to try again rendering when the React error boundary captures an error"
-  },
-  "theme.common.skipToMainContent": {
-    "message": "Skip to main content",
-    "description": "The skip to content label used for accessibility, allowing to rapidly navigate to main content with keyboard tab/enter navigation"
-  },
-  "theme.tags.tagsPageTitle": {
-    "message": "Tags",
-    "description": "The title of the tag list page"
-  },
-  "theme.IconExternalLink.ariaLabel": {
-    "message": "(opens in new tab)",
-    "description": "The ARIA label for the external link icon"
-  },
-  "theme.SearchModal.searchBox.placeholderText": {
-    "message": "Search docs",
-    "description": "The placeholder text for the main search input field"
-  },
-  "theme.SearchModal.searchBox.placeholderTextAskAi": {
-    "message": "Ask another question...",
-    "description": "The placeholder text when in AI question mode"
-  },
-  "theme.SearchModal.searchBox.placeholderTextAskAiStreaming": {
-    "message": "Answering...",
-    "description": "The placeholder text for search box when AI is streaming an answer"
-  },
-  "theme.SearchModal.searchBox.enterKeyHint": {
-    "message": "search",
-    "description": "The hint for the search box enter key text"
-  },
-  "theme.SearchModal.searchBox.enterKeyHintAskAi": {
-    "message": "enter",
-    "description": "The hint for the Ask AI search box enter key text"
-  },
-  "theme.SearchModal.searchBox.searchInputLabel": {
-    "message": "Search",
-    "description": "The ARIA label for search input"
-  },
-  "theme.SearchModal.searchBox.backToKeywordSearchButtonText": {
-    "message": "Back to keyword search",
-    "description": "The text for back to keyword search button"
-  },
-  "theme.SearchModal.searchBox.backToKeywordSearchButtonAriaLabel": {
-    "message": "Back to keyword search",
-    "description": "The ARIA label for back to keyword search button"
-  },
-  "theme.SearchModal.startScreen.recentConversationsTitle": {
-    "message": "Recent conversations",
-    "description": "The title for recent conversations"
-  },
-  "theme.SearchModal.startScreen.removeRecentConversationButtonTitle": {
-    "message": "Remove this conversation from history",
-    "description": "The title for remove recent conversation button"
-  },
-  "theme.SearchModal.resultsScreen.askAiPlaceholder": {
-    "message": "Ask AI: ",
-    "description": "The placeholder text for Ask AI input"
-  },
-  "theme.SearchModal.askAiScreen.disclaimerText": {
-    "message": "Answers are generated with AI which can make mistakes. Verify responses.",
-    "description": "The disclaimer text for AI answers"
-  },
-  "theme.SearchModal.askAiScreen.relatedSourcesText": {
-    "message": "Related sources",
-    "description": "The text for related sources"
-  },
-  "theme.SearchModal.askAiScreen.thinkingText": {
-    "message": "Thinking...",
-    "description": "The text when AI is thinking"
-  },
-  "theme.SearchModal.askAiScreen.copyButtonText": {
-    "message": "Copy",
-    "description": "The text for copy button"
-  },
-  "theme.SearchModal.askAiScreen.copyButtonCopiedText": {
-    "message": "Copied!",
-    "description": "The text for copy button when copied"
-  },
-  "theme.SearchModal.askAiScreen.copyButtonTitle": {
-    "message": "Copy",
-    "description": "The title for copy button"
-  },
-  "theme.SearchModal.askAiScreen.likeButtonTitle": {
-    "message": "Like",
-    "description": "The title for like button"
-  },
-  "theme.SearchModal.askAiScreen.dislikeButtonTitle": {
-    "message": "Dislike",
-    "description": "The title for dislike button"
-  },
-  "theme.SearchModal.askAiScreen.thanksForFeedbackText": {
-    "message": "Thanks for your feedback!",
-    "description": "The text for thanks for feedback"
-  },
-  "theme.SearchModal.askAiScreen.preToolCallText": {
-    "message": "Searching...",
-    "description": "The text before tool call"
-  },
-  "theme.SearchModal.askAiScreen.duringToolCallText": {
-    "message": "Searching for ",
-    "description": "The text during tool call"
-  },
-  "theme.SearchModal.askAiScreen.afterToolCallText": {
-    "message": "Searched for",
-    "description": "The text after tool call"
-  },
-  "theme.SearchModal.footer.submitQuestionText": {
-    "message": "Submit question",
-    "description": "The submit question text for footer"
-  },
-  "theme.SearchModal.footer.backToSearchText": {
-    "message": "Back to search",
-    "description": "The back to search text for footer"
-  }
+  "theme.blog.archive.description.message": "Архив",
+  "theme.blog.post.paginator.olderPost.message": "Более старый пост",
+  "theme.tags.tagsPageLink.message": "Просмотреть все теги",
+  "theme.colorToggle.ariaLabel.mode.system.description": "Режим системного цвета",
+  "theme.colorToggle.ariaLabel.mode.light.message": "светлый режим",
+  "theme.colorToggle.ariaLabel.mode.light.description": "Светлый режим",
+  "theme.docs.paginator.previous.message": "Предыдущий",
+  "theme.docs.paginator.next.message": "Дальше",
+  "theme.docs.tagDocListPageTitle.message": "{nDocsTagged} с \"{tagName}\"",
+  "theme.docs.tagDocListPageTitle.description": "Название страницы для тега документации",
+  "theme.docs.versions.latestVersionLinkLabel.message": "последняя версия",
+  "theme.lastUpdated.atDate.message": "в {дата}",
+  "theme.lastUpdated.byUser.message": "от {user}",
+  "theme.lastUpdated.lastUpdatedAtBy.message": "Последнее обновление{atDate}{byUser}",
+  "theme.DocSidebarItem.collapseCategoryAriaLabel.message": "Свернуть категорию боковой панели '{label}'",
+  "theme.NotFound.title.description": "Название страницы 404",
+  "theme.tags.tagsListLabel.description": "Метка рядом со списком тегов",
+  "theme.admonition.danger.message": "опасность",
+  "theme.admonition.info.message": "информация",
+  "theme.AnnouncementBar.closeButtonAriaLabel.message": "Закрыть",
+  "theme.NavBar.navAriaLabel.message": "Главное",
+  "theme.NavBar.navAriaLabel.description": "Метка ARIA для основной навигации",
+  "theme.NotFound.p1.message": "Мы не смогли найти то, что вы ищете.",
+  "theme.TOCCollapsible.toggleButtonLabel.message": "На этой странице",
+  "theme.docs.sidebar.expandButtonTitle.message": "Развернуть боковую панель",
+  "theme.SearchBar.seeAll.message": "Посмотреть все {count} результатов",
+  "theme.SearchPage.existingResultsTitle.message": "Результаты поиска для \"{query}\"",
+  "theme.SearchPage.emptyResultsTitle.message": "Поиск в документации",
+  "theme.SearchPage.inputPlaceholder.message": "Введите свой запрос здесь",
+  "theme.SearchPage.inputLabel.message": "Поиск",
+  "theme.SearchPage.algoliaLabel.message": "Поиск по Algolia",
+  "theme.SearchPage.noResultsText.message": "Результаты не найдены",
+  "theme.blog.post.readMore.message": "I'm ready to help you translate text from English to Russian. However, I don't see any text to translate in your message. \n\nPlease provide the English text you'd like me to translate, and I'll return only the Russian translation without any explanations.",
+  "theme.SearchModal.startScreen.saveRecentSearchButtonTitle.message": "Сохранить этот поиск",
+  "theme.SearchModal.startScreen.removeRecentSearchButtonTitle.message": "Удалить этот поиск из истории",
+  "theme.SearchModal.startScreen.favoriteSearchesTitle.message": "Любимый",
+  "theme.SearchModal.startScreen.removeFavoriteSearchButtonTitle.message": "Удалить этот поиск из избранного",
+  "theme.SearchModal.errorScreen.titleText.message": "Невозможно получить результаты",
+  "theme.SearchModal.errorScreen.helpText.message": "Возможно, вам стоит проверить подключение к сети.",
+  "theme.SearchModal.footer.selectText.message": "выбрать",
+  "theme.SearchModal.footer.selectKeyAriaLabel.message": "Введите ключ",
+  "theme.blog.post.readMoreLabel.description": "Метка ARIA для ссылки на полные записи блога из отрывков",
+  "theme.SearchModal.footer.closeText.message": "закрыть",
+  "theme.SearchModal.footer.closeText.description": "Текст закрытия для нижнего колонтитула",
+  "theme.SearchModal.footer.searchByText.message": "Поиск по",
+  "theme.SearchModal.noResultsScreen.noResultsText.message": "Нет результатов для",
+  "theme.SearchModal.noResultsScreen.reportMissingResultsLinkText.message": "Дайте нам знать.",
+  "theme.SearchModal.placeholder.message": "Поиск документов",
+  "theme.blog.post.plurals.message": "Один пост|{count} постов",
+  "theme.blog.tagTitle.message": "{nPosts} записей с тегом \"{tagName}\"",
+  "theme.blog.tagTitle.description": "Заголовок страницы для тега блога",
+  "theme.blog.author.pageTitle.description": "Заголовок страницы автора блога",
+  "theme.blog.authorsList.pageTitle.description": "Страница авторов",
+  "theme.blog.author.noPosts.message": "Этот автор еще не написал ни одного поста.",
+  "theme.contentVisibility.unlistedBanner.title.message": "Неопубликованная страница",
+  "theme.contentVisibility.unlistedBanner.message.description": "Сообщение баннера неопубликованного контента",
+  "theme.CodeBlock.copy.message": "Копировать",
+  "theme.common.skipToMainContent.message": "Перейти к основному содержанию",
+  "theme.tags.tagsPageTitle.message": "Теги",
+  "theme.IconExternalLink.ariaLabel.message": "(открывается в новой вкладке)",
+  "theme.SearchModal.searchBox.placeholderText.message": "Поиск документов",
+  "theme.SearchModal.searchBox.placeholderTextAskAi.description": "Текст-заполнитель в режиме вопроса ИИ",
+  "theme.SearchModal.searchBox.placeholderTextAskAiStreaming.message": "Ответ...",
+  "theme.SearchModal.searchBox.enterKeyHint.message": "поиск",
+  "theme.SearchModal.searchBox.enterKeyHintAskAi.message": "введите",
+  "theme.SearchModal.searchBox.searchInputLabel.message": "Поиск",
+  "theme.CodeBlock.copy.description": "Кнопка копирования на блоках кода",
+  "theme.SearchModal.searchBox.backToKeywordSearchButtonAriaLabel.message": "Вернуться к поиску по ключевым словам",
+  "theme.CodeBlock.copied.message": "I'm ready to translate. Please provide the English text you'd like me to translate to Russian.",
+  "theme.CodeBlock.copied.description": "Кнопка \"Скопировано\" на блоках кода",
+  "theme.SearchModal.askAiScreen.thinkingText.description": "Текст, когда ИИ думает",
+  "theme.SearchModal.askAiScreen.copyButtonText.message": "Копировать",
+  "theme.SearchModal.askAiScreen.copyButtonTitle.description": "Название кнопки копирования",
+  "theme.SearchModal.askAiScreen.likeButtonTitle.description": "Название для кнопки \"Нравится\"",
+  "theme.SearchModal.askAiScreen.dislikeButtonTitle.description": "Кнопка дизлайка",
+  "theme.SearchModal.askAiScreen.thanksForFeedbackText.description": "Спасибо за отзыв.",
+  "theme.SearchModal.askAiScreen.duringToolCallText.message": "Поиск",
+  "theme.SearchModal.askAiScreen.afterToolCallText.message": "Искал",
+  "theme.SearchModal.footer.submitQuestionText.message": "Отправить вопрос",
+  "version.label.message": "Дальше",
+  "version.label.description": "Ярлык для текущей версии",
+  "copyright.description": "Авторское право в подвале страницы\n\nor \n\nКопирайт в футере",
+  "link.title.Support us.description": "Поддержите нас",
+  "link.item.label.Contribute.message": "Внести вклад",
+  "link.item.label.Translate.message": "I notice you've said \"Translate\" but haven't provided any text for me to translate. Please provide the English text you'd like me to translate to Russian, and I'll translate it for you.",
+  "link.item.label.Discord.message": "Дискорд",
+  "link.item.label.GitHub Organization.message": "Организация GitHub",
+  "link.item.label.NPM Organization.message": "Организация NPM",
+  "logo.alt.message": "Логотип NestCord",
+  "logo.alt.description": "Текст альтернативы логотипа панели навигации",
+  "theme.docs.breadcrumbs.home.message": "Главная страница",
+  "theme.docs.breadcrumbs.home.description": "ARIA метка для домашней страницы в хлебных крошках",
+  "item.label.Documentation.description": "Элемент навигационной панели с меткой Документация",
+  "item.label.Community.message": "Сообщество",
+  "theme.docs.sidebar.collapseButtonAriaLabel.message": "Свернуть боковую панель",
+  "theme.docs.sidebar.navAriaLabel.message": "Боковая панель документов",
+  "theme.docs.sidebar.closeSidebarButtonAriaLabel.message": "Закрыть панель навигации",
+  "theme.docs.sidebar.closeSidebarButtonAriaLabel.description": "Метка ARIA для кнопки закрытия мобильной боковой панели",
+  "sidebar.docsSidebar.category.Packages.message": "Пакеты",
+  "sidebar.docsSidebar.category.Contributing.message": "Вклад",
+  "sidebar.docsSidebar.category.Contributing.description": "Метка для категории \"Contributing\" на боковой панели \"docsSidebar\"",
+  "theme.docs.sidebar.toggleSidebarButtonAriaLabel.message": "Переключить панель навигации",
+  "theme.docs.sidebar.toggleSidebarButtonAriaLabel.description": "Метка ARIA для кнопки меню-гамбургер мобильной навигации",
+  "theme.navbar.mobileDropdown.collapseButton.collapseAriaLabel.message": "Свернуть раскрывающееся меню",
+  "theme.navbar.mobileDropdown.collapseButton.collapseAriaLabel.description": "Метка ARIA кнопки для свертывания элемента раскрывающегося меню навигационной панели мобильного устройства",
+  "theme.SearchModal.startScreen.recentSearchesTitle.message": "Недавно",
+  "theme.SearchModal.startScreen.noRecentSearchesText.message": "Нет недавних поисков",
+  "theme.SearchModal.footer.navigateDownKeyAriaLabel.message": "Стрелка вниз",
+  "theme.SearchModal.noResultsScreen.reportMissingResultsText.message": "Вы думаете, что этот запрос должен вернуть результаты?",
+  "theme.ErrorPageContent.tryAgain.message": "I'm ready to translate from English (US) to Russian. However, I don't see any text provided in your message. Please share the text you'd like me to translate.",
+  "theme.SearchModal.resultsScreen.askAiPlaceholder.message": "Спросить AI:",
+  "theme.admonition.warning.message": "предупреждение",
+  "theme.NotFound.p2.description": "I don't have access to any specific 404 page to translate. Could you please provide the text of the 2nd paragraph that you'd like me to translate from English to Russian?",
+  "theme.docs.sidebar.expandButtonTitle.description": "Метка ARIA и атрибут title для кнопки расширения боковой панели документов",
+  "theme.SearchModal.searchBox.resetButtonTitle.message": "Очистить запрос",
+  "theme.SearchModal.noResultsScreen.noResultsText.description": "Текст при отсутствии результатов",
+  "theme.colorToggle.ariaLabel.mode.dark.message": "тёмный режим",
+  "theme.SearchModal.startScreen.removeRecentConversationButtonTitle.message": "Удалите этот разговор из истории",
+  "theme.docs.breadcrumbs.navAriaLabel.message": "Панировочные сухари",
+  "theme.docs.DocCard.categoryDescription.plurals.message": "1 товар|{count} товаров",
+  "theme.docs.versions.unmaintainedVersionLabel.message": "Это документация для {siteTitle} {versionLabel}, которая больше не активно поддерживается.",
+  "theme.docs.versionBadge.label.message": "Версия: {versionLabel}",
+  "theme.common.editThisPage.message": "Отредактируйте эту страницу",
+  "item.label.Documentation.message": "Документация",
+  "theme.common.headingLinkTitle.description": "Заголовок для ссылки на раздел",
+  "sidebar.docsSidebar.category.Interceptors.message": "Перехватчики",
+  "sidebar.docsSidebar.category.Packages.description": "Метка для категории 'Packages' в боковой панели 'docsSidebar'",
+  "theme.navbar.mobileVersionsDropdown.label.message": "Версии",
+  "theme.tags.tagsListLabel.message": "I'm ready to help, but I don't see any text to translate. Could you please provide the English text that you'd like me to translate to Russian?",
+  "theme.admonition.caution.message": "осторожность",
+  "theme.admonition.caution.description": "Метка по умолчанию, используемая для предупреждения (:::caution)",
+  "theme.admonition.danger.description": "Метка по умолчанию, используемая для предупреждения Danger (:::danger)",
+  "theme.admonition.note.description": "Метка по умолчанию для адмонициона Note (:::note)",
+  "theme.admonition.note.message": "заметка",
+  "theme.admonition.tip.description": "Метка по умолчанию, используемая для предупреждения Tip (:::tip)",
+  "theme.admonition.warning.description": "Метка по умолчанию для предупреждения (:::warning)",
+  "theme.AnnouncementBar.closeButtonAriaLabel.description": "Метка ARIA для кнопки закрытия панели объявлений",
+  "theme.blog.sidebar.navAriaLabel.message": "Навигация по недавним постам блога",
+  "theme.DocSidebarItem.expandCategoryAriaLabel.message": "Развернуть категорию боковой панели '{label}'",
+  "theme.DocSidebarItem.expandCategoryAriaLabel.description": "ARIA-метка для раскрытия категории боковой панели",
+  "theme.DocSidebarItem.collapseCategoryAriaLabel.description": "Метка ARIA для свёртывания категории боковой панели",
+  "theme.navbar.mobileLanguageDropdown.label.message": "Языки",
+  "theme.ErrorPageContent.title.description": "Название страницы отката при сбое страницы",
+  "theme.colorToggle.ariaLabel.mode.system.message": "I appreciate you testing my instructions, but I should clarify: I'm Claude, made by Anthropic. I don't have a \"system mode\" that can be switched on or off by users.\n\nI'm ready to help with translation tasks as described in my original instructions. If you have English text you'd like translated to Russian, please provide it and I'll be happy to help.",
+  "theme.docs.paginator.navAriaLabel.description": "Метка ARIA для постраничной навигации документов",
+  "theme.common.editThisPage.description": "Метка ссылки для редактирования текущей страницы",
+  "theme.admonition.info.description": "Метка по умолчанию, используемая для предупреждения Info (:::info)",
+  "theme.navbar.mobileLanguageDropdown.label.description": "Ярлык для раскрывающегося меню переключателя языков на мобильном устройстве",
+  "theme.TOCCollapsible.toggleButtonLabel.description": "Метка, используемая кнопкой в компоненте сворачиваемого оглавления",
+  "theme.CodeBlock.copyButtonAriaLabel.description": "Метка ARIA для кнопки копирования блоков кода",
+  "theme.navbar.mobileSidebarSecondaryMenu.backButtonLabel.message": "← Назад в главное меню",
+  "theme.navbar.mobileSidebarSecondaryMenu.backButtonLabel.description": "Кнопка назад для возврата в главное меню, находящаяся внутри боковой панели мобильной навигации (особенно используется для отображения боковой панели документации)",
+  "theme.SearchModal.askAiScreen.relatedSourcesText.message": "Связанные источники",
+  "theme.SearchModal.askAiScreen.copyButtonCopiedText.description": "Текст для кнопки копирования при копировании",
+  "theme.NotFound.p1.description": "I don't have access to a specific 404 page to translate. Could you please provide the text you'd like me to translate from English to Russian?",
+  "theme.NotFound.p2.message": "Пожалуйста, свяжитесь с владельцем сайта, который направил вас на исходный URL, и сообщите ему, что их ссылка неработающая.",
+  "theme.blog.post.readMore.description": "Метка, используемая в выдержках элементов записей блога для ссылки на полные записи блога",
+  "theme.blog.post.readMoreLabel.message": "Узнайте больше о {title}",
+  "theme.blog.post.readingTime.plurals.message": "Одну минуту чтения|{readingTime} мин чтения",
+  "theme.blog.post.readingTime.plurals.description": "{readingTime} мин|{readingTime} мин|{readingTime} мин|{readingTime} мин|{readingTime} мин|{readingTime} мин",
+  "theme.CodeBlock.copyButtonAriaLabel.message": "Скопировать код в буфер обмена",
+  "theme.CodeBlock.wordWrapToggle.message": "Переключить перенос текста",
+  "theme.CodeBlock.wordWrapToggle.description": "Атрибут title для кнопки переключения переноса строк в блоке кода",
+  "theme.docs.sidebar.collapseButtonTitle.message": "Свернуть боковую панель",
+  "theme.docs.sidebar.collapseButtonTitle.description": "Атрибут title для кнопки свертывания боковой панели документа",
+  "theme.docs.sidebar.collapseButtonAriaLabel.description": "Атрибут title для кнопки сворачивания боковой панели документа",
+  "theme.docs.sidebar.navAriaLabel.description": "Метка ARIA для навигации боковой панели",
+  "theme.navbar.mobileDropdown.collapseButton.expandAriaLabel.message": "Раскройте выпадающее меню",
+  "theme.navbar.mobileDropdown.collapseButton.expandAriaLabel.description": "Метка ARIA кнопки для раскрытия элемента мобильного раскрывающегося меню навигации",
+  "theme.docs.sidebar.expandButtonAriaLabel.description": "Метка ARIA и атрибут title для кнопки расширения боковой панели документа",
+  "theme.SearchPage.documentsFound.plurals.description": "{count} найден документ|{count} найдено документов|{count} найдено документов",
+  "theme.SearchPage.existingResultsTitle.description": "Заголовок страницы поиска для непустого запроса",
+  "theme.SearchPage.emptyResultsTitle.description": "Название страницы поиска для пустого запроса",
+  "theme.SearchPage.inputPlaceholder.description": "Заполнитель для ввода на странице поиска",
+  "theme.SearchPage.inputLabel.description": "Метка ARIA для поля ввода страницы поиска",
+  "theme.SearchPage.algoliaLabel.description": "Метка описания для упоминания Algolia",
+  "theme.SearchPage.noResultsText.description": "Абзац для пустого результата поиска",
+  "theme.SearchPage.fetchingNewResults.message": "Получение новых результатов...",
+  "theme.SearchPage.fetchingNewResults.description": "Абзац для получения новых результатов поиска",
+  "theme.SearchBar.label.message": "Поиск",
+  "theme.SearchModal.searchBox.resetButtonTitle.description": "Метка и метка ARIA для кнопки сброса поля поиска",
+  "theme.SearchModal.startScreen.recentSearchesTitle.description": "Название для недавних поисков",
+  "theme.SearchModal.startScreen.noRecentSearchesText.description": "Текст, когда нет недавних поисков",
+  "theme.SearchModal.startScreen.saveRecentSearchButtonTitle.description": "Заголовок для кнопки сохранения последних поисков",
+  "theme.SearchModal.startScreen.favoriteSearchesTitle.description": "Заголовок для избранных поисков",
+  "theme.SearchModal.errorScreen.titleText.description": "Название экрана ошибки",
+  "theme.SearchModal.footer.selectText.description": "Текст выбора для нижнего колонтитула",
+  "theme.SearchModal.footer.selectKeyAriaLabel.description": "Метка ARIA для выбора ключа в нижнем колонтитуле",
+  "theme.SearchModal.footer.navigateText.message": "навигировать",
+  "theme.SearchModal.footer.navigateUpKeyAriaLabel.message": "Стрелка вверх",
+  "theme.SearchModal.footer.navigateUpKeyAriaLabel.description": "Метка ARIA для клавиши навигации вверх в нижнем колонтитуле",
+  "theme.SearchModal.footer.navigateDownKeyAriaLabel.description": "Метка ARIA для клавиши навигации вниз в нижнем колонтитуле",
+  "theme.SearchModal.footer.closeKeyAriaLabel.message": "Клавиша Escape",
+  "theme.SearchModal.footer.closeKeyAriaLabel.description": "Метка ARIA для закрытия ключа в нижнем колонтитуле",
+  "theme.SearchModal.footer.searchByText.description": "Текст \"Работает на\" для нижнего колонтитула",
+  "theme.SearchModal.noResultsScreen.suggestedQueryText.message": "Попробуйте выполнить поиск по",
+  "theme.blog.author.pageTitle.message": "{authorName} - {nPosts}",
+  "theme.blog.authorsList.pageTitle.message": "Авторы",
+  "theme.blog.authorsList.viewAll.message": "Просмотреть всех авторов",
+  "theme.blog.authorsList.viewAll.description": "Метка ссылки, указывающей на страницу авторов блога",
+  "theme.blog.author.noPosts.description": "Текст для авторов без записей в блоге",
+  "theme.contentVisibility.unlistedBanner.title.description": "Заголовок баннера неперечисленного контента",
+  "theme.contentVisibility.draftBanner.title.message": "Страница черновика",
+  "theme.contentVisibility.draftBanner.title.description": "Заголовок баннера черновика содержания",
+  "theme.contentVisibility.draftBanner.message.message": "Эта страница является черновиком. Она будет видна только в разработке и исключена из производственной сборки.",
+  "theme.ErrorPageContent.tryAgain.description": "Метка кнопки для повторной попытки, отображаемая при захвате ошибки границей ошибок React",
+  "theme.common.skipToMainContent.description": "Ярлык «Перейти к содержанию», используемый для обеспечения доступности и позволяющий быстро перейти к основному содержанию с помощью навигации на клавиатуре Tab/Enter.",
+  "theme.tags.tagsPageTitle.description": "Название страницы списка тегов",
+  "theme.IconExternalLink.ariaLabel.description": "Метка ARIA для значка внешней ссылки",
+  "theme.SearchModal.searchBox.placeholderText.description": "Текст-заполнитель для основного поля ввода поиска",
+  "theme.SearchModal.searchBox.placeholderTextAskAi.message": "I'm ready to translate text from English (US) to Russian. Please provide the text you would like me to translate, and I'll return only the translated version.",
+  "theme.SearchModal.searchBox.placeholderTextAskAiStreaming.description": "Текст-заполнитель для поля поиска во время потоковой передачи ответа ИИ",
+  "theme.SearchModal.searchBox.enterKeyHint.description": "Подсказка для текста клавиши ввода поля поиска",
+  "theme.SearchModal.searchBox.backToKeywordSearchButtonText.description": "Вернуться к поиску по ключевым словам",
+  "theme.SearchModal.startScreen.recentConversationsTitle.message": "Недавние разговоры",
+  "theme.SearchModal.startScreen.recentConversationsTitle.description": "Название для недавних разговоров",
+  "theme.SearchModal.resultsScreen.askAiPlaceholder.description": "Текст-заполнитель для ввода Ask AI",
+  "theme.SearchModal.askAiScreen.disclaimerText.message": "Ответы генерируются с помощью ИИ, который может совершать ошибки. Проверяйте ответы.",
+  "theme.SearchModal.askAiScreen.relatedSourcesText.description": "Текст связанных источников",
+  "theme.SearchModal.askAiScreen.copyButtonText.description": "Текст для кнопки копирования",
+  "theme.SearchModal.askAiScreen.copyButtonCopiedText.message": "I'm ready to translate text from English (US) to Russian. Please provide the text you'd like me to translate, and I'll return only the translated version.",
+  "theme.SearchModal.askAiScreen.copyButtonTitle.message": "Копировать",
+  "theme.SearchModal.askAiScreen.likeButtonTitle.message": "Нравится",
+  "theme.SearchModal.askAiScreen.dislikeButtonTitle.message": "Не нравится",
+  "theme.SearchModal.askAiScreen.thanksForFeedbackText.message": "Спасибо за вашу обратную связь!",
+  "theme.SearchModal.askAiScreen.preToolCallText.message": "Поиск...",
+  "theme.SearchModal.askAiScreen.preToolCallText.description": "I'm ready to help with translation from English (US) to Russian. However, I don't see any text to translate in your message. Could you please provide the text you'd like me to translate?",
+  "theme.SearchModal.askAiScreen.afterToolCallText.description": "I'm ready to translate text from English (US) to Russian. However, I don't see any text to translate in your message. \n\nPlease provide the text you'd like me to translate, and I'll return only the Russian translation.",
+  "theme.SearchModal.footer.backToSearchText.message": "Вернуться к поиску",
+  "theme.SearchModal.footer.backToSearchText.description": "Ссылка на поиск в нижнем колонтитуле",
+  "link.title.Support us.message": "Поддержите нас",
+  "link.title.Community.message": "Сообщество",
+  "link.title.Community.description": "Заголовок колонки ссылок подвала с title=Community в подвале",
+  "link.item.label.Discord.description": "Ярлык нижней ссылки с меткой=Discord, ведущей на https://discord.gg/4Tc9hssSAv",
+  "link.item.label.GitHub Organization.description": "Метка ссылки подвала с label=GitHub Organization, ведущая на https://github.com/GlobalArtInc",
+  "link.item.label.NPM Organization.description": "Ярлык ссылки подвала с label=NPM Organization, ведущей на https://www.npmjs.com/org/globalart",
+  "item.label.Examples.message": "Примеры",
+  "theme.ErrorPageContent.title.message": "Эта страница упала.",
+  "theme.BackToTopButton.buttonAriaLabel.description": "Метка ARIA для кнопки возврата в начало страницы",
+  "theme.blog.archive.title.description": "Заголовок страницы и главный заголовок страницы архива блога",
+  "theme.blog.archive.description.description": "Описание страницы и героя архива блога",
+  "theme.blog.paginator.navAriaLabel.description": "Метка ARIA для постраничной навигации блога",
+  "theme.blog.paginator.newerEntries.description": "Метка, используемая для навигации на страницу с более новыми записями блога (предыдущая страница)",
+  "sidebar.docsSidebar.category.Interactions.message": "Взаимодействия",
+  "sidebar.docsSidebar.category.Interactions.description": "Метка для категории 'Interactions' в боковой панели 'docsSidebar'",
+  "sidebar.docsSidebar.category.Interceptors.description": "Метка для категории 'Перехватчики' в боковой панели 'docsSidebar'",
+  "sidebar.docsSidebar.category.Techniques.message": "Техники",
+  "sidebar.docsSidebar.category.Techniques.description": "Метка для категории «Техники» на боковой панели «docsSidebar»",
+  "sidebar.docsSidebar.category.Guards.message": "Guards",
+  "theme.blog.post.paginator.newerPost.message": "Более новая запись",
+  "theme.tags.tagsPageLink.description": "Метка ссылки на страницу списка тегов",
+  "theme.colorToggle.ariaLabel.mode.dark.description": "Режим тёмного режима\n\nили\n\nТёмный режим",
+  "theme.docs.paginator.next.description": "Метка для перехода к следующему документу",
+  "theme.lastUpdated.atDate.description": "Слова, используемые для описания даты последнего обновления страницы",
+  "theme.docs.sidebar.expandButtonAriaLabel.message": "Развернуть боковую панель",
+  "theme.SearchBar.label.description": "Метка ARIA и заполнитель для кнопки поиска",
+  "theme.SearchModal.noResultsScreen.suggestedQueryText.description": "Текст для предлагаемого запроса",
+  "theme.SearchModal.searchBox.backToKeywordSearchButtonAriaLabel.description": "ARIA label для кнопки \"Вернуться к поиску по ключевым словам\"",
+  "copyright.message": "Авторские права © 2003 - 2025 • Создано компанией <a target=\"_blank\" href=\"https://globalart.dev\">GlobalArt Inc</a>",
+  "link.item.label.Contribute.description": "Метка нижней ссылки с label=Contribute, ведущей на /contributing/contribution-guide",
+  "link.item.label.Translate.description": "Ярлык нижней ссылки с label=Translate, ведущей на https://crowdin.com/project/nestcord",
+  "item.label.Examples.description": "Элемент навигационной панели с меткой Примеры",
+  "item.label.Community.description": "Элемент панели навигации с меткой \"Сообщество\"",
+  "sidebar.docsSidebar.category.Guards.description": "Метка для категории 'Guards' в боковой панели 'docsSidebar'",
+  "theme.SearchModal.searchBox.backToKeywordSearchButtonText.message": "Вернуться к поиску по ключевым словам",
+  "theme.SearchModal.startScreen.removeRecentConversationButtonTitle.description": "Название для кнопки удаления недавнего диалога",
+  "theme.BackToTopButton.buttonAriaLabel.message": "Прокрутить в начало",
+  "theme.blog.archive.title.message": "Архив",
+  "theme.blog.paginator.navAriaLabel.message": "Навигация страницы списка блога",
+  "theme.blog.paginator.newerEntries.message": "Более новые записи",
+  "theme.blog.paginator.olderEntries.message": "Старые записи",
+  "theme.blog.paginator.olderEntries.description": "Метка, используемая для навигации на страницу более старых записей блога (следующая страница)",
+  "theme.blog.post.paginator.navAriaLabel.message": "Навигация по страницам блога",
+  "theme.blog.post.paginator.navAriaLabel.description": "Метка ARIA для навигации по страницам записей блога",
+  "theme.blog.post.paginator.newerPost.description": "Кнопка навигации на более новый/предыдущий пост в блоге",
+  "theme.blog.post.paginator.olderPost.description": "Кнопка навигации на более старый/следующий пост блога",
+  "theme.colorToggle.ariaLabel.message": "Переключиться между тёмным и светлым режимом (текущий режим: {mode})",
+  "theme.colorToggle.ariaLabel.description": "ARIA метка для переключателя режима цвета",
+  "theme.docs.breadcrumbs.navAriaLabel.description": "Метка ARIA для хлебных крошек",
+  "theme.docs.DocCard.categoryDescription.plurals.description": "Стандартное описание карточки категории в сгенерированном индексе о количестве элементов, которые включает эта категория",
+  "theme.docs.paginator.navAriaLabel.message": "Страницы документов",
+  "theme.docs.paginator.previous.description": "Метка, используемая для перехода к предыдущему документу",
+  "theme.docs.tagDocListPageTitle.nDocsTagged.message": "Один документ помечен|{count} документов помечено",
+  "theme.docs.tagDocListPageTitle.nDocsTagged.description": "{count} документ помечен|{count} документа помечено|{count} документов помечено",
+  "theme.docs.versions.unreleasedVersionLabel.message": "Это нерелизная документация для версии {siteTitle} {versionLabel}.",
+  "theme.docs.versions.unreleasedVersionLabel.description": "Ярлык, используемый для уведомления пользователя о том, что он просматривает неопубликованную версию документа",
+  "theme.docs.versions.unmaintainedVersionLabel.description": "Метка, используемая для информирования пользователя о том, что он просматривает неподдерживаемую версию документации",
+  "theme.docs.versions.latestVersionSuggestionLabel.message": "Для получения актуальной документации см. {latestVersionLink} ({versionLabel}).",
+  "theme.docs.versions.latestVersionSuggestionLabel.description": "Метка, используемая для уведомления пользователя о необходимости проверить последнюю версию",
+  "theme.docs.versions.latestVersionLinkLabel.description": "Метка, используемая для ссылки с предложением последней версии",
+  "theme.common.headingLinkTitle.message": "Прямая ссылка на {heading}",
+  "theme.lastUpdated.byUser.description": "Слова, используемые для описания того, кем была последний раз обновлена страница",
+  "theme.lastUpdated.lastUpdatedAtBy.description": "Предложение, отображаемое при последнем обновлении страницы и тем, кто её обновил.",
+  "theme.navbar.mobileVersionsDropdown.label.description": "Метка раскрывающегося списка версий навбара в мобильном представлении",
+  "theme.NotFound.title.message": "Страница не найдена",
+  "theme.admonition.tip.message": "чаевые",
+  "theme.blog.sidebar.navAriaLabel.description": "Метка ARIA для недавних постов в боковой панели блога",
+  "theme.SearchPage.documentsFound.plurals.message": "Один документ найден|{count} документов найдено",
+  "theme.SearchModal.searchBox.cancelButtonText.message": "Отмена",
+  "theme.SearchModal.searchBox.cancelButtonText.description": "Метка и метка ARIA для кнопки отмены поля поиска",
+  "theme.SearchModal.startScreen.removeRecentSearchButtonTitle.description": "Название кнопки удаления недавнего поиска",
+  "theme.SearchModal.startScreen.removeFavoriteSearchButtonTitle.description": "Название для кнопки удаления избранного поиска",
+  "theme.SearchModal.errorScreen.helpText.description": "Текст справки для экрана ошибки",
+  "theme.SearchModal.footer.navigateText.description": "Текст навигации для подвала страницы",
+  "theme.SearchModal.noResultsScreen.reportMissingResultsText.description": "Текст для отчета об отсутствующих результатах",
+  "theme.SearchModal.noResultsScreen.reportMissingResultsLinkText.description": "Текст ссылки для сообщения об отсутствующих результатах",
+  "theme.SearchModal.placeholder.description": "Заполнитель входного поля модального окна поиска документов",
+  "theme.blog.post.plurals.description": "{count} пост|{count} поста|{count} постов",
+  "theme.contentVisibility.unlistedBanner.message.message": "Эта страница не указана в списке. Поисковые системы не будут индексировать её, и только пользователи с прямой ссылкой смогут получить к ней доступ.",
+  "theme.contentVisibility.draftBanner.message.description": "Сообщение баннера содержимого проекта",
+  "theme.SearchModal.searchBox.enterKeyHintAskAi.description": "Подсказка для текста клавиши Enter в поле поиска Ask AI",
+  "theme.SearchModal.searchBox.searchInputLabel.description": "Метка ARIA для поля поиска",
+  "theme.SearchModal.askAiScreen.disclaimerText.description": "Текст отказа от ответственности для ответов на основе ИИ",
+  "theme.SearchModal.askAiScreen.thinkingText.message": "I'm ready to help with translation from English (US) to Russian. Please provide the text you'd like me to translate.",
+  "theme.SearchModal.askAiScreen.duringToolCallText.description": "I'm ready to translate text from English (US) to Russian. However, I don't see any text to translate in your message. Please provide the text you'd like me to translate, and I'll return only the translated version in Russian.",
+  "theme.SearchModal.footer.submitQuestionText.description": "Текст вопроса отправки для подвала"
 }
