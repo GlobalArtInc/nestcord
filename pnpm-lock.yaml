@@ -275,7 +275,7 @@ importers:
         version: 26.1.1
       '@types/supertest':
         specifier: ^7.2.0
-        version: 7.2.0
+        version: 7.2.1
       '@typescript-eslint/eslint-plugin':
         specifier: ^8.32.1
         version: 8.63.0(@typescript-eslint/parser@8.64.0(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3))(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3)
@@ -351,7 +351,7 @@ importers:
         version: 26.1.1
       '@types/supertest':
         specifier: ^7.2.0
-        version: 7.2.0
+        version: 7.2.1
       '@typescript-eslint/eslint-plugin':
         specifier: ^8.32.1
         version: 8.63.0(@typescript-eslint/parser@8.64.0(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3))(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3)
@@ -427,7 +427,7 @@ importers:
         version: 26.1.1
       '@types/supertest':
         specifier: ^7.2.0
-        version: 7.2.0
+        version: 7.2.1
       '@typescript-eslint/eslint-plugin':
         specifier: ^8.32.1
         version: 8.63.0(@typescript-eslint/parser@8.64.0(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3))(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3)
@@ -500,7 +500,7 @@ importers:
         version: 26.1.1
       '@types/supertest':
         specifier: ^7.2.0
-        version: 7.2.0
+        version: 7.2.1
       '@typescript-eslint/eslint-plugin':
         specifier: ^8.32.1
         version: 8.63.0(@typescript-eslint/parser@8.64.0(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3))(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3)
@@ -573,7 +573,7 @@ importers:
         version: 26.1.1
       '@types/supertest':
         specifier: ^7.2.0
-        version: 7.2.0
+        version: 7.2.1
       '@typescript-eslint/eslint-plugin':
         specifier: ^8.32.1
         version: 8.63.0(@typescript-eslint/parser@8.64.0(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3))(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3)
@@ -646,7 +646,7 @@ importers:
         version: 26.1.1
       '@types/supertest':
         specifier: ^7.2.0
-        version: 7.2.0
+        version: 7.2.1
       '@typescript-eslint/eslint-plugin':
         specifier: ^8.32.1
         version: 8.63.0(@typescript-eslint/parser@8.64.0(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3))(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3)
@@ -719,7 +719,7 @@ importers:
         version: 26.1.1
       '@types/supertest':
         specifier: ^7.2.0
-        version: 7.2.0
+        version: 7.2.1
       '@typescript-eslint/eslint-plugin':
         specifier: ^8.32.1
         version: 8.63.0(@typescript-eslint/parser@8.64.0(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3))(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3)
@@ -792,7 +792,7 @@ importers:
         version: 26.1.1
       '@types/supertest':
         specifier: ^7.2.0
-        version: 7.2.0
+        version: 7.2.1
       '@typescript-eslint/eslint-plugin':
         specifier: ^8.32.1
         version: 8.63.0(@typescript-eslint/parser@8.64.0(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3))(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3)
@@ -865,7 +865,7 @@ importers:
         version: 26.1.1
       '@types/supertest':
         specifier: ^7.2.0
-        version: 7.2.0
+        version: 7.2.1
       '@typescript-eslint/eslint-plugin':
         specifier: ^8.32.1
         version: 8.63.0(@typescript-eslint/parser@8.64.0(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3))(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3)
@@ -3744,11 +3744,11 @@ packages:
   '@types/sockjs@0.3.36':
     resolution: {integrity: sha512-MK9V6NzAS1+Ud7JV9lJLFqW85VbC9dq3LmwZCuBe4wBDgKC0Kj/jd8Xl+nSviU+Qc3+m7umHHyHg//2KSa0a0Q==}
 
-  '@types/superagent@8.1.9':
-    resolution: {integrity: sha512-pTVjI73witn+9ILmoJdajHGW2jkSaOzhiFYF1Rd3EQ94kymLqB9PjD9ISg7WaALC7+dCHT0FGe9T2LktLq/3GQ==}
+  '@types/superagent@8.1.11':
+    resolution: {integrity: sha512-KA7srSW/HENDtOw9DOqaFLgWuMqN9WgjEw62lh9dpvRaZDkhdOkazASd7X7i2eMUYLHa1U37ZttnePsH5zTDHw==}
 
-  '@types/supertest@7.2.0':
-    resolution: {integrity: sha512-uh2Lv57xvggst6lCqNdFAmDSvoMG7M/HDtX4iUCquxQ5EGPtaPM5PL5Hmi7LCvOG8db7YaCPNJEeoI8s/WzIQw==}
+  '@types/supertest@7.2.1':
+    resolution: {integrity: sha512-4CbBvoYVLHL7+yhbYrZET0vsvuyXTC05aRe7dNQkwMzm56auceoy6Yu3K50uZmwfHna1os3CMSgM/3QVkUtPTw==}
 
   '@types/trusted-types@2.0.7':
     resolution: {integrity: sha512-ScaPdn1dQczgbl0QFTeTOmVHFULt394XJgOQNoyVhZ6r2vLnMLJfBPd53SB52T/3G36VI1/g2MZaX0cwDuXsfw==}
@@ -13459,7 +13459,7 @@ snapshots:
 
   '@types/sax@1.2.7':
     dependencies:
-      '@types/node': 26.1.1
+      '@types/node': 17.0.45
 
   '@types/send@0.17.6':
     dependencies:
@@ -13489,17 +13489,17 @@ snapshots:
     dependencies:
       '@types/node': 26.1.1
 
-  '@types/superagent@8.1.9':
+  '@types/superagent@8.1.11':
     dependencies:
       '@types/cookiejar': 2.1.5
       '@types/methods': 1.1.4
       '@types/node': 26.1.1
-      form-data: 4.0.5
+      form-data: 4.0.6
 
-  '@types/supertest@7.2.0':
+  '@types/supertest@7.2.1':
     dependencies:
       '@types/methods': 1.1.4
-      '@types/superagent': 8.1.9
+      '@types/superagent': 8.1.11
 
   '@types/trusted-types@2.0.7': {}
 
