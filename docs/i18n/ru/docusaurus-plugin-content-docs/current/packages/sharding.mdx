@@ -1,18 +1,42 @@
----
-id: sharding
-title: Sharding
-sidebar_position: 4
----
-
-A NestJS wrapper around Discord.js [`ShardingManager`](https://discord.js.org/docs/packages/discord.js/main/ShardingManager:Class) that lets you orchestrate bot shards from a dedicated NestJS application context.
+| Событие         | Аргументы            | Описание                                 |
+|-----------------|----------------------|------------------------------------------|
+| `shardCreate`   | `shard: Shard`       | Испускается при создании нового шарда.   |
 
 :::info
-This module runs in the **manager process** — the process that spawns and supervises shard workers. It is separate from your bot application.
+Этот модуль работает в **процессе менеджера** — процессе, который создает и контролирует рабочих процессы шардов. Он отделен от вашего приложения бота.
 :::
 
-## Setup
+I appreciate you reaching out, but I notice you've only provided a heading "## Setup" without any actual text to translate.
 
-Create a dedicated entry point for the manager process:
+Please provide the English text you'd like me to translate to Russian, and I'll be happy to help!
+
+Создайте выделенную точку входа для процесса менеджера:
+
+Затем импортируйте `NestCordShardingModule` в ваш модуль менеджера:
+
+### Опции модуля
+
+`NestCordShardingModuleOptions` расширяет Discord.js [`ShardingManagerOptions`](https://discord.js.org/docs/packages/discord.js/main/ShardingManagerOptions:Interface):
+
+`NestCordShardingSpawnOptions`:
+
+## Слушатели
+
+Не забудьте добавить `ShardEventsService` в массив `providers` вашего `ManagerModule`.
+
+### События ShardingManager (`@OnShardingManager`)
+
+### События шарда (`@OnShard`)
+
+Эти слушатели автоматически регистрируются **на каждом шарде** по мере его создания.
+
+Кроме того, используйте оболочку `NestCordShardingService` для удобных методов:
+
+### API `NestCordShardingService`
+
+## Асинхронная конфигурация
+
+Обёртка NestJS для Discord.js [`ShardingManager`](https://discord.js.org/docs/packages/discord.js/main/ShardingManager:Class), которая позволяет управлять осколками бота из контекста выделенного приложения NestJS.
 
 ```typescript title="src/manager.ts"
 import { NestFactory } from '@nestjs/core';
@@ -25,113 +49,16 @@ async function bootstrap() {
 bootstrap();
 ```
 
-Then import `NestCordShardingModule` into your manager module:
-
-```typescript title="src/manager.module.ts"
-import { Module } from '@nestjs/common';
-import { join } from 'node:path';
-import { NestCordShardingModule } from '@globalart/nestcord';
-
-@Module({
-    imports: [
-        NestCordShardingModule.forRoot({
-            file: join(__dirname, 'main.js'),
-            token: process.env.DISCORD_TOKEN,
-            totalShards: 'auto',
-        }),
-    ],
-})
-export class ManagerModule {}
-```
-
-`main.js` is the compiled entry point of your actual bot application (the one that imports `NestCordModule`). By default the module calls `ShardingManager.spawn()` automatically on init.
-
-### Module Options
-
-`NestCordShardingModuleOptions` extends Discord.js [`ShardingManagerOptions`](https://discord.js.org/docs/packages/discord.js/main/ShardingManagerOptions:Interface):
-
-| Property       | Type                           | Default  | Description                                             |
-| -------------- | ------------------------------ | -------- | ------------------------------------------------------- |
-| `file`         | `string`                       | —        | Path to the compiled bot script file.                   |
-| `token`        | `string`                       | —        | Discord bot token passed to the manager.                |
-| `totalShards`  | `number \| 'auto'`             | `'auto'` | Number of shards to spawn.                              |
-| `autoSpawn`    | `boolean`                      | `true`   | Whether to call `spawn()` automatically on module init. |
-| `spawnOptions` | `NestCordShardingSpawnOptions` | —        | Options forwarded to `ShardingManager.spawn()`.         |
-
-`NestCordShardingSpawnOptions`:
-
-| Property  | Type               | Default  | Description                                           |
-| --------- | ------------------ | -------- | ----------------------------------------------------- |
-| `amount`  | `number \| 'auto'` | `'auto'` | Number of shards to spawn.                            |
-| `delay`   | `number`           | `5500`   | Delay in milliseconds between each shard spawn.       |
-| `timeout` | `number`           | `30000`  | Timeout in milliseconds to wait for a shard to ready. |
-
-## Listeners
-
-Use `@OnShardingManager` and `@OnShard` to react to shard lifecycle events directly in any provider:
-
-```typescript title="src/shard-events.service.ts"
-import { Injectable, Logger } from '@nestjs/common';
-import { Shard } from 'discord.js';
-import {
-    OnShardingManager,
-    OnShard,
-    NestCordShardingManagerEvents,
-    NestCordShardEvents,
-} from '@globalart/nestcord';
-
-@Injectable()
-export class ShardEventsService {
-    private readonly logger = new Logger(ShardEventsService.name);
-
-    @OnShardingManager('shardCreate')
-    onShardCreate(shard: Shard) {
-        this.logger.log(`Shard #${shard.id} created`);
-    }
-
-    @OnShard('ready')
-    onShardReady(shard: Shard) {
-        this.logger.log(`Shard #${shard.id} is ready`);
-    }
-
-    @OnShard('error')
-    onShardError(shard: Shard, error: Error) {
-        this.logger.error(`Shard #${shard.id} error: ${error.message}`);
-    }
-
-    @OnShard('death')
-    onShardDeath(shard: Shard) {
-        this.logger.warn(`Shard #${shard.id} died`);
-    }
-}
-```
-
-Don't forget to add `ShardEventsService` to the `providers` array of your `ManagerModule`.
-
-### ShardingManager Events (`@OnShardingManager`)
-
-| Event         | Arguments      | Description                          |
-| ------------- | -------------- | ------------------------------------ |
-| `shardCreate` | `shard: Shard` | Emitted when a new shard is created. |
-
-### Shard Events (`@OnShard`)
-
-These listeners are automatically registered on **every shard** as it spawns.
-
-| Event          | Arguments             | Description                                            |
-| -------------- | --------------------- | ------------------------------------------------------ |
-| `spawn`        | `shard, process`      | Emitted when the shard process is spawned.             |
-| `ready`        | `shard`               | Emitted when the shard becomes ready.                  |
-| `reconnecting` | `shard`               | Emitted when the shard starts reconnecting.            |
-| `resume`       | `shard`               | Emitted when the shard resumes its connection.         |
-| `disconnect`   | `shard`               | Emitted when the shard disconnects.                    |
-| `error`        | `shard, error: Error` | Emitted when the shard encounters an error.            |
-| `message`      | `shard, message`      | Emitted when the shard sends a message to the manager. |
-| `death`        | `shard, process`      | Emitted when the shard process exits.                  |
-
-## Providers
-
-`ShardingManager` is injectable directly into any provider:
+| Событие        | Аргументы                                  | Описание                                                 |
+|----------------|--------------------------------------------|----------------------------------------------------------|
+| `spawn`        | `shard, process`                           | Издается, когда процесс шарда запущен.                   |
+| `ready`        | `shard`                                    | Издается, когда шард становится готовым.                |
+| `reconnecting` | `shard`                                    | Издается, когда шард начинает переподключаться.          |
+| `resume`       | `shard`                                    | Издается, когда шард возобновляет соединение.            |
+| `disconnect`   | `shard`                                    | Издается, когда шард отключается.                        |
+| `error`        | `shard, error: Error`                      | Издается, когда шард встречает ошибку.                   |
+| `message`      | `shard, message`                           | Издается, когда шард отправляет сообщение менеджеру.    |
+| `death`        | `shard, process`                           | Издается, когда процесс шарда завершается.              |
 
 ```typescript title="src/manager.service.ts"
 import { Injectable } from '@nestjs/common';
@@ -143,7 +70,14 @@ export class ManagerService {
 }
 ```
 
-Alternatively, use the `NestCordShardingService` wrapper for convenience methods:
+| Метод                     | Возвращает                         | Описание                                                     |
+|---------------------------|------------------------------------|--------------------------------------------------------------|
+| `shards`                  | `Collection<number, Shard>`        | Все текущие спорненные осколки.                              |
+| `spawn(options?)`         | `Promise<Collection<number, Shard>>` | Спорняет осколки (полезно, когда `autoSpawn` равно `false`).|
+| `broadcast(message)`      | `Promise<unknown[]>`               | Отправляет сообщение всем осколкам.                          |
+| `broadcastEval(fn, opts?)`| `Promise<T[]>`                     | Оценивает функцию на всех клиентах осколков и возвращает результаты.|
+| `fetchClientValues(prop)` | `Promise<unknown>`                 | Извлекает свойство клиента из всех осколков.                |
+| `respawnAll(options?)`    | `Promise<Collection<number, Shard>>` | Завершает и перезапускает все осколки.                    |
 
 ```typescript title="src/manager.service.ts"
 import { Injectable } from '@nestjs/common';
@@ -164,18 +98,80 @@ export class ManagerService {
 }
 ```
 
-### `NestCordShardingService` API
+```typescript title="src/manager.module.ts"
+import { Module } from '@nestjs/common';
+import { join } from 'node:path';
+import { NestCordShardingModule } from '@globalart/nestcord';
 
-| Method                     | Returns                              | Description                                                    |
-| -------------------------- | ------------------------------------ | -------------------------------------------------------------- |
-| `shards`                   | `Collection<number, Shard>`          | All currently spawned shards.                                  |
-| `spawn(options?)`          | `Promise<Collection<number, Shard>>` | Spawns shards (useful when `autoSpawn` is `false`).            |
-| `broadcast(message)`       | `Promise<unknown[]>`                 | Sends a message to all shards.                                 |
-| `broadcastEval(fn, opts?)` | `Promise<T[]>`                       | Evaluates a function on all shard clients and returns results. |
-| `fetchClientValues(prop)`  | `Promise<unknown>`                   | Fetches a client property from all shards.                     |
-| `respawnAll(options?)`     | `Promise<Collection<number, Shard>>` | Kills and restarts all shards.                                 |
+@Module({
+    imports: [
+        NestCordShardingModule.forRoot({
+            file: join(__dirname, 'main.js'),
+            token: process.env.DISCORD_TOKEN,
+            totalShards: 'auto',
+        }),
+    ],
+})
+export class ManagerModule {}
+```
 
-## Async Configuration
+```typescript title="src/shard-events.service.ts"
+import { Injectable, Logger } from '@nestjs/common';
+import { Shard } from 'discord.js';
+import {
+    OnShardingManager,
+    OnShard,
+    NestCordShardingManagerEvents,
+    NestCordShardEvents,
+} from '@globalart/nestcord';
+
+@Injectable()
+export class ShardEventsService {
+    private readonly logger = new Logger(ShardEventsService.name);
+
+    @OnShardingManager('shardCreate')
+    onShardCreate(shard: Shard) {
+        this.logger.log(`Фрагмент #${shard.id} создан`);
+    }
+
+    @OnShard('ready')
+    onShardReady(shard: Shard) {
+        this.logger.log(`Фрагмент #${shard.id} готов`);
+    }
+
+    @OnShard('error')
+    onShardError(shard: Shard, error: Error) {
+        this.logger.error(`Ошибка фрагмента #${shard.id}: ${error.message}`);
+    }
+
+    @OnShard('death')
+    onShardDeath(shard: Shard) {
+        this.logger.warn(`Фрагмент #${shard.id} упал`);
+    }
+}
+```
+
+`main.js` — это скомпилированная точка входа вашего фактического приложения бота (того, которое импортирует `NestCordModule`). По умолчанию модуль автоматически вызывает `ShardingManager.spawn()` при инициализации.
+
+| Свойство        | Тип                                    | По умолчанию | Описание                                                           |
+|-----------------|----------------------------------------|--------------|--------------------------------------------------------------------|
+| `file`          | `string`                               | —            | Путь к скомпилированному файлу скрипта бота.                      |
+| `token`         | `string`                               | —            | Токен Discord бота, переданный менеджеру.                         |
+| `totalShards`   | `number \| 'auto'`                     | `'auto'`     | Количество шардов для создания.                                    |
+| `autoSpawn`     | `boolean`                              | `true`       | Вызывать ли `spawn()` автоматически при инициализации модуля.     |
+| `spawnOptions`  | `NestCordShardingSpawnOptions`         | —            | Опции, передаваемые в `ShardingManager.spawn()`.                  |
+
+| Свойство   | Тип                   | По умолчанию | Описание                                                    |
+|------------|----------------------|--------------|-------------------------------------------------------------|
+| `amount`   | `number \| 'auto'`   | `'auto'`     | Количество шардов для создания.                             |
+| `delay`    | `number`             | `5500`       | Задержка в миллисекундах между созданием каждого шарда.    |
+| `timeout`  | `number`             | `30000`      | Время ожидания в миллисекундах для готовности шарда.        |
+
+Используйте `@OnShardingManager` и `@OnShard` для прямого реагирования на события жизненного цикла shard в любом провайдере:
+
+## Поставщики
+
+`ShardingManager` можно внедрять непосредственно в любой провайдер:
 
 ```typescript title="src/manager.module.ts"
 import { Module } from '@nestjs/common';

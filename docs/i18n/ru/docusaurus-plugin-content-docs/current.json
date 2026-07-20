@@ -1,30 +1,16 @@
 {
-  "version.label": {
-    "message": "Следующая",
-    "description": "The label for version current"
-  },
-  "sidebar.docsSidebar.category.Interactions": {
-    "message": "Взаимодействия",
-    "description": "The label for category 'Interactions' in sidebar 'docsSidebar'"
-  },
-  "sidebar.docsSidebar.category.Interceptors": {
-    "message": "Интерцепторы",
-    "description": "The label for category 'Interceptors' in sidebar 'docsSidebar'"
-  },
-  "sidebar.docsSidebar.category.Packages": {
-    "message": "Пакеты",
-    "description": "The label for category 'Packages' in sidebar 'docsSidebar'"
-  },
-  "sidebar.docsSidebar.category.Techniques": {
-    "message": "Техники",
-    "description": "The label for category 'Techniques' in sidebar 'docsSidebar'"
-  },
-  "sidebar.docsSidebar.category.Contributing": {
-    "message": "Вклад",
-    "description": "The label for category 'Contributing' in sidebar 'docsSidebar'"
-  },
-  "sidebar.docsSidebar.category.Guards": {
-    "message": "Guards",
-    "description": "The label for category 'Guards' in sidebar 'docsSidebar'"
-  }
+  "sidebar.docsSidebar.category.Interactions.message": "Взаимодействия",
+  "sidebar.docsSidebar.category.Interceptors.message": "Перехватчики",
+  "sidebar.docsSidebar.category.Packages.message": "Пакеты",
+  "sidebar.docsSidebar.category.Techniques.message": "Методы",
+  "sidebar.docsSidebar.category.Contributing.message": "Внесение вклада",
+  "sidebar.docsSidebar.category.Contributing.description": "Метка для категории \"Contributing\" на боковой панели \"docsSidebar\"",
+  "version.label.message": "Дальше",
+  "version.label.description": "Метка для текущей версии",
+  "sidebar.docsSidebar.category.Interactions.description": "Метка для категории 'Interactions' в боковой панели 'docsSidebar'",
+  "sidebar.docsSidebar.category.Packages.description": "Ярлык для категории 'Packages' в боковой панели 'docsSidebar'",
+  "sidebar.docsSidebar.category.Techniques.description": "Метка для категории 'Techniques' на боковой панели 'docsSidebar'",
+  "sidebar.docsSidebar.category.Guards.message": "Охранники",
+  "sidebar.docsSidebar.category.Guards.description": "Метка для категории 'Guards' в боковой панели 'docsSidebar'",
+  "sidebar.docsSidebar.category.Interceptors.description": "Метка для категории 'Interceptors' в боковой панели 'docsSidebar'"
 }
