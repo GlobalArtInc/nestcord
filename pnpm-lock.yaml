@@ -140,7 +140,7 @@ importers:
         version: 2.1.1
       docusaurus-plugin-sass:
         specifier: 0.2.6
-        version: 0.2.6(@docusaurus/core@3.10.2(@mdx-js/react@3.1.1(@types/react@19.2.17)(react@19.2.8))(postcss@8.5.19)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(typescript@5.9.3))(sass@1.101.5)(webpack@5.108.4(postcss@8.5.19))
+        version: 0.2.6(@docusaurus/core@3.10.2(@mdx-js/react@3.1.1(@types/react@19.2.17)(react@19.2.8))(postcss@8.5.19)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(typescript@5.9.3))(sass@1.101.7)(webpack@5.108.4(postcss@8.5.19))
       lucide-react:
         specifier: ^1.0.1
         version: 1.25.0(react@19.2.8)
@@ -160,8 +160,8 @@ importers:
         specifier: 19.2.8
         version: 19.2.8(react@19.2.8)
       sass:
-        specifier: 1.101.5
-        version: 1.101.5
+        specifier: 1.101.7
+        version: 1.101.7
       shiki:
         specifier: ^4.0.0
         version: 4.3.1
@@ -8151,8 +8151,8 @@ packages:
       webpack:
         optional: true
 
-  sass@1.101.5:
-    resolution: {integrity: sha512-lSQKnEQmUH8yXmCxE2IzdrA6PIDPXivAWUjmfaUYtBMvzCZzFsNwVM63UOSTEid0Cp5LnoHD2PD8yWeiaAFqJg==}
+  sass@1.101.7:
+    resolution: {integrity: sha512-cDeUYU0dhwKVbpYg/ppsjyuoddxYhWlJOkRoI7+/iZsaSp7iowWDfm+tL2HcUafedWBDvbf/+hx0QRgKG4JSHA==}
     engines: {node: '>=20.19.0'}
     hasBin: true
 
@@ -14691,11 +14691,11 @@ snapshots:
     dependencies:
       '@leichtgewicht/ip-codec': 2.0.5
 
-  docusaurus-plugin-sass@0.2.6(@docusaurus/core@3.10.2(@mdx-js/react@3.1.1(@types/react@19.2.17)(react@19.2.8))(postcss@8.5.19)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(typescript@5.9.3))(sass@1.101.5)(webpack@5.108.4(postcss@8.5.19)):
+  docusaurus-plugin-sass@0.2.6(@docusaurus/core@3.10.2(@mdx-js/react@3.1.1(@types/react@19.2.17)(react@19.2.8))(postcss@8.5.19)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(typescript@5.9.3))(sass@1.101.7)(webpack@5.108.4(postcss@8.5.19)):
     dependencies:
       '@docusaurus/core': 3.10.2(@mdx-js/react@3.1.1(@types/react@19.2.17)(react@19.2.8))(postcss@8.5.19)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(typescript@5.9.3)
-      sass: 1.101.5
-      sass-loader: 16.0.7(sass@1.101.5)(webpack@5.108.4(postcss@8.5.19))
+      sass: 1.101.7
+      sass-loader: 16.0.7(sass@1.101.7)(webpack@5.108.4(postcss@8.5.19))
     transitivePeerDependencies:
       - '@rspack/core'
       - node-sass
@@ -18552,14 +18552,14 @@ snapshots:
 
   safer-buffer@2.1.2: {}
 
-  sass-loader@16.0.7(sass@1.101.5)(webpack@5.108.4(postcss@8.5.19)):
+  sass-loader@16.0.7(sass@1.101.7)(webpack@5.108.4(postcss@8.5.19)):
     dependencies:
       neo-async: 2.6.2
     optionalDependencies:
-      sass: 1.101.5
+      sass: 1.101.7
       webpack: 5.108.4(postcss@8.5.19)
 
-  sass@1.101.5:
+  sass@1.101.7:
     dependencies:
       chokidar: 5.0.0
       immutable: 5.1.9
