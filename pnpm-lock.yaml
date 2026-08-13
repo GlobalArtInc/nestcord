@@ -266,7 +266,7 @@ importers:
         version: 11.1.0(chokidar@4.0.3)(prettier@3.9.6)(typescript@5.9.3)
       '@nestjs/testing':
         specifier: ^11.1.1
-        version: 11.1.28(@nestjs/common@11.1.29(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.28)(@nestjs/platform-express@11.1.29)
+        version: 11.1.29(@nestjs/common@11.1.29(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.28)(@nestjs/platform-express@11.1.29)
       '@types/express':
         specifier: ^5.0.2
         version: 5.0.6
@@ -342,7 +342,7 @@ importers:
         version: 11.1.0(chokidar@4.0.3)(prettier@3.9.6)(typescript@5.9.3)
       '@nestjs/testing':
         specifier: ^11.1.1
-        version: 11.1.28(@nestjs/common@11.1.29(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.28)(@nestjs/platform-express@11.1.29)
+        version: 11.1.29(@nestjs/common@11.1.29(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.28)(@nestjs/platform-express@11.1.29)
       '@types/express':
         specifier: ^5.0.2
         version: 5.0.6
@@ -418,7 +418,7 @@ importers:
         version: 11.1.0(chokidar@4.0.3)(prettier@3.9.6)(typescript@5.9.3)
       '@nestjs/testing':
         specifier: ^11.1.1
-        version: 11.1.28(@nestjs/common@11.1.29(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.28)(@nestjs/platform-express@11.1.29)
+        version: 11.1.29(@nestjs/common@11.1.29(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.28)(@nestjs/platform-express@11.1.29)
       '@types/express':
         specifier: ^5.0.2
         version: 5.0.6
@@ -491,7 +491,7 @@ importers:
         version: 11.1.0(chokidar@4.0.3)(prettier@3.9.6)(typescript@5.9.3)
       '@nestjs/testing':
         specifier: ^11.1.1
-        version: 11.1.28(@nestjs/common@11.1.29(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.28)(@nestjs/platform-express@11.1.29)
+        version: 11.1.29(@nestjs/common@11.1.29(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.28)(@nestjs/platform-express@11.1.29)
       '@types/express':
         specifier: ^5.0.2
         version: 5.0.6
@@ -564,7 +564,7 @@ importers:
         version: 11.1.0(chokidar@4.0.3)(prettier@3.9.6)(typescript@5.9.3)
       '@nestjs/testing':
         specifier: ^11.1.1
-        version: 11.1.28(@nestjs/common@11.1.29(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.28)(@nestjs/platform-express@11.1.29)
+        version: 11.1.29(@nestjs/common@11.1.29(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.28)(@nestjs/platform-express@11.1.29)
       '@types/express':
         specifier: ^5.0.2
         version: 5.0.6
@@ -637,7 +637,7 @@ importers:
         version: 11.1.0(chokidar@4.0.3)(prettier@3.9.6)(typescript@5.9.3)
       '@nestjs/testing':
         specifier: ^11.1.1
-        version: 11.1.28(@nestjs/common@11.1.29(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.28)(@nestjs/platform-express@11.1.29)
+        version: 11.1.29(@nestjs/common@11.1.29(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.28)(@nestjs/platform-express@11.1.29)
       '@types/express':
         specifier: ^5.0.2
         version: 5.0.6
@@ -710,7 +710,7 @@ importers:
         version: 11.1.0(chokidar@4.0.3)(prettier@3.9.6)(typescript@5.9.3)
       '@nestjs/testing':
         specifier: ^11.1.1
-        version: 11.1.28(@nestjs/common@11.1.29(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.28)(@nestjs/platform-express@11.1.29)
+        version: 11.1.29(@nestjs/common@11.1.29(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.28)(@nestjs/platform-express@11.1.29)
       '@types/express':
         specifier: ^5.0.2
         version: 5.0.6
@@ -783,7 +783,7 @@ importers:
         version: 11.1.0(chokidar@4.0.3)(prettier@3.9.6)(typescript@5.9.3)
       '@nestjs/testing':
         specifier: ^11.1.1
-        version: 11.1.28(@nestjs/common@11.1.29(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.28)(@nestjs/platform-express@11.1.29)
+        version: 11.1.29(@nestjs/common@11.1.29(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.28)(@nestjs/platform-express@11.1.29)
       '@types/express':
         specifier: ^5.0.2
         version: 5.0.6
@@ -856,7 +856,7 @@ importers:
         version: 11.1.0(chokidar@4.0.3)(prettier@3.9.6)(typescript@5.9.3)
       '@nestjs/testing':
         specifier: ^11.1.1
-        version: 11.1.28(@nestjs/common@11.1.29(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.28)(@nestjs/platform-express@11.1.29)
+        version: 11.1.29(@nestjs/common@11.1.29(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.28)(@nestjs/platform-express@11.1.29)
       '@types/express':
         specifier: ^5.0.2
         version: 5.0.6
@@ -2855,8 +2855,8 @@ packages:
       prettier:
         optional: true
 
-  '@nestjs/testing@11.1.28':
-    resolution: {integrity: sha512-B+VgRxeLaH7jkOMgAyUP3N3rpFlisQ7JRxixRbgHvG6a0VgKbbkNSofKExexCgKmQQak80undb3+2kE1lUBmRQ==}
+  '@nestjs/testing@11.1.29':
+    resolution: {integrity: sha512-u+aEp90Ly3uQbLoicZs+ZOrJTyvaD0fbd6dpnSgFZz5Bf77gbKKfr+xFE2JxqZuIH15HlBrqDL7/OL2qL8oG+A==}
     peerDependencies:
       '@nestjs/common': ^11.0.0
       '@nestjs/core': ^11.0.0
@@ -12555,7 +12555,7 @@ snapshots:
     transitivePeerDependencies:
       - chokidar
 
-  '@nestjs/testing@11.1.28(@nestjs/common@11.1.29(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.28)(@nestjs/platform-express@11.1.29)':
+  '@nestjs/testing@11.1.29(@nestjs/common@11.1.29(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.28)(@nestjs/platform-express@11.1.29)':
     dependencies:
       '@nestjs/common': 11.1.29(reflect-metadata@0.2.2)(rxjs@7.8.2)
       '@nestjs/core': 11.1.28(@nestjs/common@11.1.29(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/platform-express@11.1.29)(reflect-metadata@0.2.2)(rxjs@7.8.2)
