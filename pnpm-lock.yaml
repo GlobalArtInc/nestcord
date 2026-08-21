@@ -28,7 +28,7 @@ importers:
         version: 4.3.1
       lavalink-client:
         specifier: ^2.5.3
-        version: 2.10.3
+        version: 2.10.4
       path-to-regexp:
         specifier: ^8.0.0
         version: 8.4.2
@@ -250,7 +250,7 @@ importers:
         version: 11.1.29(@nestjs/common@11.1.29(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.29)
       lavalink-client:
         specifier: ^2.5.3
-        version: 2.10.3
+        version: 2.10.4
       reflect-metadata:
         specifier: ^0.2.0
         version: 0.2.2
@@ -6248,8 +6248,8 @@ packages:
   launch-editor@2.14.1:
     resolution: {integrity: sha512-QWBrQsMpH7gPr965dsKD/3cKWiNoTjpATQf++Xq63N6sKRGMwlVXz41O1IZTMfZQgBctD/K5Zt06+/I6pP6+HA==}
 
-  lavalink-client@2.10.3:
-    resolution: {integrity: sha512-tlZe/HwP2FjVaXP87Yc5xwW4ZVSxImkz0jR02qc0HewPJUyLIyaOpvRT0N0kZVtsRnHo2Vs5yF21+uqzSQaw3Q==}
+  lavalink-client@2.10.4:
+    resolution: {integrity: sha512-VMIi9U6EtDpQFixlMLog7mgIyO4kUDPcsQyruEp9VIcvvdaIFOAxqT9W24bHC19npBT9qaIXu4K7HrOS6C/FHw==}
     engines: {bun: '>=1.1.27', node: '>=18.0.0'}
 
   leven@3.1.0:
@@ -9207,8 +9207,8 @@ packages:
   write-file-atomic@3.0.3:
     resolution: {integrity: sha512-AvHcyZ5JnSfq3ioSyjrBkH9yW4m7Ayk8/9My/DD9onKeu/94fwrMocemO2QAJFAlnnDN+ZDS+ZjAR5ua1/PV/Q==}
 
-  ws@7.5.11:
-    resolution: {integrity: sha512-zS54Oen9bITtp7kp2XM3AydrCIq1D+HwJOuH+c+e4LfpL/lotP5osijd+UoMnxwAam1GN8R4KtLAyIrIcBNpiA==}
+  ws@7.5.13:
+    resolution: {integrity: sha512-rsKI6xDBFVf4r/x8XyChGK04QR/XHroxs/jUcoWvtEZM8TPU/X/uIY9B1CsSzYws9ZJb/6bbBu7dPhFW00CAoA==}
     engines: {node: '>=8.3.0'}
     peerDependencies:
       bufferutil: ^4.0.1
@@ -9219,20 +9219,8 @@ packages:
       utf-8-validate:
         optional: true
 
-  ws@8.21.0:
-    resolution: {integrity: sha512-Vsp28b7DRcimFQvrqu2Wek3z1iYxDCWqHYB8Qsnk/S4RfaCQzPGPyBNuVjJV3cd6UiKtUtp6sNM77gWvzcCH+g==}
-    engines: {node: '>=10.0.0'}
-    peerDependencies:
-      bufferutil: ^4.0.1
-      utf-8-validate: '>=5.0.2'
-    peerDependenciesMeta:
-      bufferutil:
-        optional: true
-      utf-8-validate:
-        optional: true
-
-  ws@8.21.1:
-    resolution: {integrity: sha512-+0NTnW77fFN/DjQi6k/Sq/Yvk4Sgajw7urW8V+asjXnRgDs9gyGkdb7EzgfhA4goXsRIZKE28fzIXBHEzhuiWw==}
+  ws@8.21.3:
+    resolution: {integrity: sha512-201TZ/kPWxoPr/OKWjquZR1SWKXcvxdH+e1xrx89b3YbmzLMFCLfnaG1HFIgWzJOEWZ7MvpK++odZufgYR50Rw==}
     engines: {node: '>=10.0.0'}
     peerDependencies:
       bufferutil: ^4.0.1
@@ -10759,7 +10747,7 @@ snapshots:
       '@vladfrangu/async_event_emitter': 2.4.7
       discord-api-types: 0.38.53
       tslib: 2.8.1
-      ws: 8.21.1
+      ws: 8.21.3
     transitivePeerDependencies:
       - bufferutil
       - utf-8-validate
@@ -16250,10 +16238,10 @@ snapshots:
       picocolors: 1.1.1
       shell-quote: 1.9.0
 
-  lavalink-client@2.10.3:
+  lavalink-client@2.10.4:
     dependencies:
       tslib: 2.8.1
-      ws: 8.21.0
+      ws: 8.21.3
     transitivePeerDependencies:
       - bufferutil
       - utf-8-validate
@@ -19487,7 +19475,7 @@ snapshots:
       opener: 1.5.2
       picocolors: 1.1.1
       sirv: 2.0.4
-      ws: 7.5.11
+      ws: 7.5.13
     transitivePeerDependencies:
       - bufferutil
       - utf-8-validate
@@ -19534,7 +19522,7 @@ snapshots:
       sockjs: 0.3.24
       spdy: 4.0.2
       webpack-dev-middleware: 7.4.5(tslib@2.8.1)(webpack@5.108.4(postcss@8.5.19))
-      ws: 8.21.0
+      ws: 8.21.3
     optionalDependencies:
       webpack: 5.108.4(postcss@8.5.19)
     transitivePeerDependencies:
@@ -19935,11 +19923,9 @@ snapshots:
       signal-exit: 3.0.7
       typedarray-to-buffer: 3.1.5
 
-  ws@7.5.11: {}
+  ws@7.5.13: {}
 
-  ws@8.21.0: {}
-
-  ws@8.21.1: {}
+  ws@8.21.3: {}
 
   wsl-utils@0.1.0:
     dependencies:
