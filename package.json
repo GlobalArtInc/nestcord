@@ -62,7 +62,7 @@
 		"@nestjs/common": "11.2.1",
 		"@nestjs/core": "11.2.1",
 		"@nestjs/platform-express": "^11.1.1",
-		"@types/node": "26.2.0",
+		"@types/node": "26.3.0",
 		"@typescript-eslint/eslint-plugin": "8.67.0",
 		"@typescript-eslint/parser": "8.67.0",
 		"discord-api-types": "0.38.53",
