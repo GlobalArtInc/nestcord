@@ -18,7 +18,7 @@
   },
   "devDependencies": {
     "@nestjs/cli": "^12.0.0",
-    "@nestjs/schematics": "^11.0.5",
+    "@nestjs/schematics": "^12.0.0",
     "@types/node": "^26.0.0",
     "ts-node": "^10.9.1",
     "tsconfig-paths": "^4.2.0",
