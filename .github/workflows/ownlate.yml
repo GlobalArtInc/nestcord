@@ -2,7 +2,7 @@ name: Ownlate
 
 on:
   push:
-    branches: [master]
+    branches: [main]
     paths:
       - 'docs/i18n/en/**'
       - 'docs/content/**'
@@ -64,7 +64,7 @@ jobs:
         with:
           token: ${{ secrets.GLOBALART_CI_TOKEN }}
           branch: ownlate/translations
-          base: master
+          base: main
           commit-message: 'chore: update translations from Ownlate'
           title: 'chore: update translations'
           body: 'New Ownlate translations by [Ownlate GitHub Action](https://github.com/GlobalArtInc/ownlate-actions)'
