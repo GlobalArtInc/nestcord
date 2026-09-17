@@ -13,7 +13,7 @@ importers:
         version: 4.2.0
       '@nestjs/axios':
         specifier: ^12.0.0
-        version: 12.0.0(@nestjs/common@11.2.1(reflect-metadata@0.2.2)(rxjs@7.8.2)(supports-color@8.1.1))(axios@1.20.0(debug@4.4.3(supports-color@8.1.1))(supports-color@8.1.1))(rxjs@7.8.2)
+        version: 12.0.1(@nestjs/common@11.2.1(reflect-metadata@0.2.2)(rxjs@7.8.2)(supports-color@8.1.1))(axios@1.20.0(debug@4.4.3(supports-color@8.1.1))(supports-color@8.1.1))(rxjs@7.8.2)
       '@nestjs/schedule':
         specifier: ^12.0.1
         version: 12.0.2(@nestjs/common@11.2.1(reflect-metadata@0.2.2)(rxjs@7.8.2)(supports-color@8.1.1))(@nestjs/core@11.2.3)
@@ -2667,8 +2667,8 @@ packages:
       '@types/react': '>=16'
       react: '>=16'
 
-  '@nestjs/axios@12.0.0':
-    resolution: {integrity: sha512-FvCnxS7nvJB/AbRKlXWTx07k5m13fjjTosAVeeD4QHIQIeyquJiIp+/w69NKol928Ww4btxzSRiLi3XA9CT9eA==}
+  '@nestjs/axios@12.0.1':
+    resolution: {integrity: sha512-Sqp14ZDrsNT96S9obtmQVzN1PLZ+FL0hnUEUjpOOtjYcGW30Knr9vV4goky/bPYPUxSCCFoXp+biRUyafkLFLA==}
     engines: {node: ^20.19.0 || ^22.12.0 || >=24.0.0}
     peerDependencies:
       '@nestjs/common': ^10.0.0 || ^11.0.0 || ^12.0.0
@@ -11976,7 +11976,7 @@ snapshots:
       '@types/react': 19.2.17
       react: 19.3.0
 
-  '@nestjs/axios@12.0.0(@nestjs/common@11.2.1(reflect-metadata@0.2.2)(rxjs@7.8.2)(supports-color@8.1.1))(axios@1.20.0(debug@4.4.3(supports-color@8.1.1))(supports-color@8.1.1))(rxjs@7.8.2)':
+  '@nestjs/axios@12.0.1(@nestjs/common@11.2.1(reflect-metadata@0.2.2)(rxjs@7.8.2)(supports-color@8.1.1))(axios@1.20.0(debug@4.4.3(supports-color@8.1.1))(supports-color@8.1.1))(rxjs@7.8.2)':
     dependencies:
       '@nestjs/common': 11.2.1(reflect-metadata@0.2.2)(rxjs@7.8.2)(supports-color@8.1.1)
       axios: 1.20.0(debug@4.4.3(supports-color@8.1.1))(supports-color@8.1.1)
