@@ -220,7 +220,7 @@ importers:
     devDependencies:
       '@nestjs/cli':
         specifier: ^12.0.0
-        version: 12.0.1(@types/node@26.6.1)(fork-ts-checker-webpack-plugin@9.1.0(typescript@5.9.3)(webpack@5.108.4(clean-css@5.3.3)(cssnano@6.1.2(postcss@8.5.19))(csso@5.0.5)(html-minifier-terser@7.2.0)(lightningcss@1.32.0)(postcss@8.5.19)))(prettier@3.9.6)(ts-loader@9.6.2(loader-utils@2.0.4)(typescript@5.9.3)(webpack@5.108.4(clean-css@5.3.3)(cssnano@6.1.2(postcss@8.5.19))(csso@5.0.5)(html-minifier-terser@7.2.0)(lightningcss@1.32.0)(postcss@8.5.19)))(tsconfig-paths-webpack-plugin@4.2.0)(webpack-node-externals@3.0.0)(webpack@5.108.4(clean-css@5.3.3)(cssnano@6.1.2(postcss@8.5.19))(csso@5.0.5)(html-minifier-terser@7.2.0)(lightningcss@1.32.0)(postcss@8.5.19))
+        version: 12.0.3(@types/node@26.6.1)(fork-ts-checker-webpack-plugin@9.1.0(typescript@5.9.3)(webpack@5.108.4(clean-css@5.3.3)(cssnano@6.1.2(postcss@8.5.19))(csso@5.0.5)(html-minifier-terser@7.2.0)(lightningcss@1.32.0)(postcss@8.5.19)))(prettier@3.9.6)(ts-loader@9.6.2(loader-utils@2.0.4)(typescript@5.9.3)(webpack@5.108.4(clean-css@5.3.3)(cssnano@6.1.2(postcss@8.5.19))(csso@5.0.5)(html-minifier-terser@7.2.0)(lightningcss@1.32.0)(postcss@8.5.19)))(tsconfig-paths-webpack-plugin@4.2.0)(webpack-node-externals@3.0.0)(webpack@5.108.4(clean-css@5.3.3)(cssnano@6.1.2(postcss@8.5.19))(csso@5.0.5)(html-minifier-terser@7.2.0)(lightningcss@1.32.0)(postcss@8.5.19))
       '@nestjs/schematics':
         specifier: ^12.0.0
         version: 12.0.2(chokidar@5.0.0)(prettier@3.9.6)(typescript@5.9.3)
@@ -260,7 +260,7 @@ importers:
     devDependencies:
       '@nestjs/cli':
         specifier: ^12.0.0
-        version: 12.0.1(@types/node@26.6.1)(fork-ts-checker-webpack-plugin@9.1.0(typescript@5.9.3)(webpack@5.108.4(clean-css@5.3.3)(cssnano@6.1.2(postcss@8.5.19))(csso@5.0.5)(html-minifier-terser@7.2.0)(lightningcss@1.32.0)(postcss@8.5.19)))(prettier@3.9.6)(ts-loader@9.6.2(loader-utils@2.0.4)(typescript@5.9.3)(webpack@5.108.4(clean-css@5.3.3)(cssnano@6.1.2(postcss@8.5.19))(csso@5.0.5)(html-minifier-terser@7.2.0)(lightningcss@1.32.0)(postcss@8.5.19)))(tsconfig-paths-webpack-plugin@4.2.0)(webpack-node-externals@3.0.0)(webpack@5.108.4(clean-css@5.3.3)(cssnano@6.1.2(postcss@8.5.19))(csso@5.0.5)(html-minifier-terser@7.2.0)(lightningcss@1.32.0)(postcss@8.5.19))
+        version: 12.0.3(@types/node@26.6.1)(fork-ts-checker-webpack-plugin@9.1.0(typescript@5.9.3)(webpack@5.108.4(clean-css@5.3.3)(cssnano@6.1.2(postcss@8.5.19))(csso@5.0.5)(html-minifier-terser@7.2.0)(lightningcss@1.32.0)(postcss@8.5.19)))(prettier@3.9.6)(ts-loader@9.6.2(loader-utils@2.0.4)(typescript@5.9.3)(webpack@5.108.4(clean-css@5.3.3)(cssnano@6.1.2(postcss@8.5.19))(csso@5.0.5)(html-minifier-terser@7.2.0)(lightningcss@1.32.0)(postcss@8.5.19)))(tsconfig-paths-webpack-plugin@4.2.0)(webpack-node-externals@3.0.0)(webpack@5.108.4(clean-css@5.3.3)(cssnano@6.1.2(postcss@8.5.19))(csso@5.0.5)(html-minifier-terser@7.2.0)(lightningcss@1.32.0)(postcss@8.5.19))
       '@nestjs/schematics':
         specifier: ^12.0.0
         version: 12.0.2(chokidar@5.0.0)(prettier@3.9.6)(typescript@5.9.3)
@@ -336,7 +336,7 @@ importers:
     devDependencies:
       '@nestjs/cli':
         specifier: ^12.0.0
-        version: 12.0.1(@types/node@26.6.1)(fork-ts-checker-webpack-plugin@9.1.0(typescript@5.9.3)(webpack@5.108.4(clean-css@5.3.3)(cssnano@6.1.2(postcss@8.5.19))(csso@5.0.5)(html-minifier-terser@7.2.0)(lightningcss@1.32.0)(postcss@8.5.19)))(prettier@3.9.6)(ts-loader@9.6.2(loader-utils@2.0.4)(typescript@5.9.3)(webpack@5.108.4(clean-css@5.3.3)(cssnano@6.1.2(postcss@8.5.19))(csso@5.0.5)(html-minifier-terser@7.2.0)(lightningcss@1.32.0)(postcss@8.5.19)))(tsconfig-paths-webpack-plugin@4.2.0)(webpack-node-externals@3.0.0)(webpack@5.108.4(clean-css@5.3.3)(cssnano@6.1.2(postcss@8.5.19))(csso@5.0.5)(html-minifier-terser@7.2.0)(lightningcss@1.32.0)(postcss@8.5.19))
+        version: 12.0.3(@types/node@26.6.1)(fork-ts-checker-webpack-plugin@9.1.0(typescript@5.9.3)(webpack@5.108.4(clean-css@5.3.3)(cssnano@6.1.2(postcss@8.5.19))(csso@5.0.5)(html-minifier-terser@7.2.0)(lightningcss@1.32.0)(postcss@8.5.19)))(prettier@3.9.6)(ts-loader@9.6.2(loader-utils@2.0.4)(typescript@5.9.3)(webpack@5.108.4(clean-css@5.3.3)(cssnano@6.1.2(postcss@8.5.19))(csso@5.0.5)(html-minifier-terser@7.2.0)(lightningcss@1.32.0)(postcss@8.5.19)))(tsconfig-paths-webpack-plugin@4.2.0)(webpack-node-externals@3.0.0)(webpack@5.108.4(clean-css@5.3.3)(cssnano@6.1.2(postcss@8.5.19))(csso@5.0.5)(html-minifier-terser@7.2.0)(lightningcss@1.32.0)(postcss@8.5.19))
       '@nestjs/schematics':
         specifier: ^12.0.0
         version: 12.0.2(chokidar@5.0.0)(prettier@3.9.6)(typescript@5.9.3)
@@ -412,7 +412,7 @@ importers:
     devDependencies:
       '@nestjs/cli':
         specifier: ^12.0.0
-        version: 12.0.1(@types/node@26.6.1)(fork-ts-checker-webpack-plugin@9.1.0(typescript@5.9.3)(webpack@5.108.4(clean-css@5.3.3)(cssnano@6.1.2(postcss@8.5.19))(csso@5.0.5)(html-minifier-terser@7.2.0)(lightningcss@1.32.0)(postcss@8.5.19)))(prettier@3.9.6)(ts-loader@9.6.2(loader-utils@2.0.4)(typescript@5.9.3)(webpack@5.108.4(clean-css@5.3.3)(cssnano@6.1.2(postcss@8.5.19))(csso@5.0.5)(html-minifier-terser@7.2.0)(lightningcss@1.32.0)(postcss@8.5.19)))(tsconfig-paths-webpack-plugin@4.2.0)(webpack-node-externals@3.0.0)(webpack@5.108.4(clean-css@5.3.3)(cssnano@6.1.2(postcss@8.5.19))(csso@5.0.5)(html-minifier-terser@7.2.0)(lightningcss@1.32.0)(postcss@8.5.19))
+        version: 12.0.3(@types/node@26.6.1)(fork-ts-checker-webpack-plugin@9.1.0(typescript@5.9.3)(webpack@5.108.4(clean-css@5.3.3)(cssnano@6.1.2(postcss@8.5.19))(csso@5.0.5)(html-minifier-terser@7.2.0)(lightningcss@1.32.0)(postcss@8.5.19)))(prettier@3.9.6)(ts-loader@9.6.2(loader-utils@2.0.4)(typescript@5.9.3)(webpack@5.108.4(clean-css@5.3.3)(cssnano@6.1.2(postcss@8.5.19))(csso@5.0.5)(html-minifier-terser@7.2.0)(lightningcss@1.32.0)(postcss@8.5.19)))(tsconfig-paths-webpack-plugin@4.2.0)(webpack-node-externals@3.0.0)(webpack@5.108.4(clean-css@5.3.3)(cssnano@6.1.2(postcss@8.5.19))(csso@5.0.5)(html-minifier-terser@7.2.0)(lightningcss@1.32.0)(postcss@8.5.19))
       '@nestjs/schematics':
         specifier: ^12.0.0
         version: 12.0.2(chokidar@5.0.0)(prettier@3.9.6)(typescript@5.9.3)
@@ -485,7 +485,7 @@ importers:
     devDependencies:
       '@nestjs/cli':
         specifier: ^12.0.0
-        version: 12.0.1(@types/node@26.6.1)(fork-ts-checker-webpack-plugin@9.1.0(typescript@5.9.3)(webpack@5.108.4(clean-css@5.3.3)(cssnano@6.1.2(postcss@8.5.19))(csso@5.0.5)(html-minifier-terser@7.2.0)(lightningcss@1.32.0)(postcss@8.5.19)))(prettier@3.9.6)(ts-loader@9.6.2(loader-utils@2.0.4)(typescript@5.9.3)(webpack@5.108.4(clean-css@5.3.3)(cssnano@6.1.2(postcss@8.5.19))(csso@5.0.5)(html-minifier-terser@7.2.0)(lightningcss@1.32.0)(postcss@8.5.19)))(tsconfig-paths-webpack-plugin@4.2.0)(webpack-node-externals@3.0.0)(webpack@5.108.4(clean-css@5.3.3)(cssnano@6.1.2(postcss@8.5.19))(csso@5.0.5)(html-minifier-terser@7.2.0)(lightningcss@1.32.0)(postcss@8.5.19))
+        version: 12.0.3(@types/node@26.6.1)(fork-ts-checker-webpack-plugin@9.1.0(typescript@5.9.3)(webpack@5.108.4(clean-css@5.3.3)(cssnano@6.1.2(postcss@8.5.19))(csso@5.0.5)(html-minifier-terser@7.2.0)(lightningcss@1.32.0)(postcss@8.5.19)))(prettier@3.9.6)(ts-loader@9.6.2(loader-utils@2.0.4)(typescript@5.9.3)(webpack@5.108.4(clean-css@5.3.3)(cssnano@6.1.2(postcss@8.5.19))(csso@5.0.5)(html-minifier-terser@7.2.0)(lightningcss@1.32.0)(postcss@8.5.19)))(tsconfig-paths-webpack-plugin@4.2.0)(webpack-node-externals@3.0.0)(webpack@5.108.4(clean-css@5.3.3)(cssnano@6.1.2(postcss@8.5.19))(csso@5.0.5)(html-minifier-terser@7.2.0)(lightningcss@1.32.0)(postcss@8.5.19))
       '@nestjs/schematics':
         specifier: ^12.0.0
         version: 12.0.2(chokidar@5.0.0)(prettier@3.9.6)(typescript@5.9.3)
@@ -558,7 +558,7 @@ importers:
     devDependencies:
       '@nestjs/cli':
         specifier: ^12.0.0
-        version: 12.0.1(@types/node@26.6.1)(fork-ts-checker-webpack-plugin@9.1.0(typescript@5.9.3)(webpack@5.108.4(clean-css@5.3.3)(cssnano@6.1.2(postcss@8.5.19))(csso@5.0.5)(html-minifier-terser@7.2.0)(lightningcss@1.32.0)(postcss@8.5.19)))(prettier@3.9.6)(ts-loader@9.6.2(loader-utils@2.0.4)(typescript@5.9.3)(webpack@5.108.4(clean-css@5.3.3)(cssnano@6.1.2(postcss@8.5.19))(csso@5.0.5)(html-minifier-terser@7.2.0)(lightningcss@1.32.0)(postcss@8.5.19)))(tsconfig-paths-webpack-plugin@4.2.0)(webpack-node-externals@3.0.0)(webpack@5.108.4(clean-css@5.3.3)(cssnano@6.1.2(postcss@8.5.19))(csso@5.0.5)(html-minifier-terser@7.2.0)(lightningcss@1.32.0)(postcss@8.5.19))
+        version: 12.0.3(@types/node@26.6.1)(fork-ts-checker-webpack-plugin@9.1.0(typescript@5.9.3)(webpack@5.108.4(clean-css@5.3.3)(cssnano@6.1.2(postcss@8.5.19))(csso@5.0.5)(html-minifier-terser@7.2.0)(lightningcss@1.32.0)(postcss@8.5.19)))(prettier@3.9.6)(ts-loader@9.6.2(loader-utils@2.0.4)(typescript@5.9.3)(webpack@5.108.4(clean-css@5.3.3)(cssnano@6.1.2(postcss@8.5.19))(csso@5.0.5)(html-minifier-terser@7.2.0)(lightningcss@1.32.0)(postcss@8.5.19)))(tsconfig-paths-webpack-plugin@4.2.0)(webpack-node-externals@3.0.0)(webpack@5.108.4(clean-css@5.3.3)(cssnano@6.1.2(postcss@8.5.19))(csso@5.0.5)(html-minifier-terser@7.2.0)(lightningcss@1.32.0)(postcss@8.5.19))
       '@nestjs/schematics':
         specifier: ^12.0.0
         version: 12.0.2(chokidar@5.0.0)(prettier@3.9.6)(typescript@5.9.3)
@@ -631,7 +631,7 @@ importers:
     devDependencies:
       '@nestjs/cli':
         specifier: ^12.0.0
-        version: 12.0.1(@types/node@26.6.1)(fork-ts-checker-webpack-plugin@9.1.0(typescript@5.9.3)(webpack@5.108.4(clean-css@5.3.3)(cssnano@6.1.2(postcss@8.5.19))(csso@5.0.5)(html-minifier-terser@7.2.0)(lightningcss@1.32.0)(postcss@8.5.19)))(prettier@3.9.6)(ts-loader@9.6.2(loader-utils@2.0.4)(typescript@5.9.3)(webpack@5.108.4(clean-css@5.3.3)(cssnano@6.1.2(postcss@8.5.19))(csso@5.0.5)(html-minifier-terser@7.2.0)(lightningcss@1.32.0)(postcss@8.5.19)))(tsconfig-paths-webpack-plugin@4.2.0)(webpack-node-externals@3.0.0)(webpack@5.108.4(clean-css@5.3.3)(cssnano@6.1.2(postcss@8.5.19))(csso@5.0.5)(html-minifier-terser@7.2.0)(lightningcss@1.32.0)(postcss@8.5.19))
+        version: 12.0.3(@types/node@26.6.1)(fork-ts-checker-webpack-plugin@9.1.0(typescript@5.9.3)(webpack@5.108.4(clean-css@5.3.3)(cssnano@6.1.2(postcss@8.5.19))(csso@5.0.5)(html-minifier-terser@7.2.0)(lightningcss@1.32.0)(postcss@8.5.19)))(prettier@3.9.6)(ts-loader@9.6.2(loader-utils@2.0.4)(typescript@5.9.3)(webpack@5.108.4(clean-css@5.3.3)(cssnano@6.1.2(postcss@8.5.19))(csso@5.0.5)(html-minifier-terser@7.2.0)(lightningcss@1.32.0)(postcss@8.5.19)))(tsconfig-paths-webpack-plugin@4.2.0)(webpack-node-externals@3.0.0)(webpack@5.108.4(clean-css@5.3.3)(cssnano@6.1.2(postcss@8.5.19))(csso@5.0.5)(html-minifier-terser@7.2.0)(lightningcss@1.32.0)(postcss@8.5.19))
       '@nestjs/schematics':
         specifier: ^12.0.0
         version: 12.0.2(chokidar@5.0.0)(prettier@3.9.6)(typescript@5.9.3)
@@ -704,7 +704,7 @@ importers:
     devDependencies:
       '@nestjs/cli':
         specifier: ^12.0.0
-        version: 12.0.1(@types/node@26.6.1)(fork-ts-checker-webpack-plugin@9.1.0(typescript@5.9.3)(webpack@5.108.4(clean-css@5.3.3)(cssnano@6.1.2(postcss@8.5.19))(csso@5.0.5)(html-minifier-terser@7.2.0)(lightningcss@1.32.0)(postcss@8.5.19)))(prettier@3.9.6)(ts-loader@9.6.2(loader-utils@2.0.4)(typescript@5.9.3)(webpack@5.108.4(clean-css@5.3.3)(cssnano@6.1.2(postcss@8.5.19))(csso@5.0.5)(html-minifier-terser@7.2.0)(lightningcss@1.32.0)(postcss@8.5.19)))(tsconfig-paths-webpack-plugin@4.2.0)(webpack-node-externals@3.0.0)(webpack@5.108.4(clean-css@5.3.3)(cssnano@6.1.2(postcss@8.5.19))(csso@5.0.5)(html-minifier-terser@7.2.0)(lightningcss@1.32.0)(postcss@8.5.19))
+        version: 12.0.3(@types/node@26.6.1)(fork-ts-checker-webpack-plugin@9.1.0(typescript@5.9.3)(webpack@5.108.4(clean-css@5.3.3)(cssnano@6.1.2(postcss@8.5.19))(csso@5.0.5)(html-minifier-terser@7.2.0)(lightningcss@1.32.0)(postcss@8.5.19)))(prettier@3.9.6)(ts-loader@9.6.2(loader-utils@2.0.4)(typescript@5.9.3)(webpack@5.108.4(clean-css@5.3.3)(cssnano@6.1.2(postcss@8.5.19))(csso@5.0.5)(html-minifier-terser@7.2.0)(lightningcss@1.32.0)(postcss@8.5.19)))(tsconfig-paths-webpack-plugin@4.2.0)(webpack-node-externals@3.0.0)(webpack@5.108.4(clean-css@5.3.3)(cssnano@6.1.2(postcss@8.5.19))(csso@5.0.5)(html-minifier-terser@7.2.0)(lightningcss@1.32.0)(postcss@8.5.19))
       '@nestjs/schematics':
         specifier: ^12.0.0
         version: 12.0.2(chokidar@5.0.0)(prettier@3.9.6)(typescript@5.9.3)
@@ -777,7 +777,7 @@ importers:
     devDependencies:
       '@nestjs/cli':
         specifier: ^12.0.0
-        version: 12.0.1(@types/node@26.6.1)(fork-ts-checker-webpack-plugin@9.1.0(typescript@5.9.3)(webpack@5.108.4(clean-css@5.3.3)(cssnano@6.1.2(postcss@8.5.19))(csso@5.0.5)(html-minifier-terser@7.2.0)(lightningcss@1.32.0)(postcss@8.5.19)))(prettier@3.9.6)(ts-loader@9.6.2(loader-utils@2.0.4)(typescript@5.9.3)(webpack@5.108.4(clean-css@5.3.3)(cssnano@6.1.2(postcss@8.5.19))(csso@5.0.5)(html-minifier-terser@7.2.0)(lightningcss@1.32.0)(postcss@8.5.19)))(tsconfig-paths-webpack-plugin@4.2.0)(webpack-node-externals@3.0.0)(webpack@5.108.4(clean-css@5.3.3)(cssnano@6.1.2(postcss@8.5.19))(csso@5.0.5)(html-minifier-terser@7.2.0)(lightningcss@1.32.0)(postcss@8.5.19))
+        version: 12.0.3(@types/node@26.6.1)(fork-ts-checker-webpack-plugin@9.1.0(typescript@5.9.3)(webpack@5.108.4(clean-css@5.3.3)(cssnano@6.1.2(postcss@8.5.19))(csso@5.0.5)(html-minifier-terser@7.2.0)(lightningcss@1.32.0)(postcss@8.5.19)))(prettier@3.9.6)(ts-loader@9.6.2(loader-utils@2.0.4)(typescript@5.9.3)(webpack@5.108.4(clean-css@5.3.3)(cssnano@6.1.2(postcss@8.5.19))(csso@5.0.5)(html-minifier-terser@7.2.0)(lightningcss@1.32.0)(postcss@8.5.19)))(tsconfig-paths-webpack-plugin@4.2.0)(webpack-node-externals@3.0.0)(webpack@5.108.4(clean-css@5.3.3)(cssnano@6.1.2(postcss@8.5.19))(csso@5.0.5)(html-minifier-terser@7.2.0)(lightningcss@1.32.0)(postcss@8.5.19))
       '@nestjs/schematics':
         specifier: ^12.0.0
         version: 12.0.2(chokidar@5.0.0)(prettier@3.9.6)(typescript@5.9.3)
@@ -850,7 +850,7 @@ importers:
     devDependencies:
       '@nestjs/cli':
         specifier: ^12.0.0
-        version: 12.0.1(@types/node@26.6.1)(fork-ts-checker-webpack-plugin@9.1.0(typescript@5.9.3)(webpack@5.108.4(clean-css@5.3.3)(cssnano@6.1.2(postcss@8.5.19))(csso@5.0.5)(html-minifier-terser@7.2.0)(lightningcss@1.32.0)(postcss@8.5.19)))(prettier@3.9.6)(ts-loader@9.6.2(loader-utils@2.0.4)(typescript@5.9.3)(webpack@5.108.4(clean-css@5.3.3)(cssnano@6.1.2(postcss@8.5.19))(csso@5.0.5)(html-minifier-terser@7.2.0)(lightningcss@1.32.0)(postcss@8.5.19)))(tsconfig-paths-webpack-plugin@4.2.0)(webpack-node-externals@3.0.0)(webpack@5.108.4(clean-css@5.3.3)(cssnano@6.1.2(postcss@8.5.19))(csso@5.0.5)(html-minifier-terser@7.2.0)(lightningcss@1.32.0)(postcss@8.5.19))
+        version: 12.0.3(@types/node@26.6.1)(fork-ts-checker-webpack-plugin@9.1.0(typescript@5.9.3)(webpack@5.108.4(clean-css@5.3.3)(cssnano@6.1.2(postcss@8.5.19))(csso@5.0.5)(html-minifier-terser@7.2.0)(lightningcss@1.32.0)(postcss@8.5.19)))(prettier@3.9.6)(ts-loader@9.6.2(loader-utils@2.0.4)(typescript@5.9.3)(webpack@5.108.4(clean-css@5.3.3)(cssnano@6.1.2(postcss@8.5.19))(csso@5.0.5)(html-minifier-terser@7.2.0)(lightningcss@1.32.0)(postcss@8.5.19)))(tsconfig-paths-webpack-plugin@4.2.0)(webpack-node-externals@3.0.0)(webpack@5.108.4(clean-css@5.3.3)(cssnano@6.1.2(postcss@8.5.19))(csso@5.0.5)(html-minifier-terser@7.2.0)(lightningcss@1.32.0)(postcss@8.5.19))
       '@nestjs/schematics':
         specifier: ^12.0.0
         version: 12.0.2(chokidar@5.0.0)(prettier@3.9.6)(typescript@5.9.3)
@@ -2787,8 +2787,8 @@ packages:
       axios: ^1.3.1
       rxjs: ^7.0.0
 
-  '@nestjs/cli@12.0.1':
-    resolution: {integrity: sha512-1qp2CAXMZvib9OUpPkAJhzB0KVVuuxthAuMrD5+/jd0gT3+nqFPfUGH9qHuauZt2rfiXGrtJ+bCBKDBASW4HLA==}
+  '@nestjs/cli@12.0.3':
+    resolution: {integrity: sha512-HofsPoiWsx6gZ7/IivaZJrgsq/3CTCb4FkCQzFu/Q3J2V+4xC7GYnit/HNB66EfuY8j3gWJCzasMKmF5VugmOA==}
     engines: {node: '>= 20.11'}
     hasBin: true
     peerDependencies:
@@ -12177,7 +12177,7 @@ snapshots:
       axios: 1.20.0(debug@4.4.3(supports-color@8.1.1))(supports-color@8.1.1)
       rxjs: 7.8.2
 
-  '@nestjs/cli@12.0.1(@types/node@26.6.1)(fork-ts-checker-webpack-plugin@9.1.0(typescript@5.9.3)(webpack@5.108.4(clean-css@5.3.3)(cssnano@6.1.2(postcss@8.5.19))(csso@5.0.5)(html-minifier-terser@7.2.0)(lightningcss@1.32.0)(postcss@8.5.19)))(prettier@3.9.6)(ts-loader@9.6.2(loader-utils@2.0.4)(typescript@5.9.3)(webpack@5.108.4(clean-css@5.3.3)(cssnano@6.1.2(postcss@8.5.19))(csso@5.0.5)(html-minifier-terser@7.2.0)(lightningcss@1.32.0)(postcss@8.5.19)))(tsconfig-paths-webpack-plugin@4.2.0)(webpack-node-externals@3.0.0)(webpack@5.108.4(clean-css@5.3.3)(cssnano@6.1.2(postcss@8.5.19))(csso@5.0.5)(html-minifier-terser@7.2.0)(lightningcss@1.32.0)(postcss@8.5.19))':
+  '@nestjs/cli@12.0.3(@types/node@26.6.1)(fork-ts-checker-webpack-plugin@9.1.0(typescript@5.9.3)(webpack@5.108.4(clean-css@5.3.3)(cssnano@6.1.2(postcss@8.5.19))(csso@5.0.5)(html-minifier-terser@7.2.0)(lightningcss@1.32.0)(postcss@8.5.19)))(prettier@3.9.6)(ts-loader@9.6.2(loader-utils@2.0.4)(typescript@5.9.3)(webpack@5.108.4(clean-css@5.3.3)(cssnano@6.1.2(postcss@8.5.19))(csso@5.0.5)(html-minifier-terser@7.2.0)(lightningcss@1.32.0)(postcss@8.5.19)))(tsconfig-paths-webpack-plugin@4.2.0)(webpack-node-externals@3.0.0)(webpack@5.108.4(clean-css@5.3.3)(cssnano@6.1.2(postcss@8.5.19))(csso@5.0.5)(html-minifier-terser@7.2.0)(lightningcss@1.32.0)(postcss@8.5.19))':
     dependencies:
       '@angular-devkit/core': 22.1.8(chokidar@5.0.0)
       '@angular-devkit/schematics': 22.1.8(chokidar@5.0.0)
