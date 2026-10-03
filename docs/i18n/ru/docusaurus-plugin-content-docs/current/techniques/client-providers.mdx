@@ -1,11 +1,5 @@
----
-id: client-providers
-title: Client Providers
-sidebar_position: 4
----
-
-NestCord have snippets to access the client and its properties in your application.
-You can inject managers and utils of discord.js client using constructor.
+NestCord имеет фрагменты кода для доступа к клиенту и его свойствам в вашем приложении.
+Вы можете внедрять менеджеры и утилиты discord.js клиента, используя конструктор.
 
 ```typescript title="src/app.service.ts"
 import { Injectable } from '@nestjs/common';
@@ -26,13 +20,13 @@ export class AppService {
 }
 ```
 
-| Class (Type to be Injected) | Client Property (Will access to) | Description        |
-| --------------------------- | -------------------------------- | ------------------ |
-| `Client`                    | `client`                         | Discord.js client  |
-| `ChannelManager`            | `client.channels`                | Channels of client |
-| `GuildManager`              | `client.guilds`                  | Guilds of client   |
-| `UserManager`               | `client.users`                   | Users of client    |
-| `ShardClientUtil`           | `client.shard`                   | Shards utilities   |
-| `ClientVoiceManager`        | `client.voice`                   | Voice manager      |
-| `WebSocketManager`          | `client.ws`                      | Websocket manager  |
-| `REST`                      | `client.rest`                    | REST manager       |
+| Класс (тип для внедрения) | Свойство клиента (доступ к) | Описание        |
+|-----------------------------|----------------------------------|--------------------|
+| `Client`                    | `client`                         | Клиент Discord.js  |
+| `ChannelManager`            | `client.channels`                | Каналы клиента |  
+| `GuildManager`              | `client.guilds`                  | Серверы клиента   | 
+| `UserManager`               | `client.users`                   | Пользователи клиента    |
+| `ShardClientUtil`           | `client.shard`                   | Утилиты шардов   |
+| `ClientVoiceManager`        | `client.voice`                   | Менеджер голоса      |
+| `WebSocketManager`          | `client.ws`                      | Менеджер Websocket  |
+| `REST`                      | `client.rest`                    | Менеджер REST       |
