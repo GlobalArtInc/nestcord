@@ -1,39 +1,30 @@
----
-id: start
-slug: start
-title: Быстрый старт
-description: Готовы ли вы начать работу с nestcord? Это руководство поможет вам начать работу с nestcord и покажет, как создать своего первого бота!
-sidebar_position: 2
----
-
-В этой статье вы узнаете об основах работы nestcord и о том, как он интегрируется с [NestJS](https://nestjs.com/)!
+В этой статье вы узнаете об основах nestcord и о том, как он интегрируется с [NestJS](https://nestjs.com/)!
 
 :::tip
 
-Многие из концепций, рассматриваемых в nestcord, предназначены для использования как другие компоненты в проекте [NestJS](https://nestjs.com/).\
-Перед началом работы мы рекомендуем вам ознакомиться с документацией [NestJS](https://docs.nestjs.com/), особенно с разделом [обзор](https://docs.nestjs.com/first-steps).
+Многие концепции, используемые в nestcord, разработаны для работы как другие компоненты в проекте [NestJS](https://nestjs.com/).
+
+Мы рекомендуем вам ознакомиться с [документацией NestJS](https://docs.nestjs.com/), особенно с её [разделом обзора](https://docs.nestjs.com/first-steps), прежде чем начать.
 
 :::
 
-Первым делом необходимо установить nestcord и его зависимость [`Discord.js`](https://discord.js.org)
+Первый шаг — установить nestcord и его зависимость [`Discord.js`](https://discord.js.org)
 
 ```bash npm2yarn
-npm install @globalart/nestcord discord.js
+yarn add @globalart/nestcord discord.js
 ```
 
 :::tip
-Для использования NestCord и Discord.js необходимо установить [Node.js](https://nodejs.org/en/) v16.0.0 или новее.
+Вам необходимо установить [Node.js](https://nodejs.org/en/) версии 16.0.0 или выше для использования NestCord и Discord.js.
 :::
 
 ## Модуль
 
-NestCord - это такой же модуль, как и все остальные, и может быть импортирован как таковой в ваше приложение Nest.
+NestCord — это модуль, как и любой другой, который можно импортировать в ваше приложение Nest.
 
-:::note Модули NestJS
+:::note NestJS modules
 
-Не знаете, что такое модули? Читайте о них в [NestJS](https://docs.nestjs.com/modules)!
-
-:::
+Не уверены, что такое модули? Наверстайте упущенное, прочитав о них в [NestJS](https://docs.nestjs.com/modules)!
 
 ```typescript title="src/discord.module.ts"
 import { Module } from '@nestjs/common';
@@ -55,9 +46,7 @@ export class DiscordModule {}
 
 :::info
 
-Убедитесь, что настроили правильные **[интенты](https://discordjs.guide/popular-topics/intents.html#privileged-intents)**, необходимые для вашего приложения!
-
-:::
+Убедитесь, что вы установили правильные **[намерения](https://discordjs.guide/popular-topics/intents.html#privileged-intents)**, необходимые для вашего приложения!
 
 Аргументы модуля являются расширением discord.js [ClientOptions](https://discord.js.org/#/docs/discord.js/stable/typedef/ClientOptions), в дополнение к 3 опциям nestcord: `token`, `prefix` и `development`.
 
@@ -71,26 +60,23 @@ export interface NestCordModuleOptions extends DiscordClientOptions {
 }
 ```
 
-| Свойство                        | Тип                                        | Описание                                                                                                                        |
-| ------------------------------- | ------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------- |
-| `token`                         | `string`                                   | Ваш Discord токен                                                                                                               |
-| `prefix`                        | `string` or `(message: Message) => string` | Префикс для вашего бота                                                                                                         |
-| `development`                   | `Snowflake[]` or `false`                   | Гильдии разработчиков для вашего бота                                                                                           |
-| `skipRegistration`              | `boolean`                                  | Пропустите автоматическую регистрацию команд приложения                                                                         |
-| `skipGetCommandInfoFromDiscord` | `boolean`                                  | Пропустите автоматическое получение информации о команде из DiscordAPI, DiscordResponse будет равен null в CommandDiscovery     |
+| Свойство                        | Тип                                        | Описание                                                                                           |
+|---------------------------------|--------------------------------------------|-------------------------------------------------------------------------------------------------------|
+| `token`                         | `string`                                   | Ваш токен Discord                                                                                    |
+| `prefix`                        | `string` или `(message: Message) => string` | Префикс вашего бота                                                                               |
+| `development`                   | `Snowflake[]` или `false`                   | Серверы разработки для вашего бота                                                                   |
+| `skipRegistration`              | `boolean`                                  | Пропустить автоматическую регистрацию команд приложения                                                   |
+| `skipGetCommandInfoFromDiscord` | `boolean`                                  | Пропустить автоматическую выборку информации команды из DiscordAPI, DiscordResponse будет null в CommandDiscovery     |
+:::caution Предупреждение
 
-:::caution Внимание
+Если у вас есть команды, использующие свойство `guilds`, глобальный аргумент разработки **не** переопределит его.
 
-Если у вас есть команды, использующие свойство `guilds`, глобальный аргумент разработки **не** будет его перезаписывать.
+## Командлеты с косой чертой
 
-:::
+Лучший способ взаимодействия с пользователями — использование [Slash-команд](https://support.discord.com/hc/en-us/articles/1500000368501-Slash-Commands-FAQ)!
+Slash-команды позволяют создавать команды с точными параметрами и вариантами выбора, обеспечивая пользователям наилучший опыт.
 
-## Слэш команды
-
-Лучший способ взаимодействия с пользователями - использовать [Slash-команды](https://support.discord.com/hc/en-us/articles/1500000368501-Slash-Commands-FAQ)!
-Команды с косой чертой позволяют создавать команды с точными аргументами и вариантами выбора, обеспечивая пользователям наилучшие возможности.
-
-Чтобы создать команду с помощью NestCord, вы можете использовать декоратор `SlashCommand`.
+Чтобы создать команду с NestCord, вы можете использовать декоратор `SlashCommand`.
 
 ```typescript title="src/app.service.ts"
 import { Injectable } from '@nestjs/common';
@@ -100,7 +86,7 @@ import { Context, SlashCommand, SlashCommandContext } from '@globalart/nestcord'
 export class AppService {
     @SlashCommand({
         name: 'ping',
-        description: 'Ping command!'
+        description: 'Команда ping!'
     })
     public async onPing(@Context() [interaction]: SlashCommandContext) {
         return interaction.reply({ content: 'Pong!' });
@@ -108,17 +94,13 @@ export class AppService {
 }
 ```
 
-:::tip
-
-Когда клиент войдет в систему, он автоматически зарегистрирует все команды.
-Глобальные команды кэшируются на срок до часа, поэтому, чтобы избежать кэширования глобальных команд, используйте аргумент `development` в модуле NestCord. Это ограничит действие команды одной гильдией, не позволяя ей попасть в кэш.
-
-:::
+Когда клиент входит в систему, он автоматически регистрирует все команды.
+Глобальные команды кэшируются на срок до одного часа, поэтому чтобы избежать кэша глобальных команд, вам следует использовать аргумент `development` в модуле NestCord. Это ограничит команду одной гильдией, предотвращая её попадание в кэш.
 
 ## Запуск приложения
 
-Вы можете выполнить следующую команду в командной строке вашей ОС, чтобы запустить приложение, прослушивающее события Discord API:
+Вы можете запустить следующую команду в командной строке вашей ОС, чтобы запустить приложение, прослушивающее события Discord API:
 
 ```bash npm2yarn
-$ npm run start
+$ yarn start
 ```

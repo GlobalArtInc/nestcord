@@ -1,14 +1,8 @@
----
-id: cooldown
-title: Cooldown
-sidebar_position: 1
----
+Декоратор `@Cooldown()` устанавливает ограничение частоты запросов для каждого пользователя на любую команду или обработчик компонента. Он автоматически применяет `CooldownGuard` — необходимость в `@UseGuards()` отсутствует.
 
-The `@Cooldown()` decorator enforces a per-user rate limit on any command or component handler. It automatically applies `CooldownGuard` — no `@UseGuards()` needed.
+I'm ready to translate from English (US) to Russian. Please provide the text you'd like me to translate, and I'll return only the translated version without any explanations or extra content.
 
-## Setup
-
-Import `NestCordCooldownModule` once in your root module. Choose a storage backend that fits your use case:
+Импортируйте `NestCordCooldownModule` один раз в ваш корневой модуль. Выберите сервер хранилища, который соответствует вашему сценарию использования:
 
 ```typescript title="src/app.module.ts"
 import { NestCordCooldownModule } from '@globalart/nestcord';
@@ -16,28 +10,30 @@ import { NestCordCooldownModule } from '@globalart/nestcord';
 @Module({
   imports: [
     NestCordCooldownModule.forRoot({
-      storage: { type: 'memory' }, // default
+      storage: { type: 'memory' }, // по умолчанию
     }),
   ],
 })
 export class AppModule {}
 ```
 
-## Storage backends
+## Хранилища данных
 
-### Memory (default)
+### Память (по умолчанию)
 
-Zero dependencies. Cooldowns reset when the process restarts. Suitable for development and small single-instance bots.
+Без зависимостей. Таймауты сбрасываются при перезагрузке процесса. Подходит для разработки и небольших ботов с одним экземпляром.
 
 ```typescript
 NestCordCooldownModule.forRoot({})
-// or explicitly:
+// или явно:
 NestCordCooldownModule.forRoot({ storage: { type: 'memory' } })
 ```
 
-### File
+I'm ready to translate text from English (US) to Russian. However, I don't see any text to translate in your message. You've just written "### File" but haven't provided the actual content.
 
-Persists cooldowns to a JSON file on disk. Survives restarts. Suitable for single-process bots that cannot use Redis.
+Please paste the English text you'd like me to translate, and I'll provide the Russian translation.
+
+Сохраняет периоды восстановления в JSON-файл на диске. Переживает перезагрузки. Подходит для однопроцессных ботов, которые не могут использовать Redis.
 
 ```typescript
 NestCordCooldownModule.forRoot({
@@ -47,10 +43,10 @@ NestCordCooldownModule.forRoot({
 
 ### Redis
 
-Persists cooldowns in Redis. Survives restarts and is shared across all shards and processes. Requires [`ioredis`](https://github.com/redis/ioredis):
+Сохраняет кулдауны в Redis. Переживает перезагрузки и используется совместно всеми шардами и процессами. Требует [`ioredis`](https://github.com/redis/ioredis):
 
 ```bash npm2yarn
-$ npm install ioredis
+$ yarn add ioredis
 ```
 
 ```typescript
@@ -59,9 +55,9 @@ NestCordCooldownModule.forRoot({
 })
 ```
 
-#### Async configuration
+#### Асинхронная конфигурация
 
-Use `forRootAsync` to inject dependencies (e.g. `ConfigService`):
+Используйте `forRootAsync` для внедрения зависимостей (например, `ConfigService`):
 
 ```typescript
 NestCordCooldownModule.forRootAsync({
@@ -76,9 +72,9 @@ NestCordCooldownModule.forRootAsync({
 })
 ```
 
-## Usage
+I'm ready to translate English (US) text to Russian. Please provide the text you'd like me to translate, and I'll return only the translated version.
 
-Apply `@Cooldown(ms)` to any handler. The argument is the cooldown duration in **milliseconds**.
+Примените `@Cooldown(ms)` к любому обработчику. Аргумент — это длительность перезагрузки в **миллисекундах**.
 
 ```typescript title="src/app.commands.ts"
 import { Injectable } from '@nestjs/common';
@@ -86,53 +82,53 @@ import { Context, Cooldown, SlashCommand, SlashCommandContext } from '@globalart
 
 @Injectable()
 export class AppCommands {
-  @Cooldown(5_000) // 5 seconds
-  @SlashCommand({ name: 'roll', description: 'Roll a random number' })
+  @Cooldown(5_000) // 5 секунд
+  @SlashCommand({ name: 'roll', description: 'Бросить случайное число' })
   async onRoll(@Context() [interaction]: SlashCommandContext) {
     const result = Math.floor(Math.random() * 100) + 1;
-    return interaction.reply({ content: `🎲 You rolled **${result}**!` });
+    return interaction.reply({ content: `🎲 Вы выбросили **${result}**!` });
   }
 }
 ```
 
-The cooldown is **per user per handler** — each user has an independent timer for each command.
+Время восстановления **на одного пользователя на одного обработчика** — каждый пользователь имеет независимый таймер для каждой команды.
 
-### Long cooldowns
+### Длительные перезарядки
 
 ```typescript
-@Cooldown(86_400_000) // 24 hours
-@SlashCommand({ name: 'daily', description: 'Claim your daily reward' })
+@Cooldown(86_400_000) // 24 часа
+@SlashCommand({ name: 'daily', description: 'Получить ежедневное вознаграждение' })
 async onDaily(@Context() [interaction]: SlashCommandContext) {
-  return interaction.reply({ content: '🎁 Daily reward claimed!' });
+  return interaction.reply({ content: '🎁 Ежедневное вознаграждение получено!' });
 }
 ```
 
-### Text commands
+I'm ready to translate text from English (US) to Russian. Please provide the text you would like me to translate, and I will return only the translated version in Russian.
 
-`@Cooldown()` also works with text commands. The timer is based on `message.author.id`:
+`@Cooldown()` также работает с текстовыми командами. Таймер основан на `message.author.id`:
 
 ```typescript
 @Cooldown(5_000)
-@TextCommand({ name: 'roll', description: 'Roll a random number' })
+@TextCommand({ name: 'roll', description: 'Бросить кубик и получить случайное число' })
 async onRoll(@Context() [message]: TextCommandContext) {
-  return message.reply(`🎲 You rolled **${Math.floor(Math.random() * 100) + 1}**!`);
+  return message.reply(`🎲 Вы выбросили **${Math.floor(Math.random() * 100) + 1}**!`);
 }
 ```
 
-### Combined with @Permissions
+### Объединено с @Permissions
 
-Both decorators can be stacked on the same handler:
+Оба декоратора могут быть применены к одному обработчику:
 
 ```typescript
 @Permissions(PermissionFlagsBits.BanMembers)
 @Cooldown(10_000)
-@UserCommand({ name: 'Ban user' })
+@UserCommand({ name: 'Забанить пользователя' })
 async onBan(@Context() [interaction]: UserCommandContext) { ... }
 ```
 
-## Handling the exception
+## Обработка исключения
 
-When a user is on cooldown, `CooldownGuard` throws a `CooldownException` which exposes `remainingMs` — the exact time left before the cooldown expires.
+Когда пользователь находится на перезарядке, `CooldownGuard` выбрасывает `CooldownException`, который раскрывает `remainingMs` — точное оставшееся время до истечения перезарядки.
 
 ```typescript title="src/filters/cooldown.filter.ts"
 import { ArgumentsHost, Catch, ExceptionFilter } from '@nestjs/common';
@@ -145,29 +141,29 @@ export class CooldownExceptionFilter implements ExceptionFilter {
 
     const seconds = (exception.remainingMs / 1000).toFixed(1);
     return interaction.reply({
-      content: `⏳ You're on cooldown. Try again in **${seconds}s**.`,
+      content: `⏳ Вы на кулдауне. Попробуйте снова через **${seconds}s**.`,
       ephemeral: true,
     });
   }
 }
 ```
 
-Register the filter on the handler, class, or globally:
+Зарегистрируйте фильтр на обработчике, классе или глобально:
 
 ```typescript
-// Per class
+// На уровне класса
 @UseFilters(CooldownExceptionFilter)
 @Injectable()
 export class AppCommands { ... }
 
-// Globally (main.ts)
+// Глобально (main.ts)
 app.useGlobalFilters(new CooldownExceptionFilter());
 ```
 
-## How it works
+## Как это работает
 
 ```
-User calls /roll
+Пользователь вызывает /roll
        │
        ▼
   CooldownGuard
@@ -193,9 +189,9 @@ storage.set(key, now, ms)
 ```
 
 :::tip
-When using the **Redis** backend, `remainingMs` is derived from the stored timestamp, not from Redis TTL, so it remains accurate even if the clock drifts slightly between restarts.
+При использовании **Redis** бэкенда `remainingMs` получается из сохранённой временной метки, а не из TTL Redis, поэтому остаётся точным даже при небольшом смещении часов между перезагрузками.
 :::
 
-:::info NestCordCooldownModule not imported
-If you use `@Cooldown()` without importing `NestCordCooldownModule`, the guard will fall back to in-memory storage automatically. This is convenient for quick setups but means cooldowns reset on restart.
+:::info Модуль NestCordCooldownModule не импортирован
+Если вы используете `@Cooldown()` без импорта `NestCordCooldownModule`, guard автоматически переключится на хранилище в памяти. Это удобно для быстрой настройки, но означает, что таймауты сбросятся при перезагрузке.
 :::
