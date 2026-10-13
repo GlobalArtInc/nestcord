@@ -213,7 +213,7 @@ const config: Config = {
 								value: '<hr style="margin: 0.3rem 0;">'
 							},
 							{
-								href: 'https://platform.ownlate.com/workspaces/c08d5107-8ec7-4c80-9f46-e36fa7eeab3a/projects/10f62da7-dc9e-4dbd-93b3-f8671c34fdb7/progress',
+								href: 'https://platform.ownlate.com/workspaces/c08d5107-8ec7-4c80-9f46-e36fa7eeab3a/projects/167bc9f8-0af5-4e6f-879f-6f9bc60caf5a/progress',
 								label: 'Help Us Translate'
 							}
 						]
@@ -243,7 +243,7 @@ const config: Config = {
 						title: 'Support us',
 						items: [
 							{ label: 'Contribute', to: '/contributing/contribution-guide' },
-							{ label: 'Translate', href: 'https://platform.ownlate.com/workspaces/c08d5107-8ec7-4c80-9f46-e36fa7eeab3a/projects/10f62da7-dc9e-4dbd-93b3-f8671c34fdb7/progress' }
+							{ label: 'Translate', href: 'https://platform.ownlate.com/workspaces/c08d5107-8ec7-4c80-9f46-e36fa7eeab3a/projects/167bc9f8-0af5-4e6f-879f-6f9bc60caf5a/progress' }
 						]
 					},
 					{
