@@ -10,7 +10,7 @@ importers:
     dependencies:
       '@globalart/text-utils':
         specifier: ^4.0.4
-        version: 4.2.0
+        version: 4.3.0
       '@nestjs/axios':
         specifier: ^12.0.0
         version: 12.0.1(@nestjs/common@11.2.1(reflect-metadata@0.2.2)(rxjs@7.8.2)(supports-color@8.1.1))(axios@1.20.0(debug@4.4.3(supports-color@8.1.1))(supports-color@8.1.1))(rxjs@7.8.2)
@@ -2292,8 +2292,8 @@ packages:
     engines: {node: '>=18'}
     hasBin: true
 
-  '@globalart/text-utils@4.2.0':
-    resolution: {integrity: sha512-BxzsycNfpOiE1t7mFtxHzwS8/e0IF1X6hfjM1nzZjpwsZl6c7f310t+KYfGAhp5IBfJIjiEVgA8rjJZJSvywWw==}
+  '@globalart/text-utils@4.3.0':
+    resolution: {integrity: sha512-bvMkyMTdK6VdxuP5tbCuEObp65OMtz64uN301DPCvdG5NwDzPQoRPMI9ATjuXD87oGFTrIYCFV40lb65NfEf6Q==}
 
   '@hapi/hoek@9.3.0':
     resolution: {integrity: sha512-/c6rf4UJlmHlC9b5BaNvzAcFv7HZ2QHaV0D4/HNlBdvFnvQq8RI4kYdhyPCl7Xj+oWvTWQ8ujhqS53LIgAe6KQ==}
@@ -8468,11 +8468,11 @@ packages:
     resolution: {integrity: sha512-Zba82s87IFq9A9XmjiX5uZA/ARWDrB03OHlq+Vw1fSdt0I+4/Kutwy8BP4Y/y/aORMo61FQ0vIb5j44vSo5Pkg==}
     engines: {node: ^18.0.0 || >=20.0.0}
 
-  tldts-core@7.4.10:
-    resolution: {integrity: sha512-KnQjp53ZekKgm/r3l+u8kJGGzYgrWdP8+Mql7a4vijh2WE0IrZWspQj/TpTxDho/YxO+AnOZnIjQcCD+q6iJsw==}
+  tldts-core@7.4.16:
+    resolution: {integrity: sha512-MDolfaSJtlSK5Y0A1xl3277ekubZwobpBjugknDizI9O5Rm60a1m8k4ICK+MRsCDzPygT81mp3BBf5RKDlFRfA==}
 
-  tldts@7.4.10:
-    resolution: {integrity: sha512-GgouD1B+sWwvkaEq8vXC15DjQitxbvs12oIXELpconwm+Tg3zfcEv4jgzq3vtKverDXsg3VI8aRgNL2Nra0Iog==}
+  tldts@7.4.15:
+    resolution: {integrity: sha512-SJVBeHOxDbNoq14CvpAoA2mLEWdbldGK8nR+yumpjY5nrlZxOflcA7p1Qj1gbTGmbu9DY9qLj/bENSWhBzjxRQ==}
     hasBin: true
 
   to-regex-range@5.0.1:
@@ -11533,10 +11533,10 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@globalart/text-utils@4.2.0':
+  '@globalart/text-utils@4.3.0':
     dependencies:
       rimraf: 6.1.3
-      tldts: 7.4.10
+      tldts: 7.4.15
 
   '@hapi/hoek@9.3.0': {}
 
@@ -18531,11 +18531,11 @@ snapshots:
 
   tinypool@1.1.1: {}
 
-  tldts-core@7.4.10: {}
+  tldts-core@7.4.16: {}
 
-  tldts@7.4.10:
+  tldts@7.4.15:
     dependencies:
-      tldts-core: 7.4.10
+      tldts-core: 7.4.16
 
   to-regex-range@5.0.1:
     dependencies:
