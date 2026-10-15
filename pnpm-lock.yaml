@@ -128,7 +128,7 @@ importers:
         version: 3.1.1(@types/react@19.2.17)(react@19.3.0)
       '@radix-ui/react-slot':
         specifier: ^1.2.3
-        version: 1.4.0(@types/react@19.2.17)(react@19.3.0)
+        version: 1.5.0(@types/react@19.2.17)(react@19.3.0)
       babel-plugin-tsconfig-paths:
         specifier: ^1.0.3
         version: 1.0.3(@babel/core@7.29.7(supports-color@8.1.1))
@@ -3129,8 +3129,8 @@ packages:
       '@types/react':
         optional: true
 
-  '@radix-ui/react-slot@1.4.0':
-    resolution: {integrity: sha512-IuMVHZ+Ah5fkctu3X3qeFrV/ZrBcuWuDTFUUPfS/L5hvoTjzhp/HdWGE14CsQombPdEidsa33HVlYZXi49PZ1Q==}
+  '@radix-ui/react-slot@1.5.0':
+    resolution: {integrity: sha512-tyYd9ddPXAysAbdbD9eYxgwpCSv6f3PncqVSNKQFSR5lcJVLz3cb/pANDoYrLiHBpXv7skortyUgGUWsYuPPFQ==}
     peerDependencies:
       '@types/react': '*'
       react: ^16.8 || ^17.0 || ^18.0 || ^19.0 || ^19.0.0-rc
@@ -12553,7 +12553,7 @@ snapshots:
     optionalDependencies:
       '@types/react': 19.2.17
 
-  '@radix-ui/react-slot@1.4.0(@types/react@19.2.17)(react@19.3.0)':
+  '@radix-ui/react-slot@1.5.0(@types/react@19.2.17)(react@19.3.0)':
     dependencies:
       '@radix-ui/react-compose-refs': 1.1.5(@types/react@19.2.17)(react@19.3.0)
       react: 19.3.0
