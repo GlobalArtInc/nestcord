@@ -17,7 +17,7 @@
   },
   "link.item.label.Translate": {
     "message": "Translate",
-    "description": "The label of footer link with label=Translate linking to https://crowdin.com/project/nestcord"
+    "description": "The label of footer link with label=Translate linking to https://platform.ownlate.com/workspaces/c08d5107-8ec7-4c80-9f46-e36fa7eeab3a/projects/167bc9f8-0af5-4e6f-879f-6f9bc60caf5a/progress"
   },
   "link.item.label.Discord": {
     "message": "Discord",
