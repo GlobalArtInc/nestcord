@@ -37,8 +37,8 @@ importers:
         specifier: 21.2.4
         version: 21.2.4(conventional-commits-parser@7.1.2)(typescript@5.9.3)
       '@commitlint/config-angular':
-        specifier: 21.2.3
-        version: 21.2.3
+        specifier: 21.2.4
+        version: 21.2.4
       '@favware/npm-deprecate':
         specifier: 2.0.0
         version: 2.0.0(supports-color@8.1.1)
@@ -1631,8 +1631,8 @@ packages:
     resolution: {integrity: sha512-xTQlgHTaQyXfFpPI3w2dI7ppuTDWmF++1W/kgNohRpxhBzAoJxc6Q/2P7EjvJodtVl7+38xHyu0STtV4ERXdhg==}
     engines: {node: '>=22.12.0'}
 
-  '@commitlint/config-angular@21.2.3':
-    resolution: {integrity: sha512-6VhIgdTZlYe8MpJUWIvTKR7GS+P8JyCs+D2pw9tgJiFEzQ/PJ+Pej0F4ZJItnSz9LhB5WDaE1Qrgaokwvu5Tng==}
+  '@commitlint/config-angular@21.2.4':
+    resolution: {integrity: sha512-t+KYwW7x3hnWCrlzwGXrJePAs352f1VYPA+1G0XYgi81dMR5hWAJbO4XFe4l3BSjY/Ju2XBOUk8VksNdiIP72g==}
     engines: {node: '>=22.12.0'}
 
   '@commitlint/config-conventional@21.2.4':
@@ -10183,7 +10183,7 @@ snapshots:
 
   '@commitlint/config-angular-type-enum@21.0.1': {}
 
-  '@commitlint/config-angular@21.2.3':
+  '@commitlint/config-angular@21.2.4':
     dependencies:
       '@commitlint/config-angular-type-enum': 21.0.1
 
