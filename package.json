@@ -41,6 +41,10 @@
 		"bot framework"
 	],
 	"license": "MIT",
+	"homepage": "https://nestcord.js.org",
+	"bugs": {
+		"url": "https://github.com/GlobalArtInc/nestcord/issues"
+	},
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/GlobalartInc/nestcord"

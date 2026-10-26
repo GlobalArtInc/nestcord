@@ -4,7 +4,7 @@
    </h1>
    🤖 A module for creating <b><a href="https://discord.com/">Discord</a> bots</b> using <a href="https://nestjs.com">NestJS</a>, based on <a href="https://discord.js.org/">Discord.js</a>
    <br/><br/>
-   <a href="https://nestcord.js.org">Documentation ✨</a> &emsp; <a href="https://github.com/GlobalArtInc/nestcord">Source code 🪡</a> &emsp; <a href="https://github.com/GlobalArtInc/nestcord/tree/master/examples">Examples 🛠️</a> &emsp; <a href="https://discord.gg/4Tc9hssSAv">Community 💬</a>
+   <a href="https://nestcord.js.org">Documentation ✨</a> &emsp; <a href="https://github.com/GlobalArtInc/nestcord">Source code 🪡</a> &emsp; <a href="https://github.com/GlobalArtInc/nestcord/tree/main/examples">Examples 🛠️</a> &emsp; <a href="https://discord.gg/4Tc9hssSAv">Community 💬</a>
 </div>
 
 

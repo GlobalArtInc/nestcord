@@ -1,3 +1,5 @@
+import Head from '@docusaurus/Head';
+import Link from '@docusaurus/Link';
 import { ColorModeProvider, useColorMode } from '@docusaurus/theme-common/internal';
 import {
 	ArrowRight,
@@ -16,6 +18,75 @@ import {
 } from 'lucide-react';
 import { motion, type Variants } from 'motion/react';
 import { useState } from 'react';
+
+const SEO = {
+	title: 'NestCord – NestJS Discord Bot Framework for Discord.js',
+	description:
+		'NestCord is a NestJS module for building Discord bots on Discord.js v14: slash commands, buttons, modals, guards, pagination, sharding and i18n via decorators.'
+} as const;
+
+const DOC_LINKS = [
+	{
+		to: '/start',
+		title: 'Getting started',
+		description: 'Install NestCord and create your first NestJS Discord bot.'
+	},
+	{
+		to: '/interactions/slash-commands',
+		title: 'Slash commands',
+		description: 'Declare slash commands, options and autocomplete with decorators.'
+	},
+	{
+		to: '/interactions/message-components',
+		title: 'Buttons and select menus',
+		description: 'Handle buttons and select menus in NestJS with decorators.'
+	},
+	{
+		to: '/interactions/modals',
+		title: 'Modals',
+		description: 'Collect user input with Discord modal forms.'
+	},
+	{
+		to: '/interactions/context-menus',
+		title: 'Context menus',
+		description: 'Add user and message context menu commands.'
+	},
+	{
+		to: '/listeners',
+		title: 'Event listeners',
+		description: 'React to Discord gateway events with @On and @Once.'
+	},
+	{
+		to: '/guards/permissions',
+		title: 'Guards and permissions',
+		description: 'Restrict commands with the @Permissions decorator and NestJS guards.'
+	},
+	{
+		to: '/packages/pagination',
+		title: 'Pagination',
+		description: 'Split long lists across pages in a few lines of code.'
+	},
+	{
+		to: '/packages/localization',
+		title: 'Localization',
+		description: 'Localize your bot\'s commands and messages with a pluggable adapter.'
+	},
+	{
+		to: '/packages/sharding',
+		title: 'Sharding',
+		description: 'Run Discord.js shards from a dedicated NestJS manager process.'
+	},
+	{
+		to: '/packages/lavalink',
+		title: 'Lavalink music',
+		description: 'Play music in voice channels with the Lavalink package.'
+	},
+	{
+		to: '/techniques/async-configuration',
+		title: 'Async configuration',
+		description: 'Configure NestCord with useFactory and ConfigService.'
+	}
+] as const;
 
 const LINKS = {
 	discord: 'https://discord.com/invite/4Tc9hssSAv',
@@ -187,11 +258,16 @@ function ColorModeToggle() {
 }
 
 function HomeContent() {
-	const open = (url: string) => window.open(url, '_blank');
-	const go = (path: string) => { window.location.href = path; };
-
 	return (
 		<div className="min-h-screen bg-white dark:bg-slate-950 text-slate-900 dark:text-white">
+			<Head>
+				<title>{SEO.title}</title>
+				<meta name="description" content={SEO.description} />
+				<meta property="og:title" content={SEO.title} />
+				<meta property="og:description" content={SEO.description} />
+				<meta name="twitter:title" content={SEO.title} />
+				<meta name="twitter:description" content={SEO.description} />
+			</Head>
 			<ColorModeToggle />
 
 			{/* Hero */}
@@ -232,21 +308,23 @@ function HomeContent() {
 							</motion.p>
 
 							<motion.div variants={itemVariants} className="flex flex-wrap gap-3">
-								<button
-									onClick={() => go(LINKS.docs)}
-									className="inline-flex items-center gap-2 px-6 py-3 bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-semibold rounded-xl hover:bg-slate-700 dark:hover:bg-slate-100 transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5 cursor-pointer"
+								<Link
+									to={LINKS.docs}
+									className="inline-flex items-center gap-2 px-6 py-3 bg-slate-900 dark:bg-white text-white! dark:text-slate-900! hover:text-white! dark:hover:text-slate-900! no-underline! hover:no-underline! font-semibold rounded-xl hover:bg-slate-700 dark:hover:bg-slate-100 transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5"
 								>
 									<BookOpen className="w-4 h-4" />
 									Get Started
 									<ArrowRight className="w-4 h-4" />
-								</button>
-								<button
-									onClick={() => open(LINKS.github)}
-									className="inline-flex items-center gap-2 px-6 py-3 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 font-semibold rounded-xl border border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 transition-all hover:-translate-y-0.5 cursor-pointer"
+								</Link>
+								<Link
+									href={LINKS.github}
+									target="_blank"
+									rel="noopener noreferrer"
+									className="inline-flex items-center gap-2 px-6 py-3 bg-white dark:bg-slate-800 text-slate-700! dark:text-slate-200! hover:text-slate-700! dark:hover:text-slate-200! no-underline! hover:no-underline! font-semibold rounded-xl border border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 transition-all hover:-translate-y-0.5"
 								>
 									GitHub
 									<ExternalLink className="w-3.5 h-3.5 opacity-60" />
-								</button>
+								</Link>
 							</motion.div>
 						</div>
 
@@ -318,6 +396,31 @@ function HomeContent() {
 				</div>
 			</section>
 
+			{/* Docs */}
+			<section className="py-24 border-t border-slate-100 dark:border-slate-800/60 bg-slate-50/50 dark:bg-slate-900/30">
+				<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+					<div className="text-center max-w-2xl mx-auto mb-12">
+						<h2 className="text-3xl sm:text-4xl font-bold mb-4">Explore the documentation</h2>
+						<p className="text-lg text-slate-500 dark:text-slate-400">
+							Guides for every part of building a Discord bot with NestJS and Discord.js.
+						</p>
+					</div>
+					<nav aria-label="Documentation" className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+						{DOC_LINKS.map((link) => (
+							<Link
+								key={link.to}
+								to={link.to}
+								className="block p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700 no-underline! hover:no-underline! transition-all hover:-translate-y-0.5"
+							>
+								<h3 className="font-semibold text-slate-900! dark:text-white! mb-1">{link.title}</h3>
+								<p className="text-sm text-slate-500! dark:text-slate-400! leading-relaxed m-0">
+									{link.description}
+								</p>
+							</Link>
+						))}
+					</nav>
+				</div>
+			</section>
 
 			{/* CTA */}
 			<section className="py-24 border-t border-slate-100 dark:border-slate-800/60">
@@ -346,21 +449,23 @@ function HomeContent() {
 								docs or ask the community for help.
 							</p>
 							<div className="flex flex-col sm:flex-row gap-4 justify-center pt-2">
-								<button
-									onClick={() => go(LINKS.docs)}
-									className="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-white text-slate-900 font-semibold rounded-xl hover:bg-slate-100 transition-all hover:-translate-y-0.5 shadow-lg shadow-black/20 cursor-pointer"
+								<Link
+									to={LINKS.docs}
+									className="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-white text-slate-900! hover:text-slate-900! no-underline! hover:no-underline! font-semibold rounded-xl hover:bg-slate-100 transition-all hover:-translate-y-0.5 shadow-lg shadow-black/20"
 								>
 									<BookOpen className="w-4 h-4" />
 									Read the Docs
 									<ArrowRight className="w-4 h-4" />
-								</button>
-								<button
-									onClick={() => open(LINKS.discord)}
-									className="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-white/10 text-white font-semibold rounded-xl border border-white/20 hover:bg-white/20 transition-all hover:-translate-y-0.5 cursor-pointer"
+								</Link>
+								<Link
+									href={LINKS.discord}
+									target="_blank"
+									rel="noopener noreferrer"
+									className="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-white/10 text-white! hover:text-white! no-underline! hover:no-underline! font-semibold rounded-xl border border-white/20 hover:bg-white/20 transition-all hover:-translate-y-0.5"
 								>
 									<MessageSquare className="w-4 h-4" />
 									Join Discord
-								</button>
+								</Link>
 							</div>
 						</div>
 					</motion.div>

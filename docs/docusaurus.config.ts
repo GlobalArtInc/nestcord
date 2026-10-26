@@ -29,7 +29,7 @@ const config: Config = {
 				debug: isDev,
 				docs: {
 					sidebarPath: require.resolve('./sidebars.js'),
-					editUrl: 'https://github.com/GlobalArtInc/nestcord/tree/master/docs',
+					editUrl: 'https://github.com/GlobalArtInc/nestcord/tree/main/docs',
 					path: 'content',
 					routeBasePath: '/',
 					showLastUpdateAuthor: false,
@@ -66,13 +66,45 @@ const config: Config = {
 				type: 'application/ld+json'
 			},
 			innerHTML: JSON.stringify({
-				'@context': 'https://schema.org/',
-				'@type': 'Organization',
-				name: 'NestCord',
-				description: 'A module for creating Discord bots using NestJS, based on Discord.js',
-				url: 'https://nestcord.js.org',
-				image: 'https://nestcord.js.org/img/preview.png',
-				logo: 'https://nestcord.js.org/img/logo.svg'
+				'@context': 'https://schema.org',
+				'@graph': [
+					{
+						'@type': 'WebSite',
+						'@id': 'https://nestcord.js.org/#website',
+						name: 'NestCord',
+						alternateName: ['NestCord documentation', '@globalart/nestcord'],
+						url: 'https://nestcord.js.org/',
+						description: 'A module for creating Discord bots using NestJS, based on Discord.js',
+						inLanguage: ['en', 'ru', 'de'],
+						publisher: { '@id': 'https://nestcord.js.org/#organization' }
+					},
+					{
+						'@type': 'Organization',
+						'@id': 'https://nestcord.js.org/#organization',
+						name: 'GlobalArt Inc',
+						url: 'https://globalart.dev',
+						logo: 'https://nestcord.js.org/img/logo-small.png',
+						sameAs: [
+							'https://github.com/GlobalArtInc',
+							'https://www.npmjs.com/org/globalart'
+						]
+					},
+					{
+						'@type': 'SoftwareSourceCode',
+						'@id': 'https://nestcord.js.org/#software',
+						name: 'NestCord',
+						alternateName: '@globalart/nestcord',
+						description:
+							'NestJS module for building Discord bots on top of Discord.js v14 with decorators, guards, interceptors and pipes.',
+						url: 'https://nestcord.js.org/',
+						codeRepository: 'https://github.com/GlobalArtInc/nestcord',
+						programmingLanguage: 'TypeScript',
+						runtimePlatform: 'Node.js',
+						license: 'https://opensource.org/licenses/MIT',
+						image: 'https://nestcord.js.org/img/preview.png',
+						author: { '@id': 'https://nestcord.js.org/#organization' }
+					}
+				]
 			})
 		},
 		{
@@ -146,43 +178,18 @@ const config: Config = {
 				theme: lightCodeTheme,
 				darkTheme: darkCodeTheme
 			},
+			image: 'img/preview.png',
 			metadata: [
 				{
 					name: 'keywords',
-					content: 'discord, discord-bot, framework, nestcord, github, open-source'
+					content:
+						'nestcord, nestjs discord, nestjs discord bot, discord.js nestjs, discord bot framework, nestjs module, slash commands, typescript'
 				},
-				{ hid: 'og:site_name', property: 'og:site_name', content: 'NestCord' },
-				{ hid: 'og:type', property: 'og:type', content: 'website' },
-				{
-					hid: 'og:image',
-					property: 'og:image',
-					content: 'https://nestcord.js.org/img/preview.png'
-				},
-				{
-					hid: 'og:image:secure_url',
-					property: 'og:image:secure_url',
-					content: 'https://nestcord.js.org/img/preview.png'
-				},
-				{
-					hid: 'og:image:alt',
-					property: 'og:image:alt',
-					content: 'NestCord'
-				},
-				{
-					hid: 'twitter:card',
-					name: 'twitter:card',
-					content: 'summary_large_image'
-				},
-				{
-					hid: 'twitter:image',
-					name: 'twitter:image',
-					content: 'https://nestcord.js.org/img/preview.png'
-				},
-				{
-					hid: 'twitter:image:alt',
-					name: 'twitter:image:alt',
-					content: 'NestCord'
-				}
+				{ property: 'og:site_name', content: 'NestCord' },
+				{ property: 'og:image:width', content: '1200' },
+				{ property: 'og:image:height', content: '630' },
+				{ property: 'og:image:alt', content: 'NestCord – NestJS module for Discord bots' },
+				{ name: 'twitter:image:alt', content: 'NestCord – NestJS module for Discord bots' }
 			],
 			navbar: {
 				logo: {
@@ -197,7 +204,7 @@ const config: Config = {
 					{
 						label: 'Examples',
 						position: 'left',
-						href: 'https://github.com/GlobalArtInc/nestcord/tree/master/examples'
+						href: 'https://github.com/GlobalArtInc/nestcord/tree/main/examples'
 					},
 					{
 						label: 'Community',
