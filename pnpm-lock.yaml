@@ -188,8 +188,8 @@ importers:
         specifier: ^4.1.7
         version: 4.3.4
       '@tsconfig/docusaurus':
-        specifier: 2.0.9
-        version: 2.0.9
+        specifier: 2.0.10
+        version: 2.0.10
       prettier:
         specifier: ^3.5.3
         version: 3.9.10
@@ -3619,8 +3619,8 @@ packages:
     resolution: {integrity: sha512-/67zpWDBLV+oYAEL682s1ktXL0HgqX76f6gaVGkGnVZlBbm1zd0v4Bz8MFF2GGhoX9rvfq3KSQHubFHwa6w6/Q==}
     engines: {node: '>=12'}
 
-  '@tsconfig/docusaurus@2.0.9':
-    resolution: {integrity: sha512-0jVxZCgy2v7TnJrW9kVNikNwJHeiWb68Zhiiw2vHw4tzBFSP5vS2zn3O5EY2oPEVz5dXZRkK7MnWG3Ay5q0mIg==}
+  '@tsconfig/docusaurus@2.0.10':
+    resolution: {integrity: sha512-/z4AecMQyqG3/RjL5K9XINuqfpg4jP1zMDBBKguoTvTp0bMtCdB0PIq0WwUdBJMfmVxRFa41OXvHXziRjcdsPQ==}
 
   '@tsconfig/node10@1.0.12':
     resolution: {integrity: sha512-UCYBaeFvM11aU2y3YPZ//O5Rhj+xKyzy7mvcIoAjASbigy8mHMryP5cK7dgjlz2hWxh1g5pLw084E0a/wlUSFQ==}
@@ -13011,7 +13011,7 @@ snapshots:
       magic-string: 0.30.21
       string.prototype.matchall: 4.0.12
 
-  '@tsconfig/docusaurus@2.0.9': {}
+  '@tsconfig/docusaurus@2.0.10': {}
 
   '@tsconfig/node10@1.0.12': {}
 
