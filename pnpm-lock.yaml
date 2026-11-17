@@ -28,7 +28,7 @@ importers:
         version: 4.3.1
       lavalink-client:
         specifier: ^2.5.3
-        version: 2.11.0
+        version: 2.11.2
       path-to-regexp:
         specifier: ^9.0.0
         version: 9.0.0
@@ -250,7 +250,7 @@ importers:
         version: 11.2.10(@nestjs/common@11.2.1(reflect-metadata@0.2.2)(rxjs@7.8.2)(supports-color@8.1.1))(@nestjs/core@11.2.3)(supports-color@8.1.1)
       lavalink-client:
         specifier: ^2.5.3
-        version: 2.11.0
+        version: 2.11.2
       reflect-metadata:
         specifier: ^0.2.0
         version: 0.2.2
@@ -6230,8 +6230,8 @@ packages:
   launch-editor@2.14.1:
     resolution: {integrity: sha512-QWBrQsMpH7gPr965dsKD/3cKWiNoTjpATQf++Xq63N6sKRGMwlVXz41O1IZTMfZQgBctD/K5Zt06+/I6pP6+HA==}
 
-  lavalink-client@2.11.0:
-    resolution: {integrity: sha512-x4mobBpwSjJ+jC2XDevcMc8Mj454Bx3cTfmWgtLHisY+U/HlK7ubWkdHawZrEwBW5E6zIDjoiBvVBR8FDIUdkw==}
+  lavalink-client@2.11.2:
+    resolution: {integrity: sha512-LHKW8IYqGLjx+ogtMi5sA1tQrCPV+lWafA35EYBpFil2f2T6+IFjIKe13O6vEU6MU9kqJwPSpc7zgJeY4hqnuQ==}
     engines: {bun: '>=1.1.27', node: '>=18.0.0'}
 
   leven@3.1.0:
@@ -9160,6 +9160,18 @@ packages:
 
   ws@8.21.3:
     resolution: {integrity: sha512-201TZ/kPWxoPr/OKWjquZR1SWKXcvxdH+e1xrx89b3YbmzLMFCLfnaG1HFIgWzJOEWZ7MvpK++odZufgYR50Rw==}
+    engines: {node: '>=10.0.0'}
+    peerDependencies:
+      bufferutil: ^4.0.1
+      utf-8-validate: '>=5.0.2'
+    peerDependenciesMeta:
+      bufferutil:
+        optional: true
+      utf-8-validate:
+        optional: true
+
+  ws@8.23.0:
+    resolution: {integrity: sha512-wCkmX8QMOrKjgO8HW2WyDbTSGeqkocxgDzS9iR79rEAexty6/2qzilx3Ag8Tqf9ykop3irLKle0MtVn5qjVnoQ==}
     engines: {node: '>=10.0.0'}
     peerDependencies:
       bufferutil: ^4.0.1
@@ -16018,10 +16030,10 @@ snapshots:
       picocolors: 1.1.1
       shell-quote: 1.9.0
 
-  lavalink-client@2.11.0:
+  lavalink-client@2.11.2:
     dependencies:
-      tslib: 2.8.1
-      ws: 8.21.3
+      tslib: 2.9.1
+      ws: 8.23.0
     transitivePeerDependencies:
       - bufferutil
       - utf-8-validate
@@ -19542,6 +19554,8 @@ snapshots:
   ws@7.5.13: {}
 
   ws@8.21.3: {}
+
+  ws@8.23.0: {}
 
   wsl-utils@0.1.0:
     dependencies:
